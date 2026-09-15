@@ -1,0 +1,56 @@
+/* ============================================================
+   Tema CatarGroup para Plane — colores vivos tipo Trello
+   Se inyecta sobre el frontend oficial (ver Dockerfile).
+   Se apoya en las variables y clases propias de Plane v1:
+     - .bg-canvas      → fondo del área de trabajo (kanban)
+     - .bg-surface-1/2 → tarjetas y paneles
+     - .bg-layer-1/2/3 → cabeceras, menús y desplegables
+   ============================================================ */
+
+/* ---------- 1) ÁREA DEL KANBAN (fondo vivo) ---------- */
+:root {
+  --cg-board-bg: #0079bf;      /* azul Trello */
+  --cg-board-bg-2: #026aa7;    /* azul oscuro */
+  --cg-card-bg: #ffffff;       /* tarjetas blancas */
+  --cg-column-bg: rgba(255, 255, 255, 0.16);
+  --cg-column-bg-hover: rgba(255, 255, 255, 0.24);
+  --cg-topbar-bg: #026aa7;     /* cabecera */
+  --cg-sidebar-bg: #f4f5f7;    /* menú lateral claro */
+  --cg-text-on-board: #ffffff;
+}
+
+/* fondo del área de trabajo */
+.bg-canvas,
+[class*="bg-canvas"] {
+  background-color: var(--cg-board-bg) !important;
+}
+
+/* ---------- 2) CABECERA (más oscura que el tablero) ---------- */
+header,
+[role="banner"] {
+  background-color: var(--cg-topbar-bg) !important;
+  border-bottom-color: transparent !important;
+}
+
+/* ---------- 3) COLUMNAS DEL KANBAN (transparentes sobre el fondo) ---------- */
+[data-kanban-column],
+.kanban-column {
+  background-color: var(--cg-column-bg) !important;
+  border-radius: 10px !important;
+  backdrop-filter: blur(2px);
+}
+[data-kanban-column]:hover,
+.kanban-column:hover {
+  background-color: var(--cg-column-bg-hover) !important;
+}
+
+/* ---------- 4) TARJETAS (blancas, para que destaquen) ---------- */
+.bg-surface-1 {
+  background-color: var(--cg-card-bg) !important;
+}
+
+/* ---------- 5) MENÚ LATERAL ---------- */
+[data-sidebar],
+aside {
+  background-color: var(--cg-sidebar-bg) !important;
+}
