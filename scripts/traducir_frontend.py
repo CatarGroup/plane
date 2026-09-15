@@ -12,14 +12,18 @@ ASSETS = "/app/web/assets/*.js"
 CAMBIOS = [
     ("You have been invited to ", "Te han invitado a "),
     ("INVITATION NOT FOUND", "INVITACION NO ENCONTRADA"),
+    ("This invitation link is not active anymore.", "Este enlace de invitacion ya no esta activo."),
+    ("Continue to home", "Ir al inicio"),
+    ("Or start from an empty project", "O empieza con un proyecto vacio"),
+
     (
         "Your workspace is where you'll create projects, collaborate on your work items, "
         "and organize different streams of work in your Plane account.",
         "Tu espacio de trabajo es donde crearas proyectos, colaboraras en tus tareas "
         "y organizaras las distintas lineas de trabajo de tu cuenta de Plane.",
     ),
-    ("children:`Accept`", "children:`Aceptar`"),
-    ("children:`Ignore`", "children:`Ignorar`"),
+    ("title:`Accept`", "title:`Aceptar`"),
+    ("title:`Ignore`", "title:`Ignorar`"),
 ]
 
 ficheros = glob.glob(ASSETS)
