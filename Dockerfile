@@ -48,4 +48,11 @@ RUN set -eux; \
     grep -q 'userLanguage`)||`es`' "$FICHERO" \
       || { echo "ERROR: no se pudo cambiar el idioma por defecto del frontend."; exit 1; }
 
+# ---------------------------------------------------------------
+# 5) Textos del frontend que NO usan i18n (paginas hardcodeadas,
+#    p. ej. la de aceptar invitacion). Verifica cada sustitucion.
+# ---------------------------------------------------------------
+COPY scripts/traducir_frontend.py /tmp/traducir_frontend.py
+RUN python3 /tmp/traducir_frontend.py
+
 # La imagen base trae su propio entrypoint (supervisord + start.sh)
