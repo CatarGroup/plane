@@ -1,4 +1,4 @@
-# Plane en espanol + tema propio — overlay sobre la imagen oficial
+# Plane en espanol + TEMA GRUPO ROMBOC — overlay sobre la imagen oficial
 #
 # NO copia el codigo de Plane: solo encima las plantillas de email traducidas,
 # traduce los ASUNTOS (script que verifica cada sustitucion) e inyecta el tema.

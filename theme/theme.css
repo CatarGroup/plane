@@ -1,60 +1,56 @@
-/* Tema CatarGroup para Plane - paleta Trello (theme por defecto) */
+/* ============================================================
+   TEMA GRUPO ROMBOC  (theme por defecto de Plane)
+   Paleta inspirada en Trello, suavizada: cada zona tiene su
+   propio color pero sin contrastes estridentes.
+   ============================================================ */
 
-/* --- MODO CLARO --- */
+/* ---------- MODO CLARO ---------- */
 :root, :host {
-  /* Fondo del area de trabajo (tablero kanban): azul Trello suavizado */
-  --bg-canvas: #2C7BB8;
-  /* Superficies: tarjetas y paneles */
-  --bg-surface-1: #FFFFFF;
-  --bg-surface-2: #F7F9FB;
-  /* Capas: cabecera, menus, desplegables */
-  --bg-layer-1: #FFFFFF;
-  --bg-layer-2: #EDF3F8;
-  --bg-layer-3: #E3EBF2;
-  /* Acento principal (Trello blue) */
+  --bg-canvas: #2C7BB8;        /* fondo del tablero (azul Trello) */
+  --bg-surface-1: #FFFFFF;      /* tarjetas */
+  --bg-surface-2: #F3F7FA;      /* columnas / paneles */
+  --bg-layer-1: #FFFFFF;        /* cabecera */
+  --bg-layer-2: #E9F1F7;        /* menús */
+  --bg-layer-3: #DFEAF3;
   --bg-accent-primary: #1F6FB2;
   --border: rgba(9, 30, 66, 0.14);
   --text-primary: #172B4D;
   --text-secondary: #44546F;
 }
 
-/* Cabecera: azul mas oscuro que el tablero */
-header, .bg-layer-1 {
-  --bg-layer-1: #1D5C8F;
-}
+/* Cabecera: azul más oscuro que el tablero */
+header { background-color: #1D5C8F !important; color: #FFFFFF !important; }
 
 /* Barra lateral: azul noche Trello */
-aside, nav.sidebar {
-  background-color: #172B4D !important;
-  color: #FFFFFF !important;
-}
+aside, nav.sidebar { background-color: #172B4D !important; color: #FFFFFF !important; }
 
-/* Columnas del kanban: blanco translucido sobre el azul */
-.bg-surface-2 {
-  background-color: rgba(255, 255, 255, 0.92) !important;
-}
-
-/* Tarjetas: blanco puro con sombra suave */
+/* Tarjetas (work items): fondo propio, borde suave y sombra */
 .bg-surface-1 {
   background-color: #FFFFFF !important;
-  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.16);
+  border: 1px solid rgba(9, 30, 66, 0.10);
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.12);
 }
 
-/* Columna del tablero (lista) */
-.bg-canvas .bg-layer-2 {
-  background-color: #EBF2F8 !important;
+/* ============================================================
+   COLUMNAS DEL TABLERO: cada una con su color (cabecera + fondo)
+   Cada columna lleva id="<uuid-estado>__" -> nos sirve de ancla.
+   ============================================================ */
+div[id$="__"] {
+  border-top: 3px solid var(--col-color, #6B7A8D) !important;
+  border-radius: 6px !important;
+  background-color: color-mix(in srgb, var(--col-color, #6B7A8D) 10%, #FFFFFF) !important;
 }
 
-/* --- Acentos Trello para estados/etiquetas --- */
-:root {
-  --color-trello-green: #61BD4F;
-  --color-trello-orange: #FF9F1A;
-  --color-trello-yellow: #F2D600;
-  --color-trello-red: #EB5A46;
-  --color-trello-purple: #C377E0;
-}
+/* color por posición de la columna (Trello suavizado) */
+div[id$="__"]:nth-of-type(1) { --col-color: #7A8A99; }  /* Backlog      - gris azulado */
+div[id$="__"]:nth-of-type(2) { --col-color: #4E97D1; }  /* Tareas       - azul */
+div[id$="__"]:nth-of-type(3) { --col-color: #E8B33C; }  /* En espera    - ámbar */
+div[id$="__"]:nth-of-type(4) { --col-color: #4CAF7D; }  /* Iniciada     - verde */
+div[id$="__"]:nth-of-type(5) { --col-color: #8B7BD8; }  /* En revisión  - violeta */
+div[id$="__"]:nth-of-type(6) { --col-color: #E4776B; }  /* Hecha        - rojo suave */
+div[id$="__"]:nth-of-type(7) { --col-color: #43B0C4; }  /* Cancelada    - turquesa */
 
-/* --- MODO OSCURO: version apagada de la misma paleta --- */
+/* ---------- MODO OSCURO ---------- */
 :is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) {
   --bg-canvas: #10263A;
   --bg-surface-1: #1B2B3D;
@@ -66,8 +62,10 @@ aside, nav.sidebar {
   --text-primary: #E6EDF3;
   --text-secondary: #9FB3C8;
 }
-
 :is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) aside,
 :is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) nav.sidebar {
   background-color: #0B1B2B !important;
+}
+:is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) div[id$="__"] {
+  background-color: color-mix(in srgb, var(--col-color, #6B7A8D) 18%, #16283C) !important;
 }

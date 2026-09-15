@@ -1,4 +1,4 @@
-# Plane CatarGroup — overlay en español + tema propio
+# Plane Grupo Romboc — overlay en español + TEMA GRUPO ROMBOC
 
 Repositorio para personalizar **Plane** (self-hosted) **sin tocar su código**:
 
