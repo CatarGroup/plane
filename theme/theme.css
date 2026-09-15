@@ -1,71 +1,43 @@
 /* ============================================================
-   TEMA GRUPO ROMBOC  (theme por defecto de Plane)
-   Paleta inspirada en Trello, suavizada: cada zona tiene su
-   propio color pero sin contrastes estridentes.
+   TEMA GRUPO ROMBOC
+   Paleta Trello suavizada. Selectores verificados sobre el DOM
+   real de Plane v1.4.2 (2026-09-15).
    ============================================================ */
 
-/* ---------- MODO CLARO ---------- */
-:root, :host {
-  --bg-canvas: #2C7BB8;        /* fondo del tablero (azul Trello) */
-  --bg-surface-1: #FFFFFF;      /* tarjetas */
-  --bg-surface-2: #F3F7FA;      /* columnas / paneles */
-  --bg-layer-1: #FFFFFF;        /* cabecera */
-  --bg-layer-2: #E9F1F7;        /* menús */
-  --bg-layer-3: #DFEAF3;
-  --bg-accent-primary: #1F6FB2;
-  --border: rgba(9, 30, 66, 0.14);
-  --text-primary: #172B4D;
-  --text-secondary: #44546F;
+/* ---- 1) Fondo del tablero (area de columnas) ---- */
+div.flex-row.gap-4.py-page-y {
+  background-color: #3C87C4 !important;
 }
 
-/* Cabecera: azul más oscuro que el tablero */
-header { background-color: #1D5C8F !important; color: #FFFFFF !important; }
+/* ---- 2) Cada columna con su propio color ---- */
+div.flex-row.gap-4.py-page-y > div {
+  border-radius: 10px !important;
+  border-top: 4px solid var(--col-color, #8B98A5) !important;
+  background-color: color-mix(in srgb, var(--col-color, #8B98A5) 9%, #ffffff) !important;
+}
+div.flex-row.gap-4.py-page-y > div:nth-child(1) { --col-color: #8B98A5; }
+div.flex-row.gap-4.py-page-y > div:nth-child(2) { --col-color: #3C87C4; }
+div.flex-row.gap-4.py-page-y > div:nth-child(3) { --col-color: #E0A63C; }
+div.flex-row.gap-4.py-page-y > div:nth-child(4) { --col-color: #16794C; }
+div.flex-row.gap-4.py-page-y > div:nth-child(5) { --col-color: #B0739C; }
+div.flex-row.gap-4.py-page-y > div:nth-child(6) { --col-color: #C0504D; }
+div.flex-row.gap-4.py-page-y > div:nth-child(7) { --col-color: #5E7A9B; }
 
-/* Barra lateral: azul noche Trello */
-aside, nav.sidebar { background-color: #172B4D !important; color: #FFFFFF !important; }
-
-/* Tarjetas (work items): fondo propio, borde suave y sombra */
-.bg-surface-1 {
+/* ---- 3) Tarjetas ---- */
+a.block.w-full.rounded-lg.border-subtle {
   background-color: #FFFFFF !important;
-  border: 1px solid rgba(9, 30, 66, 0.10);
-  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.12);
+  border-color: rgba(9, 30, 66, 0.13) !important;
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.16) !important;
 }
 
-/* ============================================================
-   COLUMNAS DEL TABLERO: cada una con su color (cabecera + fondo)
-   Cada columna lleva id="<uuid-estado>__" -> nos sirve de ancla.
-   ============================================================ */
-div[id$="__"] {
-  border-top: 3px solid var(--col-color, #6B7A8D) !important;
-  border-radius: 6px !important;
-  background-color: color-mix(in srgb, var(--col-color, #6B7A8D) 10%, #FFFFFF) !important;
+/* ---- 4) Menu lateral (azul noche Trello) ---- */
+aside.group\/sidebar {
+  background-color: #172B4D !important;
 }
-
-/* color por posición de la columna (Trello suavizado) */
-div[id$="__"]:nth-of-type(1) { --col-color: #7A8A99; }  /* Backlog      - gris azulado */
-div[id$="__"]:nth-of-type(2) { --col-color: #4E97D1; }  /* Tareas       - azul */
-div[id$="__"]:nth-of-type(3) { --col-color: #E8B33C; }  /* En espera    - ámbar */
-div[id$="__"]:nth-of-type(4) { --col-color: #4CAF7D; }  /* Iniciada     - verde */
-div[id$="__"]:nth-of-type(5) { --col-color: #8B7BD8; }  /* En revisión  - violeta */
-div[id$="__"]:nth-of-type(6) { --col-color: #E4776B; }  /* Hecha        - rojo suave */
-div[id$="__"]:nth-of-type(7) { --col-color: #43B0C4; }  /* Cancelada    - turquesa */
-
-/* ---------- MODO OSCURO ---------- */
-:is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) {
-  --bg-canvas: #10263A;
-  --bg-surface-1: #1B2B3D;
-  --bg-surface-2: #16283C;
-  --bg-layer-1: #14304A;
-  --bg-layer-2: #172B4D;
-  --bg-layer-3: #1C3453;
-  --border: rgba(255, 255, 255, 0.12);
-  --text-primary: #E6EDF3;
-  --text-secondary: #9FB3C8;
+aside.group\/sidebar * {
+  color: #E9F1F7 !important;
 }
-:is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) aside,
-:is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) nav.sidebar {
-  background-color: #0B1B2B !important;
-}
-:is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) div[id$="__"] {
-  background-color: color-mix(in srgb, var(--col-color, #6B7A8D) 18%, #16283C) !important;
+aside.group\/sidebar a:hover,
+aside.group\/sidebar button:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
 }
