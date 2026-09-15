@@ -11,16 +11,16 @@ ASSETS = "/app/web/assets/*.js"
 # (original, traduccion)
 CAMBIOS = [
     ("You have been invited to ", "Te han invitado a "),
-    ("INVITATION NOT FOUND", "INVITACION NO ENCONTRADA"),
-    ("This invitation link is not active anymore.", "Este enlace de invitacion ya no esta activo."),
+    ("INVITATION NOT FOUND", "INVITACIÓN NO ENCONTRADA"),
+    ("This invitation link is not active anymore.", "Este enlace de invitación ya no está activo."),
     ("Continue to home", "Ir al inicio"),
-    ("Or start from an empty project", "O empieza con un proyecto vacio"),
+    ("Or start from an empty project", "O empieza con un proyecto vacío"),
 
     (
         "Your workspace is where you'll create projects, collaborate on your work items, "
         "and organize different streams of work in your Plane account.",
-        "Tu espacio de trabajo es donde crearas proyectos, colaboraras en tus tareas "
-        "y organizaras las distintas lineas de trabajo de tu cuenta de Plane.",
+        "Tu espacio de trabajo es donde crearás proyectos, colaborarás en tus tareas "
+        "y organizarás las distintas líneas de trabajo de tu cuenta de Plane.",
     ),
     ("title:`Accept`", "title:`Aceptar`"),
     ("title:`Ignore`", "title:`Ignorar`"),
