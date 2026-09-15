@@ -20,13 +20,17 @@ COPY scripts/traducir_subjects.py /tmp/traducir_subjects.py
 RUN python3 /tmp/traducir_subjects.py
 
 # ---------------------------------------------------------------
-# 3) Tema propio (paleta Trello) inyectado en el frontend
+# 3) TEMA GRUPO ROMBOC — se CONCATENA al final del CSS de Plane.
+#    (inyectar un <link> en el HTML rompe la hidratacion de React:
+#     el navegador acaba descartandolo y el tema no se ve)
 # ---------------------------------------------------------------
-COPY theme/theme.css /app/web/theme.css
+COPY theme/theme.css /tmp/theme.css
 RUN set -eux; \
-    sed -i 's|</head>|<link rel="stylesheet" href="/theme.css"></head>|' /app/web/index.html; \
-    grep -q 'theme.css' /app/web/index.html \
-      || { echo "ERROR: no se pudo inyectar el tema en el frontend."; exit 1; }
+    GLOBALS=$(ls /app/web/assets/globals-*.css | head -1); \
+    test -n "$GLOBALS" || { echo "ERROR: no encuentro el CSS global del frontend."; exit 1; }; \
+    cat /tmp/theme.css >> "$GLOBALS"; \
+    grep -q 'TEMA GRUPO ROMBOC' "$GLOBALS" \
+      || { echo "ERROR: el tema no se ha anadido al CSS."; exit 1; }
 
 # ---------------------------------------------------------------
 # 4) ESPAÑOL POR DEFECTO — que cualquier invitado lo vea en español
