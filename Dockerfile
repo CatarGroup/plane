@@ -1,36 +1,26 @@
-# Plane en español (y con nuestro toque) — overlay sobre la imagen oficial
+# Plane en espanol + tema propio — overlay sobre la imagen oficial
 #
-# NO copia el código de Plane: solo encima sus plantillas de email traducidas
-# y parchea el asunto. Así las actualizaciones de Plane se aplican cambiando
-# el tag de abajo (PLANE_VERSION) sin perder nada nuestro.
-#
-# Base: imagen "all-in-one" community (la que usa el despliegue de Railway).
+# NO copia el codigo de Plane: solo encima las plantillas de email traducidas,
+# traduce los ASUNTOS (script que verifica cada sustitucion) e inyecta el tema.
+# Actualizar Plane = cambiar ARG PLANE_VERSION.
+
 ARG PLANE_VERSION=stable
 FROM makeplane/plane-aio-community:${PLANE_VERSION}
 
 # ---------------------------------------------------------------
-# 1) Plantillas de email en español
-#    (en la imagen AIO el backend vive en /app/backend)
+# 1) Plantillas de email en espanol (backend en /app/backend)
 # ---------------------------------------------------------------
 COPY templates/ /app/backend/templates/
 
 # ---------------------------------------------------------------
-# 2) Asunto de la invitación al workspace en español
-#    Es una sola línea dentro del .py; se parchea con sed y se VERIFICA
-#    (si Plane cambia esa línea, el build falla y nos enteramos).
+# 2) Asuntos de email en espanol. El script verifica CADA sustitucion:
+#    si Plane cambia algun fichero, el build FALLA (no despliega a medias).
 # ---------------------------------------------------------------
-RUN set -eux; \
-    F=/app/backend/plane/bgtasks/workspace_invitation_task.py; \
-    sed -i \
-      -e 's/has invited you to join them in/te invita a unirte al workspace/' \
-      -e 's/ on Plane"/ en Plane"/' \
-      "$F"; \
-    grep -q "te invita a unirte al workspace" "$F" \
-      || { echo "ERROR: no se pudo parchear el asunto (Plane cambió el fichero). Revisar el sed."; exit 1; }
+COPY scripts/traducir_subjects.py /tmp/traducir_subjects.py
+RUN python3 /tmp/traducir_subjects.py
 
 # ---------------------------------------------------------------
-# 3) Tema propio (colores del kanban tipo Trello) — ver theme/
-#    Se inyecta el CSS en el frontend y se copia al directorio servido.
+# 3) Tema propio (paleta Trello) inyectado en el frontend
 # ---------------------------------------------------------------
 COPY theme/theme.css /app/web/theme.css
 RUN set -eux; \

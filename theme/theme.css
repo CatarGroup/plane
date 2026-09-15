@@ -1,56 +1,73 @@
-/* ============================================================
-   Tema CatarGroup para Plane — colores vivos tipo Trello
-   Se inyecta sobre el frontend oficial (ver Dockerfile).
-   Se apoya en las variables y clases propias de Plane v1:
-     - .bg-canvas      → fondo del área de trabajo (kanban)
-     - .bg-surface-1/2 → tarjetas y paneles
-     - .bg-layer-1/2/3 → cabeceras, menús y desplegables
-   ============================================================ */
+/* Tema CatarGroup para Plane - paleta Trello (theme por defecto) */
 
-/* ---------- 1) ÁREA DEL KANBAN (fondo vivo) ---------- */
-:root {
-  --cg-board-bg: #0079bf;      /* azul Trello */
-  --cg-board-bg-2: #026aa7;    /* azul oscuro */
-  --cg-card-bg: #ffffff;       /* tarjetas blancas */
-  --cg-column-bg: rgba(255, 255, 255, 0.16);
-  --cg-column-bg-hover: rgba(255, 255, 255, 0.24);
-  --cg-topbar-bg: #026aa7;     /* cabecera */
-  --cg-sidebar-bg: #f4f5f7;    /* menú lateral claro */
-  --cg-text-on-board: #ffffff;
+/* --- MODO CLARO --- */
+:root, :host {
+  /* Fondo del area de trabajo (tablero kanban): azul Trello suavizado */
+  --bg-canvas: #2C7BB8;
+  /* Superficies: tarjetas y paneles */
+  --bg-surface-1: #FFFFFF;
+  --bg-surface-2: #F7F9FB;
+  /* Capas: cabecera, menus, desplegables */
+  --bg-layer-1: #FFFFFF;
+  --bg-layer-2: #EDF3F8;
+  --bg-layer-3: #E3EBF2;
+  /* Acento principal (Trello blue) */
+  --bg-accent-primary: #1F6FB2;
+  --border: rgba(9, 30, 66, 0.14);
+  --text-primary: #172B4D;
+  --text-secondary: #44546F;
 }
 
-/* fondo del área de trabajo */
-.bg-canvas,
-[class*="bg-canvas"] {
-  background-color: var(--cg-board-bg) !important;
+/* Cabecera: azul mas oscuro que el tablero */
+header, .bg-layer-1 {
+  --bg-layer-1: #1D5C8F;
 }
 
-/* ---------- 2) CABECERA (más oscura que el tablero) ---------- */
-header,
-[role="banner"] {
-  background-color: var(--cg-topbar-bg) !important;
-  border-bottom-color: transparent !important;
+/* Barra lateral: azul noche Trello */
+aside, nav.sidebar {
+  background-color: #172B4D !important;
+  color: #FFFFFF !important;
 }
 
-/* ---------- 3) COLUMNAS DEL KANBAN (transparentes sobre el fondo) ---------- */
-[data-kanban-column],
-.kanban-column {
-  background-color: var(--cg-column-bg) !important;
-  border-radius: 10px !important;
-  backdrop-filter: blur(2px);
-}
-[data-kanban-column]:hover,
-.kanban-column:hover {
-  background-color: var(--cg-column-bg-hover) !important;
+/* Columnas del kanban: blanco translucido sobre el azul */
+.bg-surface-2 {
+  background-color: rgba(255, 255, 255, 0.92) !important;
 }
 
-/* ---------- 4) TARJETAS (blancas, para que destaquen) ---------- */
+/* Tarjetas: blanco puro con sombra suave */
 .bg-surface-1 {
-  background-color: var(--cg-card-bg) !important;
+  background-color: #FFFFFF !important;
+  box-shadow: 0 1px 2px rgba(9, 30, 66, 0.16);
 }
 
-/* ---------- 5) MENÚ LATERAL ---------- */
-[data-sidebar],
-aside {
-  background-color: var(--cg-sidebar-bg) !important;
+/* Columna del tablero (lista) */
+.bg-canvas .bg-layer-2 {
+  background-color: #EBF2F8 !important;
+}
+
+/* --- Acentos Trello para estados/etiquetas --- */
+:root {
+  --color-trello-green: #61BD4F;
+  --color-trello-orange: #FF9F1A;
+  --color-trello-yellow: #F2D600;
+  --color-trello-red: #EB5A46;
+  --color-trello-purple: #C377E0;
+}
+
+/* --- MODO OSCURO: version apagada de la misma paleta --- */
+:is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) {
+  --bg-canvas: #10263A;
+  --bg-surface-1: #1B2B3D;
+  --bg-surface-2: #16283C;
+  --bg-layer-1: #14304A;
+  --bg-layer-2: #172B4D;
+  --bg-layer-3: #1C3453;
+  --border: rgba(255, 255, 255, 0.12);
+  --text-primary: #E6EDF3;
+  --text-secondary: #9FB3C8;
+}
+
+:is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) aside,
+:is(:root,:host):where([data-theme*=dark], [data-theme*=dark] *) nav.sidebar {
+  background-color: #0B1B2B !important;
 }
