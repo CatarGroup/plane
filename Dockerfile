@@ -28,4 +28,20 @@ RUN set -eux; \
     grep -q 'theme.css' /app/web/index.html \
       || { echo "ERROR: no se pudo inyectar el tema en el frontend."; exit 1; }
 
+# ---------------------------------------------------------------
+# 4) ESPAÑOL POR DEFECTO — que cualquier invitado lo vea en español
+#    - backend: locale de Django (fechas y números)
+#    - frontend: idioma por defecto cuando el usuario no tiene uno guardado
+# ---------------------------------------------------------------
+RUN set -eux; \
+    sed -i 's/LANGUAGE_CODE = "en-us"/LANGUAGE_CODE = "es-es"/' /app/backend/plane/settings/common.py; \
+    grep -q 'LANGUAGE_CODE = "es-es"' /app/backend/plane/settings/common.py \
+      || { echo "ERROR: no se pudo cambiar LANGUAGE_CODE del backend."; exit 1; }; \
+    FICHERO=$(grep -rl 'userLanguage' /app/web/assets/*.js | head -1); \
+    test -n "$FICHERO" || { echo "ERROR: no encuentro el chunk i18n del frontend."; exit 1; }; \
+    sed -i 's/getItem(`userLanguage`)||`en`/getItem(`userLanguage`)||`es`/g' "$FICHERO"; \
+    sed -i 's/fallbackLng:`en`/fallbackLng:`es`/g' "$FICHERO"; \
+    grep -q 'userLanguage`)||`es`' "$FICHERO" \
+      || { echo "ERROR: no se pudo cambiar el idioma por defecto del frontend."; exit 1; }
+
 # La imagen base trae su propio entrypoint (supervisord + start.sh)
