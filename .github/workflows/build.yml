@@ -1,0 +1,36 @@
+name: Build y publicar imagen
+
+# Construye la imagen del overlay (Plane en español + tema) y la publica
+# en el registro de GitHub (ghcr.io). Railway usa esa imagen como Source,
+# así nunca se pierde nuestra personalización en los redeploys.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Descargar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Entrar en el registro
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Construir y publicar
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/catargroup/plane:latest
+            ghcr.io/catargroup/plane:${{ github.sha }}
