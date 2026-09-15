@@ -12,6 +12,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
     permissions:
       contents: read
       packages: write
@@ -34,3 +36,13 @@ jobs:
           tags: |
             ghcr.io/catargroup/plane:latest
             ghcr.io/catargroup/plane:${{ github.sha }}
+
+      # una vez publicada la imagen, decimos a Railway que redespliegue
+      - name: Redesplegar en Railway
+        if: env.RAILWAY_TOKEN != ''
+        run: |
+          curl -sf -X POST "https://backboard.railway.com/graphql/v2" \
+            -H "Project-Access-Token: $RAILWAY_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"query":"mutation { serviceInstanceRedeploy(environmentId: \"4ef8a5d7-29b2-4e06-8642-3ecae6a9196e\", serviceId: \"ac22c055-2f1a-48d1-aa8c-bd7f773df098\") }"}'
+          echo "Redeploy lanzado en Railway"
