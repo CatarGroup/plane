@@ -20,8 +20,13 @@ Así, **actualizar Plane = cambiar el tag de la imagen base** y nada de lo nuest
 │   ├── user/                      # activación, desactivación, cambio de email
 │   ├── exports/                   # export de analíticas
 │   └── test_email.html
-└── theme/
-    └── theme.css                  # tema del tablero (colores tipo Trello)
+├── theme/
+│   └── theme.css                  # tema del tablero (colores tipo Trello)
+├── scripts/
+│   ├── traducir_subjects.py               # asuntos de email al español
+│   └── patch_profile_theme_default.py     # Tema Catar Bi default (altas nuevas)
+└── migrations/
+    └── 0123_set_theme_catarbi_default.py  # Tema Catar Bi en perfiles existentes
 ```
 
 ## Cómo se despliega (Railway)
@@ -60,6 +65,21 @@ En el servicio **Plane** del proyecto de Railway:
   (`span` con `background-color` inline, color de etiqueta/prioridad) a la izquierda de cada
   tarjeta del calendario. Se estira con CSS para que tiña la tarjeta entera — no hace falta
   mapear colores por etiqueta, reutiliza el que Plane ya calcula por ítem.
+- **Tema Catar Bi — renombrado + default (18/09/2026):** el selector de Ajustes venía con la
+  opción de Plane «Custom theme» / «Tema personalizado» (`packages/i18n` en el código fuente
+  de Plane, se compila dentro del JS del build, no queda como fichero plano). Se renombra a
+  «Tema Catar Bi» con `grep`+`sed` sobre los assets ya construidos, verificado en el build.
+  El look en sí (`theme/theme.css`) **ya se aplicaba a todos independientemente de este
+  selector** (CSS con `!important`, no depende de qué tema tenga elegido cada usuario); esto
+  solo hace que el desplegable salga marcado igual para todos, en vez de vacío/inconsistente:
+  · **Altas nuevas:** `scripts/patch_profile_theme_default.py` cambia el default del campo
+    `Profile.theme` (backend, `apps/api/plane/db/models/user.py` en el código de Plane) de
+    `{}` a nuestra paleta — verificado en el build igual que el resto de parches.
+  · **Perfiles existentes:** `migrations/0123_set_theme_catarbi_default.py` se copia a
+    `/app/backend/plane/db/migrations/` y corre sola en cada arranque (la imagen AIO ya
+    ejecuta `manage.py migrate` vía el proceso `migrator` de supervisor). Fuerza el tema en
+    TODOS los perfiles, pisando lo que cada usuario tuviera elegido — es **irreversible a
+    propósito**, no guarda el valor anterior de cada uno.
 - El parche del **asunto** de la invitación se aplica con `sed` sobre
   `/app/backend/plane/bgtasks/workspace_invitation_task.py` y se **verifica en el build**:
   si Plane cambia esa línea, la construcción falla con un error claro (no se despliega a medias).

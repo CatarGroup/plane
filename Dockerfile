@@ -32,4 +32,33 @@ RUN set -eux; \
     grep -q 'TEMA GRUPO ROMBOC' "$GLOBALS" \
       || { echo "ERROR: el tema no se ha anadido al CSS."; exit 1; }
 
+# ---------------------------------------------------------------
+# 4) "Tema personalizado" -> "Tema Catar Bi" en el selector de Ajustes.
+#    El texto vive en JSON (packages/i18n) pero Next.js lo compila
+#    DENTRO del JS del build (import dinamico, no queda como fichero
+#    plano), asi que se sustituye tal cual en los assets ya construidos.
+#    Se verifica: si el texto no aparece, el build FALLA.
+# ---------------------------------------------------------------
+RUN set -eux; \
+    FICHEROS=$(grep -rl 'Tema personalizado' /app/web/ || true); \
+    test -n "$FICHEROS" || { echo "ERROR: no encuentro 'Tema personalizado' en /app/web."; exit 1; }; \
+    echo "$FICHEROS" | xargs sed -i 's/Tema personalizado/Tema Catar Bi/g'; \
+    grep -rq 'Tema Catar Bi' /app/web/ \
+      || { echo "ERROR: no se ha renombrado el tema."; exit 1; }
+
+# ---------------------------------------------------------------
+# 5) Tema Catar Bi como default para perfiles NUEVOS (backend).
+#    Parche puntual sobre Profile.theme, verificado en el build.
+# ---------------------------------------------------------------
+COPY scripts/patch_profile_theme_default.py /tmp/patch_profile_theme_default.py
+RUN python3 /tmp/patch_profile_theme_default.py
+
+# ---------------------------------------------------------------
+# 6) Backfill: fuerza Tema Catar Bi en los perfiles YA EXISTENTES.
+#    Migracion de Django nueva (no toca ninguna existente), corre
+#    sola: la imagen AIO ya arranca "migrator" (manage.py migrate)
+#    en cada boot (ver supervisor.conf de la imagen base).
+# ---------------------------------------------------------------
+COPY migrations/0123_set_theme_catarbi_default.py /app/backend/plane/db/migrations/0123_set_theme_catarbi_default.py
+
 # La imagen base trae su propio entrypoint (supervisord + start.sh)
