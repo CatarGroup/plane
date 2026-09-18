@@ -40,6 +40,12 @@ En el servicio **Plane** del proyecto de Railway:
 
 ## Notas
 
+- **Auditoría de color del tema (18/09/2026, Playwright sobre producción):** se midió el
+  contraste WCAG real de cada elemento. Encontrados y corregidos en `theme/theme.css` (v3):
+  el botón **«Nuevo elemento de trabajo»** y **«Community»** del sidebar quedaban con fondo
+  claro de Plane + texto forzado a claro → contraste **1.14** y **1.00** (invisibles); y la
+  2.ª columna tenía el borde **idéntico** al fondo del tablero (contraste **1.00**). Tras el
+  arreglo: 14.1 / 12.35 y ningún elemento del sidebar por debajo de 3:1.
 - El parche del **asunto** de la invitación se aplica con `sed` sobre
   `/app/backend/plane/bgtasks/workspace_invitation_task.py` y se **verifica en el build**:
   si Plane cambia esa línea, la construcción falla con un error claro (no se despliega a medias).

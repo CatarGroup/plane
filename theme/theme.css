@@ -1,27 +1,43 @@
 /* ============================================================
-   TEMA GRUPO ROMBOC
-   Paleta Trello suavizada. Selectores verificados sobre el DOM
-   real de Plane v1.4.2 (2026-09-15).
+   TEMA GRUPO ROMBOC — v3 (2026-09-18)
+   Paleta tipo Trello. Selectores verificados sobre el DOM real
+   de Plane v1.4.2 por auditoría con Playwright en producción.
+
+   Cambios respecto a v2 (todos con medición de contraste WCAG):
+   · BUG 1 — «Nuevo elemento de trabajo» (sidebar): se quedaba con
+     fondo blanco de Plane + texto forzado a claro = contraste 1.14
+     (invisible). Ahora los botones con fondo propio claro conservan
+     su texto oscuro.
+   · BUG 2 — «Community» (pie del sidebar): fondo claro de Plane +
+     texto forzado = contraste 1.00 (invisible). Mismo arreglo.
+   · BUG 3 — la 2ª columna tenía borde #3C87C4, idéntico al fondo del
+     tablero: contraste 1.00 → borde invisible. Fondo del tablero a
+     azul Trello oscuro y esa columna a azul claro.
+   · Columna Completadas ya no es roja (rojo se reserva a Canceladas).
+   · Tinte de columna 9% → 14%: las tarjetas blancas ya no se funden
+     con el fondo de su columna.
    ============================================================ */
 
 /* ---- 1) Fondo del tablero (area de columnas) ---- */
 div.flex-row.gap-4.py-page-y {
-  background-color: #3C87C4 !important;
+  background-color: #026AA7 !important;
 }
 
 /* ---- 2) Cada columna con su propio color ---- */
 div.flex-row.gap-4.py-page-y > div {
   border-radius: 10px !important;
   border-top: 4px solid var(--col-color, #8B98A5) !important;
-  background-color: color-mix(in srgb, var(--col-color, #8B98A5) 9%, #ffffff) !important;
+  background-color: color-mix(in srgb, var(--col-color, #8B98A5) 14%, #ffffff) !important;
 }
-div.flex-row.gap-4.py-page-y > div:nth-child(1) { --col-color: #8B98A5; }
-div.flex-row.gap-4.py-page-y > div:nth-child(2) { --col-color: #3C87C4; }
-div.flex-row.gap-4.py-page-y > div:nth-child(3) { --col-color: #E0A63C; }
-div.flex-row.gap-4.py-page-y > div:nth-child(4) { --col-color: #16794C; }
-div.flex-row.gap-4.py-page-y > div:nth-child(5) { --col-color: #B0739C; }
-div.flex-row.gap-4.py-page-y > div:nth-child(6) { --col-color: #C0504D; }
-div.flex-row.gap-4.py-page-y > div:nth-child(7) { --col-color: #5E7A9B; }
+/* El orden de estas reglas es POSICIONAL (nth-child). Si Rubén añade,
+   oculta o reordena estados, hay que reajustarlas. */
+div.flex-row.gap-4.py-page-y > div:nth-child(1) { --col-color: #8B98A5; } /* Backlog     · gris    */
+div.flex-row.gap-4.py-page-y > div:nth-child(2) { --col-color: #5BA4CF; } /* Por hacer   · azul    */
+div.flex-row.gap-4.py-page-y > div:nth-child(3) { --col-color: #E0A63C; } /* En espera   · ámbar   */
+div.flex-row.gap-4.py-page-y > div:nth-child(4) { --col-color: #9B8CFF; } /* Iniciadas   · violeta */
+div.flex-row.gap-4.py-page-y > div:nth-child(5) { --col-color: #C377E0; } /* En proceso  · púrpura */
+div.flex-row.gap-4.py-page-y > div:nth-child(6) { --col-color: #61BD4F; } /* Completadas · verde   */
+div.flex-row.gap-4.py-page-y > div:nth-child(7) { --col-color: #E06C6C; } /* Canceladas  · rojo    */
 
 /* ---- 3) Tarjetas ---- */
 a.block.w-full.rounded-lg.border-subtle {
@@ -34,9 +50,27 @@ a.block.w-full.rounded-lg.border-subtle {
 aside.group\/sidebar {
   background-color: #172B4D !important;
 }
-aside.group\/sidebar * {
+
+/* Texto claro para el sidebar, EXCEPTO en los elementos que Plane pinta
+   sobre un fondo propio claro (bg-layer-1/2/3, bg-surface-1/2): ahí el
+   texto claro quedaba invisible sobre blanco. */
+aside.group\/sidebar *:not(.bg-layer-1):not(.bg-layer-2):not(.bg-layer-3):not(.bg-surface-1):not(.bg-surface-2):not(.bg-layer-2-hover):not(.bg-layer-3-hover) {
   color: #E9F1F7 !important;
 }
+
+/* …y en esos controles sobre fondo claro, texto oscuro legible
+   (incluye sus hijos, que si no heredan el claro de la regla anterior). */
+aside.group\/sidebar button.bg-layer-1,
+aside.group\/sidebar button.bg-layer-1 *,
+aside.group\/sidebar button.bg-layer-2,
+aside.group\/sidebar button.bg-layer-2 *,
+aside.group\/sidebar button.bg-layer-3,
+aside.group\/sidebar button.bg-layer-3 *,
+aside.group\/sidebar [class*="bg-layer-2"] *,
+aside.group\/sidebar [class*="bg-layer-3"] * {
+  color: #172B4D !important;
+}
+
 aside.group\/sidebar a:hover,
 aside.group\/sidebar button:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
