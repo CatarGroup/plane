@@ -41,3 +41,13 @@ aside.group\/sidebar a:hover,
 aside.group\/sidebar button:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
+
+/* ---- 5) Boton "Nuevo elemento de trabajo" (se fusiona con el fondo del menu) ---- */
+aside.group\/sidebar button[data-ph-element="sidebar_create_work_item_button"] {
+  background-color: #172B4D !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  color: #E9F1F7 !important;
+}
+aside.group\/sidebar button[data-ph-element="sidebar_create_work_item_button"]:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
