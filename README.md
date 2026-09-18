@@ -1,13 +1,22 @@
 # Plane Grupo Romboc — overlay en español + TEMA GRUPO ROMBOC
 
-Repositorio para personalizar **Plane** (self-hosted) **sin tocar su código**:
+Repositorio para personalizar **Plane** (self-hosted):
 
 - 🇪🇸 **Emails en español** (invitaciones, contraseñas, notificaciones…)
 - 🎨 **Tema propio** (colores del tablero tipo Trello)
 
-Se aplica como **overlay sobre la imagen oficial**: no copiamos el código de Plane, solo
-añadimos encima nuestras plantillas, un parche puntual del asunto y nuestro CSS.
-Así, **actualizar Plane = cambiar el tag de la imagen base** y nada de lo nuestro se pierde.
+La base sigue siendo un **overlay sobre la imagen oficial**: para lo que cabe en un parche
+puntual (textos, colores, un `pip install`) no copiamos el código de Plane, solo añadimos
+plantillas/CSS/parches verificados en el build. **Actualizar Plane = cambiar el tag de la
+imagen base** y nada de lo nuestro se pierde.
+
+> **Rama `fork-full-source`:** para features que necesitan componentes/páginas NUEVAS de
+> verdad (ej. el time tracker tipo Toggl) eso ya no alcanza — aquí sí vendorizamos el código
+> fuente completo de Plane (`apps/`, `packages/`, remote `upstream` → `makeplane/plane`,
+> tag `v1.4.2`) para poder compilarlo con lo nuestro encima. El README original de Plane
+> vive en `UPSTREAM_README.md`; convenciones del monorepo (comandos, estilo, tests) en
+> `AGENTS.md`. Mientras esta rama no se mergea a `main`, Railway sigue desplegando el overlay
+> de siempre sin enterarse de nada.
 
 ## Contenido
 
