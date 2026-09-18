@@ -43,6 +43,10 @@ En el servicio **Plane** del proyecto de Railway:
 - El parche del **asunto** de la invitación se aplica con `sed` sobre
   `/app/backend/plane/bgtasks/workspace_invitation_task.py` y se **verifica en el build**:
   si Plane cambia esa línea, la construcción falla con un error claro (no se despliega a medias).
+- Lo mismo para los textos que Plane escribe **en el cuerpo** del email de novedades de
+  tareas (el resumen «Novedades en la tarea de parte de…» y el tipo de entidad): se
+  traducen con `scripts/traducir_backend_emails.py` sobre
+  `/app/backend/plane/bgtasks/email_notification_task.py`, también con verificación en el build.
 - Las plantillas van a `/app/backend/templates/` (el backend de la imagen AIO vive en `/app/backend`).
 - El tema se inyecta en `/app/web/` (frontend servido por nginx dentro de la misma imagen).
 - Las credenciales reales (SMTP, tokens) **no** viven aquí: van en las variables de entorno de Railway.

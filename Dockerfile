@@ -20,6 +20,14 @@ COPY scripts/traducir_subjects.py /tmp/traducir_subjects.py
 RUN python3 /tmp/traducir_subjects.py
 
 # ---------------------------------------------------------------
+# 2b) Textos que Plane escribe en el CUERPO del email de novedades
+#     de tareas (resumen y tipo de entidad): viven en el codigo del
+#     backend, no en la plantilla. Misma verificacion que el punto 2.
+# ---------------------------------------------------------------
+COPY scripts/traducir_backend_emails.py /tmp/traducir_backend_emails.py
+RUN python3 /tmp/traducir_backend_emails.py
+
+# ---------------------------------------------------------------
 # 3) TEMA GRUPO ROMBOC — se CONCATENA al final del CSS de Plane.
 #    (inyectar un <link> en el HTML rompe la hidratacion de React:
 #     el navegador acaba descartandolo y el tema no se ve)
