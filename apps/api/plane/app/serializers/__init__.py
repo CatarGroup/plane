@@ -135,3 +135,6 @@ from .draft import (
     DraftIssueSerializer,
     DraftIssueDetailSerializer,
 )
+
+# Grupo Romboc / Catar BI — time tracker
+from .time_tracking import TimeEntrySerializer

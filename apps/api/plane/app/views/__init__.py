@@ -238,3 +238,12 @@ from .notification.base import MarkAllReadNotificationViewSet
 from .user.base import AccountEndpoint, ProfileEndpoint, UserSessionEndpoint
 
 from .timezone.base import TimezoneEndpoint
+
+# Grupo Romboc / Catar BI — time tracker
+from .workspace.time_tracking import (
+    TimeEntryStartEndpoint,
+    TimeEntryStopEndpoint,
+    TimeEntryRunningEndpoint,
+    TimeEntryListEndpoint,
+    TimeEntryDetailEndpoint,
+)

@@ -90,3 +90,6 @@ from .device import Device, DeviceSession
 from .sticky import Sticky
 
 from .description import Description, DescriptionVersion
+
+# Grupo Romboc / Catar BI — time tracker
+from .time_tracking import TimeEntry

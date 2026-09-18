@@ -34,6 +34,9 @@ import type { IProjectEstimateStore } from "./estimates/project-estimate.store";
 import { ProjectEstimateStore } from "./estimates/project-estimate.store";
 import type { IFavoriteStore } from "./favorite.store";
 import { FavoriteStore } from "./favorite.store";
+// Grupo Romboc / Catar BI — time tracker
+import type { ITimeTrackingStore } from "./time-tracking.store";
+import { TimeTrackingStore } from "./time-tracking.store";
 import type { IGlobalViewStore } from "./global-view.store";
 import { GlobalViewStore } from "./global-view.store";
 import type { IProjectInboxStore } from "./inbox/project-inbox.store";
@@ -98,6 +101,7 @@ export class CoreRootStore {
   multipleSelect: IMultipleSelectStore;
   workspaceNotification: IWorkspaceNotificationStore;
   favorite: IFavoriteStore;
+  timeTracking: ITimeTrackingStore;
   stickyStore: IStickyStore;
   editorAssetStore: IEditorAssetStore;
   workItemFilters: IWorkItemFilterStore;
@@ -129,6 +133,7 @@ export class CoreRootStore {
     this.projectEstimate = new ProjectEstimateStore(this);
     this.workspaceNotification = new WorkspaceNotificationStore(this);
     this.favorite = new FavoriteStore(this);
+    this.timeTracking = new TimeTrackingStore(this);
     this.stickyStore = new StickyStore();
     this.editorAssetStore = new EditorAssetStore();
     this.analytics = new AnalyticsStore();
@@ -164,6 +169,7 @@ export class CoreRootStore {
     this.projectEstimate = new ProjectEstimateStore(this);
     this.workspaceNotification = new WorkspaceNotificationStore(this);
     this.favorite = new FavoriteStore(this);
+    this.timeTracking = new TimeTrackingStore(this);
     this.stickyStore = new StickyStore();
     this.editorAssetStore = new EditorAssetStore();
     this.workItemFilters = new WorkItemFilterStore();

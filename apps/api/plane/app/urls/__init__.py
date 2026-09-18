@@ -23,6 +23,9 @@ from .workspace import urlpatterns as workspace_urls
 from .timezone import urlpatterns as timezone_urls
 from .exporter import urlpatterns as exporter_urls
 
+# Grupo Romboc / Catar BI — time tracker
+from .time_tracking import urlpatterns as time_tracking_urls
+
 urlpatterns = [
     *analytic_urls,
     *asset_urls,
@@ -44,4 +47,5 @@ urlpatterns = [
     *webhook_urls,
     *timezone_urls,
     *exporter_urls,
+    *time_tracking_urls,
 ]

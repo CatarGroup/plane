@@ -20,6 +20,8 @@ import useSWR from "swr";
 import { useWorkspaceNotifications } from "@/hooks/store/notifications";
 // local imports
 import { StarUsOnGitHubLink } from "@/app/(all)/[workspaceSlug]/(projects)/star-us-link";
+// Grupo Romboc / Catar BI — time tracker
+import { TimeTrackerWidget } from "@/components/time-tracking/timer-widget";
 
 export const TopNavigationRoot = observer(function TopNavigationRoot() {
   // router
@@ -53,6 +55,10 @@ export const TopNavigationRoot = observer(function TopNavigationRoot() {
       {/* Workspace Menu */}
       <div className="flex-1 shrink-0">
         <WorkspaceMenuRoot variant="top-navigation" />
+      </div>
+      {/* Time tracker (Grupo Romboc / Catar BI) */}
+      <div className="flex shrink-0 items-center gap-2 px-1">
+        <TimeTrackerWidget />
       </div>
       {/* Power K Search */}
       <div className="shrink-0">
