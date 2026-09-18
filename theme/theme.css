@@ -1,8 +1,18 @@
 /* ============================================================
-   TEMA GRUPO ROMBOC — v9 (2026-09-19)
+   TEMA GRUPO ROMBOC — v10 (2026-09-19)
    Paleta tipo Trello. Selectores verificados sobre el DOM real
    de Plane v1.4.2 en produccion (inspeccion en vivo con login real,
    no solo fuentes/capturas — v7 y anteriores adivinaban a ciegas).
+
+   Cambios respecto a v9:
+   · El degradado en TODA la interfaz (bg-surface-1/2, bg-canvas,
+     html/body) quedaba demasiado — se revierte. Se queda solo en el
+     tablero Kanban y en el div que lo envuelve (necesario para que no
+     vuelva la franja gris). Cabecera de arriba y demas vistas vuelven
+     a su fondo nativo de Plane.
+   · Verificado en vivo (proyecto "prueba"): columna, cabecera y pie ya
+     comparten exactamente el mismo color (mismo calculo color-mix) —
+     no hacia falta tocar nada ahi, ya funcionaba.
 
    Cambios respecto a v8 (v8 = boton + caja de busqueda con degradado,
    nunca llego a documentarse aqui):
@@ -87,25 +97,16 @@ div.flex-row.gap-4.py-page-y {
   align-items: flex-start !important;
 }
 
-/* La franja gris (a la derecha/debajo del tablero, y en general en
-   cualquier vista que no llene el ancho/alto disponible) NO era el
-   <main> (se probo en v5, no bastaba) ni faltaba pintar html/body (se
-   probo en v6): es un div propio de Plane con fondo opaco (clase
-   bg-surface-2) que ENVUELVE el tablero para el scroll horizontal, por
-   ENCIMA del <main> y de html/body. Confirmado inspeccionando el DOM
-   real en produccion (elementFromPoint sobre la zona gris).
-   Pintamos con el mismo degradado todas las capas "canvas" de Plane
-   (bg-surface-1, bg-surface-2 = fondo de pagina de cada vista; bg-canvas
-   = fondo de la cabecera de arriba) EXCEPTO dentro del menu lateral:
-   pedido explicito de dejar el degradado en toda la interfaz menos el
-   sidebar. Mas especifico que esto = gana (p.ej. la cabecera/pie de
-   columna, mas abajo, tambien tiene bg-surface-2 pero su regla es mas
-   especifica y prevalece). */
-:is(.bg-surface-1, .bg-surface-2, .bg-canvas):not(aside.group\/sidebar):not(aside.group\/sidebar *) {
-  background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
-}
-/* Colchon por si algo se escapa de lo anterior. */
-html, body {
+/* v9 pintaba el degradado en TODA la interfaz (bg-surface-1/2, bg-canvas,
+   html/body): quedaba demasiado, se revierte. El degradado se queda
+   SOLO en el tablero (regla 1) y en el div que lo envuelve para el
+   scroll horizontal — la franja gris de antes era ESE div (bg-surface-2,
+   por encima del <main>, confirmado con el DOM real en produccion), asi
+   que sigue haciendo falta para que no vuelva. El resto de la interfaz
+   (cabecera de arriba, Lista, Calendario...) vuelve a su fondo nativo
+   de Plane. :has() para no adivinar la clase exacta del envoltorio: pilla
+   cualquier bg-surface-2 que tenga el tablero dentro, y solo ese. */
+.bg-surface-2:has(div.flex-row.gap-4.py-page-y) {
   background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
 }
 
