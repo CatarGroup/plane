@@ -109,11 +109,14 @@ aside.group\/sidebar button:hover {
   width: auto !important;
   height: auto !important;
   border-radius: inherit !important;
-  opacity: 0.24;
+  opacity: 0.32;
   z-index: 0;
 }
+/* Es flex-item de .group/calendar-block: el z-index ya funciona sin
+   position:relative. Si se le pone position aqui, se vuelve el nuevo
+   "ancestro posicionado" y la capa de color se encoge a este div en
+   vez de estirarse a toda la fila. */
 .group\/calendar-block > * {
-  position: relative;
   z-index: 1;
 }
 
