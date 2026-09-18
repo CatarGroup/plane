@@ -226,3 +226,25 @@ aside.group\/sidebar div:has(> button[aria-label="Abrir modal de planes de pago"
   font-size: 12px;
   font-weight: 500;
 }
+
+/* ---- 9) PRUEBA — barra de busqueda de arriba y boton "Agregar
+   elemento de trabajo" con el mismo degradado del tablero. A ver como
+   queda; si no convence, se quita este bloque entero. ---- */
+div.rounded-lg.border-subtle-1.bg-layer-2:has(input[placeholder="Search commands..."]) {
+  background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
+  border-color: rgba(255, 255, 255, 0.25) !important;
+}
+div.rounded-lg.border-subtle-1.bg-layer-2:has(input[placeholder="Search commands..."]) svg,
+div.rounded-lg.border-subtle-1.bg-layer-2:has(input[placeholder="Search commands..."]) input {
+  color: #E9F1F7 !important;
+}
+div.rounded-lg.border-subtle-1.bg-layer-2:has(input[placeholder="Search commands..."]) input::placeholder {
+  color: rgba(233, 241, 247, 0.7) !important;
+}
+
+button[data-ph-element="work_items_header_add_work_item_button"] {
+  background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
+}
+button[data-ph-element="work_items_header_add_work_item_button"]:hover {
+  background: linear-gradient(135deg, #7C5FA3 0%, #695797 100%) !important;
+}
