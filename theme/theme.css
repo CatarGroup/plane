@@ -51,3 +51,26 @@ aside.group\/sidebar button[data-ph-element="sidebar_create_work_item_button"] {
 aside.group\/sidebar button[data-ph-element="sidebar_create_work_item_button"]:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
+
+/* ---- 6) Vista Calendario, tarjetas coloreadas tipo AirTable ----
+   Plane ya pinta una barrita fina (span con background-color inline,
+   color de la etiqueta/prioridad) a la izquierda de cada tarjeta.
+   La estiramos para que tiña toda la tarjeta, sin tener que adivinar
+   el color de cada etiqueta desde CSS. */
+.group\/calendar-block {
+  position: relative;
+  overflow: hidden;
+}
+.group\/calendar-block > span[style*="background-color"] {
+  position: absolute !important;
+  inset: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: inherit !important;
+  opacity: 0.24;
+  z-index: 0;
+}
+.group\/calendar-block > *:not(span[style*="background-color"]) {
+  position: relative;
+  z-index: 1;
+}
