@@ -34,7 +34,7 @@ a.block.w-full.rounded-lg.border-subtle {
 aside.group\/sidebar {
   background-color: #172B4D !important;
 }
-aside.group\/sidebar * {
+aside.group\/sidebar *:not([role="menu"]):not([role="menu"] *) {
   color: #E9F1F7 !important;
 }
 aside.group\/sidebar a:hover,
