@@ -54,7 +54,7 @@ aside.group\/sidebar {
 /* Texto claro para el sidebar, EXCEPTO en los elementos que Plane pinta
    sobre un fondo propio claro (bg-layer-1/2/3, bg-surface-1/2): ahí el
    texto claro quedaba invisible sobre blanco. */
-aside.group\/sidebar *:not(.bg-layer-1):not(.bg-layer-2):not(.bg-layer-3):not(.bg-surface-1):not(.bg-surface-2):not(.bg-layer-2-hover):not(.bg-layer-3-hover) {
+aside.group\/sidebar *:not(.bg-layer-1):not(.bg-layer-2):not(.bg-layer-3):not(.bg-surface-1):not(.bg-surface-2):not(.bg-layer-2-hover):not(.bg-layer-3-hover):not([role="menu"]):not([role="menu"] *) {
   color: #E9F1F7 !important;
 }
 
