@@ -1,4 +1,4 @@
-# Plane en espanol + TEMA GRUPO ROMBOC — overlay sobre la imagen oficial
+# Plane — emails en espanol + TEMA GRUPO ROMBOC (overlay sobre la imagen oficial)
 #
 # NO copia el codigo de Plane: solo encima las plantillas de email traducidas,
 # traduce los ASUNTOS (script que verifica cada sustitucion) e inyecta el tema.
@@ -31,28 +31,5 @@ RUN set -eux; \
     cat /tmp/theme.css >> "$GLOBALS"; \
     grep -q 'TEMA GRUPO ROMBOC' "$GLOBALS" \
       || { echo "ERROR: el tema no se ha anadido al CSS."; exit 1; }
-
-# ---------------------------------------------------------------
-# 4) ESPAÑOL POR DEFECTO — que cualquier invitado lo vea en español
-#    - backend: locale de Django (fechas y números)
-#    - frontend: idioma por defecto cuando el usuario no tiene uno guardado
-# ---------------------------------------------------------------
-RUN set -eux; \
-    sed -i 's/LANGUAGE_CODE = "en-us"/LANGUAGE_CODE = "es-es"/' /app/backend/plane/settings/common.py; \
-    grep -q 'LANGUAGE_CODE = "es-es"' /app/backend/plane/settings/common.py \
-      || { echo "ERROR: no se pudo cambiar LANGUAGE_CODE del backend."; exit 1; }; \
-    FICHERO=$(grep -rl 'userLanguage' /app/web/assets/*.js | head -1); \
-    test -n "$FICHERO" || { echo "ERROR: no encuentro el chunk i18n del frontend."; exit 1; }; \
-    sed -i 's/getItem(`userLanguage`)||`en`/getItem(`userLanguage`)||`es`/g' "$FICHERO"; \
-    sed -i 's/fallbackLng:`en`/fallbackLng:`es`/g' "$FICHERO"; \
-    grep -q 'userLanguage`)||`es`' "$FICHERO" \
-      || { echo "ERROR: no se pudo cambiar el idioma por defecto del frontend."; exit 1; }
-
-# ---------------------------------------------------------------
-# 5) Textos del frontend que NO usan i18n (paginas hardcodeadas,
-#    p. ej. la de aceptar invitacion). Verifica cada sustitucion.
-# ---------------------------------------------------------------
-COPY scripts/traducir_frontend.py /tmp/traducir_frontend.py
-RUN python3 /tmp/traducir_frontend.py
 
 # La imagen base trae su propio entrypoint (supervisord + start.sh)
