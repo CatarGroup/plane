@@ -46,6 +46,16 @@ En el servicio **Plane** del proyecto de Railway:
   claro de Plane + texto forzado a claro → contraste **1.14** y **1.00** (invisibles); y la
   2.ª columna tenía el borde **idéntico** al fondo del tablero (contraste **1.00**). Tras el
   arreglo: 14.1 / 12.35 y ningún elemento del sidebar por debajo de 3:1.
+- **Fix de popovers del sidebar (18/09/2026, medido con Playwright sobre producción):** el
+  popover de **acciones rápidas** de un proyecto (botón «⋮») se renderiza **dentro del `aside`**
+  y **sí usa `role="menu"` / `role="menuitem"`**; Plane lo pinta con **fondo blanco**
+  (`DIV.shadow-md … min-w-[12rem]`) mientras la regla del tema v2 le forzaba el texto claro
+  `#E9F1F7` → los 4 items (*Publicar proyecto, Copiar enlace, Archivos, Configuración*) quedaban
+  con contraste **1.14** (invisibles). Arreglo: se excluyen `[role="menu"]`/`[role="menuitem"]`
+  de la regla del sidebar y se les devuelve `--txt-primary` + `--bg-layer-1` → contraste **16.55**,
+  cero ilegibles. *(Ojo: el desplegable de la lista de proyectos —«Proyectos ⋮»— es otro
+  componente: se pinta en un portal **fuera** del `aside` y **no** tiene `role="menu"`, así que
+  las mismas reglas no le afectan y no le hacía falta arreglo.)*
 - El parche del **asunto** de la invitación se aplica con `sed` sobre
   `/app/backend/plane/bgtasks/workspace_invitation_task.py` y se **verifica en el build**:
   si Plane cambia esa línea, la construcción falla con un error claro (no se despliega a medias).
