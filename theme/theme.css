@@ -1,7 +1,14 @@
 /* ============================================================
-   TEMA GRUPO ROMBOC — v3 (2026-09-18)
+   TEMA GRUPO ROMBOC — v4 (2026-09-18)
    Paleta tipo Trello. Selectores verificados sobre el DOM real
    de Plane v1.4.2 por auditoría con Playwright en producción.
+
+   Cambios respecto a v3:
+   · Columnas 350px → 272px (ancho real de una lista de Trello).
+   · Padding interno (10px lados, 4px arriba, 10px abajo) en el
+     contenedor de tarjetas de cada columna: antes las tarjetas y
+     el boton "+ Nuevo elemento de trabajo" tocaban el borde de la
+     columna de lado a lado.
 
    Cambios respecto a v2 (todos con medición de contraste WCAG):
    · BUG 1 — «Nuevo elemento de trabajo» (sidebar): se quedaba con
@@ -47,6 +54,21 @@ div.flex-row.gap-4.py-page-y > div:nth-child(7) { --col-color: #E06C6C; } /* Can
    por cascada (no hace falta repetirlo por nth-child). */
 div.flex-row.gap-4.py-page-y > div .sticky {
   background-color: color-mix(in srgb, var(--col-color, #8B98A5) 14%, #ffffff) !important;
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+/* ---- 2b) Columna mas estrecha (272px, ancho real de una lista de
+   Trello, antes 350px) y padding interno en el contenedor de tarjetas:
+   sin esto las tarjetas tocaban el borde de la columna de lado a lado.
+   Con el padding queda un margen del color de la columna visible por
+   los 4 lados de cada tarjeta y del boton "+ Nuevo elemento de trabajo"
+   (que vive dentro del mismo contenedor, por eso hereda el padding). ---- */
+div.flex-row.gap-4.py-page-y > div.w-\[350px\] {
+  width: 272px !important;
+}
+div.flex-row.gap-4.py-page-y > div [data-auto-scrollable="true"] {
+  padding: 4px 10px 10px !important;
 }
 
 /* ---- 3) Tarjetas ---- */
