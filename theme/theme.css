@@ -1,7 +1,27 @@
 /* ============================================================
-   TEMA GRUPO ROMBOC — v7 (2026-09-19)
+   TEMA GRUPO ROMBOC — v9 (2026-09-19)
    Paleta tipo Trello. Selectores verificados sobre el DOM real
-   de Plane v1.4.2 por auditoría con Playwright en producción.
+   de Plane v1.4.2 en produccion (inspeccion en vivo con login real,
+   no solo fuentes/capturas — v7 y anteriores adivinaban a ciegas).
+
+   Cambios respecto a v8 (v8 = boton + caja de busqueda con degradado,
+   nunca llego a documentarse aqui):
+   · Franja gris: resuelta de verdad. El culpable real es un div
+     bg-surface-2 que envuelve el tablero (scroll horizontal), no el
+     <main> (v5) ni "faltaba algo en html/body" (v6). Se pinta el
+     degradado en bg-surface-1/bg-surface-2/bg-canvas en toda la
+     interfaz excepto el sidebar (pedido explicito), no solo esos dos
+     sitios sueltos.
+   · Columna vacia ocupa lo minimo Y columna larga scrollea sola: las
+     dos cosas a la vez, sin romper el scroll (v6 lo rompia). Probado
+     en vivo con una columna de 12 tarjetas antes de subirlo, ver
+     comentario junto a la regla 2c.
+   · Esquinas de la cabecera/pie de columna ya no sobresalen del
+     redondeado de la columna (se veian como una sombra/pastilla):
+     overflow:hidden en la columna, recorta todo por igual.
+   · Caja de busqueda ("Search commands...") vuelve a su gris nativo:
+     el degradado se queda en la cabecera (bg-canvas) que la envuelve,
+     no en la caja misma.
 
    Cambios respecto a v6:
    · REVERTIDO el intento de v6 de topar el alto de columna
@@ -60,16 +80,31 @@
 /* ---- 1) Fondo del tablero (area de columnas) ---- */
 div.flex-row.gap-4.py-page-y {
   background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
+  /* Sin esto las columnas se estiran al alto del tablero aunque tengan
+     1 sola tarjeta (flex align-items:stretch por defecto). Necesaria
+     junto con el max-height + flex de la regla 2c para que ademas la
+     columna con muchas tarjetas siga scrolleando ella sola. */
+  align-items: flex-start !important;
 }
 
-/* El contenedor de columnas (arriba) solo cubre su propio contenido:
-   a la derecha de la ultima columna y por debajo de las columnas
-   cortas se veia gris (el fondo por defecto de las capas de Plane
-   por debajo). Apuntar solo al <main> (intento anterior, v5) no
-   bastaba: hay mas capas envolventes de por medio. Pintamos TODA la
-   capa base (html/body) del mismo degradado: las demas vistas
-   (Lista, Calendario...) pintan su propio fondo opaco por encima,
-   así que esto no las toca, solo rellena huecos como este. */
+/* La franja gris (a la derecha/debajo del tablero, y en general en
+   cualquier vista que no llene el ancho/alto disponible) NO era el
+   <main> (se probo en v5, no bastaba) ni faltaba pintar html/body (se
+   probo en v6): es un div propio de Plane con fondo opaco (clase
+   bg-surface-2) que ENVUELVE el tablero para el scroll horizontal, por
+   ENCIMA del <main> y de html/body. Confirmado inspeccionando el DOM
+   real en produccion (elementFromPoint sobre la zona gris).
+   Pintamos con el mismo degradado todas las capas "canvas" de Plane
+   (bg-surface-1, bg-surface-2 = fondo de pagina de cada vista; bg-canvas
+   = fondo de la cabecera de arriba) EXCEPTO dentro del menu lateral:
+   pedido explicito de dejar el degradado en toda la interfaz menos el
+   sidebar. Mas especifico que esto = gana (p.ej. la cabecera/pie de
+   columna, mas abajo, tambien tiene bg-surface-2 pero su regla es mas
+   especifica y prevalece). */
+:is(.bg-surface-1, .bg-surface-2, .bg-canvas):not(aside.group\/sidebar):not(aside.group\/sidebar *) {
+  background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
+}
+/* Colchon por si algo se escapa de lo anterior. */
 html, body {
   background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
 }
@@ -79,6 +114,37 @@ div.flex-row.gap-4.py-page-y > div {
   border-radius: 10px !important;
   border-top: 4px solid var(--col-color, #8B98A5) !important;
   background-color: color-mix(in srgb, var(--col-color, #8B98A5) 14%, #ffffff) !important;
+  /* La cabecera/pie (sticky, fondo propio) tienen esquinas a 0: sin
+     recortar, sobresalian por encima del redondeado de la columna y se
+     veia como una sombra/pastilla rara en las esquinas de arriba. Con
+     overflow:hidden, el redondeado de la columna recorta TODO lo de
+     dentro (cabecera incluida) a su misma forma, sin tocar cada uno. */
+  overflow: hidden !important;
+  /* Tope: sin esto una columna con muchas tarjetas crecia sin limite y
+     empujaba el alto de TODO el tablero (scroll de pagina) en vez de
+     scrollear ella sola. 100% = alto del tablero (fila con h-full). */
+  max-height: 100% !important;
+}
+/* El bloque entre cabecera y pie (por defecto solo "height:100%") no
+   bajaba ese alto correctamente a su contenido en cadena: heredaba el
+   100% de un ancestro cuyo alto real dependia a su vez de el mismo, y
+   acababa saliendo a su alto de contenido completo (sin tope real) —
+   por eso el que scrolleaba no era la columna sino el tablero entero.
+   Convertido el mismo en flex-column y con flex+min-height:0 de
+   arriba a abajo (en vez de depender de height:100%), cada nivel cede
+   su alto real al de abajo y el que se queda corto — la lista de
+   tarjetas — es el que dispara SU scroll interno. Probado en vivo con
+   una columna de 12 tarjetas antes de subirlo. */
+div.flex-row.gap-4.py-page-y > div > div.h-full.min-h-\[120px\] {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+div.flex-row.gap-4.py-page-y > div > div.h-full.min-h-\[120px\] > [data-auto-scrollable="true"] {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  height: auto !important;
 }
 /* El orden de estas reglas es POSICIONAL (nth-child). Si Rubén añade,
    oculta o reordena estados, hay que reajustarlas. */
@@ -227,21 +293,11 @@ aside.group\/sidebar div:has(> button[aria-label="Abrir modal de planes de pago"
   font-weight: 500;
 }
 
-/* ---- 9) PRUEBA — barra de busqueda de arriba y boton "Agregar
-   elemento de trabajo" con el mismo degradado del tablero. A ver como
-   queda; si no convence, se quita este bloque entero. ---- */
-div.rounded-lg.border-subtle-1.bg-layer-2:has(input[placeholder="Search commands..."]) {
-  background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
-  border-color: rgba(255, 255, 255, 0.25) !important;
-}
-div.rounded-lg.border-subtle-1.bg-layer-2:has(input[placeholder="Search commands..."]) svg,
-div.rounded-lg.border-subtle-1.bg-layer-2:has(input[placeholder="Search commands..."]) input {
-  color: #E9F1F7 !important;
-}
-div.rounded-lg.border-subtle-1.bg-layer-2:has(input[placeholder="Search commands..."]) input::placeholder {
-  color: rgba(233, 241, 247, 0.7) !important;
-}
-
+/* ---- 9) Boton "Agregar elemento de trabajo" con el mismo degradado
+   del tablero. La barra de busqueda ("Search commands...") se queda
+   con su gris nativo de Plane a proposito: la cabecera que la envuelve
+   (bg-canvas, regla de arriba) ya lleva el degradado; la caja en si
+   se deja gris encima para que se distinga y se lea bien. ---- */
 button[data-ph-element="work_items_header_add_work_item_button"] {
   background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
 }
