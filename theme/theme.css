@@ -129,3 +129,18 @@ aside.group\/sidebar button[data-ph-element="sidebar_create_work_item_button"] *
 aside.group\/sidebar button[data-ph-element="sidebar_create_work_item_button"]:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
+
+/* ---- 8) Boton "Community" (pie del sidebar): mismo criterio que el 7,
+   se funde con el azul del menu en vez del gris nativo de Plane. ---- */
+aside.group\/sidebar div:has(> button[aria-label="Abrir modal de planes de pago"]) {
+  background-color: #172B4D !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+}
+aside.group\/sidebar button[aria-label="Abrir modal de planes de pago"],
+aside.group\/sidebar button[aria-label="Abrir modal de planes de pago"] * {
+  background-color: #172B4D !important;
+  color: #E9F1F7 !important;
+}
+aside.group\/sidebar button[aria-label="Abrir modal de planes de pago"]:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
