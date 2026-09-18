@@ -1,7 +1,16 @@
 /* ============================================================
-   TEMA GRUPO ROMBOC — v4 (2026-09-18)
+   TEMA GRUPO ROMBOC — v5 (2026-09-19)
    Paleta tipo Trello. Selectores verificados sobre el DOM real
    de Plane v1.4.2 por auditoría con Playwright en producción.
+
+   Cambios respecto a v4:
+   · Fondo del tablero: color plano → degradado morado tipo Trello.
+   · Columnas ya no se estiran al alto del tablero (align-items
+     flex-start): una columna vacia/con pocas tarjetas ocupa solo
+     su contenido, no el alto de la columna mas larga.
+   · Franja gris a la derecha/debajo del tablero (el <main> de Plane
+     por debajo del degradado, visible cuando las columnas no llenan
+     el ancho o alto de la vista): ahora tambien lleva el degradado.
 
    Cambios respecto a v3:
    · Columnas 350px → 272px (ancho real de una lista de Trello).
@@ -27,7 +36,22 @@
 
 /* ---- 1) Fondo del tablero (area de columnas) ---- */
 div.flex-row.gap-4.py-page-y {
-  background-color: #026AA7 !important;
+  background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
+  /* Sin esto las columnas se estiran al alto del contenedor (flex
+     align-items:stretch por defecto). Con flex-start cada columna
+     ocupa solo lo que ocupa su contenido (min-h-[120px] de Plane
+     pone el suelo para las vacias). */
+  align-items: flex-start !important;
+}
+
+/* El contenedor de columnas (arriba) solo cubre su propio contenido:
+   a la derecha de la ultima columna y por debajo de las columnas
+   cortas se veia el gris por defecto de Plane (bg-surface-1 del
+   <main> que envuelve la vista activa). Pintamos ese <main> con el
+   mismo degradado SOLO cuando dentro hay un tablero Kanban, para que
+   el degradado llegue hasta el borde real de la vista. */
+main:has(div.flex-row.gap-4.py-page-y) {
+  background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
 }
 
 /* ---- 2) Cada columna con su propio color ---- */
