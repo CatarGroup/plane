@@ -1,7 +1,20 @@
 /* ============================================================
-   TEMA GRUPO ROMBOC — v6 (2026-09-19)
+   TEMA GRUPO ROMBOC — v7 (2026-09-19)
    Paleta tipo Trello. Selectores verificados sobre el DOM real
    de Plane v1.4.2 por auditoría con Playwright en producción.
+
+   Cambios respecto a v6:
+   · REVERTIDO el intento de v6 de topar el alto de columna
+     (max-height + min-height:0 en el bloque de tarjetas): rompia el
+     scroll con la rueda del raton (funcionaba solo la 1a vez, luego
+     saltaba solo arriba). Pinta de que choca con el JS propio de
+     Plane que gestiona ese scroll/scrollbar — no es cosa que se
+     pueda forzar a ciegas por CSS. Vuelve el comportamiento de v4:
+     las columnas se estiran (align-items:stretch, el de por defecto)
+     y el scroll interno funciona como lo hace Plane de serie. Se
+     pierde el "columna vacia ocupa lo minimo" de v5/v6 a cambio de
+     que el scroll no se rompa — hace falta ver el DOM real (login
+     bloqueado para mi) para resolver ambas cosas sin adivinar.
 
    Cambios respecto a v5:
    · Degradado aprobado, se queda igual. Lo que fallaba era el sitio
@@ -47,11 +60,6 @@
 /* ---- 1) Fondo del tablero (area de columnas) ---- */
 div.flex-row.gap-4.py-page-y {
   background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
-  /* Sin esto las columnas se estiran al alto del contenedor (flex
-     align-items:stretch por defecto). Con flex-start cada columna
-     ocupa solo lo que ocupa su contenido (min-h-[120px] de Plane
-     pone el suelo para las vacias). */
-  align-items: flex-start !important;
 }
 
 /* El contenedor de columnas (arriba) solo cubre su propio contenido:
@@ -71,19 +79,6 @@ div.flex-row.gap-4.py-page-y > div {
   border-radius: 10px !important;
   border-top: 4px solid var(--col-color, #8B98A5) !important;
   background-color: color-mix(in srgb, var(--col-color, #8B98A5) 14%, #ffffff) !important;
-  /* Tope: con align-items:flex-start (arriba) la columna ya no se
-     estira sola, pero sin este tope una columna con muchas tarjetas
-     crecia sin limite y empujaba el alto de TODA la pagina en vez de
-     scrollear ella sola. 100% = alto del tablero (fila con h-full). */
-  max-height: 100% !important;
-}
-/* Bloque que envuelve la lista de tarjetas de cada columna (entre la
-   cabecera y el pie): tiene que poder encogerse (min-height:0, si no
-   un flex-item nunca baja de su contenido) para ceder ese alto al
-   tope de arriba y forzar el scroll interno en vez de desbordar. */
-div.flex-row.gap-4.py-page-y > div > div.h-full.min-h-\[120px\] {
-  flex: 1 1 auto !important;
-  min-height: 0 !important;
 }
 /* El orden de estas reglas es POSICIONAL (nth-child). Si Rubén añade,
    oculta o reordena estados, hay que reajustarlas. */
