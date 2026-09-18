@@ -39,6 +39,16 @@ div.flex-row.gap-4.py-page-y > div:nth-child(5) { --col-color: #C377E0; } /* En 
 div.flex-row.gap-4.py-page-y > div:nth-child(6) { --col-color: #61BD4F; } /* Completadas · verde   */
 div.flex-row.gap-4.py-page-y > div:nth-child(7) { --col-color: #E06C6C; } /* Canceladas  · rojo    */
 
+/* Cabecera (titulo+contador, sticky arriba) y pie ("+ Nuevo elemento
+   de trabajo", sticky abajo) de cada columna son divs propios con SU
+   fondo (bg-surface-2 de Plane) por encima del fondo teñido de la
+   columna: sin esto quedan como una franja gris encima/debajo, corta
+   el efecto "lista de un solo color" de Trello. Heredan --col-color
+   por cascada (no hace falta repetirlo por nth-child). */
+div.flex-row.gap-4.py-page-y > div .sticky {
+  background-color: color-mix(in srgb, var(--col-color, #8B98A5) 14%, #ffffff) !important;
+}
+
 /* ---- 3) Tarjetas ---- */
 a.block.w-full.rounded-lg.border-subtle {
   background-color: #FFFFFF !important;
