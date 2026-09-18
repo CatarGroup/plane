@@ -75,3 +75,21 @@ aside.group\/sidebar a:hover,
 aside.group\/sidebar button:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
 }
+
+/* ------------------------------------------------------------
+   6) FIX MENUS / POPOVERS (boton "3 puntos" de proyectos)
+   Plane los pinta dentro del sidebar, asi que heredaban el texto
+   claro (#E9F1F7) sobre fondo claro = ILEGIBLE. Les devolvemos
+   los colores propios de Plane (variables --txt-* y --bg-layer-*).
+   ------------------------------------------------------------ */
+[role="menu"],
+[role="menu"] *,
+[role="menuitem"],
+[role="menuitem"] *,
+[data-headlessui-state] [role="menu"],
+[data-headlessui-state] [role="menu"] * {
+  color: var(--txt-primary) !important;
+}
+[role="menu"] {
+  background-color: var(--bg-layer-1, #ffffff) !important;
+}
