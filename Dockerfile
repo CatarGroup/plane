@@ -61,4 +61,13 @@ RUN python3 /tmp/patch_profile_theme_default.py
 # ---------------------------------------------------------------
 COPY migrations/0123_set_theme_catarbi_default.py /app/backend/plane/db/migrations/0123_set_theme_catarbi_default.py
 
+# ---------------------------------------------------------------
+# 7) Sentry en el backend (API + workers + beat + migrator).
+#    Solo se activa si SENTRY_DSN esta en las env vars de Railway;
+#    el DSN no vive en el repo. Parche verificado en el build.
+# ---------------------------------------------------------------
+RUN pip install --no-cache-dir sentry-sdk
+COPY scripts/patch_sentry_backend.py /tmp/patch_sentry_backend.py
+RUN python3 /tmp/patch_sentry_backend.py
+
 # La imagen base trae su propio entrypoint (supervisord + start.sh)

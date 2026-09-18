@@ -24,7 +24,8 @@ Así, **actualizar Plane = cambiar el tag de la imagen base** y nada de lo nuest
 │   └── theme.css                  # tema del tablero (colores tipo Trello)
 ├── scripts/
 │   ├── traducir_subjects.py               # asuntos de email al español
-│   └── patch_profile_theme_default.py     # Tema Catar Bi default (altas nuevas)
+│   ├── patch_profile_theme_default.py     # Tema Catar Bi default (altas nuevas)
+│   └── patch_sentry_backend.py            # Sentry en el backend (api/worker/beat)
 └── migrations/
     └── 0123_set_theme_catarbi_default.py  # Tema Catar Bi en perfiles existentes
 ```
@@ -35,7 +36,8 @@ En el servicio **Plane** del proyecto de Railway:
 
 1. **Settings → Source** → cambiar de *Docker Image* a **GitHub Repo** → `CatarGroup/plane`
 2. Railway detecta el `Dockerfile` de la raíz y construye la imagen (tarda unos minutos)
-3. Variables de entorno: las mismas que ya tenía (no cambia nada)
+3. Variables de entorno: las mismas que ya tenía + (opcional) `SENTRY_DSN` para activar Sentry
+   en el backend — ver nota más abajo
 
 ## Cómo actualizar
 
@@ -80,6 +82,19 @@ En el servicio **Plane** del proyecto de Railway:
     ejecuta `manage.py migrate` vía el proceso `migrator` de supervisor). Fuerza el tema en
     TODOS los perfiles, pisando lo que cada usuario tuviera elegido — es **irreversible a
     propósito**, no guarda el valor anterior de cada uno.
+- **Sentry en el backend (18/09/2026):** Plane no trae Sentry de serie (comprobado en el
+  código fuente público, tag v1.4.2: nada en `requirements`, nada en `settings`). Se añade con
+  `pip install sentry-sdk` + `scripts/patch_sentry_backend.py`, que inicializa Sentry en
+  `plane/settings/production.py` — el único módulo de settings que cargan TODOS los procesos
+  (api, worker, beat, migrator), así que cubre el backend entero de una vez. Solo se activa si
+  existe la env var **`SENTRY_DSN`** en Railway (el DSN no vive en el repo). Opcionales:
+  `SENTRY_ENVIRONMENT` (default `production`), `SENTRY_TRACES_SAMPLE_RATE` (default `0.1`).
+  `send_default_pii=False` — no manda datos personales de usuarios a Sentry.
+  · **Frontend (Next.js) sin cubrir todavía:** el SDK oficial de Sentry para Next.js necesita
+  estar metido en el build (webpack plugin, instrumentation.ts), no se puede overlay sobre la
+  imagen ya compilada como el resto de esto. Queda pendiente, se evaluará aparte (probar antes
+  en staging — ya hubo un patche de HTML que rompió la hidratación de React, ver commit
+  `5b1e283`).
 - El parche del **asunto** de la invitación se aplica con `sed` sobre
   `/app/backend/plane/bgtasks/workspace_invitation_task.py` y se **verifica en el build**:
   si Plane cambia esa línea, la construcción falla con un error claro (no se despliega a medias).
