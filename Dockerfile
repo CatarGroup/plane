@@ -124,4 +124,23 @@ RUN set -eux; \
     traducir_label 'Created by' 'Creado por'; \
     traducir_label 'Projects' 'Proyectos'
 
+# ---------------------------------------------------------------
+# 10) "Filters" -> "Filtros" (aparecia en varios sitios: Vistas,
+#     Modulos, notificaciones...). Cada aparicion vive en un objeto
+#     de etiquetas propio con su propio patron unico — NUNCA se
+#     sustituye la palabra suelta "Filters" (aparece tambien dentro
+#     de identificadores como "appliedFilters" o "handleClearAllFilters"
+#     en el mismo bundle, confirmado antes de escribir esto).
+# ---------------------------------------------------------------
+RUN set -eux; \
+    traducir() { \
+      pat="$1"; rep="$2"; \
+      FICHEROS=$(grep -rlF -- "$pat" /app/web/ || true); \
+      test -n "$FICHEROS" || { echo "ERROR: no encuentro $pat en /app/web."; exit 1; }; \
+      echo "$FICHEROS" | xargs sed -i "s#$pat#$rep#g"; \
+    }; \
+    traducir 'filters:`Filters`' 'filters:`Filtros`'; \
+    traducir 'filters:`Inbox Filters`' 'filters:`Filtros de la bandeja`'; \
+    traducir '?null:`Filters`}' '?null:`Filtros`}'
+
 # La imagen base trae su propio entrypoint (supervisord + start.sh)
