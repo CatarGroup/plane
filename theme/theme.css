@@ -1,8 +1,11 @@
 /* ============================================================
-   TEMA GRUPO ROMBOC — v11 (2026-09-19)
+   TEMA GRUPO ROMBOC — v12 (2026-09-19)
    Paleta tipo Trello. Selectores verificados sobre el DOM real
    de Plane v1.4.2 en produccion (inspeccion en vivo con login real,
    no solo fuentes/capturas — v7 y anteriores adivinaban a ciegas).
+
+   Cambios respecto a v11:
+   · Titulo de la tarjeta completo, ya no se corta a 1 linea con "...".
 
    Cambios respecto a v10:
    · ID de la tarjeta (GRUPO-31, GRUPO-32...) oculto en las tarjetas
@@ -198,6 +201,15 @@ a.block.w-full.rounded-lg.border-subtle {
    vista de detalle, etc. hay que revisarlas aparte. */
 a.block.w-full.rounded-lg.border-subtle .flex.shrink-0.items-center.space-x-2 {
   display: none !important;
+}
+/* Titulo completo, sin cortar a 1 linea con "...". Escapado a .line-clamp-1
+   dentro de la tarjeta (misma clase que usa la cabecera de columna en otro
+   sitio, por eso el selector va scopeado a la tarjeta y no suelto). */
+a.block.w-full.rounded-lg.border-subtle .line-clamp-1 {
+  -webkit-line-clamp: unset !important;
+  display: block !important;
+  overflow: visible !important;
+  white-space: normal !important;
 }
 
 /* ---- 4) Menu lateral (azul noche Trello) ---- */
