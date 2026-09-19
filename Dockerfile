@@ -71,19 +71,19 @@ COPY scripts/patch_sentry_backend.py /tmp/patch_sentry_backend.py
 RUN python3 /tmp/patch_sentry_backend.py
 
 # ---------------------------------------------------------------
-# 8) "Search commands..." -> "Buscar comandos..." en la caja de
-#    busqueda de arriba. Mismo mecanismo que el paso 4 (texto
-#    compilado dentro del JS, no fichero de traduccion aparte).
-#    Frase larga y unica, sin riesgo de tocar nombres de variables
-#    del codigo (a diferencia de palabras sueltas como "State" o
-#    "Priority", que SI coinciden con identificadores del JS
-#    minificado y no se pueden sustituir asi a ciegas).
+# 8) "Search commands..." -> "Buscar" en la caja de busqueda de
+#    arriba. Mismo mecanismo que el paso 4 (texto compilado dentro
+#    del JS, no fichero de traduccion aparte). Frase larga y unica,
+#    sin riesgo de tocar nombres de variables del codigo (a
+#    diferencia de palabras sueltas como "State" o "Priority", que
+#    SI coinciden con identificadores del JS minificado y no se
+#    pueden sustituir asi a ciegas).
 # ---------------------------------------------------------------
 RUN set -eux; \
     FICHEROS=$(grep -rl 'Search commands\.\.\.' /app/web/ || true); \
     test -n "$FICHEROS" || { echo "ERROR: no encuentro 'Search commands...' en /app/web."; exit 1; }; \
-    echo "$FICHEROS" | xargs sed -i 's/Search commands\.\.\./Buscar comandos.../g'; \
-    grep -rq 'Buscar comandos' /app/web/ \
+    echo "$FICHEROS" | xargs sed -i 's/Search commands\.\.\./Buscar/g'; \
+    echo "$FICHEROS" | xargs grep -q 'Buscar' \
       || { echo "ERROR: no se ha traducido la caja de busqueda."; exit 1; }
 
 # ---------------------------------------------------------------
