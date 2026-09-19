@@ -67,6 +67,11 @@ export const coreRoutes: RouteConfigEntry[] = [
           route(":workspaceSlug/active-cycles", "./(all)/[workspaceSlug]/(projects)/active-cycles/page.tsx"),
         ]),
 
+        // Time Tracking (Grupo Romboc / Catar BI)
+        layout("./(all)/[workspaceSlug]/(projects)/time-tracking/layout.tsx", [
+          route(":workspaceSlug/time-tracking", "./(all)/[workspaceSlug]/(projects)/time-tracking/page.tsx"),
+        ]),
+
         // Analytics
         layout("./(all)/[workspaceSlug]/(projects)/analytics/[tabId]/layout.tsx", [
           route(":workspaceSlug/analytics/:tabId", "./(all)/[workspaceSlug]/(projects)/analytics/[tabId]/page.tsx"),
