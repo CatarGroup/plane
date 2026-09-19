@@ -1,8 +1,12 @@
 /* ============================================================
-   TEMA GRUPO ROMBOC — v10 (2026-09-19)
+   TEMA GRUPO ROMBOC — v11 (2026-09-19)
    Paleta tipo Trello. Selectores verificados sobre el DOM real
    de Plane v1.4.2 en produccion (inspeccion en vivo con login real,
    no solo fuentes/capturas — v7 y anteriores adivinaban a ciegas).
+
+   Cambios respecto a v10:
+   · ID de la tarjeta (GRUPO-31, GRUPO-32...) oculto en las tarjetas
+     de Kanban. Pendiente revisar Lista/vista de detalle/emails.
 
    Cambios respecto a v9:
    · El degradado en TODA la interfaz (bg-surface-1/2, bg-canvas,
@@ -187,6 +191,13 @@ a.block.w-full.rounded-lg.border-subtle {
   background-color: #FFFFFF !important;
   border-color: rgba(9, 30, 66, 0.13) !important;
   box-shadow: 0 1px 2px rgba(9, 30, 66, 0.16) !important;
+}
+/* ID de la tarjeta (GRUPO-31, GRUPO-32...) fuera: no interesa verlo.
+   Es un boton disabled el solo dentro de este div, no se pierde nada
+   mas al ocultarlo entero. Solo tarjetas de Kanban por ahora — Lista,
+   vista de detalle, etc. hay que revisarlas aparte. */
+a.block.w-full.rounded-lg.border-subtle .flex.shrink-0.items-center.space-x-2 {
+  display: none !important;
 }
 
 /* ---- 4) Menu lateral (azul noche Trello) ---- */
