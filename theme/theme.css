@@ -6,6 +6,10 @@
 
    Cambios respecto a v11:
    · Titulo de la tarjeta completo, ya no se corta a 1 linea con "...".
+   · ID del work item oculto tambien en el panel lateral (peek overview)
+     y, en general, en cualquier vista que reutilice el mismo componente
+     de Plane para pintarlo — antes solo se ocultaba en la tarjeta de
+     Kanban. Verificado en vivo abriendo el panel lateral real.
 
    Cambios respecto a v10:
    · ID de la tarjeta (GRUPO-31, GRUPO-32...) oculto en las tarjetas
@@ -195,11 +199,14 @@ a.block.w-full.rounded-lg.border-subtle {
   border-color: rgba(9, 30, 66, 0.13) !important;
   box-shadow: 0 1px 2px rgba(9, 30, 66, 0.16) !important;
 }
-/* ID de la tarjeta (GRUPO-31, GRUPO-32...) fuera: no interesa verlo.
-   Es un boton disabled el solo dentro de este div, no se pierde nada
-   mas al ocultarlo entero. Solo tarjetas de Kanban por ahora — Lista,
-   vista de detalle, etc. hay que revisarlas aparte. */
-a.block.w-full.rounded-lg.border-subtle .flex.shrink-0.items-center.space-x-2 {
+/* ID del work item (GRUPO-31, GRUPO-32...) fuera en todas partes: no
+   interesa verlo. Plane lo pinta siempre igual (un boton .text-tertiary
+   .font-medium.whitespace-nowrap el solo dentro de un div propio), sea
+   en la tarjeta de Kanban, en el panel lateral al abrir un work item, o
+   en cualquier otra vista que reutilice el mismo componente — por eso
+   el selector se engancha al boton en si (:has) y no al contenedor de
+   la tarjeta, para no tener que cazar cada vista por separado. */
+div.flex.shrink-0.items-center.space-x-2:has(> button.text-tertiary.font-medium.whitespace-nowrap) {
   display: none !important;
 }
 /* Titulo completo, sin cortar a 1 linea con "...". Escapado a .line-clamp-1
