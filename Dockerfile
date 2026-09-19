@@ -141,6 +141,7 @@ RUN set -eux; \
     }; \
     traducir 'filters:`Filters`' 'filters:`Filtros`'; \
     traducir 'filters:`Inbox Filters`' 'filters:`Filtros de la bandeja`'; \
-    traducir '?null:`Filters`}' '?null:`Filtros`}'
+    traducir '?null:`Filters`}' '?null:`Filtros`}'; \
+    traducir 'title:`Filters`,placement:`' 'title:`Filtros`,placement:`'
 
 # La imagen base trae su propio entrypoint (supervisord + start.sh)
