@@ -86,4 +86,42 @@ RUN set -eux; \
     grep -rq 'Buscar comandos' /app/web/ \
       || { echo "ERROR: no se ha traducido la caja de busqueda."; exit 1; }
 
+# ---------------------------------------------------------------
+# 9) Etiquetas del desplegable de filtros (State, Priority...).
+#    Viven TODAS con el mismo patron seguro label:`Palabra` (un
+#    objeto de configuracion, una entrada por campo). Ese patron no
+#    coincide con nombres de variables del JS minificado — a
+#    diferencia de las palabras sueltas: "Priority" tambien aparece
+#    dentro de "PriorityPropertyIcon" en otro sitio del mismo bundle,
+#    y "Label" dentro de "...DefinitionLabel" de una libreria de
+#    markdown. Por eso NUNCA se sustituye la palabra suelta, siempre
+#    el patron completo label:`Palabra` con las comillas invertidas.
+#    Cada entrada se verifica por separado: si Plane renombra o
+#    quita alguna, el build FALLA senalando exactamente cual.
+# ---------------------------------------------------------------
+RUN set -eux; \
+    traducir_label() { \
+      en="$1"; es="$2"; \
+      pat='label:`'"$en"'`'; \
+      rep='label:`'"$es"'`'; \
+      FICHEROS=$(grep -rlF -- "$pat" /app/web/ || true); \
+      test -n "$FICHEROS" || { echo "ERROR: no encuentro $pat en /app/web."; exit 1; }; \
+      echo "$FICHEROS" | xargs sed -i "s#$pat#$rep#g"; \
+    }; \
+    traducir_label 'State Group' 'Grupo de estado'; \
+    traducir_label 'State' 'Estado'; \
+    traducir_label 'Assignees' 'Asignados'; \
+    traducir_label 'Priority' 'Prioridad'; \
+    traducir_label 'Mentions' 'Menciones'; \
+    traducir_label 'Label' 'Etiqueta'; \
+    traducir_label 'Cycle' 'Ciclo'; \
+    traducir_label 'Module' 'Modulo'; \
+    traducir_label 'Start date' 'Fecha de inicio'; \
+    traducir_label 'Target date' 'Fecha de vencimiento'; \
+    traducir_label 'Created at' 'Fecha de creacion'; \
+    traducir_label 'Updated at' 'Fecha de actualizacion'; \
+    traducir_label 'Subscriber' 'Suscriptor'; \
+    traducir_label 'Created by' 'Creado por'; \
+    traducir_label 'Projects' 'Proyectos'
+
 # La imagen base trae su propio entrypoint (supervisord + start.sh)
