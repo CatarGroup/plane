@@ -7,11 +7,13 @@
 import { useState } from "react";
 import { observer } from "mobx-react";
 // plane imports
-import { Collapsible } from "@makeplane/propel/components/collapsible";
+import { Collapsible } from "@plane/propel/collapsible";
+import { ChevronDownIcon } from "@plane/propel/icons";
 import type { E_SORT_ORDER, TActivityFilters, EActivityFilterType } from "@plane/constants";
 import { BASE_ACTIVITY_FILTER_TYPES, filterActivityOnSelectedFilters } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 import type { TCommentsOperations } from "@plane/types";
+import { cn } from "@plane/utils";
 // components
 import { CommentCard } from "@/components/comments/card/root";
 // hooks
@@ -99,26 +101,31 @@ export const IssueActivityCommentRoot = observer(function IssueActivityCommentRo
       )}
 
       {activities.length > 0 && (
-        <Collapsible
-          open={isActivityOpen}
-          onOpenChange={() => setIsActivityOpen((prev) => !prev)}
-          trigger={
+        <Collapsible.CollapsibleRoot
+          isOpen={isActivityOpen}
+          onToggle={() => setIsActivityOpen((prev) => !prev)}
+        >
+          <Collapsible.CollapsibleTrigger className="flex w-full items-center justify-between gap-2 py-1">
             <span className="inline-flex items-center gap-2 text-caption-sm-medium text-secondary">
               {t("common.activity")}
               <span className="text-14 leading-3! text-tertiary">{activities.length}</span>
             </span>
-          }
-        >
-          <div>
-            {activities.map((activityComment, index) => (
-              <IssueActivityItem
-                key={activityComment.id}
-                activityId={activityComment.id}
-                ends={index === 0 ? "top" : index === activities.length - 1 ? "bottom" : undefined}
-              />
-            ))}
-          </div>
-        </Collapsible>
+            <ChevronDownIcon
+              className={cn("size-4 shrink-0 text-tertiary transition-transform", { "rotate-180": isActivityOpen })}
+            />
+          </Collapsible.CollapsibleTrigger>
+          <Collapsible.CollapsibleContent>
+            <div>
+              {activities.map((activityComment, index) => (
+                <IssueActivityItem
+                  key={activityComment.id}
+                  activityId={activityComment.id}
+                  ends={index === 0 ? "top" : index === activities.length - 1 ? "bottom" : undefined}
+                />
+              ))}
+            </div>
+          </Collapsible.CollapsibleContent>
+        </Collapsible.CollapsibleRoot>
       )}
     </div>
   );
