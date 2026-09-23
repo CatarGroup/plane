@@ -1,11 +1,37 @@
 # Plane — emails en espanol + TEMA GRUPO ROMBOC (overlay sobre la imagen oficial)
 #
-# NO copia el codigo de Plane: solo encima las plantillas de email traducidas,
-# traduce los ASUNTOS (script que verifica cada sustitucion) e inyecta el tema.
-# Actualizar Plane = cambiar ARG PLANE_VERSION.
-
-ARG PLANE_VERSION=stable
+# Parte de la imagen AIO oficial y la parchea: plantillas de email
+# traducidas, ASUNTOS traducidos (script que verifica cada sustitucion) y
+# tema inyectado. La UNICA pieza que no viene de la imagen oficial es el
+# frontend web (/app/web): ese se recompila aparte desde un fork con
+# codigo fuente completo (rama "web-frontend-source-v1.4.2" en este mismo
+# repo) para poder hacer cambios de estructura, no solo de texto — ver
+# paso 0. La imagen de ese build (ghcr.io/catargroup/plane-web) la publica
+# el job "build-web" del workflow, ANTES de este build.
+#
+# PLANE_VERSION esta FIJADO (no "stable"): el frontend fuente (paso 0) y
+# el resto de la imagen AIO oficial tienen que ser la MISMA version, o el
+# frontend puede dejar de hablar bien con el backend. Al subir de version
+# hay que: 1) actualizar la rama web-frontend-source-vX.Y.Z con el tag
+# nuevo + nuestros cambios, 2) actualizar esta ARG y la referencia a esa
+# rama en build.yml, 3) actualizar el tag de ghcr.io/catargroup/plane-web
+# aqui abajo.
+ARG PLANE_VERSION=v1.4.2
+FROM ghcr.io/catargroup/plane-web:v1.4.2 AS web-img
 FROM makeplane/plane-aio-community:${PLANE_VERSION}
+
+# ---------------------------------------------------------------
+# 0) Frontend web recompilado desde fuente (con nuestros cambios de
+#    estructura, no solo de texto). Sustituye COMPLETO el frontend que
+#    trae la imagen oficial. Tiene que ir ANTES que cualquier parche de
+#    texto sobre /app/web (pasos 4, 9 y 10): esos operan sobre los
+#    ficheros ya compilados, y los de nuestro build tienen otro hash en
+#    el nombre.
+# ---------------------------------------------------------------
+RUN rm -rf /app/web
+COPY --from=web-img /usr/share/caddy/html /app/web
+RUN test -f /app/web/index.html \
+    || { echo "ERROR: el build de ghcr.io/catargroup/plane-web no produjo /app/web/index.html."; exit 1; }
 
 # ---------------------------------------------------------------
 # 1) Plantillas de email en espanol (backend en /app/backend)
