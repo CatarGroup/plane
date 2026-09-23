@@ -3,14 +3,49 @@ name: Build y publicar imagen
 # Construye la imagen del overlay (Plane en español + tema) y la publica
 # en el registro de GitHub (ghcr.io). Railway usa esa imagen como Source,
 # así nunca se pierde nuestra personalización en los redeploys.
+#
+# build-web compila el frontend desde codigo fuente completo (rama
+# web-frontend-source-v1.4.2) y publica esa imagen ANTES: el Dockerfile
+# principal la usa para sustituir el frontend oficial. Se dispara con los
+# mismos triggers para que un cambio en esa rama (nuevo ajuste de UI)
+# tambien reconstruya y redespliegue, sin tener que tocar main a mano.
 
 on:
   push:
-    branches: [main]
+    branches: [main, web-frontend-source-v1.4.2]
   workflow_dispatch:
 
 jobs:
+  build-web:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - name: Descargar el codigo fuente completo del frontend
+        uses: actions/checkout@v4
+        with:
+          ref: web-frontend-source-v1.4.2
+
+      - name: Entrar en el registro
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Construir y publicar el frontend
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: apps/web/Dockerfile.web
+          push: true
+          tags: |
+            ghcr.io/catargroup/plane-web:v1.4.2
+            ghcr.io/catargroup/plane-web:${{ github.sha }}
+
   build:
+    needs: build-web
     runs-on: ubuntu-latest
     env:
       RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
