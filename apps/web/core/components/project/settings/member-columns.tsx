@@ -71,7 +71,7 @@ export function NameColumn(props: NameProps) {
             {(isAdmin || id === currentUser?.id) && (
               <CustomMenu
                 ellipsis
-                buttonClassName="p-0.5 opacity-0 group-hover:opacity-100 transition-opacity"
+                buttonClassName="p-0.5"
                 optionsClassName="p-1.5"
                 placement="bottom-end"
               >
@@ -82,7 +82,7 @@ export function NameColumn(props: NameProps) {
                     onClick={() => setRemoveMemberModal(rowData)}
                   >
                     <CircleMinus className="size-3.5 flex-shrink-0" />
-                    {rowData.member?.id === currentUser?.id ? "Leave " : "Remove "}
+                    {rowData.member?.id === currentUser?.id ? "Salir " : "Quitar "}
                   </div>
                 </CustomMenu.MenuItem>
               </CustomMenu>
