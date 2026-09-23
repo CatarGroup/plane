@@ -101,12 +101,15 @@ COPY scripts/patch_profile_theme_default.py /tmp/patch_profile_theme_default.py
 RUN python3 /tmp/patch_profile_theme_default.py
 
 # ---------------------------------------------------------------
-# 7) Backfill: fuerza Tema Catar Bi en los perfiles YA EXISTENTES.
-#    Migracion de Django nueva (no toca ninguna existente), corre
-#    sola: la imagen AIO ya arranca "migrator" (manage.py migrate)
-#    en cada boot (ver supervisor.conf de la imagen base).
+# 7) Backfill: fuerza Tema Catar Bi (y sus actualizaciones de color) en
+#    los perfiles YA EXISTENTES. Migracion de Django nueva por cada
+#    backfill (nunca se edita una ya aplicada, no volveria a correr).
+#    Se copia el directorio migrations/ entero para no tener que tocar
+#    el Dockerfile cada vez que se anade una. Corren solas: la imagen
+#    AIO ya arranca "migrator" (manage.py migrate) en cada boot (ver
+#    supervisor.conf de la imagen base).
 # ---------------------------------------------------------------
-COPY migrations/0123_set_theme_catarbi_default.py /app/backend/plane/db/migrations/0123_set_theme_catarbi_default.py
+COPY migrations/ /app/backend/plane/db/migrations/
 
 # ---------------------------------------------------------------
 # 8) Sentry en el backend (API + workers + beat + migrator).
