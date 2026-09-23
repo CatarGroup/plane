@@ -4,10 +4,13 @@
  * See the LICENSE file for details.
  */
 
+import { useState } from "react";
 import { observer } from "mobx-react";
 // plane imports
+import { Collapsible } from "@makeplane/propel/components/collapsible";
 import type { E_SORT_ORDER, TActivityFilters, EActivityFilterType } from "@plane/constants";
 import { BASE_ACTIVITY_FILTER_TYPES, filterActivityOnSelectedFilters } from "@plane/constants";
+import { useTranslation } from "@plane/i18n";
 import type { TCommentsOperations } from "@plane/types";
 // components
 import { CommentCard } from "@/components/comments/card/root";
@@ -46,6 +49,10 @@ export const IssueActivityCommentRoot = observer(function IssueActivityCommentRo
     activity: { getActivityAndCommentsByIssueId },
     comment: { getCommentById },
   } = useIssueDetail();
+  // i18n
+  const { t } = useTranslation();
+  // state
+  const [isActivityOpen, setIsActivityOpen] = useState(false);
   // derived values
   const activityAndComments = getActivityAndCommentsByIssueId(issueId, sortOrder);
 
@@ -55,32 +62,64 @@ export const IssueActivityCommentRoot = observer(function IssueActivityCommentRo
 
   const filteredActivityAndComments = filterActivityOnSelectedFilters(activityAndComments, selectedFilters);
 
+  // comments together, chat-style, in chronological order
+  const comments = filteredActivityAndComments.filter(
+    (activityComment) => activityComment.activity_type === "COMMENT"
+  );
+  // everything else (attachments, field changes...) grouped separately, collapsed by default
+  const activities = filteredActivityAndComments.filter(
+    (activityComment) =>
+      activityComment.activity_type !== "COMMENT" &&
+      BASE_ACTIVITY_FILTER_TYPES.includes(activityComment.activity_type as EActivityFilterType)
+  );
+
   return (
-    <div>
-      {filteredActivityAndComments.map((activityComment, index) => {
-        const comment = getCommentById(activityComment.id);
-        return activityComment.activity_type === "COMMENT" ? (
-          <CommentCard
-            key={activityComment.id}
-            workspaceSlug={workspaceSlug}
-            entityId={issueId}
-            comment={comment}
-            activityOperations={activityOperations}
-            ends={index === 0 ? "top" : index === filteredActivityAndComments.length - 1 ? "bottom" : undefined}
-            showAccessSpecifier={!!showAccessSpecifier}
-            showCopyLinkOption={!isIntakeIssue}
-            disabled={disabled}
-            projectId={projectId}
-            enableReplies
-          />
-        ) : BASE_ACTIVITY_FILTER_TYPES.includes(activityComment.activity_type as EActivityFilterType) ? (
-          <IssueActivityItem
-            key={activityComment.id}
-            activityId={activityComment.id}
-            ends={index === 0 ? "top" : index === filteredActivityAndComments.length - 1 ? "bottom" : undefined}
-          />
-        ) : null;
-      })}
+    <div className="space-y-3">
+      {comments.length > 0 && (
+        <div>
+          {comments.map((activityComment, index) => {
+            const comment = getCommentById(activityComment.id);
+            return (
+              <CommentCard
+                key={activityComment.id}
+                workspaceSlug={workspaceSlug}
+                entityId={issueId}
+                comment={comment}
+                activityOperations={activityOperations}
+                ends={index === 0 ? "top" : index === comments.length - 1 ? "bottom" : undefined}
+                showAccessSpecifier={!!showAccessSpecifier}
+                showCopyLinkOption={!isIntakeIssue}
+                disabled={disabled}
+                projectId={projectId}
+                enableReplies
+              />
+            );
+          })}
+        </div>
+      )}
+
+      {activities.length > 0 && (
+        <Collapsible
+          open={isActivityOpen}
+          onOpenChange={() => setIsActivityOpen((prev) => !prev)}
+          trigger={
+            <span className="inline-flex items-center gap-2 text-caption-sm-medium text-secondary">
+              {t("common.activity")}
+              <span className="text-14 leading-3! text-tertiary">{activities.length}</span>
+            </span>
+          }
+        >
+          <div>
+            {activities.map((activityComment, index) => (
+              <IssueActivityItem
+                key={activityComment.id}
+                activityId={activityComment.id}
+                ends={index === 0 ? "top" : index === activities.length - 1 ? "bottom" : undefined}
+              />
+            ))}
+          </div>
+        </Collapsible>
+      )}
     </div>
   );
 });
