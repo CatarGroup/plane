@@ -4,15 +4,15 @@ name: Build y publicar imagen
 # en el registro de GitHub (ghcr.io). Railway usa esa imagen como Source,
 # así nunca se pierde nuestra personalización en los redeploys.
 #
-# build-web compila el frontend desde codigo fuente completo (rama
-# web-frontend-source-v1.4.2) y publica esa imagen ANTES: el Dockerfile
-# principal la usa para sustituir el frontend oficial. Se dispara con los
-# mismos triggers para que un cambio en esa rama (nuevo ajuste de UI)
-# tambien reconstruya y redespliegue, sin tener que tocar main a mano.
+# Todo vive en la rama main: el overlay (Dockerfile, scripts, templates,
+# tema) Y el codigo fuente completo de Plane (apps/, packages/), asi que
+# un solo push aqui dispara todo. build-web compila el frontend desde ese
+# mismo codigo fuente y publica esa imagen ANTES: el Dockerfile principal
+# la usa para sustituir el frontend oficial (ver su paso 0).
 
 on:
   push:
-    branches: [main, web-frontend-source-v1.4.2]
+    branches: [main]
   workflow_dispatch:
 
 jobs:
@@ -22,10 +22,8 @@ jobs:
       contents: read
       packages: write
     steps:
-      - name: Descargar el codigo fuente completo del frontend
+      - name: Descargar el repositorio
         uses: actions/checkout@v4
-        with:
-          ref: web-frontend-source-v1.4.2
 
       - name: Entrar en el registro
         uses: docker/login-action@v3

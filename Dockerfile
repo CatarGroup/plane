@@ -3,19 +3,18 @@
 # Parte de la imagen AIO oficial y la parchea: plantillas de email
 # traducidas, ASUNTOS traducidos (script que verifica cada sustitucion) y
 # tema inyectado. La UNICA pieza que no viene de la imagen oficial es el
-# frontend web (/app/web): ese se recompila aparte desde un fork con
-# codigo fuente completo (rama "web-frontend-source-v1.4.2" en este mismo
-# repo) para poder hacer cambios de estructura, no solo de texto — ver
-# paso 0. La imagen de ese build (ghcr.io/catargroup/plane-web) la publica
-# el job "build-web" del workflow, ANTES de este build.
+# frontend web (/app/web): este mismo repo trae ADEMAS el codigo fuente
+# completo de Plane (apps/, packages/...) para poder recompilarlo con
+# cambios de estructura, no solo de texto — ver paso 0. Esa imagen
+# (ghcr.io/catargroup/plane-web) la publica el job "build-web" del
+# workflow, ANTES de este build, usando ese mismo codigo fuente.
 #
 # PLANE_VERSION esta FIJADO (no "stable"): el frontend fuente (paso 0) y
 # el resto de la imagen AIO oficial tienen que ser la MISMA version, o el
 # frontend puede dejar de hablar bien con el backend. Al subir de version
-# hay que: 1) actualizar la rama web-frontend-source-vX.Y.Z con el tag
-# nuevo + nuestros cambios, 2) actualizar esta ARG y la referencia a esa
-# rama en build.yml, 3) actualizar el tag de ghcr.io/catargroup/plane-web
-# aqui abajo.
+# hay que: 1) traer los cambios del nuevo tag de Plane a apps/ y packages/
+# (merge/rebase, puede haber conflictos), 2) actualizar esta ARG,
+# 3) actualizar el tag de ghcr.io/catargroup/plane-web aqui abajo.
 ARG PLANE_VERSION=v1.4.2
 FROM ghcr.io/catargroup/plane-web:v1.4.2 AS web-img
 FROM makeplane/plane-aio-community:${PLANE_VERSION}

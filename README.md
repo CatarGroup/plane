@@ -10,15 +10,20 @@ añadimos encima nuestras plantillas, un parche puntual del asunto y nuestro CSS
 Así, **actualizar Plane = cambiar el tag de la imagen base** y nada de lo nuestro se pierde.
 
 La única excepción es el **frontend web**, cuando el cambio no es de texto sino de
-estructura (p. ej. reagrupar cosas en la pantalla): en ese caso se recompila desde un
-fork con el código fuente completo, en la rama `web-frontend-source-v1.4.2` de este
-mismo repo. El job `build-web` del workflow lo compila y publica en
+estructura (p. ej. reagrupar cosas en la pantalla): en ese caso se recompila desde el
+código fuente completo de Plane, que este mismo repo trae además del overlay (carpetas
+`apps/` y `packages/`, junto a `Dockerfile`, `templates/`, `theme/`, etc. — todo en
+`main`, sin ramas aparte). El job `build-web` del workflow lo compila y publica en
 `ghcr.io/catargroup/plane-web`, y el `Dockerfile` principal sustituye con eso el
 frontend de la imagen oficial (paso 0) antes de aplicar el resto de parches de texto.
 Actualizar esa parte cuesta más: hay que traer los cambios de la nueva versión de Plane
-a esa rama (merge/rebase) en vez de solo cambiar un tag.
+a `apps/`/`packages/` (merge/rebase, puede haber conflictos) en vez de solo cambiar un tag.
 
 ## Contenido
+
+El overlay (lo nuestro) convive con el código fuente completo de Plane (`apps/`,
+`packages/`, etc. — igual que un clon normal del repo de Plane, para poder compilar el
+frontend). Lo relevante nuestro:
 
 ```
 ├── Dockerfile                     # overlay sobre makeplane/plane-aio-community
