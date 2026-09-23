@@ -24,14 +24,25 @@ FROM makeplane/plane-aio-community:${PLANE_VERSION}
 # 0) Frontend web recompilado desde fuente (con nuestros cambios de
 #    estructura, no solo de texto). Sustituye COMPLETO el frontend que
 #    trae la imagen oficial. Tiene que ir ANTES que cualquier parche de
-#    texto sobre /app/web (pasos 4, 9 y 10): esos operan sobre los
+#    texto sobre /app/web (pasos 4, 5, 9, 10 y 11): esos operan sobre los
 #    ficheros ya compilados, y los de nuestro build tienen otro hash en
 #    el nombre.
+#
+#    OJO con la RUTA de origen: la imagen oficial de Plane sirve el
+#    frontend con Caddy (/usr/share/caddy/html), pero la NUESTRA lo
+#    compila con apps/web/Dockerfile.web, que termina en una etapa
+#    nginx:alpine y deja el build en /usr/share/nginx/html
+#    (ver el COPY final de ese Dockerfile: apps/web/build/client).
+#    Copiar de /usr/share/caddy/html aqui hacia que el build fallara
+#    con "failed to calculate checksum ... /usr/share/caddy/html: not
+#    found" y el despliegue de Railway nunca llegaba a lanzarse.
 # ---------------------------------------------------------------
 RUN rm -rf /app/web
-COPY --from=web-img /usr/share/caddy/html /app/web
+COPY --from=web-img /usr/share/nginx/html /app/web
 RUN test -f /app/web/index.html \
     || { echo "ERROR: el build de ghcr.io/catargroup/plane-web no produjo /app/web/index.html."; exit 1; }
+RUN ls /app/web/assets/globals-*.css > /dev/null \
+    || { echo "ERROR: el frontend de plane-web no trae /app/web/assets/globals-*.css (el paso 4 del tema lo necesita)."; exit 1; }
 
 # ---------------------------------------------------------------
 # 1) Plantillas de email en espanol (backend en /app/backend)

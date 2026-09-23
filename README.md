@@ -112,3 +112,10 @@ En el servicio **Plane** del proyecto de Railway:
 - Las plantillas van a `/app/backend/templates/` (el backend de la imagen AIO vive en `/app/backend`).
 - El tema se inyecta en `/app/web/` (frontend servido por nginx dentro de la misma imagen).
 - Las credenciales reales (SMTP, tokens) **no** viven aquí: van en las variables de entorno de Railway.
+- **Ruta del frontend recompilado (23/09/2026):** al sustituir el frontend de la imagen oficial hay
+  que copiar del sitio correcto. La imagen oficial de Plane sirve el frontend con **Caddy**
+  (`/usr/share/caddy/html`), pero el nuestro lo compila `apps/web/Dockerfile.web`, que acaba en una
+  etapa **nginx:alpine** y deja el build en **`/usr/share/nginx/html`**. Copiar de la ruta de Caddy
+  hacía fallar el build (`failed to calculate checksum ... "/usr/share/caddy/html": not found`) y
+  el redespliegue de Railway no llegaba a lanzarse. Antes de tocar el paso 0: comprobar la ruta en
+  el `COPY` final de `apps/web/Dockerfile.web` de la rama fuente.
