@@ -20,7 +20,17 @@ COPY scripts/traducir_subjects.py /tmp/traducir_subjects.py
 RUN python3 /tmp/traducir_subjects.py
 
 # ---------------------------------------------------------------
-# 3) TEMA GRUPO ROMBOC — se CONCATENA al final del CSS de Plane.
+# 3) Textos del email de novedades de tareas: resumen en espanol,
+#    "tarea" en vez de "issue" y asunto SIN el identificador
+#    (p.ej. "GRUPO-40") delante del titulo. Mismo criterio que el
+#    paso 2: el script verifica cada sustitucion y el build FALLA
+#    si Plane cambia el fichero.
+# ---------------------------------------------------------------
+COPY scripts/traducir_backend_emails.py /tmp/traducir_backend_emails.py
+RUN python3 /tmp/traducir_backend_emails.py
+
+# ---------------------------------------------------------------
+# 4) TEMA GRUPO ROMBOC — se CONCATENA al final del CSS de Plane.
 #    (inyectar un <link> en el HTML rompe la hidratacion de React:
 #     el navegador acaba descartandolo y el tema no se ve)
 # ---------------------------------------------------------------
@@ -33,7 +43,7 @@ RUN set -eux; \
       || { echo "ERROR: el tema no se ha anadido al CSS."; exit 1; }
 
 # ---------------------------------------------------------------
-# 4) "Tema personalizado" -> "Tema Catar Bi" en el selector de Ajustes.
+# 5) "Tema personalizado" -> "Tema Catar Bi" en el selector de Ajustes.
 #    El texto vive en JSON (packages/i18n) pero Next.js lo compila
 #    DENTRO del JS del build (import dinamico, no queda como fichero
 #    plano), asi que se sustituye tal cual en los assets ya construidos.
@@ -47,14 +57,14 @@ RUN set -eux; \
       || { echo "ERROR: no se ha renombrado el tema."; exit 1; }
 
 # ---------------------------------------------------------------
-# 5) Tema Catar Bi como default para perfiles NUEVOS (backend).
+# 6) Tema Catar Bi como default para perfiles NUEVOS (backend).
 #    Parche puntual sobre Profile.theme, verificado en el build.
 # ---------------------------------------------------------------
 COPY scripts/patch_profile_theme_default.py /tmp/patch_profile_theme_default.py
 RUN python3 /tmp/patch_profile_theme_default.py
 
 # ---------------------------------------------------------------
-# 6) Backfill: fuerza Tema Catar Bi en los perfiles YA EXISTENTES.
+# 7) Backfill: fuerza Tema Catar Bi en los perfiles YA EXISTENTES.
 #    Migracion de Django nueva (no toca ninguna existente), corre
 #    sola: la imagen AIO ya arranca "migrator" (manage.py migrate)
 #    en cada boot (ver supervisor.conf de la imagen base).
@@ -62,7 +72,7 @@ RUN python3 /tmp/patch_profile_theme_default.py
 COPY migrations/0123_set_theme_catarbi_default.py /app/backend/plane/db/migrations/0123_set_theme_catarbi_default.py
 
 # ---------------------------------------------------------------
-# 7) Sentry en el backend (API + workers + beat + migrator).
+# 8) Sentry en el backend (API + workers + beat + migrator).
 #    Solo se activa si SENTRY_DSN esta en las env vars de Railway;
 #    el DSN no vive en el repo. Parche verificado en el build.
 # ---------------------------------------------------------------
@@ -71,8 +81,8 @@ COPY scripts/patch_sentry_backend.py /tmp/patch_sentry_backend.py
 RUN python3 /tmp/patch_sentry_backend.py
 
 # ---------------------------------------------------------------
-# 8) "Search commands..." -> "Buscar" en la caja de busqueda de
-#    arriba. Mismo mecanismo que el paso 4 (texto compilado dentro
+# 9) "Search commands..." -> "Buscar" en la caja de busqueda de
+#    arriba. Mismo mecanismo que el paso 5 (texto compilado dentro
 #    del JS, no fichero de traduccion aparte). Frase larga y unica,
 #    sin riesgo de tocar nombres de variables del codigo (a
 #    diferencia de palabras sueltas como "State" o "Priority", que
@@ -87,7 +97,7 @@ RUN set -eux; \
       || { echo "ERROR: no se ha traducido la caja de busqueda."; exit 1; }
 
 # ---------------------------------------------------------------
-# 9) Etiquetas del desplegable de filtros (State, Priority...).
+# 10) Etiquetas del desplegable de filtros (State, Priority...).
 #    Viven TODAS con el mismo patron seguro label:`Palabra` (un
 #    objeto de configuracion, una entrada por campo). Ese patron no
 #    coincide con nombres de variables del JS minificado — a
@@ -125,7 +135,7 @@ RUN set -eux; \
     traducir_label 'Projects' 'Proyectos'
 
 # ---------------------------------------------------------------
-# 10) "Filters" -> "Filtros" (aparecia en varios sitios: Vistas,
+# 11) "Filters" -> "Filtros" (aparecia en varios sitios: Vistas,
 #     Modulos, notificaciones...). Cada aparicion vive en un objeto
 #     de etiquetas propio con su propio patron unico — NUNCA se
 #     sustituye la palabra suelta "Filters" (aparece tambien dentro
