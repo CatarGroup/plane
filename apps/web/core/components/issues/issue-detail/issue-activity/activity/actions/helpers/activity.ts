@@ -12,18 +12,18 @@ export const getRelationActivityContent = (activity: TIssueActivity | undefined)
   switch (activity.field) {
     case "blocking":
       return activity.old_value === ""
-        ? `marked this work item is blocking work item `
-        : `removed the blocking work item `;
+        ? `marcó esta tarea como bloqueante de la tarea `
+        : `quitó el bloqueo sobre la tarea `;
     case "blocked_by":
       return activity.old_value === ""
-        ? `marked this work item is being blocked by `
-        : `removed this work item being blocked by work item `;
+        ? `marcó esta tarea como bloqueada por `
+        : `quitó el bloqueo de la tarea `;
     case "duplicate":
       return activity.old_value === ""
-        ? `marked this work item as duplicate of `
-        : `removed this work item as a duplicate of `;
+        ? `marcó esta tarea como duplicada de `
+        : `quitó la marca de duplicado de `;
     case "relates_to":
-      return activity.old_value === "" ? `marked that this work item relates to ` : `removed the relation from `;
+      return activity.old_value === "" ? `marcó que esta tarea está relacionada con ` : `quitó la relación con `;
   }
 
   return;

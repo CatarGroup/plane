@@ -32,13 +32,13 @@ export const IssueStartDateActivity = observer(function IssueStartDateActivity(p
       ends={ends}
     >
       <>
-        {activity.new_value ? `set the start date to ` : `removed the start date `}
+        {activity.new_value ? `cambió la fecha de inicio a ` : `quitó la fecha de inicio `}
         {activity.new_value && (
           <>
             <span className="font-medium text-primary">{renderFormattedDate(activity.new_value)}</span>
           </>
         )}
-        {showIssue && (activity.new_value ? ` for ` : ` from `)}
+        {showIssue && (activity.new_value ? ` en ` : ` de `)}
         {showIssue && <IssueLink activityId={activityId} />}.
       </>
     </IssueActivityBlockComponent>

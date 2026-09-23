@@ -38,14 +38,14 @@ export const IssueDefaultActivity = observer(function IssueDefaultActivity(props
         {activity.verb === "created" ? (
           source && source !== EInboxIssueSource.IN_APP ? (
             <span>
-              created the work item via{" "}
+              creó la tarea vía{" "}
               <span className="font-medium">{capitalizeFirstLetter(source.toLowerCase() || "")}</span>.
             </span>
           ) : (
-            <span> created the work item.</span>
+            <span> creó la tarea.</span>
           )
         ) : (
-          <span> deleted a work item.</span>
+          <span> eliminó una tarea.</span>
         )}
       </>
     </IssueActivityBlockComponent>
