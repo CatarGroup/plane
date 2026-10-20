@@ -27,30 +27,30 @@ type TAuthHeader = {
 const Titles = {
   [EAuthModes.SIGN_IN]: {
     [EAuthSteps.EMAIL]: {
-      header: "Work in all dimensions.",
-      subHeader: "Welcome back to Plane.",
+      header: "Trabaja en todas las dimensiones.",
+      subHeader: "Bienvenido de vuelta.",
     },
     [EAuthSteps.PASSWORD]: {
-      header: "Work in all dimensions.",
-      subHeader: "Welcome back to Plane.",
+      header: "Trabaja en todas las dimensiones.",
+      subHeader: "Bienvenido de vuelta.",
     },
     [EAuthSteps.UNIQUE_CODE]: {
-      header: "Work in all dimensions.",
-      subHeader: "Welcome back to Plane.",
+      header: "Trabaja en todas las dimensiones.",
+      subHeader: "Bienvenido de vuelta.",
     },
   },
   [EAuthModes.SIGN_UP]: {
     [EAuthSteps.EMAIL]: {
-      header: "Work in all dimensions.",
-      subHeader: "Create your Plane account.",
+      header: "Trabaja en todas las dimensiones.",
+      subHeader: "Crea tu cuenta.",
     },
     [EAuthSteps.PASSWORD]: {
-      header: "Work in all dimensions.",
-      subHeader: "Create your Plane account.",
+      header: "Trabaja en todas las dimensiones.",
+      subHeader: "Crea tu cuenta.",
     },
     [EAuthSteps.UNIQUE_CODE]: {
-      header: "Work in all dimensions.",
-      subHeader: "Create your Plane account.",
+      header: "Trabaja en todas las dimensiones.",
+      subHeader: "Crea tu cuenta.",
     },
   },
 };
@@ -89,8 +89,8 @@ export const AuthHeader = observer(function AuthHeader(props: TAuthHeader) {
         ),
         subHeader:
           mode == EAuthModes.SIGN_UP
-            ? "Create an account to start managing work with your team."
-            : "Log in to start managing work with your team.",
+            ? "Crea una cuenta para empezar a gestionar el trabajo con tu equipo."
+            : "Inicia sesion para gestionar el trabajo con tu equipo.",
       };
     }
 
