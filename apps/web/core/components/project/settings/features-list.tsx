@@ -10,7 +10,7 @@ import { useTranslation } from "@plane/i18n";
 import { setPromiseToast } from "@plane/propel/toast";
 import { Tooltip } from "@plane/propel/tooltip";
 import type { IProject } from "@plane/types";
-import { CycleIcon, IntakeIcon, ModuleIcon, PageIcon, ViewsIcon } from "@plane/propel/icons";
+import { IntakeIcon, ModuleIcon, PageIcon, ViewsIcon } from "@plane/propel/icons";
 // components
 import { SettingsBoxedControlItem } from "@/components/settings/boxed-control-item";
 import { SettingsHeading } from "@/components/settings/heading";
@@ -28,20 +28,11 @@ type Props = {
 };
 
 const PROJECT_FEATURES_LIST = {
-  cycles: {
-    key: "cycles",
-    property: "cycle_view",
-    title: "Cycles",
-    description: "Timebox work as you see fit per project and change frequency from one period to the next.",
-    icon: <CycleIcon className="h-5 w-5 flex-shrink-0 rotate-180 text-tertiary" />,
-    isPro: false,
-    isEnabled: true,
-  },
   modules: {
     key: "modules",
     property: "module_view",
-    title: "Modules",
-    description: "Group work into sub-project-like set-ups with their own leads and assignees.",
+    title: "Proyectos",
+    description: "Organiza el trabajo en proyectos con sus propios responsables y asignados.",
     icon: <ModuleIcon width={20} height={20} className="flex-shrink-0 text-tertiary" />,
     isPro: false,
     isEnabled: true,
@@ -49,8 +40,8 @@ const PROJECT_FEATURES_LIST = {
   views: {
     key: "views",
     property: "issue_views_view",
-    title: "Views",
-    description: "Save sorts, filters, and display options for later or share them.",
+    title: "Vistas",
+    description: "Guarda ordenaciones, filtros y opciones de visualización para usarlos después o compartirlos.",
     icon: <ViewsIcon className="h-5 w-5 flex-shrink-0 text-tertiary" />,
     isPro: false,
     isEnabled: true,
@@ -58,8 +49,8 @@ const PROJECT_FEATURES_LIST = {
   pages: {
     key: "pages",
     property: "page_view",
-    title: "Pages",
-    description: "Write anything like you write anything.",
+    title: "Páginas",
+    description: "Escribe cualquier cosa, como lo harías en cualquier sitio.",
     icon: <PageIcon className="h-5 w-5 flex-shrink-0 text-tertiary" />,
     isPro: false,
     isEnabled: true,
@@ -67,8 +58,8 @@ const PROJECT_FEATURES_LIST = {
   inbox: {
     key: "intake",
     property: "inbox_view",
-    title: "Intake",
-    description: "Consider and discuss work items before you add them to your project.",
+    title: "Entrada",
+    description: "Revisa y comenta las tareas antes de añadirlas a tu departamento.",
     icon: <IntakeIcon className="h-5 w-5 flex-shrink-0 text-tertiary" />,
     isPro: false,
     isEnabled: true,

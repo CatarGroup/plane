@@ -46,7 +46,7 @@ export const QuarterChartView = observer(function QuarterChartView(_props: any) 
                   {quarterBlock?.title}
                   {quarterBlock.today && (
                     <span className={cn("ml-2 rounded-sm bg-accent-primary px-1 text-9 font-medium text-on-color")}>
-                      Current
+                      Actual
                     </span>
                   )}
                 </div>
@@ -73,7 +73,7 @@ export const QuarterChartView = observer(function QuarterChartView(_props: any) 
                           "rounded-lg bg-accent-primary px-2 text-on-color": monthBlock.today,
                         })}
                       >
-                        {monthBlock.monthData.shortTitle}
+                        {monthBlock.monthData.abbreviation}
                       </span>
                     </div>
                   </div>

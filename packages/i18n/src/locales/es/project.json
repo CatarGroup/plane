@@ -19,9 +19,9 @@
     "start_date": "Fecha de inicio",
     "end_date": "Fecha de finalización",
     "in_your_timezone": "En tu zona horaria",
-    "transfer_work_items": "Transferir {count} elementos de trabajo",
+    "transfer_work_items": "Transferir {count} tareas",
     "transfer": {
-      "no_cycles_available": "No hay otros ciclos disponibles para transferir elementos de trabajo."
+      "no_cycles_available": "No hay otros ciclos disponibles para transferir tareas."
     },
     "date_range": "Rango de fechas",
     "add_date": "Agregar fecha",
@@ -29,9 +29,9 @@
       "label": "Ciclo activo",
       "progress": "Progreso",
       "chart": "Gráfico de avance",
-      "priority_issue": "Elementos de trabajo prioritarios",
+      "priority_issue": "Tareas prioritarias",
       "assignees": "Asignados",
-      "issue_burndown": "Avance de elementos de trabajo",
+      "issue_burndown": "Avance de tareas",
       "ideal": "Ideal",
       "current": "Actual",
       "labels": "Etiquetas",
@@ -103,7 +103,7 @@
     "empty_state": {
       "general": {
         "title": "Agrupa y delimita tu trabajo en Ciclos.",
-        "description": "Divide el trabajo en bloques de tiempo, trabaja hacia atrás desde la fecha límite de tu proyecto para establecer fechas, y haz un progreso tangible como equipo.",
+        "description": "Divide el trabajo en bloques de tiempo, trabaja hacia atrás desde la fecha límite de tu departamento para establecer fechas, y haz un progreso tangible como equipo.",
         "primary_button": {
           "text": "Establece tu primer ciclo",
           "comic": {
@@ -113,18 +113,18 @@
         }
       },
       "no_issues": {
-        "title": "No hay elementos de trabajo agregados al ciclo",
-        "description": "Agrega o crea elementos de trabajo que desees delimitar y entregar dentro de este ciclo",
+        "title": "No hay tareas agregadas al ciclo",
+        "description": "Agrega o crea tareas que desees delimitar y entregar dentro de este ciclo",
         "primary_button": {
-          "text": "Crear nuevo elemento de trabajo"
+          "text": "Crear nueva tarea"
         },
         "secondary_button": {
-          "text": "Agregar elemento de trabajo existente"
+          "text": "Agregar tarea existente"
         }
       },
       "completed_no_issues": {
-        "title": "No hay elementos de trabajo en el ciclo",
-        "description": "No hay elementos de trabajo en el ciclo. Los elementos de trabajo están transferidos u ocultos. Para ver elementos de trabajo ocultos si los hay, actualiza tus propiedades de visualización según corresponda."
+        "title": "No hay tareas en el ciclo",
+        "description": "No hay tareas en el ciclo. Las tareas están transferidas u ocultas. Para ver tareas ocultas si las hay, actualiza tus propiedades de visualización según corresponda."
       },
       "active": {
         "title": "No hay ciclo activo",
@@ -132,19 +132,19 @@
       },
       "archived": {
         "title": "Aún no hay ciclos archivados",
-        "description": "Para mantener ordenado tu proyecto, archiva los ciclos completados. Encuéntralos aquí una vez archivados."
+        "description": "Para mantener ordenado tu departamento, archiva los ciclos completados. Encuéntralos aquí una vez archivados."
       }
     }
   },
   "project_views": {
     "empty_state": {
       "general": {
-        "title": "Guarda vistas filtradas para tu proyecto. Crea tantas como necesites",
-        "description": "Las vistas son un conjunto de filtros guardados que usas frecuentemente o a los que quieres tener fácil acceso. Todos tus colegas en un proyecto pueden ver las vistas de todos y elegir la que mejor se adapte a sus necesidades.",
+        "title": "Guarda vistas filtradas para tu departamento. Crea tantas como necesites",
+        "description": "Las vistas son un conjunto de filtros guardados que usas frecuentemente o a los que quieres tener fácil acceso. Todos tus colegas en un departamento pueden ver las vistas de todos y elegir la que mejor se adapte a sus necesidades.",
         "primary_button": {
           "text": "Crea tu primera vista",
           "comic": {
-            "title": "Las vistas funcionan sobre las propiedades de los Elementos de trabajo.",
+            "title": "Las vistas funcionan sobre las propiedades de las Tareas.",
             "description": "Puedes crear una vista desde aquí con tantas propiedades como filtros como consideres apropiado."
           }
         },
@@ -154,21 +154,21 @@
         }
       },
       "no_archived_issues": {
-        "title": "Aún no hay elementos de trabajo archivados",
-        "description": "Manualmente o mediante automatización, puedes archivar elementos de trabajo que estén completados o cancelados. Encuéntralos aquí una vez archivados.",
+        "title": "Aún no hay tareas archivadas",
+        "description": "Manualmente o mediante automatización, puedes archivar tareas que estén completadas o canceladas. Encuéntralas aquí una vez archivadas.",
         "primary_button": {
           "text": "Configurar automatización"
         }
       },
       "issues_empty_filter": {
-        "title": "No se encontraron elementos de trabajo que coincidan con los filtros aplicados",
+        "title": "No se encontraron tareas que coincidan con los filtros aplicados",
         "secondary_button": {
           "text": "Limpiar todos los filtros"
         }
       },
       "public": {
         "title": "Aún no hay páginas públicas",
-        "description": "Ve las páginas compartidas con todos en tu proyecto aquí mismo.",
+        "description": "Ve las páginas compartidas con todos en tu departamento aquí mismo.",
         "primary_button": {
           "text": "Crea tu primera página"
         }
@@ -190,25 +190,25 @@
   "project_issues": {
     "empty_state": {
       "no_issues": {
-        "title": "Crea un elemento de trabajo y asígnalo a alguien, incluso a ti mismo",
-        "description": "Piensa en los elementos de trabajo como trabajos, tareas, trabajo o JTBD. Los cuales nos gustan. Un elemento de trabajo y sus sub-elementos de trabajo son generalmente acciones basadas en tiempo asignadas a miembros de tu equipo. Tu equipo crea, asigna y completa elementos de trabajo para mover tu proyecto hacia su objetivo.",
+        "title": "Crea una tarea y asígnala a alguien, incluso a ti mismo",
+        "description": "Piensa en las tareas como trabajos, tareas, trabajo o JTBD. Los cuales nos gustan. Una tarea y sus sub-tareas son generalmente acciones basadas en tiempo asignadas a miembros de tu equipo. Tu equipo crea, asigna y completa tareas para mover tu departamento hacia su objetivo.",
         "primary_button": {
-          "text": "Crea tu primer elemento de trabajo",
+          "text": "Crea tu primera tarea",
           "comic": {
-            "title": "Los elementos de trabajo son bloques de construcción en Plane.",
-            "description": "Rediseñar la interfaz de Plane, Cambiar la marca de la empresa o Lanzar el nuevo sistema de inyección de combustible son ejemplos de elementos de trabajo que probablemente tienen sub-elementos de trabajo."
+            "title": "Las tareas son bloques de construcción en Plane.",
+            "description": "Rediseñar la interfaz de Plane, Cambiar la marca de la empresa o Lanzar el nuevo sistema de inyección de combustible son ejemplos de tareas que probablemente tienen sub-tareas."
           }
         }
       },
       "no_archived_issues": {
-        "title": "Aún no hay elementos de trabajo archivados",
-        "description": "Manualmente o a través de automatización, puedes archivar elementos de trabajo que estén completados o cancelados. Encuéntralos aquí una vez archivados.",
+        "title": "Aún no hay tareas archivadas",
+        "description": "Manualmente o a través de automatización, puedes archivar tareas que estén completadas o canceladas. Encuéntralas aquí una vez archivadas.",
         "primary_button": {
           "text": "Establecer automatización"
         }
       },
       "issues_empty_filter": {
-        "title": "No se encontraron elementos de trabajo que coincidan con los filtros aplicados",
+        "title": "No se encontraron tareas que coincidan con los filtros aplicados",
         "secondary_button": {
           "text": "Limpiar todos los filtros"
         }
@@ -216,55 +216,55 @@
     }
   },
   "project_module": {
-    "add_module": "Agregar Módulo",
-    "update_module": "Actualizar Módulo",
-    "create_module": "Crear Módulo",
-    "archive_module": "Archivar Módulo",
-    "restore_module": "Restaurar Módulo",
-    "delete_module": "Eliminar módulo",
+    "add_module": "Agregar Proyecto",
+    "update_module": "Actualizar Proyecto",
+    "create_module": "Crear Proyecto",
+    "archive_module": "Archivar Proyecto",
+    "restore_module": "Restaurar Proyecto",
+    "delete_module": "Eliminar proyecto",
     "empty_state": {
       "general": {
-        "title": "Mapea los hitos de tu proyecto a Módulos y rastrea el trabajo agregado fácilmente.",
-        "description": "Un grupo de elementos de trabajo que pertenecen a un padre lógico y jerárquico forman un módulo. Piensa en ellos como una forma de rastrear el trabajo por hitos del proyecto. Tienen sus propios períodos y fechas límite, así como análisis para ayudarte a ver qué tan cerca o lejos estás de un hito.",
+        "title": "Mapea los hitos de tu departamento a Proyectos y rastrea el trabajo agregado fácilmente.",
+        "description": "Un grupo de tareas que pertenecen a un padre lógico y jerárquico forman un proyecto. Piensa en ellos como una forma de rastrear el trabajo por hitos del departamento. Tienen sus propios períodos y fechas límite, así como análisis para ayudarte a ver qué tan cerca o lejos estás de un hito.",
         "primary_button": {
-          "text": "Construye tu primer módulo",
+          "text": "Construye tu primer proyecto",
           "comic": {
-            "title": "Los módulos ayudan a agrupar el trabajo por jerarquía.",
-            "description": "Un módulo de carrito, un módulo de chasis y un módulo de almacén son buenos ejemplos de esta agrupación."
+            "title": "Los proyectos ayudan a agrupar el trabajo por jerarquía.",
+            "description": "Un proyecto de carrito, un proyecto de chasis y un proyecto de almacén son buenos ejemplos de esta agrupación."
           }
         }
       },
       "no_issues": {
-        "title": "No hay elementos de trabajo en el módulo",
-        "description": "Crea o agrega elementos de trabajo que quieras lograr como parte de este módulo",
+        "title": "No hay tareas en el proyecto",
+        "description": "Crea o agrega tareas que quieras lograr como parte de este proyecto",
         "primary_button": {
-          "text": "Crear nuevos elementos de trabajo"
+          "text": "Crear nuevas tareas"
         },
         "secondary_button": {
-          "text": "Agregar un elemento de trabajo existente"
+          "text": "Agregar una tarea existente"
         }
       },
       "archived": {
-        "title": "Aún no hay Módulos archivados",
-        "description": "Para mantener ordenado tu proyecto, archiva los módulos completados o cancelados. Encuéntralos aquí una vez archivados."
+        "title": "Aún no hay Proyectos archivados",
+        "description": "Para mantener ordenado tu departamento, archiva los proyectos completados o cancelados. Encuéntralos aquí una vez archivados."
       },
       "sidebar": {
-        "in_active": "Este módulo aún no está activo.",
+        "in_active": "Este proyecto aún no está activo.",
         "invalid_date": "Fecha inválida. Por favor ingresa una fecha válida."
       }
     },
     "quick_actions": {
-      "archive_module": "Archivar módulo",
-      "archive_module_description": "Solo los módulos completados o\ncancelados pueden ser archivados.",
-      "delete_module": "Eliminar módulo"
+      "archive_module": "Archivar proyecto",
+      "archive_module_description": "Solo los proyectos completados o\ncancelados pueden ser archivados.",
+      "delete_module": "Eliminar proyecto"
     },
     "toast": {
       "copy": {
-        "success": "Enlace del módulo copiado al portapapeles"
+        "success": "Enlace del proyecto copiado al portapapeles"
       },
       "delete": {
-        "success": "Módulo eliminado exitosamente",
-        "error": "Error al eliminar el módulo"
+        "success": "Proyecto eliminado exitosamente",
+        "error": "Error al eliminar el proyecto"
       }
     }
   },
@@ -272,7 +272,7 @@
     "empty_state": {
       "general": {
         "title": "Escribe una nota, un documento o una base de conocimiento completa. Obtén ayuda de Galileo, el asistente de IA de Plane, para comenzar",
-        "description": "Las páginas son espacios para pensamientos en Plane. Toma notas de reuniones, fórmalas fácilmente, integra elementos de trabajo, organízalas usando una biblioteca de componentes y mantenlas todas en el contexto de tu proyecto. Para hacer cualquier documento rápidamente, invoca a Galileo, la IA de Plane, con un atajo o haciendo clic en un botón.",
+        "description": "Las páginas son espacios para pensamientos en Plane. Toma notas de reuniones, fórmalas fácilmente, integra tareas, organízalas usando una biblioteca de componentes y mantenlas todas en el contexto de tu departamento. Para hacer cualquier documento rápidamente, invoca a Galileo, la IA de Plane, con un atajo o haciendo clic en un botón.",
         "primary_button": {
           "text": "Crea tu primera página"
         }
@@ -286,7 +286,7 @@
       },
       "public": {
         "title": "Aún no hay páginas públicas",
-        "description": "Ve las páginas compartidas con todos en tu proyecto aquí mismo.",
+        "description": "Ve las páginas compartidas con todos en tu departamento aquí mismo.",
         "primary_button": {
           "text": "Crea tu primera página"
         }
@@ -300,36 +300,36 @@
   "disabled_project": {
     "empty_state": {
       "inbox": {
-        "title": "Intake no está habilitado para el proyecto.",
-        "description": "Intake te ayuda a gestionar las solicitudes entrantes a tu proyecto y agregarlas como elementos de trabajo en tu flujo de trabajo. Habilita Intake desde la configuración del proyecto para gestionar las solicitudes.",
+        "title": "Intake no está habilitado para el departamento.",
+        "description": "Intake te ayuda a gestionar las solicitudes entrantes a tu departamento y agregarlas como tareas en tu flujo de trabajo. Habilita Intake desde la configuración del departamento para gestionar las solicitudes.",
         "primary_button": {
           "text": "Gestionar funciones"
         }
       },
       "cycle": {
-        "title": "Los Ciclos no están habilitados para este proyecto.",
-        "description": "Divide el trabajo en fragmentos limitados por tiempo, trabaja hacia atrás desde la fecha límite de tu proyecto para establecer fechas y haz un progreso tangible como equipo. Habilita la función de ciclos para tu proyecto para comenzar a usarlos.",
+        "title": "Los Ciclos no están habilitados para este departamento.",
+        "description": "Divide el trabajo en fragmentos limitados por tiempo, trabaja hacia atrás desde la fecha límite de tu departamento para establecer fechas y haz un progreso tangible como equipo. Habilita la función de ciclos para tu departamento para comenzar a usarlos.",
         "primary_button": {
           "text": "Gestionar funciones"
         }
       },
       "module": {
-        "title": "Los Módulos no están habilitados para el proyecto.",
-        "description": "Los Módulos son los componentes básicos de tu proyecto. Habilita los módulos desde la configuración del proyecto para comenzar a usarlos.",
+        "title": "Los Proyectos no están habilitados para el departamento.",
+        "description": "Los Proyectos son los componentes básicos de tu departamento. Habilita los proyectos desde la configuración del departamento para comenzar a usarlos.",
         "primary_button": {
           "text": "Gestionar funciones"
         }
       },
       "page": {
-        "title": "Las Páginas no están habilitadas para el proyecto.",
-        "description": "Las Páginas son los componentes básicos de tu proyecto. Habilita las páginas desde la configuración del proyecto para comenzar a usarlas.",
+        "title": "Las Páginas no están habilitadas para el departamento.",
+        "description": "Las Páginas son los componentes básicos de tu departamento. Habilita las páginas desde la configuración del departamento para comenzar a usarlas.",
         "primary_button": {
           "text": "Gestionar funciones"
         }
       },
       "view": {
-        "title": "Las Vistas no están habilitadas para el proyecto.",
-        "description": "Las Vistas son los componentes básicos de tu proyecto. Habilita las vistas desde la configuración del proyecto para comenzar a usarlas.",
+        "title": "Las Vistas no están habilitadas para el departamento.",
+        "description": "Las Vistas son los componentes básicos de tu departamento. Habilita las vistas desde la configuración del departamento para comenzar a usarlas.",
         "primary_button": {
           "text": "Gestionar funciones"
         }
@@ -353,7 +353,7 @@
     "order_by": {
       "name": "Nombre",
       "progress": "Progreso",
-      "issues": "Número de elementos de trabajo",
+      "issues": "Número de tareas",
       "due_date": "Fecha de vencimiento",
       "created_at": "Fecha de creación",
       "manual": "Manual"
@@ -392,7 +392,7 @@
           "complete": "Importación completada"
         },
         "message": {
-          "success": "{count} miembro{plural} importado{plural} correctamente al proyecto.",
+          "success": "{count} miembro{plural} importado{plural} correctamente al departamento.",
           "no_imports": "No se importaron nuevos miembros desde el archivo CSV."
         },
         "stats": {

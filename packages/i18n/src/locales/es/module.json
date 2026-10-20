@@ -1,7 +1,7 @@
 {
   "module": {
-    "label": "{count, plural, one {Módulo} other {Módulos}}",
-    "no_module": "Sin módulo",
-    "select": "Agregar módulos"
+    "label": "{count, plural, one {Proyecto} other {Proyectos}}",
+    "no_module": "Sin proyecto",
+    "select": "Agregar proyectos"
   }
 }

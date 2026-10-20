@@ -137,7 +137,7 @@ export const groupMonthsToQuarters = (monthBlocks: IMonthBlock[]): IQuarterMonth
       quartersMap[quarterKey] = {
         children: [monthBlock],
         quarterNumber,
-        shortTitle: quarterData.shortTitle,
+        shortTitle: quarterData.abbreviation,
         title: `${quarterData.title} ${year}`,
         year,
         today: todayQuarterNumber === quarterNumber && todayYear === year,

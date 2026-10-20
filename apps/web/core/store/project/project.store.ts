@@ -18,6 +18,10 @@ import { ProjectService, ProjectStateService, ProjectArchiveService } from "@/se
 // store
 import type { CoreRootStore } from "../root.store";
 
+// Ciclos ocultos por completo: se fuerza cycle_view a false en todo lo que entra al store,
+// asi toda la UI que ya respeta ese flag (menu, filtros, propiedades, Power K...) deja de mostrarlos.
+const hideCycles = <T extends object>(project: T): T => ({ ...project, cycle_view: false });
+
 type ProjectOverviewCollapsible = "links" | "attachments" | "milestones";
 
 export interface IProjectStore {
@@ -295,7 +299,7 @@ export class ProjectStore implements IProjectStore {
    */
   processProjectAfterCreation = (workspaceSlug: string, data: TProject) => {
     runInAction(() => {
-      set(this.projectMap, [data.id], data);
+      set(this.projectMap, [data.id], hideCycles(data));
       // updating the user project role in workspaceProjectsPermissions
       set(this.rootStore.user.permission.workspaceProjectsPermissions, [workspaceSlug, data.id], data.member_role);
     });
@@ -313,7 +317,7 @@ export class ProjectStore implements IProjectStore {
       const projectsResponse = await this.projectService.getProjectsLite(workspaceSlug);
       runInAction(() => {
         projectsResponse.forEach((project) => {
-          update(this.projectMap, [project.id], (p) => ({ ...p, ...project }));
+          update(this.projectMap, [project.id], (p) => hideCycles({ ...p, ...project }));
         });
         this.loader = "loaded";
         if (!this.fetchStatus) this.fetchStatus = "partial";
@@ -342,7 +346,7 @@ export class ProjectStore implements IProjectStore {
       const projectsResponse = await this.projectService.getProjects(workspaceSlug);
       runInAction(() => {
         projectsResponse.forEach((project) => {
-          update(this.projectMap, [project.id], (p) => ({ ...p, ...project }));
+          update(this.projectMap, [project.id], (p) => hideCycles({ ...p, ...project }));
         });
         this.loader = "loaded";
         this.fetchStatus = "complete";
@@ -365,7 +369,7 @@ export class ProjectStore implements IProjectStore {
     try {
       const response = await this.projectService.getProject(workspaceSlug, projectId);
       runInAction(() => {
-        update(this.projectMap, [projectId], (p) => ({ ...p, ...response }));
+        update(this.projectMap, [projectId], (p) => hideCycles({ ...p, ...response }));
       });
       return response;
     } catch (error) {
@@ -554,7 +558,7 @@ export class ProjectStore implements IProjectStore {
     const projectDetails = cloneDeep(this.getProjectById(projectId));
     try {
       runInAction(() => {
-        set(this.projectMap, [projectId], { ...projectDetails, ...data });
+        set(this.projectMap, [projectId], hideCycles({ ...projectDetails, ...data }));
         this.isUpdatingProject = true;
       });
       const response = await this.projectService.updateProject(workspaceSlug, projectId, data);

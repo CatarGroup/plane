@@ -35,7 +35,7 @@ export function IssuePeekOverviewError(props: TIssuePeekOverviewError) {
       <div className="h-full w-full">
         <EmptyState
           image={emptyIssue ?? undefined}
-          title="Work item does not exist"
+          title="La tarea no existe"
           description="The work item you are looking for does not exist, has been archived, or has been deleted."
         />
       </div>

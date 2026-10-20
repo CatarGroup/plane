@@ -2,11 +2,11 @@
   "common_empty_state": {
     "progress": {
       "title": "Todavía no hay métricas de progreso para mostrar.",
-      "description": "Comienza a establecer valores de propiedades en los elementos de trabajo para ver las métricas de progreso aquí."
+      "description": "Comienza a establecer valores de propiedades en las tareas para ver las métricas de progreso aquí."
     },
     "updates": {
       "title": "Aún no hay actualizaciones.",
-      "description": "Una vez que los miembros del proyecto agreguen actualizaciones, aparecerán aquí"
+      "description": "Una vez que los miembros del departamento agreguen actualizaciones, aparecerán aquí"
     },
     "search": {
       "title": "No se encontraron resultados coincidentes.",
@@ -25,61 +25,61 @@
   },
   "project_empty_state": {
     "no_access": {
-      "title": "Parece que no tienes acceso a este proyecto",
+      "title": "Parece que no tienes acceso a este departamento",
       "restricted_description": "Contacta con el administrador para solicitar acceso y podrás continuar aquí.",
       "join_description": "Haz clic en el botón de abajo para unirte.",
-      "cta_primary": "Unirse al proyecto",
-      "cta_loading": "Uniéndose al proyecto"
+      "cta_primary": "Unirse al departamento",
+      "cta_loading": "Uniéndose al departamento"
     },
     "invalid_project": {
-      "title": "Proyecto no encontrado",
-      "description": "El proyecto que buscas no existe."
+      "title": "Departamento no encontrado",
+      "description": "El departamento que buscas no existe."
     },
     "work_items": {
-      "title": "Comienza con tu primer elemento de trabajo.",
-      "description": "Los elementos de trabajo son los bloques de construcción de tu proyecto — asigna responsables, establece prioridades y realiza un seguimiento del progreso fácilmente.",
-      "cta_primary": "Crea tu primer elemento de trabajo"
+      "title": "Comienza con tu primera tarea.",
+      "description": "Las tareas son los bloques de construcción de tu departamento — asigna responsables, establece prioridades y realiza un seguimiento del progreso fácilmente.",
+      "cta_primary": "Crea tu primera tarea"
     },
     "cycles": {
       "title": "Agrupa y delimita tu trabajo en Ciclos.",
-      "description": "Divide el trabajo en bloques con tiempo definido, trabaja hacia atrás desde la fecha límite de tu proyecto para establecer fechas y haz un progreso tangible como equipo.",
+      "description": "Divide el trabajo en bloques con tiempo definido, trabaja hacia atrás desde la fecha límite de tu departamento para establecer fechas y haz un progreso tangible como equipo.",
       "cta_primary": "Establece tu primer ciclo"
     },
     "cycle_work_items": {
-      "title": "No hay elementos de trabajo para mostrar en este ciclo",
-      "description": "Crea elementos de trabajo para comenzar a monitorear el progreso de tu equipo en este ciclo y alcanzar tus objetivos a tiempo.",
-      "cta_primary": "Crear elemento de trabajo",
-      "cta_secondary": "Agregar elemento de trabajo existente"
+      "title": "No hay tareas para mostrar en este ciclo",
+      "description": "Crea tareas para comenzar a monitorear el progreso de tu equipo en este ciclo y alcanzar tus objetivos a tiempo.",
+      "cta_primary": "Crear tarea",
+      "cta_secondary": "Agregar tarea existente"
     },
     "modules": {
-      "title": "Asigna los objetivos de tu proyecto a Módulos y rastrea fácilmente.",
-      "description": "Los módulos están compuestos de elementos de trabajo interconectados. Ayudan a monitorear el progreso a través de las fases del proyecto, cada una con fechas límite específicas y análisis para indicar qué tan cerca estás de alcanzar esas fases.",
-      "cta_primary": "Establece tu primer módulo"
+      "title": "Asigna los objetivos de tu departamento a Proyectos y rastrea fácilmente.",
+      "description": "Los proyectos están compuestos de tareas interconectadas. Ayudan a monitorear el progreso a través de las fases del departamento, cada una con fechas límite específicas y análisis para indicar qué tan cerca estás de alcanzar esas fases.",
+      "cta_primary": "Establece tu primer proyecto"
     },
     "module_work_items": {
-      "title": "No hay elementos de trabajo para mostrar en este Módulo",
-      "description": "Crea elementos de trabajo para comenzar a monitorear este módulo.",
-      "cta_primary": "Crear elemento de trabajo",
-      "cta_secondary": "Agregar elemento de trabajo existente"
+      "title": "No hay tareas para mostrar en este Proyecto",
+      "description": "Crea tareas para comenzar a monitorear este proyecto.",
+      "cta_primary": "Crear tarea",
+      "cta_secondary": "Agregar tarea existente"
     },
     "views": {
-      "title": "Guarda vistas personalizadas para tu proyecto",
+      "title": "Guarda vistas personalizadas para tu departamento",
       "description": "Las vistas son filtros guardados que te ayudan a acceder rápidamente a la información que más usas. Colabora sin esfuerzo mientras los compañeros de equipo comparten y adaptan las vistas a sus necesidades específicas.",
       "cta_primary": "Crear vista"
     },
     "no_work_items_in_project": {
-      "title": "Aún no hay elementos de trabajo en el proyecto",
-      "description": "Agrega elementos de trabajo a tu proyecto y divide tu trabajo en piezas rastreables con vistas.",
-      "cta_primary": "Agregar elemento de trabajo"
+      "title": "Aún no hay tareas en el departamento",
+      "description": "Agrega tareas a tu departamento y divide tu trabajo en piezas rastreables con vistas.",
+      "cta_primary": "Agregar tarea"
     },
     "work_item_filter": {
-      "title": "No se encontraron elementos de trabajo",
+      "title": "No se encontraron tareas",
       "description": "Tu filtro actual no devolvió ningún resultado. Intenta cambiar los filtros.",
-      "cta_primary": "Agregar elemento de trabajo"
+      "cta_primary": "Agregar tarea"
     },
     "pages": {
       "title": "Documenta todo — desde notas hasta PRDs",
-      "description": "Las páginas te permiten capturar y organizar información en un solo lugar. Escribe notas de reuniones, documentación de proyectos y PRDs, incrusta elementos de trabajo y estructúralos con componentes listos para usar.",
+      "description": "Las páginas te permiten capturar y organizar información en un solo lugar. Escribe notas de reuniones, documentación de departamentos y PRDs, incrusta tareas y estructúralos con componentes listos para usar.",
       "cta_primary": "Crea tu primera Página"
     },
     "archive_pages": {
@@ -88,22 +88,22 @@
     },
     "intake_sidebar": {
       "title": "Registra solicitudes de Entrada",
-      "description": "Envía nuevas solicitudes para ser revisadas, priorizadas y rastreadas dentro del flujo de trabajo de tu proyecto.",
+      "description": "Envía nuevas solicitudes para ser revisadas, priorizadas y rastreadas dentro del flujo de trabajo de tu departamento.",
       "cta_primary": "Crear solicitud de Entrada"
     },
     "intake_main": {
-      "title": "Selecciona un elemento de trabajo de Entrada para ver sus detalles"
+      "title": "Selecciona una tarea de Entrada para ver sus detalles"
     },
     "epics": {
-      "title": "Convierte proyectos complejos en épicas estructuradas.",
+      "title": "Convierte departamentos complejos en épicas estructuradas.",
       "description": "Una épica te ayuda a organizar grandes objetivos en tareas más pequeñas y rastreables.",
       "cta_primary": "Crear una Épica",
       "cta_secondary": "Documentación"
     },
     "epic_work_items": {
-      "title": "Aún no has agregado elementos de trabajo a esta épica.",
-      "description": "Comienza agregando algunos elementos de trabajo a esta épica y rastréalos aquí.",
-      "cta_secondary": "Agregar elementos de trabajo"
+      "title": "Aún no has agregado tareas a esta épica.",
+      "description": "Comienza agregando algunas tareas a esta épica y rastréalas aquí.",
+      "cta_secondary": "Agregar tareas"
     }
   },
   "workspace_empty_state": {
@@ -112,58 +112,58 @@
       "description": "Puedes archivar épicas completadas o canceladas. Encuéntralas aquí una vez archivadas."
     },
     "archive_work_items": {
-      "title": "Aún no hay elementos de trabajo archivados",
-      "description": "Manualmente o mediante automatización, puedes archivar elementos de trabajo que estén completados o cancelados. Encuéntralos aquí una vez archivados.",
+      "title": "Aún no hay tareas archivadas",
+      "description": "Manualmente o mediante automatización, puedes archivar tareas que estén completadas o canceladas. Encuéntralas aquí una vez archivadas.",
       "cta_primary": "Configurar automatización"
     },
     "archive_cycles": {
       "title": "Aún no hay ciclos archivados",
-      "description": "Para ordenar tu proyecto, archiva los ciclos completados. Encuéntralos aquí una vez archivados."
+      "description": "Para ordenar tu departamento, archiva los ciclos completados. Encuéntralos aquí una vez archivados."
     },
     "archive_modules": {
-      "title": "Aún no hay Módulos archivados",
-      "description": "Para ordenar tu proyecto, archiva los módulos completados o cancelados. Encuéntralos aquí una vez archivados."
+      "title": "Aún no hay Proyectos archivados",
+      "description": "Para ordenar tu departamento, archiva los proyectos completados o cancelados. Encuéntralos aquí una vez archivados."
     },
     "home_widget_quick_links": {
       "title": "Mantén a mano referencias importantes, recursos o documentos para tu trabajo"
     },
     "inbox_sidebar_all": {
-      "title": "Las actualizaciones de tus elementos de trabajo suscritos aparecerán aquí"
+      "title": "Las actualizaciones de tus tareas suscritas aparecerán aquí"
     },
     "inbox_sidebar_mentions": {
-      "title": "Las menciones a tus elementos de trabajo aparecerán aquí"
+      "title": "Las menciones a tus tareas aparecerán aquí"
     },
     "your_work_by_priority": {
-      "title": "Aún no hay elementos de trabajo asignados"
+      "title": "Aún no hay tareas asignadas"
     },
     "your_work_by_state": {
-      "title": "Aún no hay elementos de trabajo asignados"
+      "title": "Aún no hay tareas asignadas"
     },
     "views": {
       "title": "Aún no hay Vistas",
-      "description": "Agrega elementos de trabajo a tu proyecto y usa vistas para filtrar, ordenar y monitorear el progreso sin esfuerzo.",
-      "cta_primary": "Agregar elemento de trabajo"
+      "description": "Agrega tareas a tu departamento y usa vistas para filtrar, ordenar y monitorear el progreso sin esfuerzo.",
+      "cta_primary": "Agregar tarea"
     },
     "drafts": {
-      "title": "Elementos de trabajo a medio escribir",
-      "description": "Para probarlo, comienza a agregar un elemento de trabajo y déjalo a medias o crea tu primer borrador a continuación. 😉",
-      "cta_primary": "Crear borrador de elemento de trabajo"
+      "title": "Tareas a medio escribir",
+      "description": "Para probarlo, comienza a agregar una tarea y déjala a medias o crea tu primer borrador a continuación. 😉",
+      "cta_primary": "Crear borrador de tarea"
     },
     "projects_archived": {
-      "title": "No hay proyectos archivados",
-      "description": "Parece que todos tus proyectos siguen activos — ¡buen trabajo!"
+      "title": "No hay departamentos archivados",
+      "description": "Parece que todos tus departamentos siguen activos — ¡buen trabajo!"
     },
     "analytics_projects": {
-      "title": "Crea proyectos para visualizar las métricas del proyecto aquí."
+      "title": "Crea departamentos para visualizar las métricas del departamento aquí."
     },
     "analytics_work_items": {
-      "title": "Crea proyectos con elementos de trabajo y responsables para comenzar a rastrear el rendimiento, progreso e impacto del equipo aquí."
+      "title": "Crea departamentos con tareas y responsables para comenzar a rastrear el rendimiento, progreso e impacto del equipo aquí."
     },
     "analytics_no_cycle": {
       "title": "Crea ciclos para organizar el trabajo en fases con límite de tiempo y rastrear el progreso en los sprints."
     },
     "analytics_no_module": {
-      "title": "Crea módulos para organizar tu trabajo y rastrear el progreso en diferentes etapas."
+      "title": "Crea proyectos para organizar tu trabajo y rastrear el progreso en diferentes etapas."
     },
     "analytics_no_intake": {
       "title": "Configura la entrada para gestionar las solicitudes entrantes y rastrear cómo se aceptan y rechazan"
@@ -188,23 +188,23 @@
     },
     "wiki": {
       "title": "Escribe una nota, un documento o una base de conocimientos completa.",
-      "description": "Las páginas son un espacio para capturar ideas en Plane. Toma notas de reuniones, dales formato fácilmente, incrusta elementos de trabajo, organízalas usando una biblioteca de componentes y mantenlas todas en el contexto de tu proyecto.",
+      "description": "Las páginas son un espacio para capturar ideas en Plane. Toma notas de reuniones, dales formato fácilmente, incrusta tareas, organízalas usando una biblioteca de componentes y mantenlas todas en el contexto de tu departamento.",
       "cta_primary": "Crea tu página"
     },
     "project_overview_state_sidebar": {
-      "title": "Habilitar estados del proyecto",
-      "description": "Habilita los estados del proyecto para ver y gestionar propiedades como estado, prioridad, fechas de vencimiento y más."
+      "title": "Habilitar estados del departamento",
+      "description": "Habilita los estados del departamento para ver y gestionar propiedades como estado, prioridad, fechas de vencimiento y más."
     }
   },
   "settings_empty_state": {
     "estimates": {
       "title": "Aún no hay estimaciones",
-      "description": "Define cómo tu equipo mide el esfuerzo y rastréalo de manera consistente en todos los elementos de trabajo.",
+      "description": "Define cómo tu equipo mide el esfuerzo y rastréalo de manera consistente en todas las tareas.",
       "cta_primary": "Agregar sistema de estimación"
     },
     "labels": {
       "title": "Aún no hay etiquetas",
-      "description": "Crea etiquetas personalizadas para categorizar y gestionar efectivamente tus elementos de trabajo.",
+      "description": "Crea etiquetas personalizadas para categorizar y gestionar efectivamente tus tareas.",
       "cta_primary": "Crea tu primera etiqueta"
     },
     "exports": {
@@ -223,47 +223,47 @@
     },
     "webhooks": {
       "title": "Aún no se ha agregado ningún Webhook",
-      "description": "Automatiza las notificaciones a servicios externos cuando ocurran eventos del proyecto.",
+      "description": "Automatiza las notificaciones a servicios externos cuando ocurran eventos del departamento.",
       "cta_primary": "Agregar webhook"
     },
     "work_item_types": {
-      "title": "Crea y personaliza tipos de elementos de trabajo",
-      "description": "Define tipos únicos de elementos de trabajo para tu proyecto. Cada tipo puede tener sus propias propiedades, flujos de trabajo y campos — adaptados a las necesidades de tu proyecto y equipo.",
+      "title": "Crea y personaliza tipos de tareas",
+      "description": "Define tipos únicos de tareas para tu departamento. Cada tipo puede tener sus propias propiedades, flujos de trabajo y campos — adaptados a las necesidades de tu departamento y equipo.",
       "cta_primary": "Habilitar"
     },
     "work_item_type_properties": {
-      "title": "Define la propiedad y los detalles que deseas capturar para este tipo de elemento de trabajo. Personalízalo para que coincida con el flujo de trabajo de tu proyecto.",
+      "title": "Define la propiedad y los detalles que deseas capturar para este tipo de tarea. Personalízalo para que coincida con el flujo de trabajo de tu departamento.",
       "cta_secondary": "Agregar propiedad"
     },
     "templates": {
       "title": "Aún no hay plantillas",
-      "description": "Reduce el tiempo de configuración creando plantillas para elementos de trabajo y páginas — y comienza un nuevo trabajo en segundos.",
+      "description": "Reduce el tiempo de configuración creando plantillas para tareas y páginas — y comienza un nuevo trabajo en segundos.",
       "cta_primary": "Crea tu primera plantilla"
     },
     "recurring_work_items": {
-      "title": "Aún no hay elementos de trabajo recurrentes",
-      "description": "Configura elementos de trabajo recurrentes para automatizar tareas repetidas y mantenerte en el horario sin esfuerzo.",
-      "cta_primary": "Crear elemento de trabajo recurrente"
+      "title": "Aún no hay tareas recurrentes",
+      "description": "Configura tareas recurrentes para automatizar tareas repetidas y mantenerte en el horario sin esfuerzo.",
+      "cta_primary": "Crear tarea recurrente"
     },
     "worklogs": {
       "title": "Rastrea hojas de tiempo para todos los miembros",
-      "description": "Registra el tiempo en los elementos de trabajo para ver hojas de tiempo detalladas de cualquier miembro del equipo en todos los proyectos."
+      "description": "Registra el tiempo en las tareas para ver hojas de tiempo detalladas de cualquier miembro del equipo en todos los departamentos."
     },
     "group_syncing": {
       "title": "Aún no hay asignaciones de grupos"
     },
     "template_setting": {
       "title": "Aún no hay plantillas",
-      "description": "Reduce el tiempo de configuración creando plantillas para proyectos, elementos de trabajo y páginas — y comienza un nuevo trabajo en segundos.",
+      "description": "Reduce el tiempo de configuración creando plantillas para departamentos, tareas y páginas — y comienza un nuevo trabajo en segundos.",
       "cta_primary": "Crear plantilla"
     },
     "workflows": {
       "title": "Aún no hay flujos de trabajo",
-      "description": "Crea flujos de trabajo para gestionar el progreso de tus elementos de trabajo.",
+      "description": "Crea flujos de trabajo para gestionar el progreso de tus tareas.",
       "cta_primary": "Agregar nuevo flujo de trabajo",
       "states": {
         "title": "Agregar estados",
-        "description": "Selecciona los estados por los que avanza el elemento de trabajo."
+        "description": "Selecciona los estados por los que avanza la tarea."
       }
     }
   }

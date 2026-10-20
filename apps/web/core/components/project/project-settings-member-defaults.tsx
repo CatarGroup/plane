@@ -139,7 +139,7 @@ export const ProjectSettingsMemberDefaults = observer(function ProjectSettingsMe
 
   return (
     <div className="my-6 flex flex-col gap-y-6">
-      <DefaultSettingItem title="Project Lead" description="Select the project lead for the project.">
+      <DefaultSettingItem title="Responsable del departamento" description="Selecciona el responsable del departamento.">
         {currentProjectDetails ? (
           <Controller
             control={control}
