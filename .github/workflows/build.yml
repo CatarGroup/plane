@@ -1,14 +1,11 @@
 name: Build y publicar imagen
 
-# Construye la imagen del overlay (Plane en español + tema) y la publica
-# en el registro de GitHub (ghcr.io). Railway usa esa imagen como Source,
-# así nunca se pierde nuestra personalización en los redeploys.
+# Construye la imagen del overlay (Plane en español + tema) y la publica en ghcr.io.
+# MULTI-ARCH: amd64 (Railway y la mayoria de VPS) + arm64 (VPS Hetzner CAX).
 #
-# Todo vive en la rama main: el overlay (Dockerfile, scripts, templates,
-# tema) Y el codigo fuente completo de Plane (apps/, packages/), asi que
-# un solo push aqui dispara todo. build-web compila el frontend desde ese
-# mismo codigo fuente y publica esa imagen ANTES: el Dockerfile principal
-# la usa para sustituir el frontend oficial (ver su paso 0).
+# Todo vive en la rama main: el overlay (Dockerfile, scripts, templates, tema) Y el
+# codigo fuente completo de Plane (apps/, packages/). build-web compila el frontend
+# y el job build lo mete en la imagen AIO.
 
 on:
   push:
@@ -25,6 +22,14 @@ jobs:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
 
+      - name: QEMU (emulacion arm64)
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+
+      - name: Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Entrar en el registro
         uses: docker/login-action@v3
         with:
@@ -37,6 +42,7 @@ jobs:
         with:
           context: .
           file: apps/web/Dockerfile.web
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ghcr.io/catargroup/plane-web:v1.4.2
@@ -54,6 +60,14 @@ jobs:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
 
+      - name: QEMU (emulacion arm64)
+        uses: docker/setup-qemu-action@v3
+        with:
+          platforms: arm64
+
+      - name: Buildx
+        uses: docker/setup-buildx-action@v3
+
       - name: Entrar en el registro
         uses: docker/login-action@v3
         with:
@@ -65,6 +79,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ghcr.io/catargroup/plane:latest
