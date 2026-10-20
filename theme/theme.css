@@ -338,23 +338,18 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
 
 
 /* ============================================================
-   LOGIN CORPORATIVO GRUPO ROMBOC  (CatarGroup)
-   Split-screen: formulario a la izquierda sobre blanco,
-   panel de marca en magenta a la derecha.
+   LOGIN CORPORATIVO GRUPO ROMBOC  (CatarGroup) — v2
+   Split-screen: formulario sobre blanco a la izquierda y panel
+   de marca con degradado, curvas y logotipo a la derecha.
    ============================================================ */
 
 :root {
   --romboc-magenta: #e6007e;
   --romboc-magenta-oscuro: #c50069;
-  --romboc-morado: #7b2cbf;
   --romboc-marino: #012c68;
-  --romboc-gris: #f5f6f8;
-  --romboc-gris-linea: #e3e6eb;
-  --romboc-texto: #0b1b33;
-  --romboc-texto-suave: #6b7280;
+  --romboc-suave: #6b7280;
 }
 
-/* Contenedor general: dos columnas a pantalla completa */
 .romboc-auth {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -366,7 +361,7 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
     "Helvetica Neue", Arial, sans-serif;
 }
 
-/* ---------- Columna izquierda (formulario) ---------- */
+/* ---------------- columna izquierda ---------------- */
 .romboc-auth__left {
   display: flex;
   flex-direction: column;
@@ -378,12 +373,22 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
 
 .romboc-auth__head {
   flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.romboc-auth__logo {
-  height: 64px;
+.romboc-auth__mark {
+  height: 36px;
   width: auto;
   object-fit: contain;
+}
+
+.romboc-auth__brandtext {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--romboc-marino);
+  letter-spacing: -0.01em;
 }
 
 .romboc-auth__body {
@@ -397,11 +402,11 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
 .romboc-auth__legal {
   flex: 0 0 auto;
   font-size: 12px;
-  color: var(--romboc-texto-suave);
+  color: var(--romboc-suave);
 }
 
 .romboc-auth__legal a {
-  color: var(--romboc-texto-suave);
+  color: var(--romboc-suave);
   text-decoration: none;
 }
 
@@ -409,51 +414,68 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
   color: var(--romboc-magenta);
 }
 
-/* ---------- Columna derecha (marca) ---------- */
+/* ---------------- columna derecha ---------------- */
 .romboc-auth__right {
   position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 48px;
-  background: var(--romboc-magenta);
   overflow: hidden;
+  margin: 18px 0;
+  border-radius: 88px 0 0 88px;
+  background: linear-gradient(135deg, #e6007e 0%, #e6007e 45%, #b8006a 100%);
 }
 
-/* Halo decorativo sutil, sin tocar el logo */
-.romboc-auth__right::before {
-  content: "";
+/* arcos decorativos */
+.romboc-auth__arc {
   position: absolute;
-  inset: -20%;
-  background: radial-gradient(
-    circle at 30% 20%,
-    rgba(255, 255, 255, 0.14) 0%,
-    rgba(255, 255, 255, 0) 55%
-  );
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.95);
   pointer-events: none;
+}
+
+.romboc-auth__arc--top {
+  width: 260px;
+  height: 260px;
+  left: -130px;
+  top: 6%;
+}
+
+.romboc-auth__arc--mid {
+  width: 420px;
+  height: 420px;
+  left: -210px;
+  top: 42%;
+  border-color: rgba(255, 255, 255, 0.75);
+}
+
+.romboc-auth__arc--bottom {
+  width: 200px;
+  height: 200px;
+  left: -100px;
+  bottom: 8%;
 }
 
 .romboc-auth__logo-big {
   position: relative;
-  width: min(60%, 420px);
+  width: min(52%, 360px);
   height: auto;
   object-fit: contain;
 }
 
 .romboc-auth__right-foot {
   position: absolute;
-  bottom: 28px;
+  bottom: 26px;
   left: 0;
   right: 0;
   display: flex;
   justify-content: space-between;
-  padding: 0 40px;
+  padding: 0 48px;
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.92);
+  color: rgba(255, 255, 255, 0.95);
 }
 
-/* ---------- Formulario (dentro de la columna izquierda) ---------- */
+/* ---------------- formulario ---------------- */
 .romboc-auth__body .text-h4-semibold.text-primary {
   color: var(--romboc-marino) !important;
   font-size: 30px !important;
@@ -462,25 +484,31 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
 }
 
 .romboc-auth__body .text-h4-semibold.text-placeholder {
-  color: var(--romboc-texto-suave) !important;
+  color: var(--romboc-suave) !important;
   font-size: 15px !important;
   font-weight: 400 !important;
   margin-top: 6px;
 }
 
-/* Ajuste del bloque de formulario */
 .romboc-auth__body .max-w-\[22\.5rem\] {
   max-width: 400px !important;
   gap: 24px !important;
 }
 
-/* Botón principal en magenta */
+/* boton principal: magenta con texto BLANCO */
 .romboc-auth__body button[type="submit"],
 .romboc-auth__body .bg-accent-primary {
   background-color: var(--romboc-magenta) !important;
   border-color: var(--romboc-magenta) !important;
   border-radius: 10px !important;
   font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+.romboc-auth__body button[type="submit"] *,
+.romboc-auth__body .bg-accent-primary * {
+  color: #ffffff !important;
+  fill: #ffffff !important;
 }
 
 .romboc-auth__body button[type="submit"]:hover,
@@ -489,12 +517,10 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
   border-color: var(--romboc-magenta-oscuro) !important;
 }
 
-/* Enlaces del formulario */
 .romboc-auth__body .text-accent-primary {
   color: var(--romboc-magenta) !important;
 }
 
-/* ---------- Responsive: en movil, una sola columna ---------- */
 @media (max-width: 900px) {
   .romboc-auth {
     grid-template-columns: 1fr;
@@ -505,7 +531,7 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
   .romboc-auth__left {
     padding: 28px 24px;
   }
-  .romboc-auth__logo {
-    height: 48px;
+  .romboc-auth__mark {
+    height: 28px;
   }
 }

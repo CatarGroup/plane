@@ -4,8 +4,9 @@
  * See the LICENSE file for details.
  */
 
-// CatarGroup: layout de acceso con la identidad corporativa de Grupo Romboc
-// (split-screen: formulario a la izquierda, panel de marca a la derecha).
+// CatarGroup: acceso con la identidad corporativa de Grupo Romboc.
+// Split-screen: formulario a la izquierda sobre blanco y panel de marca
+// con degradado, curvas y logotipo a la derecha.
 import React from "react";
 import { AuthRoot } from "@/components/account/auth-forms/auth-root";
 import type { EAuthModes } from "@/helpers/authentication.helper";
@@ -14,17 +15,13 @@ type AuthBaseProps = {
   authType: EAuthModes;
 };
 
-const LOGO_DARK =
-  "https://crm.gruporomboc.com/assets/enterprises/gruporomboc/logos/logo-dark.png";
-const LOGO_LIGHT =
-  "https://crm.gruporomboc.com/assets/enterprises/gruporomboc/logos/logo-light.png";
-
 export function AuthBase({ authType }: AuthBaseProps) {
   return (
     <div className="romboc-auth">
       <div className="romboc-auth__left">
         <header className="romboc-auth__head">
-          <img src={LOGO_DARK} alt="Grupo Romboc" className="romboc-auth__logo" />
+          <img src="/brand/romboc-mark.png" alt="" aria-hidden className="romboc-auth__mark" />
+          <span className="romboc-auth__brandtext">Grupo Romboc</span>
         </header>
         <main className="romboc-auth__body">
           <AuthRoot authMode={authType} />
@@ -36,10 +33,13 @@ export function AuthBase({ authType }: AuthBaseProps) {
         </footer>
       </div>
       <aside className="romboc-auth__right">
-        <img src={LOGO_LIGHT} alt="Grupo Romboc" className="romboc-auth__logo-big" />
+        <span className="romboc-auth__arc romboc-auth__arc--top" aria-hidden />
+        <span className="romboc-auth__arc romboc-auth__arc--mid" aria-hidden />
+        <span className="romboc-auth__arc romboc-auth__arc--bottom" aria-hidden />
+        <img src="/brand/romboc-logo-light.png" alt="Grupo Romboc" className="romboc-auth__logo-big" />
         <div className="romboc-auth__right-foot">
           <span>gruporomboc.com</span>
-          <span>sistemas@gruporomboc.com</span>
+          <span>ruben.amaya@catargroup.com</span>
         </div>
       </aside>
     </div>
