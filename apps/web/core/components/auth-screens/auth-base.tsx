@@ -4,12 +4,11 @@
  * See the LICENSE file for details.
  */
 
-// CatarGroup: acceso con la identidad corporativa de Grupo Romboc.
-// Split-screen: formulario a la izquierda sobre blanco y panel de marca
-// con degradado, curvas y logotipo a la derecha.
 import React from "react";
 import { AuthRoot } from "@/components/account/auth-forms/auth-root";
 import type { EAuthModes } from "@/helpers/authentication.helper";
+import { AuthFooter } from "./footer";
+import { AuthHeader } from "./header";
 
 type AuthBaseProps = {
   authType: EAuthModes;
@@ -17,31 +16,10 @@ type AuthBaseProps = {
 
 export function AuthBase({ authType }: AuthBaseProps) {
   return (
-    <div className="romboc-auth">
-      <div className="romboc-auth__left">
-        <header className="romboc-auth__head">
-          <img src="/brand/romboc-mark.png" alt="" aria-hidden className="romboc-auth__mark" />
-          <span className="romboc-auth__brandtext">Grupo Romboc</span>
-        </header>
-        <main className="romboc-auth__body">
-          <AuthRoot authMode={authType} />
-        </main>
-        <footer className="romboc-auth__legal">
-          <a href="https://www.gruporomboc.com" target="_blank" rel="noreferrer">
-            Politica de privacidad
-          </a>
-        </footer>
-      </div>
-      <aside className="romboc-auth__right">
-        <span className="romboc-auth__arc romboc-auth__arc--top" aria-hidden />
-        <span className="romboc-auth__arc romboc-auth__arc--mid" aria-hidden />
-        <span className="romboc-auth__arc romboc-auth__arc--bottom" aria-hidden />
-        <img src="/brand/romboc-logo-light.png" alt="Grupo Romboc" className="romboc-auth__logo-big" />
-        <div className="romboc-auth__right-foot">
-          <span>gruporomboc.com</span>
-          <span>info@catargroup.com</span>
-        </div>
-      </aside>
+    <div className="relative z-10 flex h-screen w-screen flex-col items-center overflow-hidden overflow-y-auto px-8 pt-6 pb-10">
+      <AuthHeader type={authType} />
+      <AuthRoot authMode={authType} />
+      <AuthFooter />
     </div>
   );
 }
