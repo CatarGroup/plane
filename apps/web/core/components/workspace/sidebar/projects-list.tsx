@@ -196,7 +196,7 @@ export const SidebarProjectsList = observer(function SidebarProjectsList() {
                         setIsProjectModalOpen(true);
                       }}
                       data-ph-element={PROJECT_TRACKER_ELEMENTS.SIDEBAR_CREATE_PROJECT_TOOLTIP}
-                      className="hidden text-placeholder group-hover:inline-flex"
+                      className="inline-flex text-placeholder"
                       aria-label={t("aria_labels.projects_sidebar.create_new_project")}
                     />
                   </Tooltip>
