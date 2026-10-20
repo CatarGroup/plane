@@ -28,15 +28,15 @@ const Titles = {
   [EAuthModes.SIGN_IN]: {
     [EAuthSteps.EMAIL]: {
       header: "Trabaja en todas las dimensiones.",
-      subHeader: "Bienvenido de vuelta.",
+      subHeader: "Bienvenido.",
     },
     [EAuthSteps.PASSWORD]: {
       header: "Trabaja en todas las dimensiones.",
-      subHeader: "Bienvenido de vuelta.",
+      subHeader: "Bienvenido.",
     },
     [EAuthSteps.UNIQUE_CODE]: {
       header: "Trabaja en todas las dimensiones.",
-      subHeader: "Bienvenido de vuelta.",
+      subHeader: "Bienvenido.",
     },
   },
   [EAuthModes.SIGN_UP]: {

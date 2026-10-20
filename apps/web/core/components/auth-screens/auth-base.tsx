@@ -39,7 +39,7 @@ export function AuthBase({ authType }: AuthBaseProps) {
         <img src="/brand/romboc-logo-light.png" alt="Grupo Romboc" className="romboc-auth__logo-big" />
         <div className="romboc-auth__right-foot">
           <span>gruporomboc.com</span>
-          <span>ruben.amaya@catargroup.com</span>
+          <span>info@catargroup.com</span>
         </div>
       </aside>
     </div>
