@@ -335,3 +335,177 @@ button[data-ph-element="work_items_header_add_work_item_button"] {
 button[data-ph-element="work_items_header_add_work_item_button"]:hover {
   background: linear-gradient(135deg, #7C5FA3 0%, #695797 100%) !important;
 }
+
+
+/* ============================================================
+   LOGIN CORPORATIVO GRUPO ROMBOC  (CatarGroup)
+   Split-screen: formulario a la izquierda sobre blanco,
+   panel de marca en magenta a la derecha.
+   ============================================================ */
+
+:root {
+  --romboc-magenta: #e6007e;
+  --romboc-magenta-oscuro: #c50069;
+  --romboc-morado: #7b2cbf;
+  --romboc-marino: #012c68;
+  --romboc-gris: #f5f6f8;
+  --romboc-gris-linea: #e3e6eb;
+  --romboc-texto: #0b1b33;
+  --romboc-texto-suave: #6b7280;
+}
+
+/* Contenedor general: dos columnas a pantalla completa */
+.romboc-auth {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Columna izquierda (formulario) ---------- */
+.romboc-auth__left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 40px 64px 28px;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.romboc-auth__head {
+  flex: 0 0 auto;
+}
+
+.romboc-auth__logo {
+  height: 64px;
+  width: auto;
+  object-fit: contain;
+}
+
+.romboc-auth__body {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.romboc-auth__legal {
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: var(--romboc-texto-suave);
+}
+
+.romboc-auth__legal a {
+  color: var(--romboc-texto-suave);
+  text-decoration: none;
+}
+
+.romboc-auth__legal a:hover {
+  color: var(--romboc-magenta);
+}
+
+/* ---------- Columna derecha (marca) ---------- */
+.romboc-auth__right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  background: var(--romboc-magenta);
+  overflow: hidden;
+}
+
+/* Halo decorativo sutil, sin tocar el logo */
+.romboc-auth__right::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: radial-gradient(
+    circle at 30% 20%,
+    rgba(255, 255, 255, 0.14) 0%,
+    rgba(255, 255, 255, 0) 55%
+  );
+  pointer-events: none;
+}
+
+.romboc-auth__logo-big {
+  position: relative;
+  width: min(60%, 420px);
+  height: auto;
+  object-fit: contain;
+}
+
+.romboc-auth__right-foot {
+  position: absolute;
+  bottom: 28px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* ---------- Formulario (dentro de la columna izquierda) ---------- */
+.romboc-auth__body .text-h4-semibold.text-primary {
+  color: var(--romboc-marino) !important;
+  font-size: 30px !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+}
+
+.romboc-auth__body .text-h4-semibold.text-placeholder {
+  color: var(--romboc-texto-suave) !important;
+  font-size: 15px !important;
+  font-weight: 400 !important;
+  margin-top: 6px;
+}
+
+/* Ajuste del bloque de formulario */
+.romboc-auth__body .max-w-\[22\.5rem\] {
+  max-width: 400px !important;
+  gap: 24px !important;
+}
+
+/* Botón principal en magenta */
+.romboc-auth__body button[type="submit"],
+.romboc-auth__body .bg-accent-primary {
+  background-color: var(--romboc-magenta) !important;
+  border-color: var(--romboc-magenta) !important;
+  border-radius: 10px !important;
+  font-weight: 600 !important;
+}
+
+.romboc-auth__body button[type="submit"]:hover,
+.romboc-auth__body .bg-accent-primary:hover {
+  background-color: var(--romboc-magenta-oscuro) !important;
+  border-color: var(--romboc-magenta-oscuro) !important;
+}
+
+/* Enlaces del formulario */
+.romboc-auth__body .text-accent-primary {
+  color: var(--romboc-magenta) !important;
+}
+
+/* ---------- Responsive: en movil, una sola columna ---------- */
+@media (max-width: 900px) {
+  .romboc-auth {
+    grid-template-columns: 1fr;
+  }
+  .romboc-auth__right {
+    display: none;
+  }
+  .romboc-auth__left {
+    padding: 28px 24px;
+  }
+  .romboc-auth__logo {
+    height: 48px;
+  }
+}
