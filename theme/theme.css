@@ -378,3 +378,41 @@ div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"] ::-webkit-scrollbar-t
   border-radius: 8px;
   min-height: 48px;
 }
+
+/* ============================================================
+   BARRAS DE SCROLL VISIBLES  (CatarGroup, v14)
+   La barra horizontal del tablero quedaba camuflada con el fondo
+   morado. Se pinta magenta brillante en TODA la app para que se vea
+   siempre, sin depender del contenedor concreto.
+   ============================================================ */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ff3da6 rgba(0, 0, 0, 0.28);
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff3da6;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  min-width: 60px;
+  min-height: 48px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff6ec0;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
