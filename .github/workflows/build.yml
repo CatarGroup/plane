@@ -1,11 +1,9 @@
-name: Build y publicar imagen
+name: Build y publicar imagen (arm64)
 
-# Construye la imagen del overlay (Plane en español + tema) y la publica en ghcr.io.
-# MULTI-ARCH: amd64 (Railway y la mayoria de VPS) + arm64 (VPS Hetzner CAX).
-#
-# Todo vive en la rama main: el overlay (Dockerfile, scripts, templates, tema) Y el
-# codigo fuente completo de Plane (apps/, packages/). build-web compila el frontend
-# y el job build lo mete en la imagen AIO.
+# Construye el overlay de Plane y lo publica en ghcr.io.
+# SOLO arm64 y en un runner ARM NATIVO (ubuntu-24.04-arm): el VPS de produccion es
+# Hetzner CAX (aarch64) y ya no se despliega en Railway, asi que no hace falta amd64.
+# Sin QEMU: compilar emulando ARM tardaba mas de una hora.
 
 on:
   push:
@@ -14,18 +12,13 @@ on:
 
 jobs:
   build-web:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     permissions:
       contents: read
       packages: write
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
-
-      - name: QEMU (emulacion arm64)
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: arm64
 
       - name: Buildx
         uses: docker/setup-buildx-action@v3
@@ -42,7 +35,7 @@ jobs:
         with:
           context: .
           file: apps/web/Dockerfile.web
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/arm64
           push: true
           tags: |
             ghcr.io/catargroup/plane-web:v1.4.2
@@ -50,20 +43,13 @@ jobs:
 
   build:
     needs: build-web
-    runs-on: ubuntu-latest
-    env:
-      RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
+    runs-on: ubuntu-24.04-arm
     permissions:
       contents: read
       packages: write
     steps:
       - name: Descargar el repositorio
         uses: actions/checkout@v4
-
-      - name: QEMU (emulacion arm64)
-        uses: docker/setup-qemu-action@v3
-        with:
-          platforms: arm64
 
       - name: Buildx
         uses: docker/setup-buildx-action@v3
@@ -79,18 +65,8 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: .
-          platforms: linux/amd64,linux/arm64
+          platforms: linux/arm64
           push: true
           tags: |
             ghcr.io/catargroup/plane:latest
             ghcr.io/catargroup/plane:${{ github.sha }}
-
-      # una vez publicada la imagen, decimos a Railway que redespliegue
-      - name: Redesplegar en Railway
-        if: env.RAILWAY_TOKEN != ''
-        run: |
-          curl -sf -X POST "https://backboard.railway.com/graphql/v2" \
-            -H "Project-Access-Token: $RAILWAY_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d '{"query":"mutation { serviceInstanceRedeploy(environmentId: \"4ef8a5d7-29b2-4e06-8642-3ecae6a9196e\", serviceId: \"ac22c055-2f1a-48d1-aa8c-bd7f773df098\") }"}'
-          echo "Redeploy lanzado en Railway"
