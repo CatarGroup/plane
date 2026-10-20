@@ -535,3 +535,49 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
     height: 28px;
   }
 }
+
+/* ============================================================
+   BARRA DE SCROLL DEL TABLERO  (CatarGroup)
+   El tablero Kanban vive en [data-auto-scrollable="true"] dentro de
+   div.flex-row.gap-4.py-page-y. Sobre fondo morado la barra nativa
+   pasa desapercibida: se pinta magenta brillante con carril oscuro
+   para que se vea de un vistazo cuando hay columnas de mas.
+   ============================================================ */
+
+div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"]::-webkit-scrollbar {
+  height: 14px;
+  width: 14px;
+}
+
+div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"]::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 8px;
+}
+
+div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"]::-webkit-scrollbar-thumb {
+  background: #ff3da6;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  min-width: 60px;
+}
+
+div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"]::-webkit-scrollbar-thumb:hover {
+  background: #ff6ec0;
+}
+
+div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"] {
+  scrollbar-width: thin;
+  scrollbar-color: #ff3da6 rgba(0, 0, 0, 0.28);
+}
+
+/* Barra vertical de cada columna del tablero */
+div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"] ::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"] ::-webkit-scrollbar-thumb {
+  background: #ff3da6;
+  border-radius: 8px;
+  min-height: 48px;
+}
