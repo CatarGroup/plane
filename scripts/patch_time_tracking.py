@@ -100,25 +100,31 @@ def main() -> int:
         if "issue-time-logs" not in t2:
             if "from django.urls import path" not in t2:
                 t2 = "from django.urls import path\n" + t2
-            if "from plane.app.views import IssueTimeLogViewSet" not in t2:
+            if "IssueTimeLogViewSet" not in t2:
                 t2 = t2.replace(
                     "urlpatterns = [",
-                    "from plane.app.views import IssueTimeLogViewSet\n\nurlpatterns = [",
+                    "from rest_framework.permissions import IsAuthenticated\n"
+                    "from plane.api.middleware.api_authentication import APIKeyAuthentication\n"
+                    "from plane.app.views import IssueTimeLogViewSet\n\n"
+                    "TIMELOG_AUTH = {\n"
+                    '    "authentication_classes": [APIKeyAuthentication],\n'
+                    '    "permission_classes": [IsAuthenticated],\n'
+                    "}\n\nurlpatterns = [",
                     1,
                 )
             rutas_v1 = """    path(
         "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/time-logs/",
-        IssueTimeLogViewSet.as_view({"get": "list", "post": "create"}),
+        IssueTimeLogViewSet.as_view({"get": "list", "post": "create"}, **TIMELOG_AUTH),
         name="issue-time-logs",
     ),
     path(
         "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/time-logs/summary/",
-        IssueTimeLogViewSet.as_view({"get": "summary"}),
+        IssueTimeLogViewSet.as_view({"get": "summary"}, **TIMELOG_AUTH),
         name="issue-time-logs-summary",
     ),
     path(
         "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/time-logs/<uuid:pk>/",
-        IssueTimeLogViewSet.as_view({"patch": "partial_update", "delete": "destroy"}),
+        IssueTimeLogViewSet.as_view({"patch": "partial_update", "delete": "destroy"}, **TIMELOG_AUTH),
         name="issue-time-log",
     ),
 ]"""
