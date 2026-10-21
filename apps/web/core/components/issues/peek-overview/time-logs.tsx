@@ -16,6 +16,7 @@ import { es } from "date-fns/locale";
 import { ChevronDown, ChevronRight, Clock, Plus, Trash2 } from "lucide-react";
 // services
 import { IssueTimeLogService, type TIssueTimeLog } from "@/services/issue/issue_time_log.service";
+import { invalidarTotales } from "@/hooks/use-project-time-summary";
 
 const timeLogService = new IssueTimeLogService();
 
@@ -101,6 +102,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
       });
       setNota("");
       setFormulario(false);
+      invalidarTotales(projectId);
       await cargar();
     } catch {
       setError("No se pudo guardar el tiempo.");
@@ -112,6 +114,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
   const borrar = async (id: string) => {
     if (!window.confirm("¿Borrar este tramo de tiempo?")) return;
     await timeLogService.destroy(workspaceSlug, projectId, issueId, id);
+    invalidarTotales(projectId);
     await cargar();
   };
 
