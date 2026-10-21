@@ -92,6 +92,18 @@ def main() -> int:
         print("  rutas añadidas")
     else:
         print("  rutas ya presentes")
+        # puede faltar la de totales por proyecto: añadirla si no esta
+        if "project-time-logs-summary" not in texto:
+            extra = '''    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/time-logs/summary/",
+        ProjectTimeLogSummaryEndpoint.as_view(),
+        name="project-time-logs-summary",
+    ),
+]'''
+            idx = texto.rstrip().rfind("]")
+            texto = texto[:idx] + extra + texto[idx + 1 :]
+            urls.write_text(texto)
+            print("  ruta de totales por proyecto anadida")
 
     print("[time-tracking] añadiendo rutas a la API publica (api/v1)...")
     api_urls = BACKEND / "api/urls/__init__.py"
