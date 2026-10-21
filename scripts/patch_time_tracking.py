@@ -50,7 +50,7 @@ def main() -> int:
     )
     anade_import(
         BACKEND / "app/views/__init__.py",
-        "from .issue.time_log import IssueTimeLogViewSet",
+        "from .issue.time_log import IssueTimeLogViewSet, ProjectTimeLogSummaryEndpoint",
         "IssueTimeLogViewSet",
     )
 
@@ -65,7 +65,7 @@ def main() -> int:
             return 1
         texto = texto.replace(
             ancla_import,
-            "    IssueDetailIdentifierEndpoint,\n    IssueTimeLogViewSet,\n)",
+            "    IssueDetailIdentifierEndpoint,\n    IssueTimeLogViewSet,\n    ProjectTimeLogSummaryEndpoint,\n)",
         )
 
         # 2) rutas antes del cierre de urlpatterns
@@ -105,7 +105,7 @@ def main() -> int:
                     "urlpatterns = [",
                     "from rest_framework.permissions import IsAuthenticated\n"
                     "from plane.api.middleware.api_authentication import APIKeyAuthentication\n"
-                    "from plane.app.views import IssueTimeLogViewSet\n\n"
+                    "from plane.app.views import IssueTimeLogViewSet, ProjectTimeLogSummaryEndpoint\n\n"
                     "TIMELOG_AUTH = {\n"
                     '    "authentication_classes": [APIKeyAuthentication],\n'
                     '    "permission_classes": [IsAuthenticated],\n'
@@ -126,6 +126,11 @@ def main() -> int:
         "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/time-logs/<uuid:pk>/",
         IssueTimeLogViewSet.as_view({"patch": "partial_update", "delete": "destroy"}, **TIMELOG_AUTH),
         name="issue-time-log",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/time-logs/summary/",
+        ProjectTimeLogSummaryEndpoint.as_view(**TIMELOG_AUTH),
+        name="project-time-logs-summary",
     ),
 ]"""
             idx = t2.rstrip().rfind("]")

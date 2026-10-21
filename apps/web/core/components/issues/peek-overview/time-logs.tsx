@@ -124,7 +124,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
   const dias = Object.keys(porDia).sort((a, b) => (a < b ? 1 : -1));
 
   return (
-    <div className="border-t border-subtle pt-4">
+    <div className="rounded-sm border border-subtle bg-layer-2 px-3 py-2.5">
       <div className="flex items-center justify-between">
         <button
           type="button"

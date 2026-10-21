@@ -7,6 +7,7 @@ from django.utils import timezone
 # Third party imports
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 # Module imports
 from plane.app.permissions import ROLE, allow_permission
@@ -120,5 +121,28 @@ class IssueTimeLogViewSet(BaseViewSet):
                     {"usuario": u["user__display_name"], "total_seconds": u["total"] or 0}
                     for u in por_usuario
                 ],
+            }
+        )
+
+
+class ProjectTimeLogSummaryEndpoint(APIView):
+    """Totales de tiempo por tarea de un proyecto entero.
+
+    Devuelve { "<issue_id>": segundos } para pintar el tiempo acumulado
+    en las tarjetas del tablero y en la vista de lista sin N llamadas.
+    """
+
+    def get(self, request, slug, project_id):
+        filas = (
+            IssueTimeLog.objects.filter(workspace__slug=slug, project_id=project_id, deleted_at__isnull=True)
+            .values("issue_id")
+            .annotate(total=Sum("duration_seconds"))
+        )
+        totales = {str(f["issue_id"]): f["total"] or 0 for f in filas}
+        return Response(
+            {
+                "totales": totales,
+                "total_proyecto": sum(totales.values()),
+                "tareas_con_tiempo": len(totales),
             }
         )
