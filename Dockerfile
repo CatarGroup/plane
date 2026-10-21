@@ -118,6 +118,7 @@ COPY apps/api/plane/db/models/time_log.py /tmp/time_log_model.py
 COPY apps/api/plane/app/serializers/time_log.py /tmp/time_log_serializer.py
 COPY apps/api/plane/app/views/issue/time_log.py /tmp/time_log_viewset.py
 COPY scripts/patch_time_tracking.py /tmp/patch_time_tracking.py
+# FIX 21/10: forzar re-ejecucion (la ruta de totales por proyecto faltaba por cache)
 RUN python3 /tmp/patch_time_tracking.py
 COPY migrations/0124_issuetimelog.py /app/backend/plane/db/migrations/0124_issuetimelog.py
 
