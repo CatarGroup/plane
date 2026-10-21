@@ -84,6 +84,11 @@ def main() -> int:
         IssueTimeLogViewSet.as_view({"patch": "partial_update", "delete": "destroy"}),
         name="issue-time-log",
     ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/time-logs/summary/",
+        ProjectTimeLogSummaryEndpoint.as_view(),
+        name="project-time-logs-summary",
+    ),
 ]'''
         # el ultimo "]" del fichero cierra urlpatterns
         idx = texto.rstrip().rfind("]")
