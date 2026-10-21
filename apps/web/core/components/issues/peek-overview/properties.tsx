@@ -86,29 +86,27 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
   // clases compartidas por todas las celdas del grid
   const cell = "min-w-0";
   // etiqueta mas estrecha para que quepan dos columnas
-  const labelClass = "[&>div>div:first-child]:w-24";
+  const labelClass = "[&>div>div:first-child]:w-28 [&>div>div:first-child>span]:whitespace-nowrap";
 
   return (
     <div className="romboc-props-panel">
-      <h6 className="text-body-xs-medium">{t("common.properties")}</h6>
-      <div className={cn("romboc-props-grid mt-3 w-full", { "opacity-60": disabled })}>
-        {/* Autor: fila propia encima de Estado/Asignados, alineado a la derecha */}
+      <div className="flex items-center justify-between gap-3">
+        <h6 className="text-body-xs-medium">{t("common.properties")}</h6>
         {createdByDetails && (
-          <div className="flex justify-end" style={{ gridColumn: "1 / -1" }}>
-            <div className={cn(cell, labelClass)}>
-              <SidebarPropertyListItem icon={UserCirclePropertyIcon} label="Autor" childrenClassName="px-2">
-                <ButtonAvatars
-                  showTooltip
-                  userIds={createdByDetails?.display_name?.includes("-intake") ? null : createdByDetails?.id}
-                />
-                <span className="grow truncate text-body-xs-medium leading-5 text-secondary">
-                  {createdByDetails?.display_name?.includes("-intake") ? "Plane" : createdByDetails?.display_name}
-                </span>
-              </SidebarPropertyListItem>
-            </div>
+          <div className="flex min-w-0 items-center gap-1.5">
+            <UserCirclePropertyIcon className="h-3.5 w-3.5 shrink-0 text-placeholder" />
+            <span className="shrink-0 text-body-xs-regular text-tertiary">Autor</span>
+            <ButtonAvatars
+              showTooltip
+              userIds={createdByDetails?.display_name?.includes("-intake") ? null : createdByDetails?.id}
+            />
+            <span className="truncate text-body-xs-medium text-secondary">
+              {createdByDetails?.display_name?.includes("-intake") ? "Plane" : createdByDetails?.display_name}
+            </span>
           </div>
         )}
-
+      </div>
+      <div className={cn("romboc-props-grid mt-3 w-full", { "opacity-60": disabled })}>
         {/* Fila 1: Estado | Asignados */}
         <div className={cn(cell, labelClass)}>
           <SidebarPropertyListItem icon={StatePropertyIcon} label={t("common.state")}>
