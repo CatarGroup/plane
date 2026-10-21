@@ -23,6 +23,7 @@ import { cn, generateWorkItemLink } from "@plane/utils";
 import { MultipleSelectEntityAction } from "@/components/core/multiple-select";
 import { IssueProperties } from "@/components/issues/issue-layouts/properties";
 import { IssueIdentifier } from "@/components/issues/issue-detail/issue-identifier";
+import { IssueTimeBadge } from "@/components/issues/issue-time-badge";
 // hooks
 import { useAppTheme } from "@/hooks/store/use-app-theme";
 import { useIssueDetail } from "@/hooks/store/use-issue-detail";
@@ -305,6 +306,12 @@ export const IssueBlock = observer(function IssueBlock(props: IssueBlockProps) {
                 displayProperties={displayProperties}
                 activeLayout="List"
                 isEpic={isEpic}
+              />
+              <IssueTimeBadge
+                workspaceSlug={workspaceSlug?.toString()}
+                projectId={issue.project_id}
+                issueId={issue.id}
+                variant="short"
               />
               {/* oxlint-disable-next-line jsx_a11y/click-events-have-key-events oxlint-disable-next-line jsx_a11y/no-static-element-interactions */}
               <div

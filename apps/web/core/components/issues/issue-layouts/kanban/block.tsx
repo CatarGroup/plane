@@ -135,6 +135,13 @@ const KanbanIssueDetailsBlock = observer(function KanbanIssueDetailsBlock(props:
         isReadOnly={isReadOnly}
         isEpic={isEpic}
       />
+
+      <IssueTimeBadge
+        workspaceSlug={workspaceSlug}
+        projectId={issue.project_id}
+        issueId={issue.id}
+        className="mt-1.5"
+      />
     </>
   );
 });
