@@ -374,3 +374,25 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+/* ============================================================
+   CatarGroup v16: panel de Propiedades del peek
+   Container query: si el panel es estrecho (pantalla completa)
+   van en UNA columna y no se pisan; si hay sitio, dos.
+   ============================================================ */
+.romboc-props-panel {
+  container-type: inline-size;
+}
+
+.romboc-props-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  column-gap: 1rem;
+  row-gap: 0.75rem;
+}
+
+@container (min-width: 380px) {
+  .romboc-props-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}

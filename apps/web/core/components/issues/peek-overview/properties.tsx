@@ -89,12 +89,12 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
   const labelClass = "[&>div>div:first-child]:w-24";
 
   return (
-    <div>
+    <div className="romboc-props-panel">
       <h6 className="text-body-xs-medium">{t("common.properties")}</h6>
-      <div className={cn("mt-3 grid w-full grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2", { "opacity-60": disabled })}>
+      <div className={cn("romboc-props-grid mt-3 w-full", { "opacity-60": disabled })}>
         {/* Autor: fila propia encima de Estado/Asignados, alineado a la derecha */}
         {createdByDetails && (
-          <div className="col-span-1 flex justify-end sm:col-span-2">
+          <div className="flex justify-end" style={{ gridColumn: "1 / -1" }}>
             <div className={cn(cell, labelClass)}>
               <SidebarPropertyListItem icon={UserCirclePropertyIcon} label="Autor" childrenClassName="px-2">
                 <ButtonAvatars
@@ -110,7 +110,6 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
         )}
 
         {/* Fila 1: Estado | Asignados */}
-        <div className="col-span-1 grid grid-cols-1 gap-x-4 gap-y-3 sm:col-span-2 sm:grid-cols-2">
         <div className={cn(cell, labelClass)}>
           <SidebarPropertyListItem icon={StatePropertyIcon} label={t("common.state")}>
             <StateDropdown
@@ -148,7 +147,6 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
           </SidebarPropertyListItem>
         </div>
 
-        </div>
 
         {/* Prioridad | Estimación */}
         <div className={cn(cell, labelClass)}>
@@ -267,7 +265,7 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
 
         {/* Ancho completo */}
         {projectDetails?.cycle_view && (
-          <div className="col-span-2 min-w-0">
+          <div className="min-w-0" style={{ gridColumn: "1 / -1" }}>
             <SidebarPropertyListItem icon={CycleIcon} label={t("common.cycle")} appendElement={null}>
               <IssueCycleSelect
                 className="h-7.5 w-full grow"
@@ -281,7 +279,7 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
           </div>
         )}
 
-        <div className="col-span-2 min-w-0">
+        <div className="min-w-0" style={{ gridColumn: "1 / -1" }}>
           <SidebarPropertyListItem icon={LabelPropertyIcon} label={t("common.labels")}>
             <IssueLabel workspaceSlug={workspaceSlug} projectId={projectId} issueId={issueId} disabled={disabled} />
           </SidebarPropertyListItem>
