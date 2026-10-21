@@ -14,52 +14,52 @@ export const MONTHS_LIST: {
   };
 } = {
   1: {
-    shortTitle: "Jan",
-    title: "January",
+    shortTitle: "Ene",
+    title: "Enero",
   },
   2: {
     shortTitle: "Feb",
-    title: "February",
+    title: "Febrero",
   },
   3: {
     shortTitle: "Mar",
-    title: "March",
+    title: "Marzo",
   },
   4: {
-    shortTitle: "Apr",
-    title: "April",
+    shortTitle: "Abr",
+    title: "Abril",
   },
   5: {
-    shortTitle: "May",
-    title: "May",
+    shortTitle: "Mayo",
+    title: "Mayo",
   },
   6: {
     shortTitle: "Jun",
-    title: "June",
+    title: "Junio",
   },
   7: {
     shortTitle: "Jul",
-    title: "July",
+    title: "Julio",
   },
   8: {
-    shortTitle: "Aug",
-    title: "August",
+    shortTitle: "Ago",
+    title: "Agosto",
   },
   9: {
     shortTitle: "Sep",
-    title: "September",
+    title: "Septiembre",
   },
   10: {
     shortTitle: "Oct",
-    title: "October",
+    title: "Octubre",
   },
   11: {
     shortTitle: "Nov",
-    title: "November",
+    title: "Noviembre",
   },
   12: {
-    shortTitle: "Dec",
-    title: "December",
+    shortTitle: "Dic",
+    title: "Diciembre",
   },
 };
 
@@ -71,38 +71,38 @@ export const DAYS_LIST: {
   };
 } = {
   1: {
-    shortTitle: "Sun",
-    title: "Sunday",
+    shortTitle: "Dom",
+    title: "Domingo",
     value: EStartOfTheWeek.SUNDAY,
   },
   2: {
-    shortTitle: "Mon",
-    title: "Monday",
+    shortTitle: "Lun",
+    title: "Lunes",
     value: EStartOfTheWeek.MONDAY,
   },
   3: {
-    shortTitle: "Tue",
-    title: "Tuesday",
+    shortTitle: "Mar",
+    title: "Martes",
     value: EStartOfTheWeek.TUESDAY,
   },
   4: {
-    shortTitle: "Wed",
-    title: "Wednesday",
+    shortTitle: "Mié",
+    title: "Miércoles",
     value: EStartOfTheWeek.WEDNESDAY,
   },
   5: {
-    shortTitle: "Thu",
-    title: "Thursday",
+    shortTitle: "Jue",
+    title: "Jueves",
     value: EStartOfTheWeek.THURSDAY,
   },
   6: {
-    shortTitle: "Fri",
-    title: "Friday",
+    shortTitle: "Vie",
+    title: "Viernes",
     value: EStartOfTheWeek.FRIDAY,
   },
   7: {
-    shortTitle: "Sat",
-    title: "Saturday",
+    shortTitle: "Sáb",
+    title: "Sábado",
     value: EStartOfTheWeek.SATURDAY,
   },
 };
@@ -115,10 +115,10 @@ export const CALENDAR_LAYOUTS: {
 } = {
   month: {
     key: "month",
-    title: "Month layout",
+    title: "Vista mensual",
   },
   week: {
     key: "week",
-    title: "Week layout",
+    title: "Vista semanal",
   },
 };
