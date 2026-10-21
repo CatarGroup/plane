@@ -20,6 +20,7 @@ import usePeekOverviewOutsideClickDetector from "@/hooks/use-peek-overview-outsi
 import type { TIssueOperations } from "../issue-detail";
 import { IssueActivity } from "../issue-detail/issue-activity";
 import { IssueDetailWidgets } from "../issue-detail-widgets";
+import { IssueTimeLogs } from "./time-logs";
 import { IssuePeekOverviewError } from "./error";
 import type { TPeekModes } from "./header";
 import { IssuePeekOverviewHeader } from "./header";
@@ -205,6 +206,13 @@ export const IssueView = observer(function IssueView(props: IIssueView) {
                       disabled={disabled || is_archived}
                     />
 
+                    <IssueTimeLogs
+                      workspaceSlug={workspaceSlug}
+                      projectId={projectId}
+                      issueId={issueId}
+                      disabled={disabled || is_archived}
+                    />
+
                     <IssueActivity
                       workspaceSlug={workspaceSlug}
                       projectId={projectId}
@@ -237,6 +245,13 @@ export const IssueView = observer(function IssueView(props: IIssueView) {
                             issueServiceType={EIssueServiceType.ISSUES}
                           />
                         </div>
+
+                        <IssueTimeLogs
+                          workspaceSlug={workspaceSlug}
+                          projectId={projectId}
+                          issueId={issueId}
+                          disabled={disabled || is_archived}
+                        />
 
                         <IssueActivity
                           workspaceSlug={workspaceSlug}
