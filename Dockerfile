@@ -108,6 +108,20 @@ RUN python3 /tmp/patch_profile_theme_default.py
 COPY migrations/0123_set_theme_catarbi_default.py /app/backend/plane/db/migrations/0123_set_theme_catarbi_default.py
 
 # ---------------------------------------------------------------
+# 7b) CONTADOR DE TIEMPO POR TAREA (estilo Toggl).
+#     El backend NO se compila desde este repo (viene de la imagen
+#     base), asi que se inyectan modelo, serializer, viewset y rutas,
+#     y se parchean los __init__.py. El script verifica cada paso y
+#     FALLA el build si algo no cuadra.
+# ---------------------------------------------------------------
+COPY apps/api/plane/db/models/time_log.py /tmp/time_log_model.py
+COPY apps/api/plane/app/serializers/time_log.py /tmp/time_log_serializer.py
+COPY apps/api/plane/app/views/issue/time_log.py /tmp/time_log_viewset.py
+COPY scripts/patch_time_tracking.py /tmp/patch_time_tracking.py
+RUN python3 /tmp/patch_time_tracking.py
+COPY migrations/0124_issuetimelog.py /app/backend/plane/db/migrations/0124_issuetimelog.py
+
+# ---------------------------------------------------------------
 # 8) Sentry en el backend (API + workers + beat + migrator).
 #    Solo se activa si SENTRY_DSN esta en las env vars de Railway;
 #    el DSN no vive en el repo. Parche verificado en el build.
