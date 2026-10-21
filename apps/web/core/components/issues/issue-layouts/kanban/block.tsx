@@ -136,12 +136,7 @@ const KanbanIssueDetailsBlock = observer(function KanbanIssueDetailsBlock(props:
         isEpic={isEpic}
       />
 
-      <IssueTimeBadge
-        workspaceSlug={workspaceSlug}
-        projectId={issue.project_id}
-        issueId={issue.id}
-        className="mt-1.5"
-      />
+      <IssueTimeBadge projectId={issue.project_id} issueId={issue.id} className="mt-1.5" />
     </>
   );
 });

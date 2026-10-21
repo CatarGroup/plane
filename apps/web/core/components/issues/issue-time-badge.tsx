@@ -3,9 +3,12 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  * See the LICENSE file for details.
  *
- * CatarGroup: "T. Invertido: 3 h" en tarjetas y filas de lista.
+ * CatarGroup: "Tiempo invertido: 3 h" en tarjetas y filas de lista.
+ * El workspace se lee de la ruta (useParams) para poder usarlo en
+ * cualquier profundidad del arbol sin depender de props.
  */
 
+import { useParams } from "react-router";
 import { Clock } from "lucide-react";
 import { cn } from "@plane/utils";
 import { formatearTiempo, useProjectTimeSummary } from "@/hooks/use-project-time-summary";
@@ -20,7 +23,9 @@ interface Props {
 }
 
 export function IssueTimeBadge({ workspaceSlug, projectId, issueId, className, variant = "full" }: Props) {
-  const totales = useProjectTimeSummary(workspaceSlug, projectId);
+  const params = useParams();
+  const slug = workspaceSlug ?? params?.workspaceSlug?.toString();
+  const totales = useProjectTimeSummary(slug, projectId);
   const texto = formatearTiempo(totales[issueId]);
   if (!texto) return null;
 
@@ -33,7 +38,7 @@ export function IssueTimeBadge({ workspaceSlug, projectId, issueId, className, v
       title={`Tiempo invertido: ${texto}`}
     >
       <Clock className="size-3 shrink-0" />
-      {variant === "full" ? <span>T. Invertido: {texto}</span> : <span className="tabular-nums">{texto}</span>}
+      {variant === "full" ? <span>Tiempo invertido: {texto}</span> : <span className="tabular-nums">{texto}</span>}
     </span>
   );
 }

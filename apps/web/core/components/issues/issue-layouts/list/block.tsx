@@ -307,12 +307,7 @@ export const IssueBlock = observer(function IssueBlock(props: IssueBlockProps) {
                 activeLayout="List"
                 isEpic={isEpic}
               />
-              <IssueTimeBadge
-                workspaceSlug={workspaceSlug?.toString()}
-                projectId={issue.project_id}
-                issueId={issue.id}
-                variant="short"
-              />
+              <IssueTimeBadge projectId={issue.project_id} issueId={issue.id} variant="short" />
               {/* oxlint-disable-next-line jsx_a11y/click-events-have-key-events oxlint-disable-next-line jsx_a11y/no-static-element-interactions */}
               <div
                 className={cn("hidden", {

@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: AGPL-3.0-only
  * See the LICENSE file for details.
  *
- * CatarGroup: "Tiempos invertidos" (estilo Toggl).
+ * CatarGroup: "Tiempo invertido" (estilo Toggl).
  * Cada tramo es una fila; se acumulan por tarea. Entrada manual
  * con desplegables de hora, o cronometro.
  */
@@ -127,7 +127,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
   const dias = Object.keys(porDia).sort((a, b) => (a < b ? 1 : -1));
 
   return (
-    <div className="rounded-sm border border-subtle bg-layer-2 px-3 py-2.5">
+    <div className="rounded-sm border border-subtle bg-layer-3 px-3 py-2.5">
       <div className="flex items-center justify-between">
         <button
           type="button"
@@ -136,7 +136,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
         >
           {abierto ? <ChevronDown className="size-3.5" /> : <ChevronRight className="size-3.5" />}
           <Clock className="size-3.5" />
-          Tiempos invertidos
+          Tiempo invertido
           <span className="ml-1 rounded-sm bg-layer-1 px-1.5 py-0.5 text-body-xs-medium text-primary">
             {humano(total)}
           </span>
