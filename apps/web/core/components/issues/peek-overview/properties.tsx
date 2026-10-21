@@ -92,8 +92,25 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
     <div>
       <h6 className="text-body-xs-medium">{t("common.properties")}</h6>
       <div className={cn("mt-3 grid w-full grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2", { "opacity-60": disabled })}>
-        {/* Fila 1: Estado | Asignados | Autor (3 columnas en escritorio, 1 en movil) */}
-        <div className="col-span-1 grid grid-cols-1 gap-x-4 gap-y-3 sm:col-span-2 sm:grid-cols-3">
+        {/* Autor: fila propia encima de Estado/Asignados, alineado a la derecha */}
+        {createdByDetails && (
+          <div className="col-span-1 flex justify-end sm:col-span-2">
+            <div className={cn(cell, labelClass)}>
+              <SidebarPropertyListItem icon={UserCirclePropertyIcon} label="Autor" childrenClassName="px-2">
+                <ButtonAvatars
+                  showTooltip
+                  userIds={createdByDetails?.display_name?.includes("-intake") ? null : createdByDetails?.id}
+                />
+                <span className="grow truncate text-body-xs-medium leading-5 text-secondary">
+                  {createdByDetails?.display_name?.includes("-intake") ? "Plane" : createdByDetails?.display_name}
+                </span>
+              </SidebarPropertyListItem>
+            </div>
+          </div>
+        )}
+
+        {/* Fila 1: Estado | Asignados */}
+        <div className="col-span-1 grid grid-cols-1 gap-x-4 gap-y-3 sm:col-span-2 sm:grid-cols-2">
         <div className={cn(cell, labelClass)}>
           <SidebarPropertyListItem icon={StatePropertyIcon} label={t("common.state")}>
             <StateDropdown
@@ -131,20 +148,6 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
           </SidebarPropertyListItem>
         </div>
 
-        {/* Autor (tercera columna de la fila 1) */}
-        {createdByDetails && (
-          <div className={cn(cell, labelClass)}>
-            <SidebarPropertyListItem icon={UserCirclePropertyIcon} label="Autor" childrenClassName="px-2">
-              <ButtonAvatars
-                showTooltip
-                userIds={createdByDetails?.display_name?.includes("-intake") ? null : createdByDetails?.id}
-              />
-              <span className="grow truncate text-body-xs-medium leading-5 text-secondary">
-                {createdByDetails?.display_name?.includes("-intake") ? "Plane" : createdByDetails?.display_name}
-              </span>
-            </SidebarPropertyListItem>
-          </div>
-        )}
         </div>
 
         {/* Prioridad | Estimación */}
@@ -185,7 +188,7 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
 
         {/* Fecha inicio | Vencimiento */}
         <div className={cn(cell, labelClass)}>
-          <SidebarPropertyListItem icon={StartDatePropertyIcon} label={t("common.order_by.start_date")}>
+          <SidebarPropertyListItem icon={StartDatePropertyIcon} label="F. Inicio">
             <DateDropdown
               value={issue.start_date}
               onChange={(val) =>
@@ -207,7 +210,7 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
         </div>
 
         <div className={cn(cell, labelClass)}>
-          <SidebarPropertyListItem icon={DueDatePropertyIcon} label={t("common.order_by.due_date")}>
+          <SidebarPropertyListItem icon={DueDatePropertyIcon} label="F. Vencimiento">
             <div className="flex w-full items-center gap-2">
               <DateDropdown
                 value={issue.target_date}
