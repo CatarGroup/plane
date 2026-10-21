@@ -93,6 +93,42 @@ def main() -> int:
     else:
         print("  rutas ya presentes")
 
+    print("[time-tracking] añadiendo rutas a la API publica (api/v1)...")
+    api_urls = BACKEND / "api/urls/__init__.py"
+    if api_urls.exists():
+        t2 = api_urls.read_text()
+        if "issue-time-logs" not in t2:
+            if "from django.urls import path" not in t2:
+                t2 = "from django.urls import path\n" + t2
+            if "from plane.app.views import IssueTimeLogViewSet" not in t2:
+                t2 = t2.replace(
+                    "urlpatterns = [",
+                    "from plane.app.views import IssueTimeLogViewSet\n\nurlpatterns = [",
+                    1,
+                )
+            rutas_v1 = """    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/time-logs/",
+        IssueTimeLogViewSet.as_view({"get": "list", "post": "create"}),
+        name="issue-time-logs",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/time-logs/summary/",
+        IssueTimeLogViewSet.as_view({"get": "summary"}),
+        name="issue-time-logs-summary",
+    ),
+    path(
+        "workspaces/<str:slug>/projects/<uuid:project_id>/issues/<uuid:issue_id>/time-logs/<uuid:pk>/",
+        IssueTimeLogViewSet.as_view({"patch": "partial_update", "delete": "destroy"}),
+        name="issue-time-log",
+    ),
+]"""
+            idx = t2.rstrip().rfind("]")
+            t2 = t2[:idx] + rutas_v1 + t2[idx + 1 :]
+            api_urls.write_text(t2)
+            print("  rutas api/v1 añadidas")
+        else:
+            print("  rutas api/v1 ya presentes")
+
     # verificacion final
     comprobaciones = [
         (BACKEND / "db/models/time_log.py", "class IssueTimeLog"),
