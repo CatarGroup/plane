@@ -337,49 +337,6 @@ button[data-ph-element="work_items_header_add_work_item_button"]:hover {
 }
 
 /* ============================================================
-   BARRA DE SCROLL DEL TABLERO  (CatarGroup)
-   Sobre fondo morado la barra nativa pasa desapercibida: se pinta
-   magenta brillante con carril oscuro para verla de un vistazo.
-   ============================================================ */
-
-div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"]::-webkit-scrollbar {
-  height: 14px;
-  width: 14px;
-}
-
-div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"]::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.28);
-  border-radius: 8px;
-}
-
-div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"]::-webkit-scrollbar-thumb {
-  background: #ff3da6;
-  border: 2px solid rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  min-width: 60px;
-}
-
-div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"]::-webkit-scrollbar-thumb:hover {
-  background: #ff6ec0;
-}
-
-div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"] {
-  scrollbar-width: thin;
-  scrollbar-color: #ff3da6 rgba(0, 0, 0, 0.28);
-}
-
-div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"] ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"] ::-webkit-scrollbar-thumb {
-  background: #ff3da6;
-  border-radius: 8px;
-  min-height: 48px;
-}
-
-/* ============================================================
    BARRAS DE SCROLL VISIBLES  (CatarGroup, v14)
    La barra horizontal del tablero quedaba camuflada con el fondo
    morado. Se pinta magenta brillante en TODA la app para que se vea
@@ -388,24 +345,25 @@ div.flex-row.gap-4.py-page-y [data-auto-scrollable="true"] ::-webkit-scrollbar-t
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: #ff3da6 rgba(0, 0, 0, 0.28);
+  scrollbar-color: #ff3da6 transparent;
 }
 
 ::-webkit-scrollbar {
-  width: 14px;
-  height: 14px;
+  width: 12px;
+  height: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.28);
+  background: transparent;
   border-radius: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ff3da6;
-  border: 2px solid rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  min-width: 60px;
+  background: rgba(255, 61, 166, 0.85);
+  border: 3px solid transparent;
+  background-clip: content-box;
+  border-radius: 10px;
+  min-width: 48px;
   min-height: 48px;
 }
 
