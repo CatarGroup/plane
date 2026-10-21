@@ -8,7 +8,7 @@
  * cualquier profundidad del arbol sin depender de props.
  */
 
-import { useParams } from "react-router";
+import { useParams } from "next/navigation";
 import { Clock } from "lucide-react";
 import { cn } from "@plane/utils";
 import { formatearTiempo, useProjectTimeSummary } from "@/hooks/use-project-time-summary";
