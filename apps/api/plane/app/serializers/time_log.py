@@ -16,6 +16,7 @@ class IssueTimeLogSerializer(BaseSerializer):
         model = IssueTimeLog
         fields = "__all__"
         read_only_fields = [
+            "user",
             "workspace",
             "project",
             "issue",
