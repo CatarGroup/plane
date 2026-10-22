@@ -206,4 +206,22 @@ RUN set -eux; \
     traducir '?null:`Filters`}' '?null:`Filtros`}'; \
     traducir 'title:`Filters`,placement:`' 'title:`Filtros`,placement:`'
 
+# ---------------------------------------------------------------
+# 12) "All work items" -> "Todas las tareas del proyecto" en los
+#     bundles ya compilados. La clave i18n (issue.all) ya viene
+#     traducida desde el codigo fuente, pero el chunk que sirve la
+#     cabecera de la lista de un modulo seguia mostrando el literal
+#     ingles: se parchea en el artefacto, que es lo que llega al
+#     navegador. Patron anclado a la clave (all:`...`) para no tocar
+#     frases largas como "All work items created by you come here".
+# ---------------------------------------------------------------
+RUN set -eux; \
+    for DIR in /app/web /app/space/apps/space/build/client; do \
+      [ -d "$DIR" ] || continue; \
+      FICHEROS=$(grep -rlF -- 'all:`All Work items`' "$DIR" 2>/dev/null || true); \
+      FICHEROS2=$(grep -rlF -- 'all:`All work items`' "$DIR" 2>/dev/null || true); \
+      [ -z "$FICHEROS" ] || echo "$FICHEROS" | xargs sed -i 's/all:`All Work items`/all:`Todas las tareas del proyecto`/g'; \
+      [ -z "$FICHEROS2" ] || echo "$FICHEROS2" | xargs sed -i 's/all:`All work items`/all:`Todas las tareas del proyecto`/g'; \
+    done
+
 # La imagen base trae su propio entrypoint (supervisord + start.sh)
