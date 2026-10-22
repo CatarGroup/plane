@@ -106,7 +106,7 @@ function LabelSummary({ isMobile, fullWidth, noLabelBorder, disabled, projectLab
       >
         <div className="flex h-full items-center gap-1.5 text-secondary">
           <span className="h-2 w-2 flex-shrink-0 rounded-full bg-accent-primary" />
-          {`${value.length} Labels`}
+          {`${value.length} ${value.length === 1 ? "etiqueta" : "etiquetas"}`}
         </div>
       </Tooltip>
     </div>

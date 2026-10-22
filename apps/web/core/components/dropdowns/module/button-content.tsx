@@ -55,7 +55,7 @@ export function ModuleButtonContent(props: ModuleButtonContentProps) {
                 {value.length > 0
                   ? value.length === 1
                     ? `${getModuleById(value[0])?.name || "module"}`
-                    : `${value.length} Module${value.length === 1 ? "" : "s"}`
+                    : `${value.length} ${value.length === 1 ? "módulo" : "módulos"}`
                   : placeholder}
               </div>
             )}
