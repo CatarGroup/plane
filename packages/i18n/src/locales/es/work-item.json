@@ -1,7 +1,7 @@
 {
   "issue": {
     "label": "{count, plural, one {Tarea} other {Tareas}}",
-    "all": "Todas las tareas",
+    "all": "Todas las tareas del proyecto",
     "edit": "Editar tarea",
     "title": {
       "label": "Título de la tarea",
