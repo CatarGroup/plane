@@ -127,7 +127,7 @@ export const getGroupByColumns = ({
     return [
       {
         id: "All Issues",
-        name: `All ${isEpic ? "Epics" : "work items"}`,
+        name: isEpic ? "Todas las épicas" : "Todas las tareas del proyecto",
         payload: {},
         icon: undefined,
       },
