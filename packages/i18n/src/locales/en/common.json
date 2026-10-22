@@ -809,7 +809,7 @@
     "other": "Other"
   },
   "default_global_view": {
-    "all_issues": "All work items",
+    "all_issues": "Todas las tareas del proyecto",
     "assigned": "Assigned",
     "created": "Created",
     "subscribed": "Subscribed"
