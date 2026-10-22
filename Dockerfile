@@ -121,6 +121,7 @@ COPY scripts/patch_time_tracking.py /tmp/patch_time_tracking.py
 # FIX 21/10: forzar re-ejecucion (la ruta de totales por proyecto faltaba por cache)
 RUN python3 /tmp/patch_time_tracking.py
 COPY migrations/0124_issuetimelog.py /app/backend/plane/db/migrations/0124_issuetimelog.py
+COPY migrations/0125_reset_theme_system.py /app/backend/plane/db/migrations/0125_reset_theme_system.py
 
 # ---------------------------------------------------------------
 # 8) Sentry en el backend (API + workers + beat + migrator).
