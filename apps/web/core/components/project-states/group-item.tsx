@@ -78,7 +78,7 @@ export const GroupItem = observer(function GroupItem(props: TGroupItem) {
           <div className="flex h-6 w-6 flex-shrink-0 items-center justify-center overflow-hidden rounded-sm">
             <StateGroupIcon stateGroup={groupKey} size={EIconSize.XL} />
           </div>
-          <div className="px-1 text-14 font-medium text-secondary capitalize">{groupKey}</div>
+          <div className="px-1 text-14 font-medium text-secondary capitalize">{{ unstarted: "Sin iniciar", started: "En curso", completed: "Completados", cancelled: "Cancelados" }[groupKey] ?? groupKey}</div>
         </div>
         <button
           type="button"
