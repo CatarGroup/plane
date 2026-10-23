@@ -30,8 +30,12 @@ NUEVA_FUNCION = MARCADOR_FUNCION + '''
 def get_default_theme_catarbi():
     return {
         "theme": "custom",
-        "primary": "#3C87C4",
-        "background": "#172B4D",
+        # Mismos colores que trae "Preferencia del Sistema" (ver
+        # THEME_OPTIONS en packages/constants/src/themes.ts: icon.color2
+        # = primary, icon.color1 = background), para que "Tema Catar Bi"
+        # se vea igual que el tema claro por defecto de Plane.
+        "primary": "#3F76FF",
+        "background": "#FAFAFA",
         "darkPalette": False,
     }
 '''
