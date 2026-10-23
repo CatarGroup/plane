@@ -224,4 +224,14 @@ RUN set -eux; \
       [ -z "$FICHEROS2" ] || echo "$FICHEROS2" | xargs sed -i 's/all:`All work items`/all:`Todas las tareas del proyecto`/g'; \
     done
 
+# ---------------------------------------------------------------
+# 13) Plantillas de correo accesibles.
+#     Django busca en DIRS=["templates"] relativo al cwd, que es
+#     /app, pero los templates viven en /app/backend/templates.
+#     Sin esto fallan forgot-password / magic-link / invitaciones
+#     con TemplateDoesNotExist y el email NO se envia (el usuario
+#     ve "revisa tu correo" y no llega nada).
+# ---------------------------------------------------------------
+RUN ln -sfn /app/backend/templates /app/templates
+
 # La imagen base trae su propio entrypoint (supervisord + start.sh)
