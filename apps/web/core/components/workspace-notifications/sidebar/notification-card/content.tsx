@@ -47,60 +47,60 @@ export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
   duplicate: ({ verb }) => ({
     action:
       verb === "created"
-        ? "marked that this work item is a duplicate of"
-        : "marked that this work item is not a duplicate",
+        ? "marcó esta tarea como duplicada de"
+        : "marcó esta tarea como no duplicada",
     value: null,
     showConnector: false,
   }),
   assignees: ({ newValue, oldValue }) => ({
-    action: newValue !== "" ? "added assignee" : "removed assignee",
+    action: newValue !== "" ? "asignó a" : "quitó la asignación a",
     value: newValue !== "" ? newValue : oldValue,
     showConnector: false,
   }),
   start_date: ({ newValue }) => ({
-    action: newValue !== "" ? "set start date" : "removed the start date",
+    action: newValue !== "" ? "fijó la fecha de inicio" : "quitó la fecha de inicio",
     value: renderFormattedDate(newValue),
     showConnector: false,
   }),
   target_date: ({ newValue }) => ({
-    action: newValue !== "" ? "set due date" : "removed the due date",
+    action: newValue !== "" ? "fijó la fecha de vencimiento" : "quitó la fecha de vencimiento",
     value: renderFormattedDate(newValue),
     showConnector: false,
   }),
   labels: ({ newValue, oldValue }) => ({
-    action: newValue !== "" ? "added label" : "removed label",
+    action: newValue !== "" ? "añadió la etiqueta" : "quitó la etiqueta",
     value: newValue !== "" ? newValue : oldValue,
     showConnector: false,
   }),
   parent: ({ newValue, oldValue }) => ({
-    action: newValue !== "" ? "added parent" : "removed parent",
+    action: newValue !== "" ? "añadió la tarea padre" : "quitó la tarea padre",
     value: newValue !== "" ? newValue : oldValue,
     showConnector: false,
   }),
   relates_to: () => ({
-    action: "marked that this work item is related to",
+    action: "marcó esta tarea como relacionada con",
     value: null,
     showConnector: true,
   }),
   comment: ({ newValue }, renderCommentBox?: boolean) => ({
-    action: "commented",
+    action: "comentó",
     value: renderCommentBox ? null : sanitizeCommentForNotification(newValue),
     showConnector: false,
   }),
   archived_at: ({ newValue }) => ({
-    action: newValue === "restore" ? "restored the work item" : "archived the work item",
+    action: newValue === "restore" ? "restauró la tarea" : "archivó la tarea",
     value: null,
     showConnector: false,
   }),
   None: () => ({
     action: null,
-    value: "the work item and assigned it to you.",
+    value: "la tarea y te la asignó.",
     showConnector: false,
   }),
   // Fields below only define value - action falls through to default handler
   attachment: () => ({
     action: null,
-    value: "the work item",
+    value: "la tarea",
     showConnector: true,
   }),
   description: ({ newValue }) => ({
@@ -209,7 +209,7 @@ export function NotificationContent({
       <span className="text-tertiary">{renderAction()} </span>
       {verb !== "deleted" && (
         <>
-          {showConnector && <span className="text-tertiary">to </span>}
+          {showConnector && <span className="text-tertiary">a </span>}
           <span className="font-medium text-primary">{renderValue()}</span>
           {notificationField === "comment" && renderCommentBox && (
             <div className="origin-left scale-75">

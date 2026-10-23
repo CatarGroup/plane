@@ -11,9 +11,35 @@ import type { TNotificationContentMap } from "@/components/workspace-notificatio
 export const ADDITIONAL_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {};
 
 // Fallback action renderer for fields not in the map
+const VERBOS_ES: Record<string, string> = {
+  updated: "actualizó",
+  created: "creó",
+  deleted: "eliminó",
+};
+
+const CAMPOS_ES: Record<string, string> = {
+  state: "el estado",
+  priority: "la prioridad",
+  module: "el módulo",
+  modules: "el módulo",
+  cycle: "el ciclo",
+  cycles: "el ciclo",
+  assignees: "los asignados",
+  labels: "las etiquetas",
+  parent: "la tarea padre",
+  estimate_point: "la estimación",
+  start_date: "la fecha de inicio",
+  target_date: "la fecha de vencimiento",
+  description: "la descripción",
+  name: "el nombre",
+  link: "el enlace",
+  attachment: "el adjunto",
+};
+
 export const renderAdditionalAction = (notificationField: string, verb: string | undefined) => {
-  const baseAction = !["comment", "archived_at"].includes(notificationField) ? verb : "";
-  return `${baseAction} ${replaceUnderscoreIfSnakeCase(notificationField)}`;
+  const baseAction = !["comment", "archived_at"].includes(notificationField) ? VERBOS_ES[verb ?? ""] ?? verb : "";
+  const campo = CAMPOS_ES[notificationField] ?? replaceUnderscoreIfSnakeCase(notificationField);
+  return `${baseAction} ${campo}`;
 };
 
 // Fallback value renderer for fields not in the map
