@@ -38,7 +38,10 @@ export const AuthHeader = observer(function AuthHeader({ type }: AuthHeaderProps
   // store
   const { config } = useInstance();
   // derived values
-  const enableSignUpConfig = config?.enable_signup ?? false;
+  // CatarGroup: el alta esta cerrada (solo invitacion). No mostramos el enlace
+  // de registro aunque la config del cliente venga cacheada con el valor viejo.
+  const enableSignUpConfig = false;
+  void config;
 
   return (
     <AuthHeaderBase
