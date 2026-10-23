@@ -124,6 +124,16 @@ COPY migrations/0124_issuetimelog.py /app/backend/plane/db/migrations/0124_issue
 COPY migrations/0125_reset_theme_system.py /app/backend/plane/db/migrations/0125_reset_theme_system.py
 
 # ---------------------------------------------------------------
+# 7c) ESTADOS Y ETIQUETAS POR DEFECTO DE PROYECTOS NUEVOS.
+#     DEFAULT_STATES pasa a espanol (Tareas/Iniciadas/Completadas/
+#     Canceladas) y sin Backlog ni Triage; al crear un proyecto se
+#     copian las etiquetas de Grupo Romboc. Estos dos ficheros del
+#     backend vienen de la imagen base y hay que sobrescribirlos.
+# ---------------------------------------------------------------
+COPY apps/api/plane/db/models/state.py /app/backend/plane/db/models/state.py
+COPY apps/api/plane/app/views/project/base.py /app/backend/plane/app/views/project/base.py
+
+# ---------------------------------------------------------------
 # 8) Sentry en el backend (API + workers + beat + migrator).
 #    Solo se activa si SENTRY_DSN esta en las env vars de Railway;
 #    el DSN no vive en el repo. Parche verificado en el build.
