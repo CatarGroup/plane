@@ -132,6 +132,7 @@ COPY migrations/0125_reset_theme_system.py /app/backend/plane/db/migrations/0125
 # ---------------------------------------------------------------
 COPY apps/api/plane/db/models/state.py /app/backend/plane/db/models/state.py
 COPY apps/api/plane/app/views/project/base.py /app/backend/plane/app/views/project/base.py
+COPY apps/api/plane/api/views/project.py /app/backend/plane/api/views/project.py
 
 # ---------------------------------------------------------------
 # 8) Sentry en el backend (API + workers + beat + migrator).

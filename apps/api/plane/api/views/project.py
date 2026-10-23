@@ -270,6 +270,30 @@ class ProjectListCreateAPIEndpoint(BaseAPIView):
                         ]
                     )
 
+                    # CatarGroup: el proyecto nuevo hereda las etiquetas de Grupo Romboc
+                    if serializer.instance.name != "Grupo Romboc":
+                        etiquetas_origen = Label.objects.filter(
+                            project__workspace=serializer.instance.workspace,
+                            project__name="Grupo Romboc",
+                            project__deleted_at__isnull=True,
+                            deleted_at__isnull=True,
+                        )
+                        if etiquetas_origen.exists():
+                            Label.objects.bulk_create(
+                                [
+                                    Label(
+                                        name=etiqueta.name,
+                                        description=etiqueta.description or "",
+                                        color=etiqueta.color,
+                                        project=serializer.instance,
+                                        workspace=serializer.instance.workspace,
+                                        sort_order=etiqueta.sort_order,
+                                        created_by=request.user,
+                                    )
+                                    for etiqueta in etiquetas_origen
+                                ]
+                            )
+
                     project = self.get_queryset().filter(pk=serializer.instance.id).first()
 
                     # Defer the activity-log task until the surrounding
