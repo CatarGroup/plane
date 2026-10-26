@@ -56,10 +56,12 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
   // formulario
   const hoy = format(new Date(), "yyyy-MM-dd");
   const [fecha, setFecha] = useState(hoy);
-  const [horaIni, setHoraIni] = useState("09");
+  // Arranque comodo: inicio a las 08:00 y fin a la hora actual, para no tener
+  // que corregir las dos horas cada vez que se apunta tiempo.
+  const [horaIni, setHoraIni] = useState("08");
   const [minIni, setMinIni] = useState("00");
-  const [horaFin, setHoraFin] = useState("12");
-  const [minFin, setMinFin] = useState("00");
+  const [horaFin, setHoraFin] = useState(() => format(new Date(), "HH"));
+  const [minFin, setMinFin] = useState(() => format(new Date(), "mm"));
   const [nota, setNota] = useState("");
 
   const cargar = async () => {
@@ -80,6 +82,24 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
     cargar();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [issueId]);
+
+  const abrirForm = () => {
+    setAbierto(true);
+    const abrir = !formulario;
+    setFormulario(abrir);
+    if (abrir) {
+      // al abrir: inicio 08:00 y fin la hora actual
+      const ahora = new Date();
+      const antesDeLasOcho = Number(format(ahora, "HH")) < 8;
+      setFecha(format(ahora, "yyyy-MM-dd"));
+      setHoraIni(antesDeLasOcho ? "00" : "08");
+      setMinIni("00");
+      setHoraFin(format(ahora, "HH"));
+      setMinFin(format(ahora, "mm"));
+      setNota("");
+      setError(null);
+    }
+  };
 
   const guardar = async () => {
     setError(null);
@@ -145,10 +165,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
         {!disabled && (
           <button
             type="button"
-            onClick={() => {
-              setAbierto(true);
-              setFormulario((v) => !v);
-            }}
+            onClick={abrirForm}
             className="flex h-7 items-center gap-1 rounded-sm border border-subtle px-2 text-body-xs-medium text-secondary hover:bg-layer-1"
           >
             <Plus className="size-3.5" /> Añadir
