@@ -28,10 +28,11 @@ const limpiar = (v: string) => v.replace(/[^0-9]/g, "").slice(0, 2);
 const saltar = (e: React.ChangeEvent<HTMLInputElement>) => {
   const v = e.target.value.replace(/[^0-9]/g, "");
   if (v.length < 2) return;
-  const caja = e.target.parentElement;
-  const campos = caja ? Array.from(caja.parentElement?.querySelectorAll("input") ?? []) : [];
+  // recorre las cuatro casillas del tramo (desde HH, desde MM, hasta HH, hasta MM)
+  const fila = e.target.closest("[data-tramo-tiempo]");
+  const campos = fila ? Array.from(fila.querySelectorAll("input")) : [];
   const siguiente = campos[campos.indexOf(e.target) + 1];
-  if (siguiente) siguiente.focus();
+  if (siguiente) (siguiente as HTMLInputElement).focus();
 };
 
 // etiqueta de 12 horas para los desplegables: 08 -> "08 AM", 13 -> "01 PM"
@@ -216,7 +217,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
         <div className="mt-3 space-y-3">
           {formulario && !disabled && (
             <div className="rounded-sm border border-subtle bg-layer-1 p-3">
-              <div className="flex flex-wrap items-end gap-2">
+              <div data-tramo-tiempo className="flex flex-wrap items-end gap-2">
                 <div className="flex flex-col gap-1">
                   <label className="text-body-xs-regular text-tertiary">Fecha</label>
                   <input
@@ -259,7 +260,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                       maxLength={2}
                       placeholder="HH"
                       value={horaFin}
-                      onChange={(e) => { setHoraIni(limpiar(e.target.value)); saltar(e); }}
+                      onChange={(e) => { setHoraFin(limpiar(e.target.value)); saltar(e); }}
                       className="h-7 w-11 rounded-sm border border-subtle bg-surface-1 px-1 text-center text-body-xs-regular tabular-nums"
                     />
                     <span>:</span>
@@ -269,7 +270,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                       maxLength={2}
                       placeholder="MM"
                       value={minFin}
-                      onChange={(e) => { setMinIni(limpiar(e.target.value)); saltar(e); }}
+                      onChange={(e) => { setMinFin(limpiar(e.target.value)); saltar(e); }}
                       className="h-7 w-11 rounded-sm border border-subtle bg-surface-1 px-1 text-center text-body-xs-regular tabular-nums"
                     />
                   </div>
