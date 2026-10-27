@@ -21,6 +21,13 @@ import { invalidarTotales } from "@/hooks/use-project-time-summary";
 const timeLogService = new IssueTimeLogService();
 
 const HORAS = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
+// etiqueta de 12 horas para los desplegables: 08 -> "08 AM", 13 -> "01 PM"
+const horaEtiqueta = (h: string) => {
+  const n = Number(h);
+  const sufijo = n < 12 ? "AM" : "PM";
+  const n12 = n % 12 === 0 ? 12 : n % 12;
+  return `${String(n12).padStart(2, "0")} ${sufijo}`;
+};
 const MINUTOS = ["00", "15", "30", "45"];
 
 // 10:00 AM · formato de 12 horas, como el resto de la ficha
@@ -31,7 +38,7 @@ const humano = (segundos: number) => {
   const h = Math.floor(totalMin / 60);
   const m = totalMin % 60;
   if (h && m) return `${h} h ${m} min`;
-  if (h) return `${h} h`;
+  if (h) return `${h} ${h === 1 ? "hora" : "horas"}`;
   return `${m} min`;
 };
 
@@ -212,7 +219,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                     >
                       {HORAS.map((h) => (
                         <option key={h} value={h}>
-                          {h}
+                          {horaEtiqueta(h)}
                         </option>
                       ))}
                     </select>
@@ -240,7 +247,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                     >
                       {HORAS.map((h) => (
                         <option key={h} value={h}>
-                          {h}
+                          {horaEtiqueta(h)}
                         </option>
                       ))}
                     </select>
