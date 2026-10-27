@@ -21,6 +21,19 @@ import { invalidarTotales } from "@/hooks/use-project-time-summary";
 const timeLogService = new IssueTimeLogService();
 
 const HORAS = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
+// casilla de dos dígitos: solo números y se queda con lo que escribe el usuario
+const limpiar = (v: string) => v.replace(/[^0-9]/g, "").slice(0, 2);
+
+// al escribir dos dígitos salta a la casilla siguiente (horas -> minutos -> hasta...)
+const saltar = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const v = e.target.value.replace(/[^0-9]/g, "");
+  if (v.length < 2) return;
+  const caja = e.target.parentElement;
+  const campos = caja ? Array.from(caja.parentElement?.querySelectorAll("input") ?? []) : [];
+  const siguiente = campos[campos.indexOf(e.target) + 1];
+  if (siguiente) siguiente.focus();
+};
+
 // etiqueta de 12 horas para los desplegables: 08 -> "08 AM", 13 -> "01 PM"
 const horaEtiqueta = (h: string) => {
   const n = Number(h);
@@ -115,19 +128,22 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
   const guardar = async () => {
     setError(null);
     // solo numeros: nada de letras, puntos ni comas
-    const soloDosDigitos = (v: string) => /^\d{2}$/.test(v);
-    if (![horaIni, minIni, horaFin, minFin].every(soloDosDigitos)) {
-      setError("Las horas solo admiten números (dos dígitos).");
+    const soloDigitos = (v: string) => /^\d{1,2}$/.test(v.trim());
+    if (![horaIni, minIni, horaFin, minFin].every(soloDigitos)) {
+      setError("Las horas solo admiten números.");
       return;
     }
-    const hIni = Number(horaIni), mIni = Number(minIni);
-    const hFin = Number(horaFin), mFin = Number(minFin);
+    // se admite 8 y 08; se rellena a dos dígitos
+    const dos = (v: string) => v.trim().padStart(2, "0");
+    const [hi, mi, hf, mf] = [dos(horaIni), dos(minIni), dos(horaFin), dos(minFin)];
+    const hIni = Number(hi), mIni = Number(mi);
+    const hFin = Number(hf), mFin = Number(mf);
     if (hIni > 23 || hFin > 23 || mIni > 59 || mFin > 59) {
       setError("Hora fuera de rango.");
       return;
     }
-    const ini = new Date(`${fecha}T${horaIni}:${minIni}:00`);
-    const fin = new Date(`${fecha}T${horaFin}:${minFin}:00`);
+    const ini = new Date(`${fecha}T${hi}:${mi}:00`);
+    const fin = new Date(`${fecha}T${hf}:${mf}:00`);
     if (Number.isNaN(ini.getTime()) || Number.isNaN(fin.getTime())) {
       setError("Fecha u hora no válidas.");
       return;
@@ -213,57 +229,49 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                 <div className="flex flex-col gap-1">
                   <label className="text-body-xs-regular text-tertiary">Desde</label>
                   <div className="flex items-center gap-1">
-                    <select
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={2}
+                      placeholder="HH"
                       value={horaIni}
-                      onChange={(e) => setHoraIni(e.target.value)}
-                      className="h-7 rounded-sm border border-subtle bg-surface-1 px-1 text-body-xs-regular"
-                    >
-                      {HORAS.map((h) => (
-                        <option key={h} value={h}>
-                          {horaEtiqueta(h)}
-                        </option>
-                      ))}
-                    </select>
+                      onChange={(e) => { setHoraIni(limpiar(e.target.value)); saltar(e); }}
+                      className="h-7 w-11 rounded-sm border border-subtle bg-surface-1 px-1 text-center text-body-xs-regular tabular-nums"
+                    />
                     <span>:</span>
-                    <select
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={2}
+                      placeholder="MM"
                       value={minIni}
-                      onChange={(e) => setMinIni(e.target.value)}
-                      className="h-7 rounded-sm border border-subtle bg-surface-1 px-1 text-body-xs-regular"
-                    >
-                      {MINUTOS.map((m) => (
-                        <option key={m} value={m}>
-                          {m}
-                        </option>
-                      ))}
-                    </select>
+                      onChange={(e) => { setMinIni(limpiar(e.target.value)); saltar(e); }}
+                      className="h-7 w-11 rounded-sm border border-subtle bg-surface-1 px-1 text-center text-body-xs-regular tabular-nums"
+                    />
                   </div>
                 </div>
                 <div className="flex flex-col gap-1">
                   <label className="text-body-xs-regular text-tertiary">Hasta</label>
                   <div className="flex items-center gap-1">
-                    <select
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={2}
+                      placeholder="HH"
                       value={horaFin}
-                      onChange={(e) => setHoraFin(e.target.value)}
-                      className="h-7 rounded-sm border border-subtle bg-surface-1 px-1 text-body-xs-regular"
-                    >
-                      {HORAS.map((h) => (
-                        <option key={h} value={h}>
-                          {horaEtiqueta(h)}
-                        </option>
-                      ))}
-                    </select>
+                      onChange={(e) => { setHoraIni(limpiar(e.target.value)); saltar(e); }}
+                      className="h-7 w-11 rounded-sm border border-subtle bg-surface-1 px-1 text-center text-body-xs-regular tabular-nums"
+                    />
                     <span>:</span>
-                    <select
+                    <input
+                      type="text"
+                      inputMode="numeric"
+                      maxLength={2}
+                      placeholder="MM"
                       value={minFin}
-                      onChange={(e) => setMinFin(e.target.value)}
-                      className="h-7 rounded-sm border border-subtle bg-surface-1 px-1 text-body-xs-regular"
-                    >
-                      {MINUTOS.map((m) => (
-                        <option key={m} value={m}>
-                          {m}
-                        </option>
-                      ))}
-                    </select>
+                      onChange={(e) => { setMinIni(limpiar(e.target.value)); saltar(e); }}
+                      className="h-7 w-11 rounded-sm border border-subtle bg-surface-1 px-1 text-center text-body-xs-regular tabular-nums"
+                    />
                   </div>
                 </div>
                 <button
