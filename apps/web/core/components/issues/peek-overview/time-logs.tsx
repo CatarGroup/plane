@@ -23,6 +23,9 @@ const timeLogService = new IssueTimeLogService();
 const HORAS = Array.from({ length: 24 }, (_, i) => String(i).padStart(2, "0"));
 const MINUTOS = ["00", "15", "30", "45"];
 
+// 10:00 AM · formato de 12 horas, como el resto de la ficha
+const hora12 = (iso: string) => format(parseISO(iso), "h:mm a");
+
 const humano = (segundos: number) => {
   const totalMin = Math.round((segundos || 0) / 60);
   const h = Math.floor(totalMin / 60);
@@ -103,6 +106,18 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
 
   const guardar = async () => {
     setError(null);
+    // solo numeros: nada de letras, puntos ni comas
+    const soloDosDigitos = (v: string) => /^\d{2}$/.test(v);
+    if (![horaIni, minIni, horaFin, minFin].every(soloDosDigitos)) {
+      setError("Las horas solo admiten números (dos dígitos).");
+      return;
+    }
+    const hIni = Number(horaIni), mIni = Number(minIni);
+    const hFin = Number(horaFin), mFin = Number(minFin);
+    if (hIni > 23 || hFin > 23 || mIni > 59 || mFin > 59) {
+      setError("Hora fuera de rango.");
+      return;
+    }
     const ini = new Date(`${fecha}T${horaIni}:${minIni}:00`);
     const fin = new Date(`${fecha}T${horaFin}:${minFin}:00`);
     if (Number.isNaN(ini.getTime()) || Number.isNaN(fin.getTime())) {
@@ -290,9 +305,9 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                 <ul className="mt-1 space-y-1">
                   {items.map((r) => (
                     <li key={r.id} className="group flex items-center gap-2 text-body-xs-regular">
-                      <span className="w-28 shrink-0 tabular-nums text-secondary">
-                        {format(parseISO(r.started_at), "HH:mm")}
-                        {r.ended_at ? ` – ${format(parseISO(r.ended_at), "HH:mm")}` : " · en curso"}
+                      <span className="w-36 shrink-0 tabular-nums text-secondary">
+                        {hora12(r.started_at)}
+                        {r.ended_at ? ` → ${hora12(r.ended_at)}` : " · en curso"}
                       </span>
                       <span className="w-20 shrink-0 font-medium text-primary">{humano(r.duration_seconds)}</span>
                       <span className="shrink-0 text-tertiary">{r.user_detail?.display_name}</span>
