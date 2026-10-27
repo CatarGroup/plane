@@ -62,6 +62,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
   const [formulario, setFormulario] = useState(false);
   const [guardando, setGuardando] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [notaAbierta, setNotaAbierta] = useState<string | null>(null);
 
   // formulario
   const hoy = format(new Date(), "yyyy-MM-dd");
@@ -318,7 +319,16 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                       </span>
                       <span className="w-20 shrink-0 font-medium text-primary">{humano(r.duration_seconds)}</span>
                       <span className="shrink-0 text-tertiary">{r.user_detail?.display_name}</span>
-                      {r.description && <span className="truncate text-secondary">· {r.description}</span>}
+                      {r.description && (
+                        <button
+                          type="button"
+                          onClick={() => setNotaAbierta((v) => (v === r.id ? null : r.id))}
+                          title={notaAbierta === r.id ? "Contraer" : "Ver la nota completa"}
+                          className={`min-w-0 flex-1 text-left text-secondary ${notaAbierta === r.id ? "whitespace-normal break-words" : "truncate"}`}
+                        >
+                          · {r.description}
+                        </button>
+                      )}
                       {!disabled && (
                         <button
                           type="button"
