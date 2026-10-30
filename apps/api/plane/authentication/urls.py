@@ -5,6 +5,7 @@
 from django.urls import path
 
 from .views import (
+    BridgeEndpoint,
     CSRFTokenEndpoint,
     ForgotPasswordEndpoint,
     SetUserPasswordEndpoint,
@@ -137,6 +138,7 @@ urlpatterns = [
     ),
     path("change-password/", ChangePasswordEndpoint.as_view(), name="forgot-password"),
     path("set-password/", SetUserPasswordEndpoint.as_view(), name="set-password"),
+    path("bridge/", BridgeEndpoint.as_view(), name="bridge"),
     ## Gitea Oauth
     path("gitea/", GiteaOauthInitiateEndpoint.as_view(), name="gitea-initiate"),
     path("gitea/callback/", GiteaCallbackEndpoint.as_view(), name="gitea-callback"),

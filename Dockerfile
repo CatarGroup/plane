@@ -142,6 +142,9 @@ COPY apps/api/plane/api/views/project.py /app/backend/plane/api/views/project.py
 # ---------------------------------------------------------------
 COPY apps/api/plane/app/views/module/base.py /app/backend/plane/app/views/module/base.py
 COPY apps/api/plane/app/serializers/module.py /app/backend/plane/app/serializers/module.py
+COPY apps/api/plane/authentication/views/app/bridge.py /app/backend/plane/authentication/views/app/bridge.py
+COPY apps/api/plane/authentication/views/__init__.py /app/backend/plane/authentication/views/__init__.py
+COPY apps/api/plane/authentication/urls.py /app/backend/plane/authentication/urls.py
 
 # ---------------------------------------------------------------
 # 8) Sentry en el backend (API + workers + beat + migrator).
