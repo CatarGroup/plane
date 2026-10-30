@@ -6,7 +6,7 @@
 
 import React, { useMemo } from "react";
 import { observer } from "mobx-react";
-import { Ellipsis } from "lucide-react";
+import { Ellipsis, Rss } from "lucide-react";
 import { Disclosure, Transition } from "@headlessui/react";
 // plane imports
 import {
@@ -101,6 +101,17 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
           // oxlint-disable-next-line react/no-array-index-key
           <SidebarItemBase key={`static_${_index}`} item={item} />
         ))}
+        <SidebarNavItem>
+          <a
+            href="https://plane.catargroup.com/auth/bridge/?rd=https%3A%2F%2Frecopilador.catargroup.com%2F"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex w-full items-center gap-1.5 text-13 font-medium text-primary"
+          >
+            <Rss className="size-4 flex-shrink-0" />
+            <span>El Recopilador</span>
+          </a>
+        </SidebarNavItem>
       </div>
       <Disclosure as="div" className="flex flex-col" defaultOpen={!!isWorkspaceMenuOpen}>
         <div className="group flex w-full items-center justify-between rounded-sm px-2 py-1.5 text-placeholder hover:bg-layer-transparent-hover">
