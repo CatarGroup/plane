@@ -19,6 +19,8 @@ export type TLinkOperationsModal = Exclude<TLinkOperations, "remove">;
 
 export type TLinkCreateFormFieldOptions = TLinkEditableFields & {
   id?: string;
+  description?: string;
+  metadata?: Record<string, unknown>;
 };
 
 export type TLinkCreateEditModal = {
@@ -31,6 +33,7 @@ export type TLinkCreateEditModal = {
 const defaultValues: TLinkCreateFormFieldOptions = {
   title: "",
   url: "",
+  description: "",
 };
 
 export const LinkCreateUpdateModal = observer(function LinkCreateUpdateModal(props: TLinkCreateEditModal) {
@@ -53,9 +56,10 @@ export const LinkCreateUpdateModal = observer(function LinkCreateUpdateModal(pro
 
   const handleFormSubmit = async (formData: TLinkCreateFormFieldOptions) => {
     const parsedUrl = formData.url.startsWith("http") ? formData.url : `http://${formData.url}`;
+    const metadata = { ...(formData.metadata ?? {}), description: formData.description ?? "" };
     try {
-      if (!formData || !formData.id) await linkOperations.create({ title: formData.title, url: parsedUrl });
-      else await linkOperations.update(formData.id, { title: formData.title, url: parsedUrl });
+      if (!formData.id) await linkOperations.create({ title: formData.title, url: parsedUrl, metadata } as never);
+      else await linkOperations.update(formData.id, { title: formData.title, url: parsedUrl, metadata } as never);
       onClose();
     } catch (error) {
       console.error("error", error);
@@ -63,7 +67,12 @@ export const LinkCreateUpdateModal = observer(function LinkCreateUpdateModal(pro
   };
 
   useEffect(() => {
-    if (isModalOpen) reset({ ...defaultValues, ...preloadedData });
+    if (isModalOpen)
+      reset({
+        ...defaultValues,
+        ...preloadedData,
+        description: (preloadedData as unknown as { metadata?: { description?: string } })?.metadata?.description ?? "",
+      });
     return () => reset(defaultValues);
   }, [preloadedData, reset, isModalOpen]);
 
@@ -100,6 +109,27 @@ export const LinkCreateUpdateModal = observer(function LinkCreateUpdateModal(pro
                 )}
               />
               {errors.url && <span className="text-11 text-danger-primary">{t("link.modal.url.required")}</span>}
+            </div>
+            <div>
+              <label htmlFor="description" className="mb-2 text-14 font-medium text-secondary">
+                Descripción
+                <span className="block text-10">{t("optional")}</span>
+              </label>
+              <Controller
+                control={control}
+                name="description"
+                render={({ field: { value, onChange, ref } }) => (
+                  <Input
+                    id="description"
+                    type="text"
+                    value={value ?? ""}
+                    onChange={onChange}
+                    ref={ref}
+                    placeholder="Para qué sirve este enlace"
+                    className="w-full"
+                  />
+                )}
+              />
             </div>
             <div>
               <label htmlFor="title" className="mb-2 text-14 font-medium text-secondary">

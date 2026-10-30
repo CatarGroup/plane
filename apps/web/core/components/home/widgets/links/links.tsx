@@ -6,7 +6,6 @@
 
 import { observer } from "mobx-react";
 // computed
-import { ContentOverflowWrapper } from "@/components/core/content-overflow-HOC";
 import { useHome } from "@/hooks/store/use-home";
 import { LinksEmptyState } from "../empty-states/links";
 import { EWidgetKeys, WidgetLoader } from "../loaders";
@@ -35,19 +34,10 @@ export const ProjectLinkList = observer(function ProjectLinkList(props: TProject
   if (links.length === 0) return <LinksEmptyState />;
 
   return (
-    <div className="relative">
-      <ContentOverflowWrapper
-        maxHeight={150}
-        containerClassName="box-border min-h-[30px] flex flex-col"
-        fallback={<></>}
-        buttonClassName="bg-surface-2/20"
-      >
-        <div className="mb-2 flex flex-1 flex-wrap gap-2">
-          {links.map((linkId) => (
-            <ProjectLinkDetail key={linkId} linkId={linkId} linkOperations={linkOperations} />
-          ))}
-        </div>
-      </ContentOverflowWrapper>
+    <div className="grid w-full grid-cols-1 gap-2.5 sm:grid-cols-2 xl:grid-cols-4">
+      {links.map((linkId, index) => (
+        <ProjectLinkDetail key={linkId} linkId={linkId} index={index} linkOperations={linkOperations} />
+      ))}
     </div>
   );
 });
