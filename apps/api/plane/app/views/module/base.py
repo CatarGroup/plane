@@ -52,6 +52,7 @@ from plane.app.serializers import (
 from plane.bgtasks.issue_activities_task import issue_activity
 from plane.db.models import (
     Issue,
+    IssueTimeLog,
     Module,
     UserFavorite,
     ModuleIssue,
@@ -141,6 +142,15 @@ class ModuleViewSet(BaseViewSet):
             .values("issue_module__module_id")
             .annotate(cnt=Count("pk"))
             .values("cnt")
+        )
+        total_time_logged = (
+            IssueTimeLog.objects.filter(
+                issue__issue_module__module_id=OuterRef("pk"),
+                issue__issue_module__deleted_at__isnull=True,
+            )
+            .values("issue__issue_module__module_id")
+            .annotate(total=Sum("duration_seconds"))
+            .values("total")[:1]
         )
         completed_estimate_point = (
             Issue.issue_objects.filter(
@@ -243,6 +253,12 @@ class ModuleViewSet(BaseViewSet):
             .annotate(backlog_issues=Coalesce(Subquery(backlog_issues[:1]), Value(0, output_field=IntegerField())))
             .annotate(total_issues=Coalesce(Subquery(total_issues[:1]), Value(0, output_field=IntegerField())))
             .annotate(
+                total_time_logged=Coalesce(
+                    Subquery(total_time_logged),
+                    Value(0, output_field=IntegerField()),
+                )
+            )
+            .annotate(
                 backlog_estimate_points=Coalesce(
                     Subquery(backlog_estimate_point),
                     Value(0, output_field=FloatField()),
@@ -326,6 +342,7 @@ class ModuleViewSet(BaseViewSet):
                     "cancelled_issues",
                     "completed_issues",
                     "total_issues",
+                    "total_time_logged",
                     "started_issues",
                     "unstarted_issues",
                     "completed_estimate_points",
@@ -379,6 +396,7 @@ class ModuleViewSet(BaseViewSet):
                 "completed_estimate_points",
                 "total_estimate_points",
                 "total_issues",
+                "total_time_logged",
                 "is_favorite",
                 "cancelled_issues",
                 "completed_issues",
@@ -698,6 +716,7 @@ class ModuleViewSet(BaseViewSet):
                 "completed_issues",
                 "started_issues",
                 "total_issues",
+                "total_time_logged",
                 "unstarted_issues",
                 "backlog_issues",
                 "created_at",

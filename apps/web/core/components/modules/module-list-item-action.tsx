@@ -7,7 +7,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { useParams } from "next/navigation";
-import { SquareUser } from "lucide-react";
+import { Clock, SquareUser } from "lucide-react";
 // Plane imports
 import { MODULE_STATUS, EUserPermissions, EUserPermissionsLevel, IS_FAVORITE_MENU_OPEN } from "@plane/constants";
 import { useLocalStorage } from "@plane/hooks";
@@ -26,6 +26,15 @@ import { useMember } from "@/hooks/store/use-member";
 import { useModule } from "@/hooks/store/use-module";
 import { useUserPermissions } from "@/hooks/store/user";
 import { ButtonAvatars } from "../dropdowns/member/avatar";
+
+const humano = (segundos: number) => {
+  const totalMin = Math.round((segundos || 0) / 60);
+  const h = Math.floor(totalMin / 60);
+  const m = totalMin % 60;
+  if (h && m) return `${h} h ${m} min`;
+  if (h) return `${h} ${h === 1 ? "hora" : "horas"}`;
+  return `${m} min`;
+};
 
 type Props = {
   moduleId: string;
@@ -130,6 +139,15 @@ export const ModuleListItemAction = observer(function ModuleListItemAction(props
 
   return (
     <>
+      {!!moduleDetails.total_time_logged && (
+        <Tooltip tooltipContent="Tiempo invertido">
+          <span className="flex h-6 items-center gap-1 rounded-sm border-[0.5px] border-strong px-2 text-11 text-tertiary">
+            <Clock className="h-3 w-3" />
+            {humano(moduleDetails.total_time_logged)}
+          </span>
+        </Tooltip>
+      )}
+
       <DateRangeDropdown
         buttonContainerClassName={`h-6 w-full flex ${isDisabled ? "cursor-not-allowed" : "cursor-pointer"} items-center gap-1.5 text-tertiary border-[0.5px] border-strong rounded-sm text-11`}
         buttonVariant="transparent-with-text"

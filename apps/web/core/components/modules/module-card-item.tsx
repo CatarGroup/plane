@@ -9,7 +9,7 @@ import React, { useRef } from "react";
 import { observer } from "mobx-react";
 import Link from "next/link";
 import { useParams, usePathname, useSearchParams } from "next/navigation";
-import { Info, SquareUser } from "lucide-react";
+import { Clock, Info, SquareUser } from "lucide-react";
 // plane package imports
 import {
   MODULE_STATUS,
@@ -28,6 +28,15 @@ import { getDate, renderFormattedPayloadDate, generateQueryParams } from "@plane
 // components
 import { DateRangeDropdown } from "@/components/dropdowns/date-range";
 import { ButtonAvatars } from "@/components/dropdowns/member/avatar";
+
+const humano = (segundos: number) => {
+  const totalMin = Math.round((segundos || 0) / 60);
+  const h = Math.floor(totalMin / 60);
+  const m = totalMin % 60;
+  if (h && m) return `${h} h ${m} min`;
+  if (h) return `${h} ${h === 1 ? "hora" : "horas"}`;
+  return `${m} min`;
+};
 import { ModuleQuickActions } from "@/components/modules";
 import { ModuleStatusDropdown } from "@/components/modules/module-status-dropdown";
 // hooks
@@ -208,9 +217,17 @@ export const ModuleCardItem = observer(function ModuleCardItem(props: Props) {
           </div>
           <div className="flex flex-col gap-3">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-1.5 text-secondary">
-                <WorkItemsIcon className="h-4 w-4 text-tertiary" />
-                <span className="text-11 text-tertiary">{issueCount ?? "0 tareas"}</span>
+              <div className="flex items-center gap-3 text-secondary">
+                <div className="flex items-center gap-1.5">
+                  <WorkItemsIcon className="h-4 w-4 text-tertiary" />
+                  <span className="text-11 text-tertiary">{issueCount ?? "0 tareas"}</span>
+                </div>
+                {!!moduleDetails.total_time_logged && (
+                  <div className="flex items-center gap-1.5">
+                    <Clock className="h-3.5 w-3.5 text-tertiary" />
+                    <span className="text-11 text-tertiary">{humano(moduleDetails.total_time_logged)}</span>
+                  </div>
+                )}
               </div>
               {moduleLeadDetails ? (
                 <span className="cursor-default">

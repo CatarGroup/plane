@@ -54,6 +54,7 @@ export type TModuleEstimateDistribution = {
 
 export interface IModule {
   total_issues: number;
+  total_time_logged?: number;
   completed_issues: number;
   backlog_issues: number;
   started_issues: number;

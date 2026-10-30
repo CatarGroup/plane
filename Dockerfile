@@ -135,6 +135,15 @@ COPY apps/api/plane/app/views/project/base.py /app/backend/plane/app/views/proje
 COPY apps/api/plane/api/views/project.py /app/backend/plane/api/views/project.py
 
 # ---------------------------------------------------------------
+# 7d) TIEMPO INVERTIDO POR MODULO ("proyecto" en la UI).
+#     El serializer y el viewset de modulos suman duration_seconds
+#     de issue_time_logs y lo publican como total_time_logged.
+#     Sin estos COPY el backend de la imagen base no lo devuelve.
+# ---------------------------------------------------------------
+COPY apps/api/plane/app/views/module/base.py /app/backend/plane/app/views/module/base.py
+COPY apps/api/plane/app/serializers/module.py /app/backend/plane/app/serializers/module.py
+
+# ---------------------------------------------------------------
 # 8) Sentry en el backend (API + workers + beat + migrator).
 #    Solo se activa si SENTRY_DSN esta en las env vars de Railway;
 #    el DSN no vive en el repo. Parche verificado en el build.

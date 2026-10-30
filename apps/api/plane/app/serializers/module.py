@@ -213,6 +213,7 @@ class ModuleSerializer(DynamicBaseSerializer):
     unstarted_issues = serializers.IntegerField(read_only=True)
     backlog_issues = serializers.IntegerField(read_only=True)
     total_estimate_points = serializers.FloatField(read_only=True)
+    total_time_logged = serializers.IntegerField(read_only=True)
     completed_estimate_points = serializers.FloatField(read_only=True)
 
     class Meta:
@@ -242,6 +243,7 @@ class ModuleSerializer(DynamicBaseSerializer):
             "completed_estimate_points",
             "is_favorite",
             "total_issues",
+            "total_time_logged",
             "cancelled_issues",
             "completed_issues",
             "started_issues",
