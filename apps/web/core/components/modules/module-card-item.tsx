@@ -222,12 +222,10 @@ export const ModuleCardItem = observer(function ModuleCardItem(props: Props) {
                   <WorkItemsIcon className="h-4 w-4 text-tertiary" />
                   <span className="text-11 text-tertiary">{issueCount ?? "0 tareas"}</span>
                 </div>
-                {!!moduleDetails.total_time_logged && (
-                  <div className="flex items-center gap-1.5">
-                    <Clock className="h-3.5 w-3.5 text-tertiary" />
-                    <span className="text-11 text-tertiary">{humano(moduleDetails.total_time_logged)}</span>
-                  </div>
-                )}
+                <div className="flex items-center gap-1.5">
+                  <Clock className="h-3.5 w-3.5 text-tertiary" />
+                  <span className="text-11 text-tertiary">{humano(moduleDetails.total_time_logged ?? 0)}</span>
+                </div>
               </div>
               {moduleLeadDetails ? (
                 <span className="cursor-default">

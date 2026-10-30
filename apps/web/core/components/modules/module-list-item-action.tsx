@@ -139,14 +139,12 @@ export const ModuleListItemAction = observer(function ModuleListItemAction(props
 
   return (
     <>
-      {!!moduleDetails.total_time_logged && (
-        <Tooltip tooltipContent="Tiempo invertido">
-          <span className="flex h-6 items-center gap-1 rounded-sm border-[0.5px] border-strong px-2 text-11 text-tertiary">
-            <Clock className="h-3 w-3" />
-            {humano(moduleDetails.total_time_logged)}
-          </span>
-        </Tooltip>
-      )}
+      <Tooltip tooltipContent="Tiempo invertido">
+        <span className="flex h-6 items-center gap-1 rounded-sm border-[0.5px] border-strong px-2 text-11 text-tertiary">
+          <Clock className="h-3 w-3" />
+          {humano(moduleDetails.total_time_logged ?? 0)}
+        </span>
+      </Tooltip>
 
       <DateRangeDropdown
         buttonContainerClassName={`h-6 w-full flex ${isDisabled ? "cursor-not-allowed" : "cursor-pointer"} items-center gap-1.5 text-tertiary border-[0.5px] border-strong rounded-sm text-11`}
