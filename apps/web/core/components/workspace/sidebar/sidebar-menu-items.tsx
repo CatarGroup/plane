@@ -6,7 +6,6 @@
 
 import React, { useMemo } from "react";
 import { observer } from "mobx-react";
-import { Ellipsis } from "lucide-react";
 import { Disclosure, Transition } from "@headlessui/react";
 // plane imports
 import {
@@ -18,28 +17,19 @@ import {
 import { useTranslation } from "@plane/i18n";
 import { ChevronRightIcon } from "@plane/propel/icons";
 import { cn } from "@plane/utils";
-// components
-import { SidebarNavItem } from "@/components/sidebar/sidebar-navigation";
 // store hooks
-import { useAppTheme } from "@/hooks/store/use-app-theme";
 import useLocalStorage from "@/hooks/use-local-storage";
-import {
-  usePersonalNavigationPreferences,
-  useWorkspaceNavigationPreferences,
-} from "@/hooks/use-navigation-preferences";
+import { useWorkspaceNavigationPreferences } from "@/hooks/use-navigation-preferences";
 import { SidebarItemBase } from "./sidebar-item";
 
 export const SidebarMenuItems = observer(function SidebarMenuItems() {
   // routers
   const { setValue: toggleWorkspaceMenu, storedValue: isWorkspaceMenuOpen } = useLocalStorage<boolean>(
     "is_workspace_menu_open",
-    true
+    false
   );
 
-  // store hooks
-  const { isExtendedSidebarOpened, toggleExtendedSidebar } = useAppTheme();
   // hooks
-  const { preferences: personalPreferences } = usePersonalNavigationPreferences();
   const { preferences: workspacePreferences } = useWorkspaceNavigationPreferences();
   // translation
   const { t } = useTranslation();
@@ -48,38 +38,11 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
     toggleWorkspaceMenu(isOpen);
   };
 
-  // Filter static navigation items based on personal preferences
-  const filteredStaticNavigationItems = useMemo(() => {
-    const items = [...WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS_LINKS];
-    const personalItems: Array<(typeof items)[0] & { sort_order: number }> = [];
-
-    // Add personal items based on preferences with their sort_order
-    const stickiesItem = WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS["stickies"];
-    if (personalPreferences.items.stickies?.enabled && stickiesItem) {
-      personalItems.push({
-        ...stickiesItem,
-        sort_order: personalPreferences.items.stickies.sort_order,
-      });
-    }
-    if (personalPreferences.items.your_work?.enabled && WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS["your-work"]) {
-      personalItems.push({
-        ...WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS["your-work"],
-        sort_order: personalPreferences.items.your_work.sort_order,
-      });
-    }
-    if (personalPreferences.items.drafts?.enabled && WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS["drafts"]) {
-      personalItems.push({
-        ...WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS["drafts"],
-        sort_order: personalPreferences.items.drafts.sort_order,
-      });
-    }
-
-    // Sort personal items by sort_order
-    personalItems.sort((a, b) => a.sort_order - b.sort_order);
-
-    // Merge static items with sorted personal items
-    return [...items, ...personalItems];
-  }, [personalPreferences]);
+  // Menú limpio e igual para todos: solo Inicio (Notas adhesivas, Tus tareas y Borradores fuera)
+  const filteredStaticNavigationItems = useMemo(
+    () => WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS_LINKS.filter((item) => item.key === "home"),
+    []
+  );
 
   const sortedNavigationItems = useMemo(
     () =>
@@ -102,7 +65,7 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
           <SidebarItemBase key={`static_${_index}`} item={item} />
         ))}
       </div>
-      <Disclosure as="div" className="flex flex-col" defaultOpen={!!isWorkspaceMenuOpen}>
+      <Disclosure as="div" className="flex flex-col" defaultOpen={false}>
         <div className="group flex w-full items-center justify-between rounded-sm px-2 py-1.5 text-placeholder hover:bg-layer-transparent-hover">
           <Disclosure.Button
             as="button"
@@ -157,22 +120,6 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
                   // oxlint-disable-next-line react/no-array-index-key
                   <SidebarItemBase key={`dynamic_${_index}`} item={item} />
                 ))}
-                <SidebarNavItem>
-                  <button
-                    type="button"
-                    onClick={() => toggleExtendedSidebar()}
-                    className="flex flex-grow items-center gap-1.5 text-13 font-medium text-tertiary"
-                    id="extended-sidebar-toggle"
-                    aria-label={t(
-                      isExtendedSidebarOpened
-                        ? "aria_labels.app_sidebar.close_extended_sidebar"
-                        : "aria_labels.app_sidebar.open_extended_sidebar"
-                    )}
-                  >
-                    <Ellipsis className="size-4 flex-shrink-0" />
-                    <span>{isExtendedSidebarOpened ? "Ocultar" : "Más"}</span>
-                  </button>
-                </SidebarNavItem>
               </>
             </Disclosure.Panel>
           )}
