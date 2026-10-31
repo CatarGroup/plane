@@ -6,6 +6,13 @@
 
 export const THEMES = ["light", "dark", "light-contrast", "dark-contrast", "custom"];
 
+/**
+ * Catar BI: la interfaz sigue SIEMPRE la preferencia del sistema (claro/oscuro
+ * automático). Se ignora lo que cada usuario tenga guardado en el navegador
+ * (localStorage «theme») o en su perfil.
+ */
+export const FORCED_THEME = "system";
+
 export interface I_THEME_OPTION {
   key: string;
   value: string;

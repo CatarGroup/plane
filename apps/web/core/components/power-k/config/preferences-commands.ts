@@ -8,6 +8,7 @@ import { useCallback } from "react";
 import { useTheme } from "next-themes";
 import { Calendar, Earth, Languages, Palette } from "lucide-react";
 // plane imports
+import { FORCED_THEME } from "@plane/constants";
 import { useTranslation } from "@plane/i18n";
 import { setToast, TOAST_TYPE } from "@plane/propel/toast";
 import type { EStartOfTheWeek, TUserProfile } from "@plane/types";
@@ -28,9 +29,11 @@ export const usePowerKPreferencesCommands = (): TPowerKCommandConfig[] => {
   const { t } = useTranslation();
 
   const handleUpdateTheme = useCallback(
-    async (newTheme: string) => {
-      setTheme(newTheme);
-      return updateUserTheme({ theme: newTheme })
+    // Catar BI: el tema está forzado al del sistema, así que se ignora lo que
+    // llegue desde el comando (claro/oscuro/custom).
+    async () => {
+      setTheme(FORCED_THEME);
+      return updateUserTheme({ theme: FORCED_THEME })
         .then(() => {
           setToast({
             type: TOAST_TYPE.SUCCESS,
@@ -110,12 +113,12 @@ export const usePowerKPreferencesCommands = (): TPowerKCommandConfig[] => {
       page: "update-theme",
       i18n_title: "power_k.preferences_actions.update_theme",
       icon: Palette,
-      onSelect: (data) => {
-        const theme = data as string;
-        void handleUpdateTheme(theme);
+      onSelect: () => {
+        void handleUpdateTheme();
       },
       isEnabled: () => true,
-      isVisible: () => true,
+      // Catar BI: el tema lo manda el sistema; el comando no se ofrece.
+      isVisible: () => false,
       closeOnSelect: true,
     },
     {

@@ -71,6 +71,7 @@
   "something_went_wrong_please_try_again": "Algo salió mal. Por favor, inténtalo de nuevo.",
   "load_more": "Cargar más",
   "select_or_customize_your_interface_color_scheme": "Selecciona o personaliza el esquema de color de tu interfaz.",
+  "theme_follows_system": "El tema sigue siempre la preferencia de tu sistema: claro u oscuro automático.",
   "timezone_setting": "Configuración de zona horaria actual.",
   "language_setting": "Elige el idioma utilizado en la interfaz de usuario.",
   "settings_moved_to_preferences": "La configuración de zona horaria e idioma se ha movido a preferencias.",

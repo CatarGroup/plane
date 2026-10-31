@@ -72,6 +72,14 @@ export function Layout({ children }: { children: ReactNode }) {
         <meta name="apple-mobile-web-app-title" content={SITE_NAME} />
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
+        {/* Catar BI: el tema sigue SIEMPRE la preferencia del sistema.
+            Este script se ejecuta antes que el de next-themes (que se pinta en
+            el body) y pisa lo que cada navegador tenga guardado, incluida la
+            elección manual de claro/oscuro que el usuario hiciera antes. */}
+        <script
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{ __html: `try{localStorage.setItem("theme","system")}catch(e){}` }}
+        />
         <Meta />
         <Links />
       </head>

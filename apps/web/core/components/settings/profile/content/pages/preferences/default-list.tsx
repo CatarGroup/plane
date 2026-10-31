@@ -15,7 +15,7 @@ export const ProfileSettingsDefaultPreferencesList = observer(function ProfileSe
         option={{
           id: "theme",
           title: "theme",
-          description: "select_or_customize_your_interface_color_scheme",
+          description: "theme_follows_system",
         }}
       />
     </div>
