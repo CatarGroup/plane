@@ -195,11 +195,12 @@ def send_webhook_deactivation_email(webhook_id: str, receiver_id: str, current_s
 
         # Get the webhook payload
         subject = "Webhook Deactivated"
-        message = f"Webhook {webhook.url} has been deactivated due to failed requests."
+        message = f"El webhook {webhook.url} se ha desactivado por peticiones fallidas."
 
         # Send the mail
         context = {
             "email": receiver.email,
+            "titulo_webhook": "Webhook desactivado",
             "message": message,
             "webhook_url": f"{current_site}/{str(webhook.workspace.slug)}/settings/webhooks/{str(webhook.id)}",
         }
