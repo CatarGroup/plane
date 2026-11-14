@@ -131,7 +131,12 @@ def _comprobar_backend_emails() -> list:
     # se agrupa por fichero para simular el efecto acumulado del script
     contenidos: dict = {}
     for relativo, original, traducido in ns["SUSTITUCIONES"]:
-        ruta = os.path.join(API, relativo)
+        # El build copia templates/ a /app/backend/templates/, así que las
+        # plantillas del email de novedades llegan ahí desde la raíz del repo.
+        if relativo.startswith("templates/"):
+            ruta = os.path.join(REPO, relativo)
+        else:
+            ruta = os.path.join(API, "plane", os.path.relpath(relativo, "plane"))
         if ruta not in contenidos:
             if not os.path.exists(ruta):
                 problemas.append(f"BACKEND {relativo}: el fichero no existe")

@@ -23,6 +23,8 @@ SUSTITUCIONES = [
         'summary = "Updates were made to the issue by"',
         'summary = "Novedades en la tarea de parte de"',
     ),
+    # El contexto pasa entity_type="issue": dentro de una frase queda como
+    # "Novedades de la issue". Se pasa ya en español.
     (
         "plane/bgtasks/email_notification_task.py",
         '"entity_type": "issue",',
@@ -32,6 +34,22 @@ SUSTITUCIONES = [
         "plane/bgtasks/email_notification_task.py",
         'subject = f"{issue.project.identifier}-{issue.sequence_id} {remove_unwanted_characters(issue.name)}"',
         "subject = remove_unwanted_characters(issue.name)",
+    ),
+    # Textos visibles en inglés dentro de la plantilla del email de novedades.
+    (
+        "templates/emails/notifications/issue-updates.html",
+        "<p style=\"font-size: 0.8rem; font-weight: 600; color: #121a26\"> Updates </p>",
+        "<p style=\"font-size: 0.8rem; font-weight: 600; color: #121a26\"> Novedades </p>",
+    ),
+    (
+        "templates/emails/notifications/issue-updates.html",
+        "+{{ update.changes.duplicate.new_value|length|add:\"-2\" }} more ",
+        "+{{ update.changes.duplicate.new_value|length|add:\"-2\" }} más ",
+    ),
+    (
+        "templates/emails/notifications/issue-updates.html",
+        "+{{ update.changes.duplicate.old_value|length|add:\"-2\" }} more ",
+        "+{{ update.changes.duplicate.old_value|length|add:\"-2\" }} más ",
     ),
 ]
 
