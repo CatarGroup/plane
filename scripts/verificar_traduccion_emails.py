@@ -95,6 +95,11 @@ def main() -> int:
                         break
                 problemas.append(f"PLANTILLA {rel}: restos en inglés {muestra} | {detalle}")
 
+    # 3) Textos del email de novedades (scripts/traducir_backend_emails.py).
+    #    Comprueba, SIN modificar el repo, que cada sustitución se aplicaría:
+    #    sobre una copia temporal se reemplaza y se compara con la esperada.
+    problemas.extend(_comprobar_backend_emails())
+
     if problemas:
         print("PROBLEMAS DE TRADUCCIÓN:\n")
         for p in problemas:
@@ -102,6 +107,49 @@ def main() -> int:
         return 1
     print("OK: asuntos y plantillas de email sin restos en inglés.")
     return 0
+
+
+def _comprobar_backend_emails() -> list:
+    """Verifica las sustituciones de traducir_backend_emails.py sin tocar el repo."""
+    problemas = []
+    ruta_script = os.path.join(REPO, "scripts", "traducir_backend_emails.py")
+    if not os.path.exists(ruta_script):
+        return ["BACKEND: no existe scripts/traducir_backend_emails.py"]
+
+    src = open(ruta_script, encoding="utf-8").read()
+    m = re.search(r"SUSTITUCIONES = \[.*?\n\]", src, re.S)
+    if not m:
+        return ["BACKEND: no se encontró SUSTITUCIONES en traducir_backend_emails.py"]
+
+    ns: dict = {}
+    try:
+        exec(m.group(0), ns)  # noqa: S102
+    except Exception as e:  # noqa: BLE001
+        return [f"BACKEND: no se pudo cargar SUSTITUCIONES: {e}"]
+
+    API = os.path.join(REPO, "apps", "api")
+    # se agrupa por fichero para simular el efecto acumulado del script
+    contenidos: dict = {}
+    for relativo, original, traducido in ns["SUSTITUCIONES"]:
+        ruta = os.path.join(API, relativo)
+        if ruta not in contenidos:
+            if not os.path.exists(ruta):
+                problemas.append(f"BACKEND {relativo}: el fichero no existe")
+                continue
+            contenidos[ruta] = open(ruta, encoding="utf-8").read()
+
+        contenido = contenidos[ruta]
+        if traducido in contenido:
+            continue
+        veces = contenido.count(original)
+        if veces != 1:
+            problemas.append(
+                f"BACKEND {relativo}: esperaba 1 aparición de {original!r}, hay {veces}"
+            )
+            continue
+        contenidos[ruta] = contenido.replace(original, traducido, 1)
+
+    return problemas
 
 
 def _fallo(msg: str) -> int:
