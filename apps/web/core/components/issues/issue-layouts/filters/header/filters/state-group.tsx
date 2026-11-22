@@ -11,6 +11,7 @@ import { STATE_GROUPS } from "@plane/constants";
 import { StateGroupIcon } from "@plane/propel/icons";
 // components
 import { FilterHeader, FilterOption } from "@/components/issues/issue-layouts/filters";
+import { useTranslation } from "@plane/i18n";
 
 type Props = {
   appliedFilters: string[] | null;
@@ -19,6 +20,7 @@ type Props = {
 };
 
 export const FilterStateGroup = observer(function FilterStateGroup(props: Props) {
+  const { t } = useTranslation();
   const { appliedFilters, handleUpdate, searchQuery } = props;
 
   const [itemsToRender, setItemsToRender] = useState(5);
@@ -66,7 +68,7 @@ export const FilterStateGroup = observer(function FilterStateGroup(props: Props)
               )}
             </>
           ) : (
-            <p className="text-11 text-placeholder italic">No matches found</p>
+            <p className="text-11 text-placeholder italic">{t("common.no_matches_found")}</p>
           )}
         </div>
       )}

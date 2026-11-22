@@ -9,6 +9,8 @@ import { observer } from "mobx-react";
 import { StartDatePropertyIcon } from "@plane/propel/icons";
 // types
 import type { TIssue } from "@plane/types";
+// i18n
+import { useTranslation } from "@plane/i18n";
 // components
 import { getDate, renderFormattedPayloadDate } from "@plane/utils";
 import { DateDropdown } from "@/components/dropdowns/date";
@@ -22,6 +24,8 @@ type Props = {
 };
 
 export const SpreadsheetStartDateColumn = observer(function SpreadsheetStartDateColumn(props: Props) {
+  // i18n
+  const { t } = useTranslation();
   const { issue, onChange, disabled, onClose } = props;
 
   return (
@@ -41,7 +45,7 @@ export const SpreadsheetStartDateColumn = observer(function SpreadsheetStartDate
           );
         }}
         disabled={disabled}
-        placeholder="Fecha de inicio"
+        placeholder={t("common.start_date")}
         icon={<StartDatePropertyIcon className="h-3 w-3 flex-shrink-0" />}
         buttonVariant="transparent-with-text"
         buttonClassName="text-left rounded-none group-[.selected-issue-row]:bg-accent-primary/5 group-[.selected-issue-row]:hover:bg-accent-primary/10 px-page-x"

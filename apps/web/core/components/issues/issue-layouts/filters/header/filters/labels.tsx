@@ -11,6 +11,7 @@ import type { IIssueLabel } from "@plane/types";
 // components
 import { Loader } from "@plane/ui";
 import { FilterHeader, FilterOption } from "@/components/issues/issue-layouts/filters";
+import { useTranslation } from "@plane/i18n";
 
 // ui
 // types
@@ -27,6 +28,7 @@ type Props = {
 };
 
 export const FilterLabels = observer(function FilterLabels(props: Props) {
+  const { t } = useTranslation();
   const { appliedFilters, handleUpdate, labels, searchQuery } = props;
 
   const [itemsToRender, setItemsToRender] = useState(5);
@@ -85,7 +87,7 @@ export const FilterLabels = observer(function FilterLabels(props: Props) {
                 )}
               </>
             ) : (
-              <p className="text-11 text-placeholder italic">No matches found</p>
+              <p className="text-11 text-placeholder italic">{t("common.no_matches_found")}</p>
             )
           ) : (
             <Loader className="space-y-2">

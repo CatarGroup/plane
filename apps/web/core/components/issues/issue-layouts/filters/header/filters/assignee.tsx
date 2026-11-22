@@ -16,6 +16,7 @@ import { FilterHeader, FilterOption } from "@/components/issues/issue-layouts/fi
 // hooks
 import { useMember } from "@/hooks/store/use-member";
 import { useUser } from "@/hooks/store/user";
+import { useTranslation } from "@plane/i18n";
 
 type Props = {
   appliedFilters: string[] | null;
@@ -25,6 +26,7 @@ type Props = {
 };
 
 export const FilterAssignees = observer(function FilterAssignees(props: Props) {
+  const { t } = useTranslation();
   const { appliedFilters, handleUpdate, memberIds, searchQuery } = props;
   // states
   const [itemsToRender, setItemsToRender] = useState(5);
@@ -99,7 +101,7 @@ export const FilterAssignees = observer(function FilterAssignees(props: Props) {
                 )}
               </>
             ) : (
-              <p className="text-11 text-placeholder italic">No matches found</p>
+              <p className="text-11 text-placeholder italic">{t("common.no_matches_found")}</p>
             )
           ) : (
             <Loader className="space-y-2">

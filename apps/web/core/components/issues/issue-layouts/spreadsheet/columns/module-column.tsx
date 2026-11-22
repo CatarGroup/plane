@@ -10,6 +10,8 @@ import { observer } from "mobx-react";
 import { useParams } from "next/navigation";
 // types
 import type { TIssue } from "@plane/types";
+// i18n
+import { useTranslation } from "@plane/i18n";
 // components
 import { ModuleDropdown } from "@/components/dropdowns/module/dropdown";
 // hooks
@@ -22,6 +24,8 @@ type Props = {
 };
 
 export const SpreadsheetModuleColumn = observer(function SpreadsheetModuleColumn(props: Props) {
+  // i18n
+  const { t } = useTranslation();
   const { issue, disabled, onClose } = props;
   // router
   const { workspaceSlug } = useParams();
@@ -53,7 +57,7 @@ export const SpreadsheetModuleColumn = observer(function SpreadsheetModuleColumn
         value={issue?.module_ids ?? []}
         onChange={handleModule}
         disabled={disabled}
-        placeholder="Select modules"
+        placeholder={t("common.common.select")}
         buttonVariant="transparent-with-text"
         buttonContainerClassName="w-full relative flex items-center p-2 group-[.selected-issue-row]:bg-accent-primary/5 group-[.selected-issue-row]:hover:bg-accent-primary/10 px-page-x"
         buttonClassName="relative leading-4 h-4.5 bg-transparent hover:bg-transparent !px-0"

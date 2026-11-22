@@ -10,6 +10,8 @@ import { DueDatePropertyIcon } from "@plane/propel/icons";
 // types
 import type { TIssue } from "@plane/types";
 import { cn, getDate, renderFormattedPayloadDate, shouldHighlightIssueDueDate } from "@plane/utils";
+// i18n
+import { useTranslation } from "@plane/i18n";
 // components
 import { DateDropdown } from "@/components/dropdowns/date";
 // helpers
@@ -24,6 +26,8 @@ type Props = {
 };
 
 export const SpreadsheetDueDateColumn = observer(function SpreadsheetDueDateColumn(props: Props) {
+  // i18n
+  const { t } = useTranslation();
   const { issue, onChange, disabled, onClose } = props;
   // store hooks
   const { getStateById } = useProjectState();
@@ -47,7 +51,7 @@ export const SpreadsheetDueDateColumn = observer(function SpreadsheetDueDateColu
           );
         }}
         disabled={disabled}
-        placeholder="Fecha de vencimiento"
+        placeholder={t("common.due_date")}
         icon={<DueDatePropertyIcon className="h-3 w-3 flex-shrink-0" />}
         buttonVariant="transparent-with-text"
         buttonContainerClassName="w-full"

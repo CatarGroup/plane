@@ -9,11 +9,15 @@ import { observer } from "mobx-react";
 import { EUserPermissions, EUserPermissionsLevel } from "@plane/constants";
 import { EmptyStateDetailed } from "@plane/propel/empty-state";
 import { EIssuesStoreType } from "@plane/types";
+// i18n
+import { useTranslation } from "@plane/i18n";
 // hooks
 import { useCommandPalette } from "@/hooks/store/use-command-palette";
 import { useUserPermissions } from "@/hooks/store/user";
 
 export const ProjectViewEmptyState = observer(function ProjectViewEmptyState() {
+  // i18n
+  const { t } = useTranslation();
   // store hooks
   const { toggleCreateIssueModal } = useCommandPalette();
   const { allowPermissions } = useUserPermissions();
@@ -25,10 +29,9 @@ export const ProjectViewEmptyState = observer(function ProjectViewEmptyState() {
   );
 
   return (
-    // TODO: Add translation
     <EmptyStateDetailed
       assetKey="work-item"
-      title="View work items will appear here"
+      title={t("common.view_work_items_empty")}
       description="Work items help you track individual pieces of work. With work items, keep track of what's going on, who is working on it, and what's done."
       actions={[
         {

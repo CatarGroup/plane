@@ -13,6 +13,8 @@ import { GLOBAL_VIEW_TRACKER_ELEMENTS, ISSUE_DISPLAY_FILTERS_BY_PAGE } from "@pl
 import { EmptyStateDetailed } from "@plane/propel/empty-state";
 import type { EIssueLayoutTypes } from "@plane/types";
 import { EIssuesStoreType, STATIC_VIEW_TYPES } from "@plane/types";
+// i18n
+import { useTranslation } from "@plane/i18n";
 // assets
 // components
 import { IssuePeekOverview } from "@/components/issues/peek-overview";
@@ -34,6 +36,8 @@ type Props = {
 
 export const AllIssueLayoutRoot = observer(function AllIssueLayoutRoot(props: Props) {
   const { isDefaultView, isLoading = false, toggleLoading } = props;
+  // i18n
+  const { t } = useTranslation();
   // router
   const router = useAppRouter();
   const { workspaceSlug: routerWorkspaceSlug, globalViewId: routerGlobalViewId } = useParams();
@@ -115,7 +119,7 @@ export const AllIssueLayoutRoot = observer(function AllIssueLayoutRoot(props: Pr
   if (!isLoading && !globalViewsLoading && !issuesLoading && !viewDetails && !isDefaultView) {
     return (
       <EmptyStateDetailed
-        title="View does not exist"
+        title={t("common.view_does_not_exist")}
         description="The view you are looking for does not exist or you don't have permission to view it."
         assetKey="view"
         actions={[

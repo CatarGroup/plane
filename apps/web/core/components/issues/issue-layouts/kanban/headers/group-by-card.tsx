@@ -12,6 +12,8 @@ import { Minimize2, Maximize2, Circle } from "lucide-react";
 import { PlusIcon } from "@plane/propel/icons";
 import { TOAST_TYPE, setToast } from "@plane/propel/toast";
 import type { TIssue, ISearchIssueResponse, TIssueKanbanFilters, TIssueGroupByOptions } from "@plane/types";
+// i18n
+import { useTranslation } from "@plane/i18n";
 // ui
 import { CustomMenu } from "@plane/ui";
 // components
@@ -37,6 +39,8 @@ interface IHeaderGroupByCard {
 }
 
 export const HeaderGroupByCard = observer(function HeaderGroupByCard(props: IHeaderGroupByCard) {
+  // i18n
+  const { t } = useTranslation();
   const {
     sub_group_by,
     column_id,
@@ -163,14 +167,14 @@ export const HeaderGroupByCard = observer(function HeaderGroupByCard(props: IHea
                   setIsOpen(true);
                 }}
               >
-                <span className="flex items-center justify-start gap-2">Create work item</span>
+                <span className="flex items-center justify-start gap-2">{t("common.create_work_item")}</span>
               </CustomMenu.MenuItem>
               <CustomMenu.MenuItem
                 onClick={() => {
                   setOpenExistingIssueListModal(true);
                 }}
               >
-                <span className="flex items-center justify-start gap-2">Add an existing work item</span>
+                <span className="flex items-center justify-start gap-2">{t("common.add_existing_work_item")}</span>
               </CustomMenu.MenuItem>
             </CustomMenu>
           ) : (

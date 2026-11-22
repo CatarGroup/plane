@@ -14,6 +14,7 @@ import { Loader } from "@plane/ui";
 import { FilterHeader, FilterOption } from "@/components/issues/issue-layouts/filters";
 // hooks
 import { useProject } from "@/hooks/store/use-project";
+import { useTranslation } from "@plane/i18n";
 
 type Props = {
   appliedFilters: string[] | null;
@@ -22,6 +23,7 @@ type Props = {
 };
 
 export const FilterProjects = observer(function FilterProjects(props: Props) {
+  const { t } = useTranslation();
   const { appliedFilters, handleUpdate, searchQuery } = props;
   // states
   const [itemsToRender, setItemsToRender] = useState(5);
@@ -86,7 +88,7 @@ export const FilterProjects = observer(function FilterProjects(props: Props) {
                 )}
               </>
             ) : (
-              <p className="text-11 text-placeholder italic">No matches found</p>
+              <p className="text-11 text-placeholder italic">{t("common.no_matches_found")}</p>
             )
           ) : (
             <Loader className="space-y-2">

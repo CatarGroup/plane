@@ -8,6 +8,8 @@ import React from "react";
 import { observer } from "mobx-react";
 // types
 import type { TIssue } from "@plane/types";
+// i18n
+import { useTranslation } from "@plane/i18n";
 // components
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
 
@@ -19,6 +21,8 @@ type Props = {
 };
 
 export const SpreadsheetAssigneeColumn = observer(function SpreadsheetAssigneeColumn(props: Props) {
+  // i18n
+  const { t } = useTranslation();
   const { issue, onChange, disabled, onClose } = props;
 
   return (
@@ -38,7 +42,7 @@ export const SpreadsheetAssigneeColumn = observer(function SpreadsheetAssigneeCo
         projectId={issue?.project_id ?? undefined}
         disabled={disabled}
         multiple
-        placeholder="Asignados"
+        placeholder={t("common.assignees")}
         buttonVariant={
           issue?.assignee_ids && issue.assignee_ids.length > 1 ? "transparent-without-text" : "transparent-with-text"
         }

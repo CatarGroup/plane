@@ -14,6 +14,7 @@ import type { TCycleGroups } from "@plane/types";
 import { Loader } from "@plane/ui";
 import { FilterHeader, FilterOption } from "@/components/issues/issue-layouts/filters";
 import { useCycle } from "@/hooks/store/use-cycle";
+import { useTranslation } from "@plane/i18n";
 // ui
 // types
 
@@ -24,6 +25,7 @@ type Props = {
 };
 
 export const FilterCycle = observer(function FilterCycle(props: Props) {
+  const { t } = useTranslation();
   const { appliedFilters, handleUpdate, searchQuery } = props;
 
   // hooks
@@ -95,7 +97,7 @@ export const FilterCycle = observer(function FilterCycle(props: Props) {
                 )}
               </>
             ) : (
-              <p className="text-11 text-placeholder italic">No matches found</p>
+              <p className="text-11 text-placeholder italic">{t("common.no_matches_found")}</p>
             )
           ) : (
             <Loader className="space-y-2">

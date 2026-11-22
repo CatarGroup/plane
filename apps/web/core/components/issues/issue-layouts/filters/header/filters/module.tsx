@@ -13,6 +13,7 @@ import { ModuleIcon } from "@plane/propel/icons";
 import { Loader } from "@plane/ui";
 import { FilterHeader, FilterOption } from "@/components/issues/issue-layouts/filters";
 import { useModule } from "@/hooks/store/use-module";
+import { useTranslation } from "@plane/i18n";
 // ui
 
 type Props = {
@@ -22,6 +23,7 @@ type Props = {
 };
 
 export const FilterModule = observer(function FilterModule(props: Props) {
+  const { t } = useTranslation();
   const { appliedFilters, handleUpdate, searchQuery } = props;
   // hooks
   const { projectId } = useParams();
@@ -85,7 +87,7 @@ export const FilterModule = observer(function FilterModule(props: Props) {
                 )}
               </>
             ) : (
-              <p className="text-11 text-placeholder italic">No matches found</p>
+              <p className="text-11 text-placeholder italic">{t("common.no_matches_found")}</p>
             )
           ) : (
             <Loader className="space-y-2">
