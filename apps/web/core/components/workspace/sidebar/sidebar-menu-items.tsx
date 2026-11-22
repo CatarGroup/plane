@@ -4,7 +4,6 @@
  * See the LICENSE file for details.
  */
 
-import React, { useMemo } from "react";
 import { observer } from "mobx-react";
 // plane imports
 import { WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS_LINKS } from "@plane/constants";
@@ -15,10 +14,8 @@ export const SidebarMenuItems = observer(function SidebarMenuItems() {
   // Menú mínimo e igual para todos: solo Inicio.
   // El bloque «Espacio de trabajo» se oculta a propósito (Proyectos, Vistas y Analíticas
   // viven dentro de cada Departamento en la sección de Departamentos).
-  const filteredStaticNavigationItems = useMemo(
-    () => WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS_LINKS.filter((item) => item.key === "home"),
-    []
-  );
+  // La lista estática ya trae únicamente `home` (packages/constants), por eso no se filtra aquí.
+  const filteredStaticNavigationItems = WORKSPACE_SIDEBAR_STATIC_NAVIGATION_ITEMS_LINKS;
 
   return (
     <div className="flex flex-col gap-0.5">
