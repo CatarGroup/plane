@@ -10,6 +10,7 @@ import { LockKeyhole, LockKeyholeOpen } from "lucide-react";
 // plane imports
 import { Tooltip } from "@plane/propel/tooltip";
 // hooks
+import { useTranslation } from "@plane/i18n";
 import { usePageOperations } from "@/hooks/use-page-operations";
 // store
 import type { TPageInstance } from "@/store/pages/base-page";
@@ -24,6 +25,7 @@ type Props = {
 export const PageLockControl = observer(function PageLockControl({ page }: Props) {
   // Initial state: if locked, then "locked", otherwise default to "neutral"
   const [displayState, setDisplayState] = useState<LockDisplayState>(page.is_locked ? "locked" : "neutral");
+  const { t } = useTranslation();
   // derived values
   const { canCurrentUserLockPage, is_locked } = page;
   // Ref for the transition timer
@@ -78,12 +80,12 @@ export const PageLockControl = observer(function PageLockControl({ page }: Props
   return (
     <>
       {displayState === "neutral" && (
-        <Tooltip tooltipContent="Lock" position="bottom">
+        <Tooltip tooltipContent={t("page_header.lock.lock")} position="bottom">
           <button
             type="button"
             onClick={toggleLock}
             className="grid size-6 flex-shrink-0 place-items-center rounded-sm text-secondary transition-colors hover:bg-layer-1 hover:text-primary"
-            aria-label="Lock"
+            aria-label={t("page_header.lock.lock")}
           >
             <LockKeyhole className="size-3.5" />
           </button>
@@ -95,11 +97,11 @@ export const PageLockControl = observer(function PageLockControl({ page }: Props
           type="button"
           onClick={toggleLock}
           className="flex h-6 items-center gap-1 rounded-sm bg-accent-primary/20 px-2 text-accent-primary transition-colors hover:bg-accent-primary/30"
-          aria-label="Locked"
+          aria-label={t("page_header.lock.locked")}
         >
           <LockKeyhole className="animate-lock-icon size-3.5 flex-shrink-0" />
           <span className="animate-text-slide-in overflow-hidden text-11 font-medium whitespace-nowrap transition-all duration-500 ease-out">
-            Locked
+            {t("page_header.lock.locked")}
           </span>
         </button>
       )}
@@ -107,11 +109,11 @@ export const PageLockControl = observer(function PageLockControl({ page }: Props
       {displayState === "unlocked" && (
         <div
           className="flex h-6 animate-fade-out items-center gap-1 rounded-sm px-2 text-secondary"
-          aria-label="Unlocked"
+          aria-label={t("page_header.lock.unlocked")}
         >
           <LockKeyholeOpen className="animate-unlock-icon size-3.5 flex-shrink-0" />
           <span className="animate-text-slide-in animate-text-fade-out overflow-hidden text-11 font-medium whitespace-nowrap transition-all duration-500 ease-out">
-            Unlocked
+            {t("page_header.lock.unlocked")}
           </span>
         </div>
       )}

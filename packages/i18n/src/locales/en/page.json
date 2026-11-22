@@ -76,6 +76,35 @@
     "close_button": "Close navigation pane",
     "outline_floating_button": "Open outline"
   },
+  "page_header": {
+    "offline": {
+      "label": "Offline",
+      "heading": "You are offline.",
+      "description": "You can continue making changes. They will be synced when you are back online."
+    },
+    "lock": {
+      "lock": "Lock",
+      "locked": "Locked",
+      "unlocked": "Unlocked"
+    }
+  },
+  "page_list": {
+    "search_placeholder": "Search pages",
+    "owned_by": "Owned by",
+    "created_on": "Created on {date}",
+    "access": {
+      "public": "Public",
+      "private": "Private"
+    },
+    "filter": {
+      "favorites": "Favorites"
+    }
+  },
+  "page_editor": {
+    "untitled": "Untitled",
+    "content_limit_banner": "Content limit reached and live sync is off. Create a new page or use nested pages to continue syncing.",
+    "dismiss_content_limit_warning": "Dismiss content limit warning"
+  },
   "page_actions": {
     "move_page": {
       "submit_button": {

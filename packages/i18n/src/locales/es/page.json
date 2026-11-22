@@ -76,6 +76,35 @@
     "close_button": "Cerrar panel de navegación",
     "outline_floating_button": "Abrir esquema"
   },
+  "page_header": {
+    "offline": {
+      "label": "Sin conexión",
+      "heading": "No tienes conexión.",
+      "description": "Puedes seguir haciendo cambios. Se sincronizarán cuando vuelvas a estar conectado."
+    },
+    "lock": {
+      "lock": "Bloquear",
+      "locked": "Bloqueada",
+      "unlocked": "Desbloqueada"
+    }
+  },
+  "page_list": {
+    "search_placeholder": "Buscar páginas",
+    "owned_by": "Creada por",
+    "created_on": "Creada el {date}",
+    "access": {
+      "public": "Pública",
+      "private": "Privada"
+    },
+    "filter": {
+      "favorites": "Favoritos"
+    }
+  },
+  "page_editor": {
+    "untitled": "Sin título",
+    "content_limit_banner": "Se ha alcanzado el límite de contenido y la sincronización en vivo está desactivada. Crea una página nueva o usa páginas anidadas para seguir sincronizando.",
+    "dismiss_content_limit_warning": "Descartar el aviso del límite de contenido"
+  },
   "page_actions": {
     "move_page": {
       "submit_button": {
