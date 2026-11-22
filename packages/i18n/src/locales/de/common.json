@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Verantwortliche hinzufügen",
+    "add_due_date": "Fälligkeitsdatum hinzufügen",
+    "duplicate_of": "Duplikat von",
+    "select_work_item": "Arbeitselement auswählen",
+    "no_request_closed_yet": "Noch keine abgeschlossenen Anfragen"
   },
   "chart": {
     "x_axis": "X-Achse",

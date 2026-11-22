@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Thêm người phụ trách",
+    "add_due_date": "Thêm ngày đến hạn",
+    "duplicate_of": "Bản sao của",
+    "select_work_item": "Chọn mục công việc",
+    "no_request_closed_yet": "Chưa có yêu cầu nào được đóng"
   },
   "chart": {
     "x_axis": "Trục X",

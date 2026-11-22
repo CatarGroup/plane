@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Додати виконавців",
+    "add_due_date": "Додати термін",
+    "duplicate_of": "Дублікат",
+    "select_work_item": "Вибрати робочий елемент",
+    "no_request_closed_yet": "Поки немає закритих запитів"
   },
   "chart": {
     "x_axis": "Вісь X",

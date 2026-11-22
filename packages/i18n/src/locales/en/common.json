@@ -739,7 +739,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Add assignees",
+    "add_due_date": "Add due date",
+    "duplicate_of": "Duplicate of",
+    "select_work_item": "Select work item",
+    "no_request_closed_yet": "No request closed yet"
   },
   "chart": {
     "x_axis": "X-axis",

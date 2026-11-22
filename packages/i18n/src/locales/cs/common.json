@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Přidat řešitele",
+    "add_due_date": "Přidat datum splatnosti",
+    "duplicate_of": "Duplikát",
+    "select_work_item": "Vybrat pracovní položku",
+    "no_request_closed_yet": "Zatím žádné uzavřené požadavky"
   },
   "chart": {
     "x_axis": "Osa X",

@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Tambah penerima tugas",
+    "add_due_date": "Tambah tenggat waktu",
+    "duplicate_of": "Duplikat dari",
+    "select_work_item": "Pilih item kerja",
+    "no_request_closed_yet": "Belum ada permintaan yang ditutup"
   },
   "chart": {
     "x_axis": "Sumbu-X",

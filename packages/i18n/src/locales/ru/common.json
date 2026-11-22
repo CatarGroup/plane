@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Добавить исполнителей",
+    "add_due_date": "Добавить срок",
+    "duplicate_of": "Дубликат",
+    "select_work_item": "Выбрать рабочий элемент",
+    "no_request_closed_yet": "Пока нет закрытых запросов"
   },
   "chart": {
     "x_axis": "Ось X",

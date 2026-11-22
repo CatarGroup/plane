@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Pridať riešiteľov",
+    "add_due_date": "Pridať dátum splatnosti",
+    "duplicate_of": "Duplikát",
+    "select_work_item": "Vybrať pracovnú položku",
+    "no_request_closed_yet": "Zatiaľ žiadne uzavreté požiadavky"
   },
   "chart": {
     "x_axis": "Os X",

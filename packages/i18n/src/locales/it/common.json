@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Aggiungi assegnatari",
+    "add_due_date": "Aggiungi data di scadenza",
+    "duplicate_of": "Duplicato di",
+    "select_work_item": "Seleziona elemento di lavoro",
+    "no_request_closed_yet": "Nessuna richiesta chiusa"
   },
   "chart": {
     "x_axis": "Asse X",

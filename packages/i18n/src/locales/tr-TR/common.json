@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Sorumlu ekle",
+    "add_due_date": "Bitiş tarihi ekle",
+    "duplicate_of": "Şunun kopyası",
+    "select_work_item": "Çalışma öğesi seç",
+    "no_request_closed_yet": "Henüz kapatılmış talep yok"
   },
   "chart": {
     "x_axis": "X ekseni",

@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "Adaugă responsabili",
+    "add_due_date": "Adaugă data scadentă",
+    "duplicate_of": "Duplicat al",
+    "select_work_item": "Selectează elementul de lucru",
+    "no_request_closed_yet": "Nicio solicitare închisă încă"
   },
   "chart": {
     "x_axis": "axa-X",

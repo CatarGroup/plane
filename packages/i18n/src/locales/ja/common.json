@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "担当者を追加",
+    "add_due_date": "期限を追加",
+    "duplicate_of": "重複元",
+    "select_work_item": "ワークアイテムを選択",
+    "no_request_closed_yet": "まだ終了したリクエストはありません"
   },
   "chart": {
     "x_axis": "エックス アクシス",

@@ -717,7 +717,12 @@
     "developer": "Developer",
     "work_structure": "Work structure",
     "execution": "Execution",
-    "administration": "Administration"
+    "administration": "Administration",
+    "add_assignees": "新增負責人",
+    "add_due_date": "新增截止日期",
+    "duplicate_of": "重複項",
+    "select_work_item": "選擇工作項目",
+    "no_request_closed_yet": "尚無已關閉的請求"
   },
   "chart": {
     "x_axis": "X 軸",
