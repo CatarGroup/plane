@@ -8,8 +8,8 @@
     "settings": {
       "general": {
         "title": "General",
-        "upload_logo": "Subir logo",
-        "edit_logo": "Editar logo",
+        "upload_logo": "Subir logotipo",
+        "edit_logo": "Editar logotipo",
         "name": "Nombre del espacio de trabajo",
         "company_size": "Tamaño de la empresa",
         "url": "URL del espacio de trabajo",
@@ -364,7 +364,7 @@
         "export_as_csv": "Exportar como CSV",
         "slug_already_exists": "El slug ya existe",
         "failed_to_create_application": "Error al crear la aplicación",
-        "upload_logo": "Subir Logo",
+        "upload_logo": "Subir logotipo",
         "app_name_error": "El nombre de la aplicación es obligatorio",
         "app_short_description_title": "Dale una breve descripción a esta aplicación",
         "app_short_description_error": "La descripción corta de la aplicación es obligatoria",
