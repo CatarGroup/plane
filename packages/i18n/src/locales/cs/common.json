@@ -878,5 +878,7 @@
   "no_matches_found": "Nebyly nalezeny žádné shody",
   "view_all": "Zobrazit vše",
   "view_less": "Zobrazit méně",
-  "no_results_found": "Nebyly nalezeny žádné výsledky"
+  "no_results_found": "Nebyly nalezeny žádné výsledky",
+  "created_at": "Vytvořeno",
+  "updated_at": "Aktualizováno"
 }

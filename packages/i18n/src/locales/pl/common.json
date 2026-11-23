@@ -878,5 +878,7 @@
   "no_matches_found": "Nie znaleziono dopasowań",
   "view_all": "Pokaż wszystko",
   "view_less": "Pokaż mniej",
-  "no_results_found": "Nie znaleziono wyników"
+  "no_results_found": "Nie znaleziono wyników",
+  "created_at": "Utworzono",
+  "updated_at": "Zaktualizowano"
 }

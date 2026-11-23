@@ -878,5 +878,7 @@
   "no_matches_found": "Совпадений не найдено",
   "view_all": "Показать все",
   "view_less": "Показать меньше",
-  "no_results_found": "Результаты не найдены"
+  "no_results_found": "Результаты не найдены",
+  "created_at": "Создано",
+  "updated_at": "Обновлено"
 }

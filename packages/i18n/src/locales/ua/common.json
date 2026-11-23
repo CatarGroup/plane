@@ -878,5 +878,7 @@
   "no_matches_found": "Збігів не знайдено",
   "view_all": "Показати все",
   "view_less": "Показати менше",
-  "no_results_found": "Результатів не знайдено"
+  "no_results_found": "Результатів не знайдено",
+  "created_at": "Створено",
+  "updated_at": "Оновлено"
 }

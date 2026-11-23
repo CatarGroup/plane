@@ -878,5 +878,7 @@
   "no_matches_found": "Nenhuma correspondência encontrada",
   "view_all": "Ver tudo",
   "view_less": "Ver menos",
-  "no_results_found": "Nenhum resultado encontrado"
+  "no_results_found": "Nenhum resultado encontrado",
+  "created_at": "Criado",
+  "updated_at": "Atualizado"
 }

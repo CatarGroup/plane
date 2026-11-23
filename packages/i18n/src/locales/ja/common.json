@@ -878,5 +878,7 @@
   "no_matches_found": "一致するものがありません",
   "view_all": "すべて表示",
   "view_less": "表示を減らす",
-  "no_results_found": "結果が見つかりません"
+  "no_results_found": "結果が見つかりません",
+  "created_at": "作成日",
+  "updated_at": "更新日"
 }

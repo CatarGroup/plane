@@ -901,5 +901,7 @@
   "remove_parent": "Eliminar tarea padre",
   "view_all": "Ver todo",
   "view_less": "Ver menos",
-  "no_results_found": "No se encontraron resultados"
+  "no_results_found": "No se encontraron resultados",
+  "created_at": "Creado",
+  "updated_at": "Actualizado"
 }

@@ -878,5 +878,7 @@
   "no_matches_found": "未找到匹配项",
   "view_all": "查看全部",
   "view_less": "收起",
-  "no_results_found": "未找到结果"
+  "no_results_found": "未找到结果",
+  "created_at": "创建于",
+  "updated_at": "更新于"
 }

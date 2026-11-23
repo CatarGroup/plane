@@ -12,6 +12,7 @@ import { useSearchParams } from "next/navigation";
 import { PriorityIcon } from "@plane/propel/icons";
 import { Tooltip } from "@plane/propel/tooltip";
 import { Row, Avatar } from "@plane/ui";
+import { useTranslation } from "@plane/i18n";
 import { cn, renderFormattedDate, getFileURL } from "@plane/utils";
 // components
 import { ButtonAvatars } from "@/components/dropdowns/member/avatar";
@@ -37,6 +38,7 @@ export const InboxIssueListItem = observer(function InboxIssueListItem(props: In
   const searchParams = useSearchParams();
   const selectedInboxIssueId = searchParams.get("inboxIssueId");
   // store
+  const { t } = useTranslation();
   const { currentTab, getIssueInboxByIssueId } = useProjectInbox();
   const { projectLabels } = useLabel();
   const { isMobile } = usePlatformOS();
@@ -82,7 +84,7 @@ export const InboxIssueListItem = observer(function InboxIssueListItem(props: In
           <div className="flex items-center justify-between">
             <div className="flex flex-wrap items-center gap-2">
               <Tooltip
-                tooltipHeading="Created on"
+                tooltipHeading={t("common.created_on")}
                 tooltipContent={`${renderFormattedDate(issue.created_at ?? "")}`}
                 isMobile={isMobile}
               >
@@ -92,7 +94,7 @@ export const InboxIssueListItem = observer(function InboxIssueListItem(props: In
               <div className="rounded-full border-2 border-strong-1" />
 
               {issue.priority && (
-                <Tooltip tooltipHeading="Priority" tooltipContent={`${issue.priority ?? "None"}`}>
+                <Tooltip tooltipHeading={t("common.priority")} tooltipContent={`${issue.priority ?? t("common.none")}`}>
                   <PriorityIcon priority={issue.priority} withContainer className="h-3 w-3" />
                 </Tooltip>
               )}
@@ -100,7 +102,7 @@ export const InboxIssueListItem = observer(function InboxIssueListItem(props: In
               {issue.label_ids && issue.label_ids.length > 3 ? (
                 <div className="relative flex !h-[17.5px] items-center gap-1 rounded-sm border border-strong px-1 text-11">
                   <span className="bg-orange-400 h-2 w-2 rounded-full" />
-                  <span className="max-w-28 truncate normal-case">{`${issue.label_ids.length} labels`}</span>
+                  <span className="max-w-28 truncate normal-case">{`${issue.label_ids.length} ${t("common.labels")}`}</span>
                 </div>
               ) : (
                 <>

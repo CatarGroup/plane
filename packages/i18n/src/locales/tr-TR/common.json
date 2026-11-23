@@ -878,5 +878,7 @@
   "no_matches_found": "Eşleşme bulunamadı",
   "view_all": "Tümünü görüntüle",
   "view_less": "Daha az görüntüle",
-  "no_results_found": "Sonuç bulunamadı"
+  "no_results_found": "Sonuç bulunamadı",
+  "created_at": "Oluşturulma",
+  "updated_at": "Güncelleme"
 }

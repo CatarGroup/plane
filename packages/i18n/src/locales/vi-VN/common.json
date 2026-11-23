@@ -878,5 +878,7 @@
   "no_matches_found": "Không tìm thấy kết quả phù hợp",
   "view_all": "Xem tất cả",
   "view_less": "Xem ít hơn",
-  "no_results_found": "Không tìm thấy kết quả"
+  "no_results_found": "Không tìm thấy kết quả",
+  "created_at": "Đã tạo",
+  "updated_at": "Đã cập nhật"
 }

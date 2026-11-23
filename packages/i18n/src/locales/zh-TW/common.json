@@ -878,5 +878,7 @@
   "no_matches_found": "找不到相符項目",
   "view_all": "檢視全部",
   "view_less": "收合",
-  "no_results_found": "找不到結果"
+  "no_results_found": "找不到結果",
+  "created_at": "建立於",
+  "updated_at": "更新於"
 }

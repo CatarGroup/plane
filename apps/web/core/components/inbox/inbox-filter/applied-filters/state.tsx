@@ -11,11 +11,13 @@ import { Tag } from "@plane/ui";
 // hooks
 import { useProjectInbox } from "@/hooks/store/use-project-inbox";
 import { useProjectState } from "@/hooks/store/use-project-state";
+import { useTranslation } from "@plane/i18n";
 
 export const InboxIssueAppliedFiltersState = observer(function InboxIssueAppliedFiltersState() {
   // hooks
   const { inboxFilters, handleInboxIssueFilters } = useProjectInbox();
   const { getStateById } = useProjectState();
+  const { t } = useTranslation();
   // derived values
   const filteredValues = inboxFilters?.state || [];
   const currentOptionDetail = (stateId: string) => getStateById(stateId) || undefined;
@@ -28,7 +30,7 @@ export const InboxIssueAppliedFiltersState = observer(function InboxIssueApplied
   if (filteredValues.length === 0) return <></>;
   return (
     <Tag>
-      <div className="text-11 text-secondary">State</div>
+      <div className="text-11 text-secondary">{t("common.state")}</div>
       {filteredValues.map((value) => {
         const optionDetail = currentOptionDetail(value);
         if (!optionDetail) return <></>;

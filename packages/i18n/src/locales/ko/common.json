@@ -878,5 +878,7 @@
   "no_matches_found": "일치하는 항목이 없습니다",
   "view_all": "모두 보기",
   "view_less": "간략히 보기",
-  "no_results_found": "결과를 찾을 수 없습니다"
+  "no_results_found": "결과를 찾을 수 없습니다",
+  "created_at": "생성됨",
+  "updated_at": "업데이트됨"
 }
