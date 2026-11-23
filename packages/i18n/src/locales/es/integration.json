@@ -15,7 +15,7 @@
     "select_state": "Seleccionar estado",
     "set_state": "Establecer estado",
     "choose_project": "Elegir departamento...",
-    "skip_backward_state_movement": "Evitar que los issues vuelvan a un estado anterior debido a actualizaciones de PR"
+    "skip_backward_state_movement": "Evitar que las tareas vuelvan a un estado anterior debido a actualizaciones de PR"
   },
   "github_integration": {
     "name": "GitHub",
@@ -96,14 +96,14 @@
     "select_issue_sync_direction": "Selecciona la dirección de sincronización de incidencias",
     "allow_bidirectional_sync": "Bidireccional - Sincronizar incidencias y comentarios en ambas direcciones entre Gitlab y Plane",
     "allow_unidirectional_sync": "Unidireccional - Sincronizar incidencias y comentarios solo de Gitlab a Plane",
-    "allow_unidirectional_sync_warning": "Los datos de Gitlab Issue reemplazarán los datos en el Elemento de Trabajo de Plane vinculado (solo Gitlab → Plane)",
+    "allow_unidirectional_sync_warning": "Los datos de la incidencia de GitLab reemplazarán los datos en la tarea de Plane vinculada (solo GitLab → Plane)",
     "remove_project_issue_sync": "Eliminar esta Sincronización de Incidencias del Departamento",
     "remove_project_issue_sync_confirmation": "¿Estás seguro de que deseas eliminar esta sincronización de incidencias del departamento?",
-    "ISSUE_OPEN": "Incidencia Abierta",
-    "ISSUE_CLOSED": "Incidencia Cerrada",
+    "ISSUE_OPEN": "Incidencia abierta",
+    "ISSUE_CLOSED": "Incidencia cerrada",
     "save": "Guardar",
-    "start_sync": "Iniciar Sincronización",
-    "choose_repository": "Elegir Repositorio..."
+    "start_sync": "Iniciar sincronización",
+    "choose_repository": "Elegir repositorio..."
   },
   "gitlab_enterprise_integration": {
     "name": "Gitlab Enterprise",
