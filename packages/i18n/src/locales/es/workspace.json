@@ -322,8 +322,8 @@
   "workspace_cycles": {
     "empty_state": {
       "active": {
-        "title": "No hay Cycles activos",
-        "description": "Cycles de tus departamentos que incluyen cualquier período que abarque la fecha de hoy dentro de su rango. Encuentra el progreso y los detalles de todos tus Cycles activos aquí."
+        "title": "No hay ciclos activos",
+        "description": "Ciclos de tus departamentos que incluyen cualquier período que abarque la fecha de hoy dentro de su rango. Encuentra aquí el progreso y los detalles de todos tus ciclos activos."
       }
     }
   },

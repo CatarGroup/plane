@@ -300,8 +300,8 @@
   "disabled_project": {
     "empty_state": {
       "inbox": {
-        "title": "Intake no está habilitado para el departamento.",
-        "description": "Intake te ayuda a gestionar las solicitudes entrantes a tu departamento y agregarlas como tareas en tu flujo de trabajo. Habilita Intake desde la configuración del departamento para gestionar las solicitudes.",
+        "title": "La bandeja de entrada no está habilitada para el departamento.",
+        "description": "La bandeja de entrada te ayuda a gestionar las solicitudes entrantes de tu departamento y a añadirlas como tareas en tu flujo de trabajo. Habilítala desde la configuración del departamento para gestionar las solicitudes.",
         "primary_button": {
           "text": "Gestionar funciones"
         }
