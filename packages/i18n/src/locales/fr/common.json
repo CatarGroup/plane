@@ -875,5 +875,8 @@
   },
   "change_parent": "Changer le parent",
   "remove_parent": "Retirer le parent",
-  "no_matches_found": "Aucune correspondance trouvée"
+  "no_matches_found": "Aucune correspondance trouvée",
+  "view_all": "Tout afficher",
+  "view_less": "Afficher moins",
+  "no_results_found": "Aucun résultat trouvé"
 }

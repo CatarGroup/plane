@@ -898,5 +898,8 @@
     }
   },
   "change_parent": "Cambiar tarea padre",
-  "remove_parent": "Eliminar tarea padre"
+  "remove_parent": "Eliminar tarea padre",
+  "view_all": "Ver todo",
+  "view_less": "Ver menos",
+  "no_results_found": "No se encontraron resultados"
 }

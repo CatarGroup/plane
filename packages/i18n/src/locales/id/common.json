@@ -875,5 +875,8 @@
   },
   "change_parent": "Ubah induk",
   "remove_parent": "Hapus induk",
-  "no_matches_found": "Tidak ada hasil yang cocok"
+  "no_matches_found": "Tidak ada hasil yang cocok",
+  "view_all": "Lihat semua",
+  "view_less": "Lihat lebih sedikit",
+  "no_results_found": "Hasil tidak ditemukan"
 }

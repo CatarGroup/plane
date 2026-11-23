@@ -875,5 +875,8 @@
   },
   "change_parent": "Thay đổi mục cha",
   "remove_parent": "Xóa mục cha",
-  "no_matches_found": "Không tìm thấy kết quả phù hợp"
+  "no_matches_found": "Không tìm thấy kết quả phù hợp",
+  "view_all": "Xem tất cả",
+  "view_less": "Xem ít hơn",
+  "no_results_found": "Không tìm thấy kết quả"
 }

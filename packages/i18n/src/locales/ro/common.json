@@ -875,5 +875,8 @@
   },
   "change_parent": "Schimbă părintele",
   "remove_parent": "Elimină părintele",
-  "no_matches_found": "Nu s-au găsit potriviri"
+  "no_matches_found": "Nu s-au găsit potriviri",
+  "view_all": "Vezi tot",
+  "view_less": "Vezi mai puțin",
+  "no_results_found": "Nu s-au găsit rezultate"
 }

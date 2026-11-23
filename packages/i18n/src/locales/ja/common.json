@@ -875,5 +875,8 @@
   },
   "change_parent": "親を変更",
   "remove_parent": "親を削除",
-  "no_matches_found": "一致するものがありません"
+  "no_matches_found": "一致するものがありません",
+  "view_all": "すべて表示",
+  "view_less": "表示を減らす",
+  "no_results_found": "結果が見つかりません"
 }

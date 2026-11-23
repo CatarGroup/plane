@@ -875,5 +875,8 @@
   },
   "change_parent": "Zmień element nadrzędny",
   "remove_parent": "Usuń element nadrzędny",
-  "no_matches_found": "Nie znaleziono dopasowań"
+  "no_matches_found": "Nie znaleziono dopasowań",
+  "view_all": "Pokaż wszystko",
+  "view_less": "Pokaż mniej",
+  "no_results_found": "Nie znaleziono wyników"
 }

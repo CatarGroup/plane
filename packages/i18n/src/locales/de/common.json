@@ -875,5 +875,8 @@
   },
   "change_parent": "Übergeordnetes Element ändern",
   "remove_parent": "Übergeordnetes Element entfernen",
-  "no_matches_found": "Keine Treffer gefunden"
+  "no_matches_found": "Keine Treffer gefunden",
+  "view_all": "Alle anzeigen",
+  "view_less": "Weniger anzeigen",
+  "no_results_found": "Keine Ergebnisse gefunden"
 }

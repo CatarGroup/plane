@@ -875,5 +875,8 @@
   },
   "change_parent": "Zmeniť nadradenú",
   "remove_parent": "Odstrániť nadradenú",
-  "no_matches_found": "Nenašli sa žiadne zhody"
+  "no_matches_found": "Nenašli sa žiadne zhody",
+  "view_all": "Zobraziť všetko",
+  "view_less": "Zobraziť menej",
+  "no_results_found": "Nenašli sa žiadne výsledky"
 }

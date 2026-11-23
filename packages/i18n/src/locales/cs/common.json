@@ -875,5 +875,8 @@
   },
   "change_parent": "Změnit nadřazený",
   "remove_parent": "Odebrat nadřazený",
-  "no_matches_found": "Nebyly nalezeny žádné shody"
+  "no_matches_found": "Nebyly nalezeny žádné shody",
+  "view_all": "Zobrazit vše",
+  "view_less": "Zobrazit méně",
+  "no_results_found": "Nebyly nalezeny žádné výsledky"
 }
