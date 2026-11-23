@@ -15,7 +15,7 @@
       },
       "toast": {
         "success": "Departamento actualizado correctamente",
-        "error": "No se pudo actualizar el departamento. Por favor intenta de nuevo."
+        "error": "No se pudo actualizar el departamento. Inténtalo de nuevo."
       }
     },
     "members": {
@@ -116,7 +116,7 @@
           },
           "error": {
             "title": "Error al reordenar estimaciones",
-            "message": "No pudimos reordenar las estimaciones, por favor intenta de nuevo"
+            "message": "No pudimos reordenar las estimaciones, inténtalo de nuevo"
           }
         },
         "switch": {

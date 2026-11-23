@@ -118,7 +118,7 @@
             },
             "error": {
               "title": "¡Error!",
-              "message": "Error al crear la propiedad. ¡Por favor intente nuevamente!"
+              "message": "Error al crear la propiedad. Inténtalo de nuevo."
             }
           },
           "update": {
@@ -128,7 +128,7 @@
             },
             "error": {
               "title": "¡Error!",
-              "message": "Error al actualizar la propiedad. ¡Por favor intente nuevamente!"
+              "message": "Error al actualizar la propiedad. Inténtalo de nuevo."
             }
           },
           "delete": {
@@ -138,7 +138,7 @@
             },
             "error": {
               "title": "¡Error!",
-              "message": "Error al eliminar la propiedad. ¡Por favor intente nuevamente!"
+              "message": "Error al eliminar la propiedad. Inténtalo de nuevo."
             }
           },
           "enable_disable": {
@@ -149,7 +149,7 @@
             },
             "error": {
               "title": "¡Error!",
-              "message": "Error al {action} la propiedad. ¡Por favor intente nuevamente!"
+              "message": "Error al {action} la propiedad. Inténtalo de nuevo."
             }
           }
         },
@@ -303,7 +303,7 @@
         "error": {
           "title": "¡Error!",
           "message": {
-            "default": "Error al crear el tipo de tarea. ¡Por favor intente nuevamente!",
+            "default": "Error al crear el tipo de tarea. Inténtalo de nuevo.",
             "conflict": "El tipo {name} ya existe. Elige un nombre diferente."
           }
         }
@@ -320,7 +320,7 @@
         "error": {
           "title": "¡Error!",
           "message": {
-            "default": "Error al actualizar el tipo de tarea. ¡Por favor intente nuevamente!",
+            "default": "Error al actualizar el tipo de tarea. Inténtalo de nuevo.",
             "conflict": "El tipo {name} ya existe. Elige un nombre diferente."
           }
         }
@@ -345,7 +345,7 @@
         },
         "error": {
           "title": "¡Error!",
-          "message": "Error al {action} el tipo de tarea. ¡Por favor intente nuevamente!"
+          "message": "Error al {action} el tipo de tarea. Inténtalo de nuevo."
         }
       },
       "tooltip": "Clic para {action}"

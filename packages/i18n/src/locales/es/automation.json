@@ -218,13 +218,13 @@
         "create": {
           "error": {
             "title": "¡Error!",
-            "message": "Falló la creación de la acción. ¡Por favor intenta de nuevo!"
+            "message": "Falló la creación de la acción. Inténtalo de nuevo."
           }
         },
         "update": {
           "error": {
             "title": "¡Error!",
-            "message": "Falló la actualización de la acción. ¡Por favor intenta de nuevo!"
+            "message": "Falló la actualización de la acción. Inténtalo de nuevo."
           }
         }
       }

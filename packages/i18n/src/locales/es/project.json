@@ -60,7 +60,7 @@
         },
         "failed": {
           "title": "Falló la restauración del ciclo",
-          "description": "No se pudo restaurar el ciclo. Por favor intenta de nuevo."
+          "description": "No se pudo restaurar el ciclo. Inténtalo de nuevo."
         }
       },
       "favorite": {
@@ -70,7 +70,7 @@
           "title": "¡Éxito!"
         },
         "failed": {
-          "description": "No se pudo agregar el ciclo a favoritos. Por favor intenta de nuevo.",
+          "description": "No se pudo agregar el ciclo a favoritos. Inténtalo de nuevo.",
           "title": "¡Error!"
         }
       },
@@ -81,7 +81,7 @@
           "title": "¡Éxito!"
         },
         "failed": {
-          "description": "No se pudo eliminar el ciclo de favoritos. Por favor intenta de nuevo.",
+          "description": "No se pudo eliminar el ciclo de favoritos. Inténtalo de nuevo.",
           "title": "¡Error!"
         }
       },
@@ -92,7 +92,7 @@
           "title": "¡Éxito!"
         },
         "failed": {
-          "description": "Error al actualizar el ciclo. Por favor intenta de nuevo.",
+          "description": "Error al actualizar el ciclo. Inténtalo de nuevo.",
           "title": "¡Error!"
         },
         "error": {
