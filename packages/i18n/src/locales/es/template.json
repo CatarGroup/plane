@@ -203,7 +203,7 @@
           "cover_image": {
             "label": "Añade una imagen de portada que se mostrará en el Marketplace",
             "upload_title": "Subir imagen de portada",
-            "upload_placeholder": "Haz clic para subir o arrastra y suelta para subir una imagen de portada",
+            "upload_placeholder": "Haz clic para subir una imagen de portada o arrástrala y suéltala",
             "drop_here": "Soltar aquí",
             "click_to_upload": "Haz clic para subir",
             "invalid_file_or_exceeds_size_limit": "Archivo no válido o excede el límite de tamaño. Por favor, inténtalo de nuevo.",

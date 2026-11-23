@@ -6,8 +6,8 @@
         "description": "Para ayudarte a comenzar, hemos creado un Departamento Demo para ti. Agreguemos tu primera tarea."
       },
       "step_one": {
-        "title": "Haz clic en \"+ Agregar tarea\"",
-        "description": "Comienza haciendo clic en el botón \"+ Nueva tarea\". Puedes crear tareas, errores o un tipo personalizado que se ajuste a tus necesidades."
+        "title": "Haz clic en \"+ Añadir tarea\"",
+        "description": "Para empezar, haz clic en el botón \"+ Nueva tarea\". Puedes crear tareas, errores o un tipo personalizado que se ajuste a tus necesidades."
       },
       "step_two": {
         "title": "Filtra tus tareas",
@@ -33,7 +33,7 @@
       },
       "step_two": {
         "title": "Haz clic en \"+\"",
-        "description": "Comienza haciendo clic en el botón \"+\". Agrega tareas nuevas o existentes directamente desde la página de Ciclo."
+        "description": "Para empezar, haz clic en el botón \"+\". Añade tareas nuevas o existentes directamente desde la página del ciclo."
       },
       "step_three": {
         "title": "Resumen del ciclo",
@@ -55,7 +55,7 @@
       },
       "step_two": {
         "title": "Haz clic en \"+\"",
-        "description": "Comienza haciendo clic en el botón \"+\". Agrega tareas nuevas o existentes directamente desde la página de Proyecto."
+        "description": "Para empezar, haz clic en el botón \"+\". Añade tareas nuevas o existentes directamente desde la página del proyecto."
       },
       "step_three": {
         "title": "Estados del proyecto",
@@ -81,11 +81,11 @@
       },
       "step_three": {
         "title": "Acciones de página",
-        "description": "Una vez creada tu página, puedes hacer clic en el menú ••• en la esquina superior derecha para realizar las siguientes acciones."
+        "description": "Una vez creada la página, haz clic en el menú ••• de la esquina superior derecha para las siguientes acciones."
       },
       "step_four": {
         "title": "Tabla de contenidos",
-        "description": "Obtén una vista panorámica de tu página haciendo clic en el ícono del panel para ver todos los encabezados."
+        "description": "Obtén una vista general de la página haciendo clic en el icono del panel para ver todos los encabezados."
       },
       "step_five": {
         "title": "Historial de versiones",
