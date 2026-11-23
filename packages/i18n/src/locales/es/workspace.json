@@ -330,7 +330,7 @@
   "workspace": {
     "members_import": {
       "title": "Importar miembros desde CSV",
-      "description": "Sube un CSV con columnas: Email, Display Name, First Name, Last Name, Role (5, 15 o 20)",
+      "description": "Sube un CSV con las columnas: correo electrónico, nombre visible, nombre, apellidos y rol (5, 15 o 20)",
       "dropzone": {
         "active": "Suelta el archivo CSV aquí",
         "inactive": "Arrastra y suelta o haz clic para subir",
