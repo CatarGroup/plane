@@ -347,7 +347,7 @@
         "webhook_secret": {
           "label": "Secreto del webhook",
           "description": "Secreto utilizado para verificar las solicitudes entrantes del webhook.",
-          "placeholder": "Ingresa una clave secreta aleatoria"
+          "placeholder": "Escribe una clave secreta aleatoria"
         },
         "redirect_uris": {
           "label": "URIs de redirección (separadas por espacios)",
@@ -378,11 +378,11 @@
         "redirect_uris_title": "URIs de redirección",
         "redirect_uris_error": "Las URIs de redirección son obligatorias",
         "invalid_redirect_uris_error": "URIs de redirección inválidas",
-        "redirect_uris_description": "Ingresa las URIs separadas por espacios donde la aplicación redirigirá después del usuario, por ejemplo https://example.com https://example.com/",
+        "redirect_uris_description": "Escribe las URIs separadas por espacios a las que la aplicación redirigirá después del usuario, por ejemplo https://example.com https://example.com/",
         "authorized_javascript_origins_title": "Orígenes Javascript autorizados",
         "authorized_javascript_origins_error": "Los orígenes Javascript autorizados son obligatorios",
         "invalid_authorized_javascript_origins_error": "Orígenes Javascript autorizados inválidos",
-        "authorized_javascript_origins_description": "Ingresa los orígenes separados por espacios donde la aplicación podrá hacer solicitudes, por ejemplo app.com example.com",
+        "authorized_javascript_origins_description": "Escribe los orígenes separados por espacios desde los que la aplicación podrá hacer solicitudes, por ejemplo app.com example.com",
         "create_app": "Crear aplicación",
         "update_app": "Actualizar aplicación",
         "build_your_own_app": "Construye tu propia aplicación",

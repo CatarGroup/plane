@@ -1,7 +1,7 @@
 {
   "project_settings": {
     "general": {
-      "enter_project_id": "Ingresa el ID del departamento",
+      "enter_project_id": "Escribe el ID del departamento",
       "please_select_a_timezone": "Por favor selecciona una zona horaria",
       "archive_project": {
         "title": "Archivar departamento",
@@ -68,7 +68,7 @@
         "start_from_scratch": "Comenzar desde cero",
         "choose_template": "Elegir una plantilla",
         "choose_estimate_system": "Elegir un sistema de estimación",
-        "enter_estimate_point": "Ingresar estimación",
+        "enter_estimate_point": "Escribir estimación",
         "step": "Paso {step} de {total}",
         "label": "Crear estimación"
       },
@@ -138,7 +138,7 @@
         "empty": "El valor de la estimación no puede estar vacío.",
         "already_exists": "El valor de la estimación ya existe.",
         "unsaved_changes": "Tienes cambios sin guardar. Por favor guárdalos antes de hacer clic en Hecho",
-        "remove_empty": "La estimación no puede estar vacía. Ingresa un valor en cada campo o elimina aquellos para los que no tienes valores.",
+        "remove_empty": "La estimación no puede estar vacía. Escribe un valor en cada campo o elimina aquellos para los que no tengas valores.",
         "fill": "Por favor completa este campo de estimación",
         "repeat": "El valor de estimación no puede repetirse"
       },

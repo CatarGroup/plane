@@ -187,7 +187,7 @@
         },
         "formula": {
           "field_label": "Campo de fórmula",
-          "tooltip": "Ingrese una fórmula usando la sintaxis '{'Nombre del campo'}'. Admite operadores +, -, *, / y &.",
+          "tooltip": "Escribe una fórmula con la sintaxis '{'Nombre del campo'}'. Admite operadores +, -, *, / y &.",
           "placeholder": "Escribir la fórmula",
           "test_button": "Probar",
           "validating": "Validando",

@@ -44,7 +44,7 @@
         "schedule_mode": "Modo de programación",
         "schedule_mode_fixed": "Fijo",
         "schedule_mode_cron": "Cron",
-        "cron_expression_label": "Ingresar expresión Cron",
+        "cron_expression_label": "Escribir expresión Cron",
         "cron_expression_placeholder": "0 9 * * 1-5",
         "cron_invalid": "Expresión Cron no válida.",
         "cron_preview": "Esta expresión Cron ejecuta \"{description}\".",
