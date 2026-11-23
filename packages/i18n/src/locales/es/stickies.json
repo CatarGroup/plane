@@ -32,7 +32,7 @@
       },
       "created": {
         "title": "Nota adhesiva creada",
-        "message": "La nota adhesiva se ha creado exitosamente"
+        "message": "La nota adhesiva se ha creado correctamente"
       },
       "not_created": {
         "title": "Nota adhesiva no creada",
@@ -40,7 +40,7 @@
       },
       "updated": {
         "title": "Nota adhesiva actualizada",
-        "message": "La nota adhesiva se ha actualizado exitosamente"
+        "message": "La nota adhesiva se ha actualizado correctamente"
       },
       "not_updated": {
         "title": "Nota adhesiva no actualizada",
@@ -48,7 +48,7 @@
       },
       "removed": {
         "title": "Nota adhesiva eliminada",
-        "message": "La nota adhesiva se ha eliminado exitosamente"
+        "message": "La nota adhesiva se ha eliminado correctamente"
       },
       "not_removed": {
         "title": "Nota adhesiva no eliminada",

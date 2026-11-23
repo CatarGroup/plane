@@ -167,7 +167,7 @@
       "create": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Automatización creada exitosamente."
+          "message": "Automatización creada correctamente."
         },
         "error": {
           "title": "¡Error!",
@@ -177,7 +177,7 @@
       "update": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Automatización actualizada exitosamente."
+          "message": "Automatización actualizada correctamente."
         },
         "error": {
           "title": "¡Error!",
@@ -187,7 +187,7 @@
       "enable": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Automatización activada exitosamente."
+          "message": "Automatización activada correctamente."
         },
         "error": {
           "title": "¡Error!",
@@ -197,7 +197,7 @@
       "disable": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Automatización desactivada exitosamente."
+          "message": "Automatización desactivada correctamente."
         },
         "error": {
           "title": "¡Error!",

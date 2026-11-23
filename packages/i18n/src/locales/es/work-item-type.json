@@ -114,7 +114,7 @@
           "create": {
             "success": {
               "title": "¡Éxito!",
-              "message": "Propiedad {name} creada exitosamente."
+              "message": "Propiedad {name} creada correctamente."
             },
             "error": {
               "title": "¡Error!",
@@ -124,7 +124,7 @@
           "update": {
             "success": {
               "title": "¡Éxito!",
-              "message": "Propiedad {name} actualizada exitosamente."
+              "message": "Propiedad {name} actualizada correctamente."
             },
             "error": {
               "title": "¡Error!",
@@ -134,7 +134,7 @@
           "delete": {
             "success": {
               "title": "¡Éxito!",
-              "message": "Propiedad {name} eliminada exitosamente."
+              "message": "Propiedad {name} eliminada correctamente."
             },
             "error": {
               "title": "¡Error!",
@@ -145,7 +145,7 @@
             "loading": "{action} propiedad {name}",
             "success": {
               "title": "¡Éxito!",
-              "message": "Propiedad {name} {action} exitosamente."
+              "message": "Propiedad {name} {action} correctamente."
             },
             "error": {
               "title": "¡Error!",
@@ -298,7 +298,7 @@
       "toast": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Tipo de tarea creada exitosamente."
+          "message": "Tipo de tarea creada correctamente."
         },
         "error": {
           "title": "¡Error!",
@@ -315,7 +315,7 @@
       "toast": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Tipo de tarea {name} actualizado exitosamente."
+          "message": "Tipo de tarea {name} actualizado correctamente."
         },
         "error": {
           "title": "¡Error!",
@@ -341,7 +341,7 @@
         "loading": "{action} tipo de tarea {name}",
         "success": {
           "title": "¡Éxito!",
-          "message": "Tipo de tarea {name} {action} exitosamente."
+          "message": "Tipo de tarea {name} {action} correctamente."
         },
         "error": {
           "title": "¡Error!",

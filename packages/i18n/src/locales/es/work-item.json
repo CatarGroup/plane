@@ -167,7 +167,7 @@
       "label": "Archivar tarea",
       "confirm_message": "¿Estás seguro de que quieres archivar la tarea? Todos tus elementos archivados pueden ser restaurados más tarde.",
       "success": {
-        "label": "Archivo exitoso",
+        "label": "Archivo completado",
         "message": "Tus archivos se pueden encontrar en los archivos del departamento."
       },
       "failed": {

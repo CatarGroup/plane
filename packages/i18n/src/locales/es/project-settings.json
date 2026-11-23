@@ -14,7 +14,7 @@
         "button": "Eliminar mi departamento"
       },
       "toast": {
-        "success": "Departamento actualizado exitosamente",
+        "success": "Departamento actualizado correctamente",
         "error": "No se pudo actualizar el departamento. Por favor intenta de nuevo."
       }
     },
@@ -499,7 +499,7 @@
             "loading_disable": "Deshabilitando programación automática de ciclos",
             "success": {
               "title": "¡Éxito!",
-              "message": "Programación automática de ciclos activada exitosamente."
+              "message": "Programación automática de ciclos activada correctamente."
             },
             "error": {
               "title": "¡Error!",
@@ -510,8 +510,8 @@
             "loading": "Guardando configuración de programación automática de ciclos",
             "success": {
               "title": "¡Éxito!",
-              "message_create": "Configuración de programación automática de ciclos guardada exitosamente.",
-              "message_update": "Configuración de programación automática de ciclos actualizada exitosamente."
+              "message_create": "Configuración de programación automática de ciclos guardada correctamente.",
+              "message_update": "Configuración de programación automática de ciclos actualizada correctamente."
             },
             "error": {
               "title": "¡Error!",

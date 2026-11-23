@@ -43,7 +43,7 @@
         "title": "Miembros",
         "add_member": "Agregar miembro",
         "pending_invites": "Invitaciones pendientes",
-        "invitations_sent_successfully": "Invitaciones enviadas exitosamente",
+        "invitations_sent_successfully": "Invitaciones enviadas correctamente",
         "leave_confirmation": "¿Estás seguro de que quieres abandonar el espacio de trabajo? Ya no tendrás acceso a este espacio de trabajo. Esta acción no se puede deshacer.",
         "details": {
           "full_name": "Nombre completo",
@@ -120,7 +120,7 @@
         "toasts": {
           "created": {
             "title": "Webhook creado",
-            "message": "El webhook se ha creado exitosamente"
+            "message": "El webhook se ha creado correctamente"
           },
           "not_created": {
             "title": "Webhook no creado",
@@ -128,7 +128,7 @@
           },
           "updated": {
             "title": "Webhook actualizado",
-            "message": "El webhook se ha actualizado exitosamente"
+            "message": "El webhook se ha actualizado correctamente"
           },
           "not_updated": {
             "title": "Webhook no actualizado",
@@ -136,7 +136,7 @@
           },
           "removed": {
             "title": "Webhook eliminado",
-            "message": "El webhook se ha eliminado exitosamente"
+            "message": "El webhook se ha eliminado correctamente"
           },
           "not_removed": {
             "title": "Webhook no eliminado",
@@ -164,7 +164,7 @@
           "description": "Cualquier aplicación que use este token ya no tendrá acceso a los datos de Plane. Esta acción no se puede deshacer.",
           "success": {
             "title": "¡Éxito!",
-            "message": "El token de API se ha eliminado exitosamente"
+            "message": "El token de API se ha eliminado correctamente"
           },
           "error": {
             "title": "¡Error!",

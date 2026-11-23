@@ -88,7 +88,7 @@
       "update": {
         "loading": "Actualizando ciclo",
         "success": {
-          "description": "Ciclo actualizado exitosamente.",
+          "description": "Ciclo actualizado correctamente.",
           "title": "¡Éxito!"
         },
         "failed": {
@@ -263,7 +263,7 @@
         "success": "Enlace del proyecto copiado al portapapeles"
       },
       "delete": {
-        "success": "Proyecto eliminado exitosamente",
+        "success": "Proyecto eliminado correctamente",
         "error": "Error al eliminar el proyecto"
       }
     }
