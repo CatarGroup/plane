@@ -872,5 +872,8 @@
       "description": "İş öğelerini JSON dosyasına aktarın.",
       "short_description": "JSON olarak aktar"
     }
-  }
+  },
+  "change_parent": "Üst öğeyi değiştir",
+  "remove_parent": "Üst öğeyi kaldır",
+  "no_matches_found": "Eşleşme bulunamadı"
 }

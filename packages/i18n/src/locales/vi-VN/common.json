@@ -872,5 +872,8 @@
       "description": "Xuất mục công việc thành tệp JSON.",
       "short_description": "Xuất sang JSON"
     }
-  }
+  },
+  "change_parent": "Thay đổi mục cha",
+  "remove_parent": "Xóa mục cha",
+  "no_matches_found": "Không tìm thấy kết quả phù hợp"
 }

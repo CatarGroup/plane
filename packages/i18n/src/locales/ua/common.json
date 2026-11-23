@@ -872,5 +872,8 @@
       "description": "Експортуйте одиниці у формат JSON.",
       "short_description": "Експортувати як JSON"
     }
-  }
+  },
+  "change_parent": "Змінити батьківську",
+  "remove_parent": "Видалити батьківську",
+  "no_matches_found": "Збігів не знайдено"
 }

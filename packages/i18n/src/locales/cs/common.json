@@ -872,5 +872,8 @@
       "description": "Exportujte položky do JSON.",
       "short_description": "Exportovat jako JSON"
     }
-  }
+  },
+  "change_parent": "Změnit nadřazený",
+  "remove_parent": "Odebrat nadřazený",
+  "no_matches_found": "Nebyly nalezeny žádné shody"
 }

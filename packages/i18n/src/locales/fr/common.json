@@ -872,5 +872,8 @@
       "description": "Exportez les éléments de travail vers un fichier JSON.",
       "short_description": "Exporter en json"
     }
-  }
+  },
+  "change_parent": "Changer le parent",
+  "remove_parent": "Retirer le parent",
+  "no_matches_found": "Aucune correspondance trouvée"
 }

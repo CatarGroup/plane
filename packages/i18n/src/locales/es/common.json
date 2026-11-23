@@ -896,5 +896,7 @@
       "description": "Exporta tareas a un archivo JSON.",
       "short_description": "Exportar como json"
     }
-  }
+  },
+  "change_parent": "Cambiar tarea padre",
+  "remove_parent": "Eliminar tarea padre"
 }

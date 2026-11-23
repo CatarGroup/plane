@@ -872,5 +872,8 @@
       "description": "將工作事項匯出為 JSON 檔案。",
       "short_description": "匯出為 JSON"
     }
-  }
+  },
+  "change_parent": "變更上層",
+  "remove_parent": "移除上層",
+  "no_matches_found": "找不到相符項目"
 }

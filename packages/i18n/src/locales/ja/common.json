@@ -872,5 +872,8 @@
       "description": "作業項目をJSONファイルにエクスポートします。",
       "short_description": "JSONとしてエクスポート"
     }
-  }
+  },
+  "change_parent": "親を変更",
+  "remove_parent": "親を削除",
+  "no_matches_found": "一致するものがありません"
 }

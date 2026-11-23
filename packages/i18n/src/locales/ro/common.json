@@ -872,5 +872,8 @@
       "description": "Exportă activitățile într-un fișier JSON.",
       "short_description": "Exportă ca JSON"
     }
-  }
+  },
+  "change_parent": "Schimbă părintele",
+  "remove_parent": "Elimină părintele",
+  "no_matches_found": "Nu s-au găsit potriviri"
 }

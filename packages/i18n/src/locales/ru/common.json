@@ -872,5 +872,8 @@
       "description": "Экспорт рабочих элементов в JSON-файл.",
       "short_description": "Экспорт в json"
     }
-  }
+  },
+  "change_parent": "Изменить родительский",
+  "remove_parent": "Удалить родительский",
+  "no_matches_found": "Совпадений не найдено"
 }

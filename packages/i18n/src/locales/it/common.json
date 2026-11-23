@@ -872,5 +872,8 @@
       "description": "Esporta elementi di lavoro in un file JSON.",
       "short_description": "Esporta come JSON"
     }
-  }
+  },
+  "change_parent": "Cambia elemento principale",
+  "remove_parent": "Rimuovi elemento principale",
+  "no_matches_found": "Nessuna corrispondenza trovata"
 }

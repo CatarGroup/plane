@@ -872,5 +872,8 @@
       "description": "Eksportuj elementy do pliku JSON.",
       "short_description": "Eksportuj jako JSON"
     }
-  }
+  },
+  "change_parent": "Zmień element nadrzędny",
+  "remove_parent": "Usuń element nadrzędny",
+  "no_matches_found": "Nie znaleziono dopasowań"
 }

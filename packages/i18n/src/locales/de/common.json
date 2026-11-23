@@ -872,5 +872,8 @@
       "description": "Arbeitselemente in JSON exportieren.",
       "short_description": "Als JSON exportieren"
     }
-  }
+  },
+  "change_parent": "Übergeordnetes Element ändern",
+  "remove_parent": "Übergeordnetes Element entfernen",
+  "no_matches_found": "Keine Treffer gefunden"
 }

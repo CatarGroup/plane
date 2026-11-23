@@ -187,7 +187,7 @@ export const InboxIssueProperties = observer(function InboxIssueProperties(props
                   <span className="whitespace-nowrap">
                     {selectedParentIssue
                       ? `${selectedParentIssue.project__identifier}-${selectedParentIssue.sequence_id}`
-                      : `Add parent`}
+                      : t("common.add_parent")}
                   </span>
                 </button>
               }
@@ -198,7 +198,7 @@ export const InboxIssueProperties = observer(function InboxIssueProperties(props
             >
               <>
                 <CustomMenu.MenuItem className="!p-1" onClick={() => setParentIssueModalOpen(true)}>
-                  Change parent work item
+                  {t("common.change_parent_issue")}
                 </CustomMenu.MenuItem>
                 <CustomMenu.MenuItem
                   className="!p-1"
@@ -207,7 +207,7 @@ export const InboxIssueProperties = observer(function InboxIssueProperties(props
                     setSelectedParentIssue(undefined);
                   }}
                 >
-                  Remove parent work item
+                  {t("common.remove_parent_issue")}
                 </CustomMenu.MenuItem>
               </>
             </CustomMenu>
@@ -218,7 +218,7 @@ export const InboxIssueProperties = observer(function InboxIssueProperties(props
               onClick={() => setParentIssueModalOpen(true)}
             >
               <ParentPropertyIcon className="h-3 w-3 flex-shrink-0" />
-              <span className="whitespace-nowrap">Add parent</span>
+              <span className="whitespace-nowrap">{t("common.add_parent")}</span>
             </button>
           )}
 

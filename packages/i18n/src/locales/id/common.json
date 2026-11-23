@@ -872,5 +872,8 @@
       "description": "Ekspor item kerja ke file JSON.",
       "short_description": "Ekspor sebagai json"
     }
-  }
+  },
+  "change_parent": "Ubah induk",
+  "remove_parent": "Hapus induk",
+  "no_matches_found": "Tidak ada hasil yang cocok"
 }
