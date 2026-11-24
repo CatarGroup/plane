@@ -125,15 +125,15 @@
       "update_language": "Cambiar idioma de la interfaz",
       "toast": {
         "theme": {
-          "success": "Tema actualizado correctamente.",
+          "success": "Tema actualizado.",
           "error": "Error al actualizar el tema. Por favor, inténtalo de nuevo."
         },
         "timezone": {
-          "success": "Zona horaria actualizada correctamente.",
+          "success": "Zona horaria actualizada.",
           "error": "Error al actualizar la zona horaria. Por favor, inténtalo de nuevo."
         },
         "generic": {
-          "success": "Preferencias actualizadas correctamente.",
+          "success": "Preferencias actualizadas.",
           "error": "Error al actualizar las preferencias. Por favor, inténtalo de nuevo."
         }
       }

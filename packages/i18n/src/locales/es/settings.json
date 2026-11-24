@@ -6,7 +6,7 @@
         "description": "Introduce una nueva dirección de correo electrónico para recibir un enlace de verificación.",
         "toasts": {
           "success_title": "¡Éxito!",
-          "success_message": "Correo electrónico actualizado correctamente. Inicia sesión de nuevo."
+          "success_message": "Correo electrónico actualizado. Inicia sesión de nuevo."
         },
         "form": {
           "email": {

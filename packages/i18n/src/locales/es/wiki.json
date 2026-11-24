@@ -72,9 +72,9 @@
       }
     },
     "toasts": {
-      "created": "Colección creada correctamente.",
+      "created": "Colección creada.",
       "create_error": "No se pudo crear la colección. Inténtalo de nuevo.",
-      "renamed": "Colección renombrada correctamente.",
+      "renamed": "Colección renombrada.",
       "rename_error": "No se pudo actualizar la colección. Inténtalo de nuevo.",
       "transferred_deleted": "Las páginas se transfirieron y la colección se eliminó.",
       "deleted_with_pages": "La colección y sus páginas se eliminaron.",

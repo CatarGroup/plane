@@ -30,7 +30,7 @@
       "delete": {
         "title": "Eliminar tarea",
         "content": "¿Estás seguro de que quieres eliminar la tarea {value}?",
-        "success": "Tarea eliminada correctamente"
+        "success": "Tarea eliminada"
       }
     },
     "errors": {
