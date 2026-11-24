@@ -207,7 +207,7 @@
       }
     },
     "select": {
-      "error": "Por favor selecciona al menos una tarea",
+      "error": "Selecciona al menos una tarea",
       "empty": "No hay tareas seleccionadas",
       "add_selected": "Agregar elementos seleccionados",
       "select_all": "Seleccionar todo",

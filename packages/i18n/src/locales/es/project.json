@@ -250,7 +250,7 @@
       },
       "sidebar": {
         "in_active": "Este proyecto aún no está activo.",
-        "invalid_date": "Fecha inválida. Por favor ingresa una fecha válida."
+        "invalid_date": "Fecha inválida. Ingresa una fecha válida."
       }
     },
     "quick_actions": {

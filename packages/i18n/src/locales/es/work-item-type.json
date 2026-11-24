@@ -194,7 +194,7 @@
           "validation_success": "¡La fórmula es válida! Devuelve {resultType}",
           "validation_success_with_refs": "¡La fórmula es válida! Devuelve {resultType} ({count} campo(s) referenciado(s))",
           "error": {
-            "empty": "Por favor ingrese una fórmula",
+            "empty": "Ingrese una fórmula",
             "missing_context": "Falta el contexto de espacio de trabajo, departamento o tipo de tarea",
             "validation_failed": "La validación falló"
           },
@@ -421,7 +421,7 @@
             },
             "error": {
               "title": "¡Error!",
-              "message": "No se pudo establecer el nivel de jerarquía {level} como predeterminado. Por favor, inténtelo de nuevo."
+              "message": "No se pudo establecer el nivel de jerarquía {level} como predeterminado. Inténtelo de nuevo."
             }
           }
         }

@@ -91,7 +91,7 @@
       },
       "recent_activity": {
         "title": "Actividad reciente",
-        "empty": "No pudimos encontrar datos. Por favor revisa tus entradas",
+        "empty": "No pudimos encontrar datos. Revisa tus entradas",
         "button": "Descargar actividad de hoy",
         "button_loading": "Descargando"
       }

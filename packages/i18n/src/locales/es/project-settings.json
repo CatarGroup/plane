@@ -80,7 +80,7 @@
           },
           "error": {
             "title": "Error al crear la estimación",
-            "message": "No pudimos crear la nueva estimación, por favor inténtalo de nuevo."
+            "message": "No pudimos crear la nueva estimación. Inténtalo de nuevo."
           }
         },
         "updated": {
@@ -90,7 +90,7 @@
           },
           "error": {
             "title": "Error al modificar la estimación",
-            "message": "No pudimos modificar la estimación, por favor inténtalo de nuevo"
+            "message": "No pudimos modificar la estimación. Inténtalo de nuevo"
           }
         },
         "enabled": {
@@ -106,7 +106,7 @@
           },
           "error": {
             "title": "¡Error!",
-            "message": "No se pudo desactivar la estimación. Por favor inténtalo de nuevo"
+            "message": "No se pudo desactivar la estimación. Inténtalo de nuevo"
           }
         },
         "reorder": {
@@ -132,7 +132,7 @@
       },
       "validation": {
         "min_length": "La estimación debe ser mayor que 0.",
-        "unable_to_process": "No podemos procesar tu solicitud, por favor inténtalo de nuevo.",
+        "unable_to_process": "No podemos procesar tu solicitud. Inténtalo de nuevo.",
         "numeric": "La estimación debe ser un valor numérico.",
         "character": "La estimación debe ser un valor de carácter.",
         "empty": "El valor de la estimación no puede estar vacío.",
