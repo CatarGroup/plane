@@ -272,14 +272,14 @@
     "empty_state": {
       "general": {
         "title": "Escribe una nota, un documento o una base de conocimiento completa. Obtén ayuda de Galileo, el asistente de IA de Plane, para comenzar",
-        "description": "Las páginas son espacios para pensamientos en Plane. Toma notas de reuniones, fórmalas fácilmente, integra tareas, organízalas usando una biblioteca de componentes y mantenlas todas en el contexto de tu departamento. Para hacer cualquier documento rápidamente, invoca a Galileo, la IA de Plane, con un atajo o haciendo clic en un botón.",
+        "description": "Las páginas son espacios para pensamientos en Plane. Toma notas de reuniones, redáctalas fácilmente, integra tareas, organízalas con una biblioteca de componentes y mantenlas todas en el contexto de tu departamento. Para hacer cualquier documento rápidamente, invoca a Galileo, la IA de Plane, con un atajo o haciendo clic en un botón.",
         "primary_button": {
           "text": "Crea tu primera página"
         }
       },
       "private": {
         "title": "Aún no hay páginas privadas",
-        "description": "Mantén tus pensamientos privados aquí. Cuando estés listo para compartir, el equipo está a solo un clic de distancia.",
+        "description": "Mantén tus notas privadas aquí. Cuando quieras compartirlas, el equipo está a un clic de distancia.",
         "primary_button": {
           "text": "Crea tu primera página"
         }
@@ -373,7 +373,7 @@
       "download_sample": "Descargar CSV de ejemplo",
       "dropzone": {
         "active": "Suelta el archivo CSV aquí",
-        "inactive": "Arrastra y suelta o haz clic para subir",
+        "inactive": "Arrastra y suelta o haz clic para subir archivos",
         "file_type": "Solo se admiten archivos .csv"
       },
       "buttons": {

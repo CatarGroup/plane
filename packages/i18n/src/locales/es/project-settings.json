@@ -137,7 +137,7 @@
         "character": "La estimación debe ser un valor de carácter.",
         "empty": "El valor de la estimación no puede estar vacío.",
         "already_exists": "El valor de la estimación ya existe.",
-        "unsaved_changes": "Tienes cambios sin guardar. Por favor guárdalos antes de hacer clic en «Hecho»",
+        "unsaved_changes": "Tienes cambios sin guardar. Guárdalos antes de hacer clic en «Hecho».",
         "remove_empty": "La estimación no puede estar vacía. Escribe un valor en cada campo o elimina aquellos para los que no tengas valores.",
         "fill": "Por favor completa este campo de estimación",
         "repeat": "El valor de estimación no puede repetirse"

@@ -1,7 +1,7 @@
 {
   "attachmentComponent": {
     "uploader": {
-      "drag_and_drop": "Arrastra y suelta para subir archivos externos"
+      "drag_and_drop": "Arrastra y suelta archivos externos para subirlos"
     },
     "errors": {
       "file_too_large": {

@@ -206,8 +206,8 @@
         "enable_disable": {
           "label": "Activo",
           "tooltip": {
-            "disabled": "Clic para deshabilitar",
-            "enabled": "Clic para habilitar"
+            "disabled": "Haz clic para deshabilitar",
+            "enabled": "Haz clic para habilitar"
           }
         },
         "delete_confirmation": {
@@ -348,7 +348,7 @@
           "message": "Error al {action} el tipo de tarea. Inténtalo de nuevo."
         }
       },
-      "tooltip": "Clic para {action}"
+      "tooltip": "Haz clic para {action}"
     },
     "change_confirmation": {
       "title": "¿Cambiar tipo de tarea?",
@@ -409,7 +409,7 @@
     "levels": {
       "max_level_placeholder": "Arrastra y suelta un tipo para añadir un nuevo nivel de jerarquía",
       "empty_level_placeholder": "Arrastra y suelta un tipo de tarea al nivel {level}",
-      "drag_tooltip": "Arrastrar para cambiar de nivel",
+      "drag_tooltip": "Arrastra para cambiar de nivel",
       "quick_actions": {
         "set_as_default": {
           "label": "Establecer como predeterminado",

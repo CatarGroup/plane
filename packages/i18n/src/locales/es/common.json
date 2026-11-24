@@ -132,7 +132,7 @@
   "compare_burndowns": "Compara los burndowns.",
   "compare_burndowns_description": "Monitorea cómo se está desempeñando cada uno de tus equipos con un vistazo al informe de burndown de cada ciclo.",
   "quickly_see_make_or_break_issues": "Ve rápidamente las tareas críticas.",
-  "quickly_see_make_or_break_issues_description": "Previsualiza tareas de alta prioridad para cada ciclo contra fechas de vencimiento. Véalas todas por ciclo con un solo clic.",
+  "quickly_see_make_or_break_issues_description": "Previsualiza tareas de alta prioridad para cada ciclo contra fechas de vencimiento. Vélos todos por ciclo con un solo clic.",
   "zoom_into_cycles_that_need_attention": "Enfócate en los ciclos que necesitan atención.",
   "zoom_into_cycles_that_need_attention_description": "Investiga el estado de cualquier ciclo que no se ajuste a las expectativas con un solo clic.",
   "stay_ahead_of_blockers": "Mantente adelante de los bloqueadores.",
@@ -790,7 +790,7 @@
     "error": "No se pudo adjuntar el archivo. Intenta subirlo de nuevo.",
     "only_one_file_allowed": "Solo se puede subir un archivo a la vez.",
     "file_size_limit": "El archivo debe tener {size}MB o menos de tamaño.",
-    "drag_and_drop": "Arrastra y suelta en cualquier lugar para subir",
+    "drag_and_drop": "Arrastra y suelta en cualquier lugar para subir archivos",
     "delete": "Eliminar archivo adjunto"
   },
   "label": {
@@ -868,7 +868,7 @@
   "milestones_description": "Los hitos proporcionan una capa para alinear las tareas hacia fechas de finalización compartidas.",
   "file_upload": {
     "upload_text": "Haz clic aquí para subir un archivo",
-    "drag_drop_text": "Arrastrar y soltar",
+    "drag_drop_text": "Arrastra y suelta",
     "processing": "Procesando",
     "invalid_file_type": "Tipo de archivo inválido",
     "missing_fields": "Campos faltantes",
