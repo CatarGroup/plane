@@ -114,7 +114,7 @@
           "create": {
             "success": {
               "title": "¡Éxito!",
-              "message": "Propiedad {name} creada correctamente."
+              "message": "Propiedad {name} creada."
             },
             "error": {
               "title": "¡Error!",
@@ -124,7 +124,7 @@
           "update": {
             "success": {
               "title": "¡Éxito!",
-              "message": "Propiedad {name} actualizada correctamente."
+              "message": "Propiedad {name} actualizada."
             },
             "error": {
               "title": "¡Error!",
@@ -134,7 +134,7 @@
           "delete": {
             "success": {
               "title": "¡Éxito!",
-              "message": "Propiedad {name} eliminada correctamente."
+              "message": "Propiedad {name} eliminada."
             },
             "error": {
               "title": "¡Error!",
@@ -145,7 +145,7 @@
             "loading": "{action} propiedad {name}",
             "success": {
               "title": "¡Éxito!",
-              "message": "Propiedad {name} {action} correctamente."
+              "message": "Propiedad {name} {action}."
             },
             "error": {
               "title": "¡Error!",
@@ -298,7 +298,7 @@
       "toast": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Tipo de tarea creada correctamente."
+          "message": "Tipo de tarea creada."
         },
         "error": {
           "title": "¡Error!",
@@ -315,7 +315,7 @@
       "toast": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Tipo de tarea {name} actualizado correctamente."
+          "message": "Tipo de tarea {name} actualizado."
         },
         "error": {
           "title": "¡Error!",
@@ -341,7 +341,7 @@
         "loading": "{action} tipo de tarea {name}",
         "success": {
           "title": "¡Éxito!",
-          "message": "Tipo de tarea {name} {action} correctamente."
+          "message": "Tipo de tarea {name} {action}."
         },
         "error": {
           "title": "¡Error!",
@@ -430,7 +430,7 @@
         "loading": "Moviendo {workItemTypeName} al nivel {level}...",
         "success": {
           "title": "¡Éxito!",
-          "message": "{workItemTypeName} se movió al nivel {level} correctamente."
+          "message": "{workItemTypeName} se movió al nivel {level}."
         }
       }
     },

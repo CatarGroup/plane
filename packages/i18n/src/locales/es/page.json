@@ -123,7 +123,7 @@
       "toasts": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Página movida correctamente."
+          "message": "Página movida."
         },
         "error": {
           "title": "¡Error!",

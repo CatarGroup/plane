@@ -88,7 +88,7 @@
       "update": {
         "loading": "Actualizando ciclo",
         "success": {
-          "description": "Ciclo actualizado correctamente.",
+          "description": "Ciclo actualizado.",
           "title": "¡Éxito!"
         },
         "failed": {
@@ -263,7 +263,7 @@
         "success": "Enlace del proyecto copiado al portapapeles"
       },
       "delete": {
-        "success": "Proyecto eliminado correctamente",
+        "success": "Proyecto eliminado",
         "error": "Error al eliminar el proyecto"
       }
     }
@@ -392,7 +392,7 @@
           "complete": "Importación completada"
         },
         "message": {
-          "success": "{count} miembro{plural} importado{plural} correctamente al departamento.",
+          "success": "{count} miembro{plural} importado{plural} al departamento.",
           "no_imports": "No se importaron nuevos miembros desde el archivo CSV."
         },
         "stats": {

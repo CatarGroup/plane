@@ -43,7 +43,7 @@
         "title": "Miembros",
         "add_member": "Agregar miembro",
         "pending_invites": "Invitaciones pendientes",
-        "invitations_sent_successfully": "Invitaciones enviadas correctamente",
+        "invitations_sent_successfully": "Invitaciones enviadas",
         "leave_confirmation": "¿Estás seguro de que quieres abandonar el espacio de trabajo? Ya no tendrás acceso a este espacio de trabajo. Esta acción no se puede deshacer.",
         "details": {
           "full_name": "Nombre completo",
@@ -225,7 +225,7 @@
         },
         "toast": {
           "updating": "Actualizando función de sincronización de grupos",
-          "success": "Función de sincronización de grupos actualizada correctamente.",
+          "success": "Función de sincronización de grupos actualizada.",
           "error": "¡Error al actualizar la función de sincronización de grupos!"
         },
         "delete_modal": {
@@ -305,11 +305,11 @@
         "configure": "Configurar",
         "app_available": "Has hecho que esta aplicación esté disponible para usar con un espacio de trabajo de Plane",
         "app_credentials_regenrated": {
-          "title": "Las credenciales de la aplicación se han regenerado correctamente",
+          "title": "Credenciales de la aplicación regeneradas",
           "description": "Sustituye el secreto de cliente allí donde se use. El secreto anterior ya no es válido."
         },
         "app_created": {
-          "title": "La aplicación se creó correctamente",
+          "title": "Aplicación creada",
           "description": "Usa las credenciales para instalar la aplicación en un espacio de trabajo de Plane"
         },
         "installed_apps": "Aplicaciones instaladas",

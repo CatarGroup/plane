@@ -12,7 +12,7 @@
       "label": "Agregar tarea",
       "cycle": {
         "failed": "No se pudo añadir la tarea al ciclo. Por favor, inténtalo de nuevo.",
-        "success": "{count, plural, one {Tarea añadida} other {Tareas añadidas}} al ciclo correctamente.",
+        "success": "{count, plural, one {Tarea añadida} other {Tareas añadidas}} al ciclo.",
         "loading": "Agregando {count, plural, one {tarea} other {tareas}} al ciclo"
       },
       "assignee": "Agregar asignados",
@@ -29,12 +29,12 @@
       "label": "Eliminar tarea",
       "cycle": {
         "loading": "Eliminando tarea del ciclo",
-        "success": "Tarea eliminada del ciclo correctamente.",
+        "success": "Tarea eliminada del ciclo.",
         "failed": "No se pudo eliminar la tarea del ciclo. Por favor, inténtalo de nuevo."
       },
       "module": {
         "loading": "Eliminando tarea del proyecto",
-        "success": "Tarea eliminada del proyecto correctamente.",
+        "success": "Tarea eliminada del proyecto.",
         "failed": "No se pudo eliminar la tarea del proyecto. Por favor, inténtalo de nuevo."
       },
       "parent": {
@@ -44,7 +44,7 @@
     "new": "Nueva tarea",
     "adding": "Agregando tarea",
     "create": {
-      "success": "Tarea creada correctamente"
+      "success": "Tarea creada"
     },
     "priority": {
       "urgent": "Urgente",
@@ -94,15 +94,15 @@
         "public": "Cambiar a comentario público"
       },
       "create": {
-        "success": "Comentario creado correctamente",
+        "success": "Comentario creado",
         "error": "Error al crear el comentario. Por favor, inténtalo más tarde."
       },
       "update": {
-        "success": "Comentario actualizado correctamente",
+        "success": "Comentario actualizado",
         "error": "Error al actualizar el comentario. Por favor, inténtalo más tarde."
       },
       "remove": {
-        "success": "Comentario eliminado correctamente",
+        "success": "Comentario eliminado",
         "error": "Error al eliminar el comentario. Por favor, inténtalo más tarde."
       },
       "upload": {
@@ -125,7 +125,7 @@
           },
           "create": {
             "success": {
-              "message": "Respuesta creada correctamente"
+              "message": "Respuesta creada"
             },
             "error": {
               "message": "Error al crear la respuesta"
@@ -133,7 +133,7 @@
           },
           "update": {
             "success": {
-              "message": "Respuesta actualizada correctamente"
+              "message": "Respuesta actualizada"
             },
             "error": {
               "message": "Error al actualizar la respuesta"
@@ -141,7 +141,7 @@
           },
           "delete": {
             "success": {
-              "message": "Respuesta eliminada correctamente"
+              "message": "Respuesta eliminada"
             },
             "error": {
               "message": "Error al eliminar la respuesta"
@@ -202,8 +202,8 @@
     },
     "subscription": {
       "actions": {
-        "subscribed": "Suscrito a la tarea correctamente",
-        "unsubscribed": "Desuscrito de la tarea correctamente"
+        "subscribed": "Suscrito a la tarea",
+        "unsubscribed": "Desuscrito de la tarea"
       }
     },
     "select": {
@@ -225,7 +225,7 @@
     "toast": {
       "duplicate": {
         "success": {
-          "message": "Tarea duplicada correctamente"
+          "message": "Tarea duplicada"
         },
         "error": {
           "message": "Error al duplicar la tarea"
@@ -242,7 +242,7 @@
         "link": {
           "success": {
             "title": "Páginas actualizadas",
-            "message": "Páginas actualizadas correctamente"
+            "message": "Páginas actualizadas"
           },
           "error": {
             "title": "Error al actualizar páginas",
@@ -252,7 +252,7 @@
         "remove": {
           "success": {
             "title": "Página eliminada",
-            "message": "Página eliminada correctamente"
+            "message": "Página eliminada"
           },
           "error": {
             "title": "Error al eliminar página",
@@ -270,11 +270,11 @@
   },
   "sub_work_item": {
     "update": {
-      "success": "Sub-elemento actualizado correctamente",
+      "success": "Sub-elemento actualizado",
       "error": "Error al actualizar el sub-elemento"
     },
     "remove": {
-      "success": "Sub-elemento eliminado correctamente",
+      "success": "Sub-elemento eliminado",
       "error": "Error al eliminar el sub-elemento"
     },
     "empty_state": {
@@ -412,7 +412,7 @@
     "label": "{count, plural, one {Épica} other {Épicas}}",
     "adding": "Agregando epic",
     "create": {
-      "success": "Epic creado correctamente"
+      "success": "Epic creado"
     },
     "add": {
       "label": "Agregar Epic",
