@@ -442,7 +442,7 @@
         "contact_email_error": "El correo de contacto es requerido",
         "invalid_contact_email_error": "Correo de contacto inválido",
         "upload_attachments": "Subir adjuntos",
-        "uploading_images": "Subiendo {count, plural, one {imagen} other {imágenes}}",
+        "uploading_images": "Subiendo {count} {count, plural, one {imagen} other {imágenes}}",
         "drop_images_here": "Arrastra imágenes aquí",
         "click_to_upload_images": "Haz clic para subir imágenes",
         "invalid_file_or_exceeds_size_limit": "Archivo inválido o excede el límite de tamaño ({size} MB)",

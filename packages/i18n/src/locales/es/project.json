@@ -392,7 +392,7 @@
           "complete": "Importación completada"
         },
         "message": {
-          "success": "{count} miembro{plural} importado{plural} al departamento.",
+          "success": "{count} {count, plural, one {miembro importado} other {miembros importados}} al departamento.",
           "no_imports": "No se importaron nuevos miembros desde el archivo CSV."
         },
         "stats": {

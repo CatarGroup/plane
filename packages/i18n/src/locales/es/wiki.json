@@ -22,7 +22,7 @@
     },
     "delete_modal": {
       "title": "Eliminar colección",
-      "page_count": "Esta colección tiene {pageCount} páginas. Elige qué debe pasar con ellas.",
+      "page_count": "Esta colección tiene {pageCount} {pageCount, plural, one {página} other {páginas}}. Elige qué debe pasar con ellas.",
       "transfer_title": "Transferir páginas y eliminar colección",
       "transfer_description": "Mueve todas las páginas a otra colección antes de eliminarla. Se conservarán las páginas y sus permisos.",
       "transfer_warning": "Las páginas movidas heredarán los permisos de la colección seleccionada.",
@@ -43,7 +43,7 @@
     },
     "add_existing_page_modal": {
       "search_placeholder": "Buscar páginas",
-      "success_message": "Se añadieron {count} páginas a la colección.",
+      "success_message": "Se {count, plural, one {añadió {count} página} other {añadieron {count} páginas}} a la colección.",
       "error_message": "No se pudieron mover las páginas. Inténtalo de nuevo.",
       "no_pages_found": "No se encontraron páginas que coincidan con tu búsqueda",
       "no_pages_available": "No hay páginas disponibles para mover",

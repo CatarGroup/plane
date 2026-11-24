@@ -354,7 +354,7 @@
         },
         "message": {
           "seat_limit": "No se pueden importar miembros debido a restricciones de límite de asientos.",
-          "success": "{count} miembro{plural} añadido{plural} al espacio de trabajo.",
+          "success": "{count} {count, plural, one {miembro añadido} other {miembros añadidos}} al espacio de trabajo.",
           "no_imports": "No se importaron miembros desde el archivo CSV."
         },
         "stats": {
