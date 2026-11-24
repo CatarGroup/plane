@@ -161,6 +161,33 @@ class WorkspaceHomeMetricsEndpoint(APIView):
 
         from plane.db.models import Project
 
+        # ?project=<id> devuelve las tareas de ese departamento (para desplegar la fila)
+        proyecto_pedido = request.query_params.get("project")
+        if proyecto_pedido:
+            tareas = (
+                Issue.objects.filter(
+                    workspace__slug=slug, project_id=proyecto_pedido, deleted_at__isnull=True
+                )
+                .select_related("state")
+                .order_by("-updated_at")[:100]
+            )
+            return Response(
+                {
+                    "tareas": [
+                        {
+                            "id": str(i.id),
+                            "nombre": i.name,
+                            "secuencia": i.sequence_id,
+                            "identificador": i.project.identifier if i.project else "",
+                            "estado": i.state.name if i.state else "",
+                            "grupo": i.state.group if i.state else "",
+                            "vencida": bool(i.target_date and i.target_date < timezone.now().date() and (i.state.group if i.state else "") not in ("completed", "cancelled")),
+                        }
+                        for i in tareas
+                    ]
+                }
+            )
+
         hoy = timezone.now().date()
         proyectos = Project.objects.filter(workspace__slug=slug, archived_at__isnull=True).order_by("name")
 

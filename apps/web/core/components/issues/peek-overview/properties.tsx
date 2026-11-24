@@ -103,150 +103,150 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
           </div>
         )}
       </div>
-      <div className={cn("romboc-props-grid mt-3 w-full", { "opacity-60": disabled })}>
-        {/* Fila 1: Estado | Asignados */}
-        <div className={cn(cell, labelClass)}>
-          <SidebarPropertyListItem icon={StatePropertyIcon} label={t("common.state")}>
-            <StateDropdown
-              value={issue?.state_id}
-              onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { state_id: val })}
-              projectId={projectId}
-              disabled={disabled}
-              buttonVariant="transparent-with-text"
-              className="group w-full grow"
-              buttonContainerClassName="w-full text-left h-7.5"
-              buttonClassName={`text-body-xs-medium ${issue?.state_id ? "" : "text-placeholder"}`}
-              dropdownArrow
-              dropdownArrowClassName="h-3.5 w-3.5 hidden group-hover:inline"
-            />
-          </SidebarPropertyListItem>
-        </div>
-
-        <div className={cn(cell, labelClass)}>
-          <SidebarPropertyListItem icon={MembersPropertyIcon} label={t("common.assignees")}>
-            <MemberDropdown
-              value={issue?.assignee_ids ?? undefined}
-              onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { assignee_ids: val })}
-              disabled={disabled}
-              projectId={projectId}
-              placeholder={t("issue.add.assignee")}
-              multiple
-              buttonVariant={issue?.assignee_ids?.length > 1 ? "transparent-without-text" : "transparent-with-text"}
-              className="group w-full grow"
-              buttonContainerClassName="w-full text-left h-7.5"
-              buttonClassName={`text-body-xs-medium justify-between ${issue?.assignee_ids?.length > 0 ? "" : "text-placeholder"}`}
-              hideIcon={issue.assignee_ids?.length === 0}
-              dropdownArrow
-              dropdownArrowClassName="h-3.5 w-3.5 hidden group-hover:inline"
-            />
-          </SidebarPropertyListItem>
-        </div>
-
-
-        {/* Prioridad | Estimación */}
-        <div className={cn(cell, labelClass)}>
-          <SidebarPropertyListItem icon={PriorityPropertyIcon} label={t("common.priority")}>
-            <PriorityDropdown
-              value={issue?.priority}
-              onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { priority: val })}
-              disabled={disabled}
-              buttonVariant="transparent-with-text"
-              className="h-7.5 w-full grow rounded-sm"
-              buttonContainerClassName="w-full text-left h-7.5"
-              buttonClassName={`text-body-xs-medium whitespace-nowrap [&_svg]:size-3.5 ${!issue?.priority || issue?.priority === "none" ? "text-placeholder" : ""}`}
-            />
-          </SidebarPropertyListItem>
-        </div>
-
-        {/* Fecha inicio | Vencimiento */}
-        <div className={cn(cell, labelClass)}>
-          <SidebarPropertyListItem icon={StartDatePropertyIcon} label="F. Inicio">
-            <DateDropdown
-              value={issue.start_date}
-              onChange={(val) =>
-                issueOperations.update(workspaceSlug, projectId, issueId, {
-                  start_date: val ? renderFormattedPayloadDate(val) : null,
-                })
-              }
-              placeholder={t("issue.add.start_date")}
-              buttonVariant="transparent-with-text"
-              maxDate={maxDate ?? undefined}
-              disabled={disabled}
-              className="group w-full grow"
-              buttonContainerClassName="w-full text-left h-7.5"
-              buttonClassName={`text-body-xs-medium ${issue?.start_date ? "" : "text-placeholder"}`}
-              hideIcon
-              clearIconClassName="h-3 w-3 hidden group-hover:inline"
-            />
-          </SidebarPropertyListItem>
-        </div>
-
-        <div className={cn(cell, labelClass)}>
-          <SidebarPropertyListItem icon={DueDatePropertyIcon} label="F. Vencimiento">
-            <div className="flex w-full items-center gap-2">
-              <DateDropdown
-                value={issue.target_date}
-                onChange={(val) =>
-                  issueOperations.update(workspaceSlug, projectId, issueId, {
-                    target_date: val ? renderFormattedPayloadDate(val) : null,
-                  })
-                }
-                placeholder={t("issue.add.due_date")}
-                buttonVariant="transparent-with-text"
-                minDate={minDate ?? undefined}
+      <div className={cn("mt-3 grid w-full grid-cols-1 gap-x-5 md:grid-cols-2", { "opacity-60": disabled })}>
+        {/* ── Columna izquierda ── */}
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <div className={cn(cell, labelClass)}>
+            <SidebarPropertyListItem icon={StatePropertyIcon} label={t("common.state")}>
+              <StateDropdown
+                value={issue?.state_id}
+                onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { state_id: val })}
+                projectId={projectId}
                 disabled={disabled}
+                buttonVariant="transparent-with-text"
                 className="group w-full grow"
                 buttonContainerClassName="w-full text-left h-7.5"
-                buttonClassName={cn("text-body-xs-medium", {
-                  "text-placeholder": !issue.target_date,
-                  "text-danger-primary": shouldHighlightIssueDueDate(issue.target_date, stateDetails?.group),
-                })}
-                hideIcon
-                clearIconClassName="h-3 w-3 hidden group-hover:inline text-primary"
-              />
-            </div>
-          </SidebarPropertyListItem>
-        </div>
-
-        {/* Módulos | Padre */}
-        {projectDetails?.module_view && (
-          <div className={cn(cell, labelClass)}>
-            <SidebarPropertyListItem icon={ModuleIcon} label={t("common.modules")}>
-              <IssueModuleSelect
-                className="w-full grow"
-                workspaceSlug={workspaceSlug}
-                projectId={projectId}
-                issueId={issueId}
-                issueOperations={issueOperations}
-                disabled={disabled}
+                buttonClassName={`text-body-xs-medium ${issue?.state_id ? "" : "text-placeholder"}`}
+                dropdownArrow
+                dropdownArrowClassName="h-3.5 w-3.5 hidden group-hover:inline"
               />
             </SidebarPropertyListItem>
           </div>
-        )}
 
-        <div className={cn(cell, labelClass)}>
-          <SidebarPropertyListItem icon={ParentPropertyIcon} label={t("common.parent")}>
-            <IssueParentSelectRoot
-              className="h-7.5 w-full grow"
-              disabled={disabled}
-              issueId={issueId}
-              issueOperations={issueOperations}
-              projectId={projectId}
-              workspaceSlug={workspaceSlug}
-            />
-          </SidebarPropertyListItem>
+          <div className={cn(cell, labelClass)}>
+            <SidebarPropertyListItem icon={PriorityPropertyIcon} label={t("common.priority")}>
+              <PriorityDropdown
+                value={issue?.priority}
+                onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { priority: val })}
+                disabled={disabled}
+                buttonVariant="transparent-with-text"
+                className="h-7.5 w-full grow rounded-sm"
+                buttonContainerClassName="w-full text-left h-7.5"
+                buttonClassName={`text-body-xs-medium whitespace-nowrap [&_svg]:size-3.5 ${!issue?.priority || issue?.priority === "none" ? "text-placeholder" : ""}`}
+              />
+            </SidebarPropertyListItem>
+          </div>
+
+          <div className={cn(cell, labelClass)}>
+            <SidebarPropertyListItem icon={StartDatePropertyIcon} label="F. Inicio">
+              <DateDropdown
+                value={issue.start_date}
+                onChange={(val) =>
+                  issueOperations.update(workspaceSlug, projectId, issueId, {
+                    start_date: val ? renderFormattedPayloadDate(val) : null,
+                  })
+                }
+                placeholder={t("issue.add.start_date")}
+                buttonVariant="transparent-with-text"
+                maxDate={maxDate ?? undefined}
+                disabled={disabled}
+                className="group w-full grow"
+                buttonContainerClassName="w-full text-left h-7.5"
+                buttonClassName={`text-body-xs-medium ${issue?.start_date ? "" : "text-placeholder"}`}
+                hideIcon
+                clearIconClassName="h-3 w-3 hidden group-hover:inline"
+              />
+            </SidebarPropertyListItem>
+          </div>
+
+          <div className={cn(cell, labelClass)}>
+            <SidebarPropertyListItem icon={LabelPropertyIcon} label={t("common.labels")}>
+              <IssueLabel workspaceSlug={workspaceSlug} projectId={projectId} issueId={issueId} disabled={disabled} />
+            </SidebarPropertyListItem>
+          </div>
         </div>
 
-        {/* Etiquetas, justo debajo de Padre */}
-        <div className="min-w-0" style={{ gridColumn: "1 / -1" }}>
-          <SidebarPropertyListItem icon={LabelPropertyIcon} label={t("common.labels")}>
-            <IssueLabel workspaceSlug={workspaceSlug} projectId={projectId} issueId={issueId} disabled={disabled} />
-          </SidebarPropertyListItem>
+        {/* ── Columna derecha ── */}
+        <div className="flex min-w-0 flex-col gap-0.5">
+          <div className={cn(cell, labelClass)}>
+            <SidebarPropertyListItem icon={MembersPropertyIcon} label={t("common.assignees")}>
+              <MemberDropdown
+                value={issue?.assignee_ids ?? undefined}
+                onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { assignee_ids: val })}
+                disabled={disabled}
+                projectId={projectId}
+                placeholder={t("issue.add.assignee")}
+                multiple
+                buttonVariant={issue?.assignee_ids?.length > 1 ? "transparent-without-text" : "transparent-with-text"}
+                className="group w-full grow"
+                buttonContainerClassName="w-full text-left h-7.5"
+                buttonClassName={`text-body-xs-medium justify-between ${issue?.assignee_ids?.length > 0 ? "" : "text-placeholder"}`}
+                hideIcon={issue.assignee_ids?.length === 0}
+                dropdownArrow
+                dropdownArrowClassName="h-3.5 w-3.5 hidden group-hover:inline"
+              />
+            </SidebarPropertyListItem>
+          </div>
+
+          {projectDetails?.module_view && (
+            <div className={cn(cell, labelClass)}>
+              <SidebarPropertyListItem icon={ModuleIcon} label={t("common.modules")}>
+                <IssueModuleSelect
+                  className="w-full grow"
+                  workspaceSlug={workspaceSlug}
+                  projectId={projectId}
+                  issueId={issueId}
+                  issueOperations={issueOperations}
+                  disabled={disabled}
+                />
+              </SidebarPropertyListItem>
+            </div>
+          )}
+
+          <div className={cn(cell, labelClass)}>
+            <SidebarPropertyListItem icon={ParentPropertyIcon} label={t("common.parent")}>
+              <IssueParentSelectRoot
+                className="h-7.5 w-full grow"
+                disabled={disabled}
+                issueId={issueId}
+                issueOperations={issueOperations}
+                projectId={projectId}
+                workspaceSlug={workspaceSlug}
+              />
+            </SidebarPropertyListItem>
+          </div>
+
+          <div className={cn(cell, labelClass)}>
+            <SidebarPropertyListItem icon={DueDatePropertyIcon} label="F. Vencimiento">
+              <div className="flex w-full items-center gap-2">
+                <DateDropdown
+                  value={issue.target_date}
+                  onChange={(val) =>
+                    issueOperations.update(workspaceSlug, projectId, issueId, {
+                      target_date: val ? renderFormattedPayloadDate(val) : null,
+                    })
+                  }
+                  placeholder={t("issue.add.due_date")}
+                  buttonVariant="transparent-with-text"
+                  minDate={minDate ?? undefined}
+                  disabled={disabled}
+                  className="group w-full grow"
+                  buttonContainerClassName="w-full text-left h-7.5"
+                  buttonClassName={cn("text-body-xs-medium", {
+                    "text-placeholder": !issue.target_date,
+                    "text-danger-primary": shouldHighlightIssueDueDate(issue.target_date, stateDetails?.group),
+                  })}
+                  hideIcon
+                  clearIconClassName="h-3 w-3 hidden group-hover:inline text-primary"
+                />
+              </div>
+            </SidebarPropertyListItem>
+          </div>
         </div>
 
         {/* Ancho completo */}
         {projectDetails?.cycle_view && (
-          <div className="min-w-0" style={{ gridColumn: "1 / -1" }}>
+          <div className="min-w-0 md:col-span-2">
             <SidebarPropertyListItem icon={CycleIcon} label={t("common.cycle")} appendElement={null}>
               <IssueCycleSelect
                 className="h-7.5 w-full grow"

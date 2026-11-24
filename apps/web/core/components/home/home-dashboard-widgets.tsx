@@ -5,7 +5,6 @@
  */
 
 import { observer } from "mobx-react";
-import { Fragment } from "react";
 import { useParams, usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 // plane imports
@@ -92,18 +91,18 @@ export const DashboardWidgets = observer(function DashboardWidgets() {
 
       {isAnyWidgetEnabled ? (
         <div className="flex flex-col">
+          {/* Cuadro de mando arriba del todo */}
+          <div className="pb-6">
+            <HomeMetricsDashboard workspaceSlug={workspaceSlug.toString()} />
+          </div>
           {orderedWidgets.map((key) => {
             const WidgetComponent = HOME_WIDGETS_LIST[key]?.component;
             const isEnabled = widgetsMap[key]?.is_enabled;
             if (!WidgetComponent || !isEnabled) return null;
             return (
-              <Fragment key={key}>
-                <div className="py-4">
-                  <WidgetComponent workspaceSlug={workspaceSlug.toString()} />
-                </div>
-                {/* Cuadro de mando justo debajo de Enlaces rápidos */}
-                {key === "quick_links" && <HomeMetricsDashboard workspaceSlug={workspaceSlug.toString()} />}
-              </Fragment>
+              <div key={key} className="py-4">
+                <WidgetComponent workspaceSlug={workspaceSlug.toString()} />
+              </div>
             );
           })}
         </div>
