@@ -421,7 +421,7 @@
             },
             "error": {
               "title": "¡Error!",
-              "message": "No se pudo establecer el nivel de jerarquía {level} como predeterminado. Inténtelo de nuevo."
+              "message": "No se pudo establecer el nivel de jerarquía {level} como predeterminado. Inténtalo de nuevo."
             }
           }
         }
@@ -449,7 +449,7 @@
       },
       "error_toast": {
         "title": "¡Error!",
-        "message": "No se pudieron desvincular los enlaces ni guardar. Inténtelo de nuevo."
+        "message": "No se pudieron desvincular los enlaces ni guardar. Inténtalo de nuevo."
       },
       "confirm_button": {
         "loading": "Guardando",

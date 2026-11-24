@@ -110,7 +110,7 @@
       },
       "copy_link": {
         "success": "Enlace del comentario copiado al portapapeles",
-        "error": "Error al copiar el enlace del comentario. Inténtelo de nuevo más tarde."
+        "error": "Error al copiar el enlace del comentario. Inténtalo de nuevo más tarde."
       },
       "replies": {
         "create": {
@@ -316,15 +316,15 @@
       },
       "invalid_issue_start_date": {
         "title": "No se pueden actualizar tareas",
-        "message": "La fecha de inicio seleccionada es posterior a la fecha de vencimiento de algunas tareas. Asegúrese de que la fecha de inicio sea anterior a la fecha de vencimiento."
+        "message": "La fecha de inicio seleccionada es posterior a la fecha de vencimiento de algunas tareas. Asegúrate de que la fecha de inicio sea anterior a la fecha de vencimiento."
       },
       "invalid_issue_target_date": {
         "title": "No se pueden actualizar tareas",
-        "message": "La fecha de vencimiento seleccionada es anterior a la fecha de inicio de algunas tareas. Asegúrese de que la fecha de vencimiento sea posterior a la fecha de inicio."
+        "message": "La fecha de vencimiento seleccionada es anterior a la fecha de inicio de algunas tareas. Asegúrate de que la fecha de vencimiento sea posterior a la fecha de inicio."
       },
       "invalid_state_transition": {
         "title": "No se pueden actualizar tareas",
-        "message": "El cambio de estado no está permitido para algunas tareas. Asegúrese de que el cambio de estado esté permitido."
+        "message": "El cambio de estado no está permitido para algunas tareas. Asegúrate de que el cambio de estado esté permitido."
       }
     }
   },

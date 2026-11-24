@@ -262,8 +262,8 @@
   "support": "Soporte",
   "forum": "Foro",
   "powered_by_plane_pages": "Desarrollado por Plane Pages",
-  "please_select_at_least_one_invitation": "Por favor selecciona al menos una invitación.",
-  "please_select_at_least_one_invitation_description": "Por favor selecciona al menos una invitación para unirte al espacio de trabajo.",
+  "please_select_at_least_one_invitation": "Selecciona al menos una invitación.",
+  "please_select_at_least_one_invitation_description": "Selecciona al menos una invitación para unirte al espacio de trabajo.",
   "we_see_that_someone_has_invited_you_to_join_a_workspace": "Vemos que alguien te ha invitado a unirte a un espacio de trabajo",
   "join_a_workspace": "Únete a un espacio de trabajo",
   "we_see_that_someone_has_invited_you_to_join_a_workspace_description": "Vemos que alguien te ha invitado a unirte a un espacio de trabajo",
@@ -319,7 +319,7 @@
   "labels": "Etiquetas",
   "create_new_label": "Crear nueva etiqueta",
   "label_name": "Nombre de etiqueta",
-  "failed_to_create_label": "No se pudo crear la etiqueta. Inténtelo de nuevo.",
+  "failed_to_create_label": "No se pudo crear la etiqueta. Inténtalo de nuevo.",
   "start_date": "Fecha de inicio",
   "end_date": "Fecha de fin",
   "due_date": "Fecha de vencimiento",
@@ -787,7 +787,7 @@
     }
   },
   "attachment": {
-    "error": "No se pudo adjuntar el archivo. Intenta subirlo de nuevo.",
+    "error": "No se pudo adjuntar el archivo. Inténtalo de nuevo.",
     "only_one_file_allowed": "Solo se puede subir un archivo a la vez.",
     "file_size_limit": "El archivo debe tener {size}MB o menos de tamaño.",
     "drag_and_drop": "Arrastra y suelta en cualquier lugar para subir archivos",

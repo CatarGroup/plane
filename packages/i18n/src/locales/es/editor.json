@@ -14,7 +14,7 @@
       },
       "default": {
         "title": "Error al subir.",
-        "description": "Algo salió mal. Inténtelo de nuevo."
+        "description": "Algo salió mal. Inténtalo de nuevo."
       }
     },
     "upgrade": {
