@@ -67,7 +67,7 @@
         "loading": "Agregando ciclo a favoritos",
         "success": {
           "description": "Ciclo añadido a favoritos.",
-          "title": "¡Éxito!"
+          "title": "¡Hecho!"
         },
         "failed": {
           "description": "No se pudo añadir el ciclo a favoritos. Inténtalo de nuevo.",
@@ -78,7 +78,7 @@
         "loading": "Eliminando ciclo de favoritos",
         "success": {
           "description": "Ciclo eliminado de favoritos.",
-          "title": "¡Éxito!"
+          "title": "¡Hecho!"
         },
         "failed": {
           "description": "No se pudo eliminar el ciclo de favoritos. Inténtalo de nuevo.",
@@ -89,7 +89,7 @@
         "loading": "Actualizando ciclo",
         "success": {
           "description": "Ciclo actualizado.",
-          "title": "¡Éxito!"
+          "title": "¡Hecho!"
         },
         "failed": {
           "description": "Error al actualizar el ciclo. Inténtalo de nuevo.",

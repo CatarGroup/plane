@@ -113,7 +113,7 @@
         "toast": {
           "create": {
             "success": {
-              "title": "¡Éxito!",
+              "title": "¡Hecho!",
               "message": "Propiedad {name} creada."
             },
             "error": {
@@ -123,7 +123,7 @@
           },
           "update": {
             "success": {
-              "title": "¡Éxito!",
+              "title": "¡Hecho!",
               "message": "Propiedad {name} actualizada."
             },
             "error": {
@@ -133,7 +133,7 @@
           },
           "delete": {
             "success": {
-              "title": "¡Éxito!",
+              "title": "¡Hecho!",
               "message": "Propiedad {name} eliminada."
             },
             "error": {
@@ -144,7 +144,7 @@
           "enable_disable": {
             "loading": "{action} propiedad {name}",
             "success": {
-              "title": "¡Éxito!",
+              "title": "¡Hecho!",
               "message": "Propiedad {name} {action}."
             },
             "error": {
@@ -278,7 +278,7 @@
         "primary_button": "Sí, eliminarlo",
         "toast": {
           "success": {
-            "title": "¡Éxito!",
+            "title": "¡Hecho!",
             "message": "Tipo de tarea eliminado con éxito."
           },
           "error": {
@@ -297,7 +297,7 @@
       "button": "Agregar tipo de tarea",
       "toast": {
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Tipo de tarea creada."
         },
         "error": {
@@ -314,7 +314,7 @@
       "button": "Actualizar tipo de tarea",
       "toast": {
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Tipo de tarea {name} actualizado."
         },
         "error": {
@@ -340,7 +340,7 @@
       "toast": {
         "loading": "{action} tipo de tarea {name}",
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Tipo de tarea {name} {action}."
         },
         "error": {
@@ -416,7 +416,7 @@
           "toast": {
             "loading": "Estableciendo como predeterminado...",
             "success": {
-              "title": "¡Éxito!",
+              "title": "¡Hecho!",
               "message": "Nivel de jerarquía {level} establecido como predeterminado."
             },
             "error": {
@@ -429,7 +429,7 @@
       "update_level_toast": {
         "loading": "Moviendo {workItemTypeName} al nivel {level}...",
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "{workItemTypeName} se movió al nivel {level}."
         }
       }

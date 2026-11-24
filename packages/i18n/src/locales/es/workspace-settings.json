@@ -163,7 +163,7 @@
           "title": "Eliminar token de API",
           "description": "Cualquier aplicación que use este token ya no tendrá acceso a los datos de Plane. Esta acción no se puede deshacer.",
           "success": {
-            "title": "¡Éxito!",
+            "title": "¡Hecho!",
             "message": "Token de API eliminado"
           },
           "error": {

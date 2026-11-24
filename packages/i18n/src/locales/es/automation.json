@@ -166,7 +166,7 @@
     "toasts": {
       "create": {
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Automatización creada."
         },
         "error": {
@@ -176,7 +176,7 @@
       },
       "update": {
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Automatización actualizada."
         },
         "error": {
@@ -186,7 +186,7 @@
       },
       "enable": {
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Automatización activada."
         },
         "error": {
@@ -196,7 +196,7 @@
       },
       "disable": {
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Automatización desactivada."
         },
         "error": {

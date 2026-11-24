@@ -95,13 +95,13 @@
         },
         "enabled": {
           "success": {
-            "title": "¡Éxito!",
+            "title": "¡Hecho!",
             "message": "Las estimaciones han sido activadas."
           }
         },
         "disabled": {
           "success": {
-            "title": "¡Éxito!",
+            "title": "¡Hecho!",
             "message": "Las estimaciones han sido desactivadas."
           },
           "error": {
@@ -225,7 +225,7 @@
             "disabling": "Deshabilitando flujos de trabajo"
           },
           "success": {
-            "title": "¡Éxito!",
+            "title": "¡Hecho!",
             "message": "Flujos de trabajo habilitados."
           },
           "error": {
@@ -278,7 +278,7 @@
           "label": "Tipo de tarea"
         },
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Flujo de trabajo creado."
         },
         "error": {
@@ -288,7 +288,7 @@
       },
       "update": {
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Flujo de trabajo actualizado."
         },
         "error": {
@@ -299,7 +299,7 @@
       "delete": {
         "loading": "Eliminando flujo de trabajo",
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Flujo de trabajo eliminado."
         },
         "error": {
@@ -309,7 +309,7 @@
       },
       "add_states": {
         "success": {
-          "title": "¡Éxito!",
+          "title": "¡Hecho!",
           "message": "Estados añadidos."
         },
         "error": {
@@ -400,7 +400,7 @@
           "set": {
             "loading": "Estableciendo asignados...",
             "success": {
-              "title": "¡Éxito!",
+              "title": "¡Hecho!",
               "message": "Asignados establecidos."
             },
             "error": {
@@ -498,7 +498,7 @@
             "loading_enable": "Habilitando programación automática de ciclos",
             "loading_disable": "Deshabilitando programación automática de ciclos",
             "success": {
-              "title": "¡Éxito!",
+              "title": "¡Hecho!",
               "message": "Programación automática de ciclos activada."
             },
             "error": {
@@ -509,7 +509,7 @@
           "save": {
             "loading": "Guardando configuración de programación automática de ciclos",
             "success": {
-              "title": "¡Éxito!",
+              "title": "¡Hecho!",
               "message_create": "Configuración de programación automática de ciclos guardada.",
               "message_update": "Configuración de programación automática de ciclos actualizada."
             },
