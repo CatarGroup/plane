@@ -536,7 +536,7 @@
     "workspace_level": "Nivel de espacio de trabajo",
     "order_by": {
       "label": "Ordenar por",
-      "manual": "Manual - Clasificación",
+      "manual": "Manual",
       "last_created": "Último creado",
       "last_updated": "Última actualización",
       "start_date": "Fecha de inicio",
@@ -901,7 +901,5 @@
   "remove_parent": "Eliminar tarea padre",
   "view_all": "Ver todo",
   "view_less": "Ver menos",
-  "no_results_found": "No se encontraron resultados",
-  "created_at": "Creado",
-  "updated_at": "Actualizado"
+  "no_results_found": "No se encontraron resultados"
 }

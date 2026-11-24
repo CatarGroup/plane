@@ -448,7 +448,7 @@
           "cycle_title": {
             "label": "Título del ciclo",
             "placeholder": "Título",
-            "tooltip": "El título se agregará con números para los ciclos subsiguientes. Por ejemplo: Diseño - 1/2/3",
+            "tooltip": "Se añadirán números al título para los ciclos siguientes. Por ejemplo: Diseño - 1/2/3",
             "validation": {
               "required": "El título del ciclo es requerido",
               "max_length": "El título no debe exceder los 255 caracteres"
