@@ -73,8 +73,8 @@
       },
       "add_state_change_rule": {
         "error": {
-          "title": "Error al agregar regla de cambio de estado",
-          "message": "La regla de cambio de estado no pudo ser agregada. Por favor, inténtalo de nuevo."
+          "title": "Error al añadir regla de cambio de estado",
+          "message": "La regla de cambio de estado no pudo añadirse. Por favor, inténtalo de nuevo."
         }
       },
       "modify_state_change_rule": {

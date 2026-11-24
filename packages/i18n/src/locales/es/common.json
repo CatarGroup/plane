@@ -168,7 +168,7 @@
   "create_project": "Crear departamento",
   "failed_to_remove_project_from_favorites": "No se pudo eliminar el departamento de favoritos. Por favor, inténtalo de nuevo.",
   "project_created_successfully": "Departamento creado correctamente",
-  "project_created_successfully_description": "Departamento creado correctamente. Ahora puedes comenzar a agregar tareas.",
+  "project_created_successfully_description": "Departamento creado correctamente. Ahora puedes empezar a añadir tareas.",
   "project_name_already_taken": "El nombre del departamento ya está en uso.",
   "project_name_cannot_contain_special_characters": "El nombre del departamento no puede contener caracteres especiales.",
   "project_identifier_already_taken": "El identificador del departamento ya está en uso.",
@@ -197,8 +197,8 @@
   "creating": "Creando",
   "creating_project": "Creando departamento",
   "adding_project_to_favorites": "Agregando departamento a favoritos",
-  "project_added_to_favorites": "Departamento agregado a favoritos",
-  "couldnt_add_the_project_to_favorites": "No se pudo agregar el departamento a favoritos. Por favor, inténtalo de nuevo.",
+  "project_added_to_favorites": "Departamento añadido a favoritos",
+  "couldnt_add_the_project_to_favorites": "No se pudo añadir el departamento a favoritos. Por favor, inténtalo de nuevo.",
   "removing_project_from_favorites": "Eliminando departamento de favoritos",
   "project_removed_from_favorites": "Departamento eliminado de favoritos",
   "couldnt_remove_the_project_from_favorites": "No se pudo eliminar el departamento de favoritos. Por favor, inténtalo de nuevo.",
@@ -561,7 +561,7 @@
     "copied_to_clipboard": "Enlace de la tarea copiada al portapapeles",
     "branch_name_copied_to_clipboard": "Nombre de rama copiado al portapapeles",
     "is_copied_to_clipboard": "La tarea está copiada al portapapeles",
-    "no_links_added_yet": "Aún no se han agregado enlaces",
+    "no_links_added_yet": "Aún no se han añadido enlaces",
     "add_link": "Agregar enlace",
     "links": "Enlaces",
     "go_to_workspace": "Ir al espacio de trabajo",
@@ -778,8 +778,8 @@
       "failed": "Error al obtener {entity}"
     },
     "add": {
-      "success": "{entity} agregado correctamente",
-      "failed": "Error al agregar {entity}"
+      "success": "{entity} añadido correctamente",
+      "failed": "Error al añadir {entity}"
     },
     "remove": {
       "success": "{entity} eliminado correctamente",
@@ -799,7 +799,7 @@
       "success": "Etiqueta creada correctamente",
       "failed": "Error al crear la etiqueta",
       "already_exists": "La etiqueta ya existe",
-      "type": "Escribe para agregar una nueva etiqueta"
+      "type": "Escribe para añadir una nueva etiqueta"
     }
   },
   "view": {

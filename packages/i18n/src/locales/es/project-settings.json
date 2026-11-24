@@ -216,9 +216,9 @@
       "toggle": {
         "title": "Habilitar flujos de trabajo",
         "description": "Configura flujos de trabajo para controlar el movimiento de las tareas",
-        "no_states_tooltip": "No se han agregado estados al flujo de trabajo.",
-        "no_work_item_types_tooltip": "No se han agregado tipos de tareas al flujo de trabajo.",
-        "no_states_or_work_item_types_tooltip": "No se han agregado estados ni tipos de tareas al flujo de trabajo.",
+        "no_states_tooltip": "No se han añadido estados al flujo de trabajo.",
+        "no_work_item_types_tooltip": "No se han añadido tipos de tareas al flujo de trabajo.",
+        "no_states_or_work_item_types_tooltip": "No se han añadido estados ni tipos de tareas al flujo de trabajo.",
         "toast": {
           "loading": {
             "enabling": "Habilitando flujos de trabajo",
@@ -310,11 +310,11 @@
       "add_states": {
         "success": {
           "title": "¡Éxito!",
-          "message": "Estados agregados correctamente."
+          "message": "Estados añadidos correctamente."
         },
         "error": {
           "title": "¡Error!",
-          "message": "Error al agregar los estados. Por favor, inténtalo de nuevo."
+          "message": "Error al añadir los estados. Por favor, inténtalo de nuevo."
         }
       }
     },

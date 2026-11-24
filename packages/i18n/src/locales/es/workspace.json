@@ -267,7 +267,7 @@
     "draft_an_issue": "Borrador de tarea",
     "empty_state": {
       "title": "Las tareas a medio escribir y pronto los comentarios aparecerán aquí.",
-      "description": "Para probar esto, comienza a agregar una tarea y déjala a medias o crea tu primer borrador a continuación. 😉",
+      "description": "Para probar esto, empieza a añadir una tarea y déjala a medias o crea tu primer borrador a continuación. 😉",
       "primary_button": {
         "text": "Crea tu primer borrador"
       }
@@ -354,7 +354,7 @@
         },
         "message": {
           "seat_limit": "No se pueden importar miembros debido a restricciones de límite de asientos.",
-          "success": "{count} miembro{plural} agregado{plural} correctamente al espacio de trabajo.",
+          "success": "{count} miembro{plural} añadido{plural} correctamente al espacio de trabajo.",
           "no_imports": "No se importaron miembros desde el archivo CSV."
         },
         "stats": {

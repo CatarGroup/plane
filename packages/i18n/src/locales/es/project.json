@@ -66,11 +66,11 @@
       "favorite": {
         "loading": "Agregando ciclo a favoritos",
         "success": {
-          "description": "Ciclo agregado a favoritos.",
+          "description": "Ciclo añadido a favoritos.",
           "title": "¡Éxito!"
         },
         "failed": {
-          "description": "No se pudo agregar el ciclo a favoritos. Inténtalo de nuevo.",
+          "description": "No se pudo añadir el ciclo a favoritos. Inténtalo de nuevo.",
           "title": "¡Error!"
         }
       },
@@ -113,7 +113,7 @@
         }
       },
       "no_issues": {
-        "title": "No hay tareas agregadas al ciclo",
+        "title": "No hay tareas añadidas al ciclo",
         "description": "Agrega o crea tareas que desees delimitar y entregar dentro de este ciclo",
         "primary_button": {
           "text": "Crear nueva tarea"
@@ -224,7 +224,7 @@
     "delete_module": "Eliminar proyecto",
     "empty_state": {
       "general": {
-        "title": "Mapea los hitos de tu departamento a Proyectos y rastrea el trabajo agregado fácilmente.",
+        "title": "Mapea los hitos de tu departamento a Proyectos y rastrea el trabajo añadido fácilmente.",
         "description": "Un grupo de tareas que pertenecen a un padre lógico y jerárquico forman un proyecto. Piensa en ellos como una forma de rastrear el trabajo por hitos del departamento. Tienen sus propios períodos y fechas límite, así como análisis para ayudarte a ver qué tan cerca o lejos estás de un hito.",
         "primary_button": {
           "text": "Construye tu primer proyecto",

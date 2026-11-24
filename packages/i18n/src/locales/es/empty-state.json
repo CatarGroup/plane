@@ -101,7 +101,7 @@
       "cta_secondary": "Documentación"
     },
     "epic_work_items": {
-      "title": "Aún no has agregado tareas a esta épica.",
+      "title": "Aún no has añadido tareas a esta épica.",
       "description": "Comienza agregando algunas tareas a esta épica y rastréalas aquí.",
       "cta_secondary": "Agregar tareas"
     }
@@ -146,7 +146,7 @@
     },
     "drafts": {
       "title": "Tareas a medio escribir",
-      "description": "Para probarlo, comienza a agregar una tarea y déjala a medias o crea tu primer borrador a continuación. 😉",
+      "description": "Para probarlo, empieza a añadir una tarea y déjala a medias o crea tu primer borrador a continuación. 😉",
       "cta_primary": "Crear borrador de tarea"
     },
     "projects_archived": {
@@ -222,7 +222,7 @@
       "cta_primary": "Agregar token API"
     },
     "webhooks": {
-      "title": "Aún no se ha agregado ningún Webhook",
+      "title": "Aún no se ha añadido ningún Webhook",
       "description": "Automatiza las notificaciones a servicios externos cuando ocurran eventos del departamento.",
       "cta_primary": "Agregar webhook"
     },

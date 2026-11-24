@@ -15,7 +15,7 @@
       "properties": {
         "title": "Propiedades personalizadas de la tarea",
         "description": "Crea y personaliza propiedades.",
-        "tooltip": "Cada tipo de tarea viene con un conjunto predeterminado de propiedades como Título, Descripción, Asignado, Estado, Prioridad, Fecha de inicio, Fecha de vencimiento, Proyecto, etc. También puedes personalizar y agregar tus propias propiedades para adaptarlo a las necesidades de tu equipo.",
+        "tooltip": "Cada tipo de tarea viene con un conjunto predeterminado de propiedades como Título, Descripción, Asignado, Estado, Prioridad, Fecha de inicio, Fecha de vencimiento, Proyecto, etc. También puedes personalizar y añadir tus propias propiedades para adaptarlo a las necesidades de tu equipo.",
         "add_button": "Agregar nueva propiedad",
         "project": {
           "add_button": {
@@ -175,7 +175,7 @@
               "required": "Debes seleccionar un tipo de propiedad."
             },
             "options": {
-              "required": "Debes agregar al menos una opción."
+              "required": "Debes añadir al menos una opción."
             },
             "formula": {
               "required": "La expresión de fórmula es obligatoria.",
@@ -219,7 +219,7 @@
         },
         "mandate_confirmation": {
           "label": "Propiedad obligatoria",
-          "content": "Parece que hay una opción predeterminada para esta propiedad. Hacer la propiedad obligatoria eliminará el valor predeterminado y los usuarios deberán agregar un valor de su elección.",
+          "content": "Parece que hay una opción predeterminada para esta propiedad. Hacer la propiedad obligatoria eliminará el valor predeterminado y los usuarios deberán añadir un valor de su elección.",
           "tooltip": {
             "disabled": "Este tipo de propiedad no puede ser obligatorio",
             "enabled": "Desmarca para hacer el campo opcional",

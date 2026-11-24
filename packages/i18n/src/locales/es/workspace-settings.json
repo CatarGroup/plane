@@ -492,7 +492,7 @@
         "description": "Las APIs de Plane se pueden usar para integrar tus datos en Plane con cualquier sistema externo. Crea un token para comenzar."
       },
       "webhooks": {
-        "title": "No se han agregado webhooks",
+        "title": "No se han añadido webhooks",
         "description": "Crea webhooks para recibir actualizaciones en tiempo real y automatizar acciones."
       },
       "exports": {

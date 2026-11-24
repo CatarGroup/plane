@@ -8,11 +8,11 @@
       "required": "El título de la tarea es obligatorio."
     },
     "add": {
-      "press_enter": "Presiona 'Enter' para agregar otra tarea",
+      "press_enter": "Pulsa 'Enter' para añadir otra tarea",
       "label": "Agregar tarea",
       "cycle": {
-        "failed": "No se pudo agregar la tarea al ciclo. Por favor, inténtalo de nuevo.",
-        "success": "{count, plural, one {Tarea agregada} other {Tareas agregadas}} al ciclo correctamente.",
+        "failed": "No se pudo añadir la tarea al ciclo. Por favor, inténtalo de nuevo.",
+        "success": "{count, plural, one {Tarea añadida} other {Tareas añadidas}} al ciclo correctamente.",
         "loading": "Agregando {count, plural, one {tarea} other {tareas}} al ciclo"
       },
       "assignee": "Agregar asignados",
@@ -416,7 +416,7 @@
     },
     "add": {
       "label": "Agregar Epic",
-      "press_enter": "Presiona 'Enter' para agregar otro epic"
+      "press_enter": "Pulsa 'Enter' para añadir otra épica"
     },
     "title": {
       "label": "Título del Epic",
