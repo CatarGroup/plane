@@ -391,7 +391,7 @@
   "back_to_workspace": "Volver al espacio de trabajo",
   "upgrade_request": "Pide a tu administrador del espacio de trabajo que actualice.",
   "copied_to_clipboard": "Copiado al portapapeles",
-  "copied_to_clipboard_description": "La URL se ha copiado correctamente al portapapeles",
+  "copied_to_clipboard_description": "URL copiada al portapapeles",
   "toast": {
     "success": "¡Éxito!",
     "error": "¡Error!"
@@ -400,7 +400,7 @@
     "toasts": {
       "created": {
         "title": "Enlace creado",
-        "message": "El enlace se ha creado correctamente"
+        "message": "Enlace creado"
       },
       "not_created": {
         "title": "Enlace no creado",
@@ -408,7 +408,7 @@
       },
       "updated": {
         "title": "Enlace actualizado",
-        "message": "El enlace se ha actualizado correctamente"
+        "message": "Enlace actualizado"
       },
       "not_updated": {
         "title": "Enlace no actualizado",
@@ -416,7 +416,7 @@
       },
       "removed": {
         "title": "Enlace eliminado",
-        "message": "El enlace se ha eliminado correctamente"
+        "message": "Enlace eliminado"
       },
       "not_removed": {
         "title": "Enlace no eliminado",

@@ -417,7 +417,7 @@
             "loading": "Estableciendo como predeterminado...",
             "success": {
               "title": "¡Éxito!",
-              "message": "El nivel de jerarquía {level} se ha establecido como predeterminado correctamente."
+              "message": "Nivel de jerarquía {level} establecido como predeterminado."
             },
             "error": {
               "title": "¡Error!",
