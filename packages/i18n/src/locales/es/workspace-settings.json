@@ -152,7 +152,7 @@
       },
       "api_tokens": {
         "heading": "Tokens de API",
-        "description": "Genere tokens de API seguros para integrar sus datos con sistemas y aplicaciones externos.",
+        "description": "Genera tokens de API seguros para integrar tus datos con sistemas y aplicaciones externos.",
         "title": "Tokens de API",
         "add_token": "Agregar token de acceso",
         "create_token": "Crear token",
@@ -192,14 +192,14 @@
       "group_syncing": {
         "title": "Sincronización de grupos",
         "heading": "Sincronización de grupos",
-        "description": "Vincule los grupos del proveedor de identidad con departamentos y roles. El acceso de los usuarios se actualiza automáticamente cuando cambia la pertenencia al grupo en su IdP, simplificando la incorporación y baja.",
+        "description": "Vincula los grupos del proveedor de identidad con departamentos y roles. El acceso de los usuarios se actualiza automáticamente cuando cambia la pertenencia al grupo en tu IdP, lo que simplifica las altas y las bajas.",
         "enable": {
           "title": "Activar sincronización de grupos",
           "description": "Añadir automáticamente usuarios a departamentos según los grupos del proveedor de identidad."
         },
         "config": {
           "title": "Configurar sincronización de grupos",
-          "description": "Configure cómo se asignan los grupos del proveedor de identidad a departamentos y roles.",
+          "description": "Configura cómo se asignan los grupos del proveedor de identidad a departamentos y roles.",
           "sync_on_login": {
             "title": "Sincronizar al iniciar sesión",
             "description": "Actualizar pertenencia al grupo y acceso al departamento cuando un usuario inicia sesión."
@@ -220,7 +220,7 @@
         },
         "group_mapping": {
           "title": "Asignación de grupos",
-          "description": "Vincule los grupos del proveedor de identidad con departamentos y roles.",
+          "description": "Vincula los grupos del proveedor de identidad con departamentos y roles.",
           "button_text": "Añadir nueva sincronización de grupos"
         },
         "toast": {
@@ -236,24 +236,24 @@
           "idp_group_name": {
             "text": "Grupo de usuario",
             "required": "El grupo de usuario es obligatorio",
-            "placeholder": "Introduzca los nombres de grupos IdP"
+            "placeholder": "Escribe los nombres de grupos IdP"
           },
           "project": {
             "text": "Departamento",
             "required": "El departamento es obligatorio",
-            "placeholder": "Seleccione un departamento"
+            "placeholder": "Selecciona un departamento"
           },
           "default_role": {
             "text": "Rol del departamento",
             "required": "El rol del departamento es obligatorio",
-            "placeholder": "Seleccione un rol del departamento"
+            "placeholder": "Selecciona un rol del departamento"
           }
         }
       },
       "identity": {
         "title": "Identidad",
         "heading": "Identidad",
-        "description": "Configure su dominio y habilite el inicio de sesión único"
+        "description": "Configura tu dominio y activa el inicio de sesión único"
       },
       "project_states": {
         "title": "Estados del departamento",
@@ -306,11 +306,11 @@
         "app_available": "Has hecho que esta aplicación esté disponible para usar con un espacio de trabajo de Plane",
         "app_credentials_regenrated": {
           "title": "Las credenciales de la aplicación se han regenerado correctamente",
-          "description": "Reemplace el secreto del cliente en todos los lugares donde se utilice. El secreto anterior ya no es válido."
+          "description": "Sustituye el secreto de cliente allí donde se use. El secreto anterior ya no es válido."
         },
         "app_created": {
           "title": "La aplicación se creó correctamente",
-          "description": "Utilice las credenciales para instalar la aplicación en un espacio de trabajo de Plane"
+          "description": "Usa las credenciales para instalar la aplicación en un espacio de trabajo de Plane"
         },
         "installed_apps": "Aplicaciones instaladas",
         "all_apps": "Todas las aplicaciones",
@@ -318,15 +318,15 @@
         "app_name_title": "¿Cómo llamarás a esta aplicación?",
         "app_description_title": {
           "label": "Descripción larga",
-          "placeholder": "Escriba una descripción larga para el mercado. Presione '/' para ver los comandos."
+          "placeholder": "Escribe una descripción larga para el mercado. Pulsa '/' para ver los comandos."
         },
         "authorization_grant_type": {
           "title": "Tipo de conexión",
-          "description": "Elija si su aplicación debe instalarse una vez para el espacio de trabajo o permitir que cada usuario conecte su propia cuenta"
+          "description": "Elige si tu aplicación debe instalarse una sola vez para el espacio de trabajo o si cada usuario puede conectar su propia cuenta"
         },
         "website": {
           "title": "Sitio web",
-          "description": "Enlace al sitio web de su aplicación.",
+          "description": "Enlace al sitio web de tu aplicación.",
           "placeholder": "https://ejemplo.com"
         },
         "app_maker": {
@@ -459,7 +459,7 @@
         "select_scopes": "Seleccionar ámbitos",
         "read_access_to": "Acceso de solo lectura a",
         "write_access_to": "Acceso de escritura a",
-        "global_permission_expiration": "Los ámbitos globales caducarán pronto. Utilice ámbitos granulares en su lugar. Por ejemplo, use project:read en lugar de una lectura global.",
+        "global_permission_expiration": "Los ámbitos globales caducarán pronto. Usa ámbitos granulares en su lugar, por ejemplo project:read en vez de una lectura global.",
         "selected_scopes": "{count} seleccionados",
         "scopes_and_permissions": "Ámbitos y permisos",
         "read": "Lectura",

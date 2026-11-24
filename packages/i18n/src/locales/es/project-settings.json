@@ -21,11 +21,11 @@
     "members": {
       "label": "Miembros",
       "project_lead": "Líder del departamento",
-      "project_lead_description": "Seleccione el responsable del departamento.",
+      "project_lead_description": "Selecciona el responsable del departamento.",
       "default_assignee": "Asignado por defecto",
-      "default_assignee_description": "Seleccione el asignado predeterminado para el departamento.",
+      "default_assignee_description": "Selecciona el asignado predeterminado del departamento.",
       "project_subscribers": "Suscriptores del departamento",
-      "project_subscribers_description": "Seleccione los miembros que recibirán notificaciones para este departamento.",
+      "project_subscribers_description": "Selecciona los miembros que recibirán notificaciones de este departamento.",
       "guest_super_permissions": {
         "title": "Otorgar acceso de visualización a todas las tareas para usuarios invitados:",
         "sub_heading": "Esto permitirá a los invitados tener acceso de visualización a todas las tareas del departamento."

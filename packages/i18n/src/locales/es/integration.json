@@ -201,7 +201,7 @@
   "oauth_bridge_integration": {
     "name": "OAuth Bridge",
     "description": "Validar tokens de IdP externos para acceso a la API.",
-    "header_description": "Valide tokens OIDC/JWT emitidos externamente por su IdP (Azure AD, Okta, etc.) para acceso a la API de Plane.",
+    "header_description": "Valida los tokens OIDC/JWT emitidos externamente por tu IdP (Azure AD, Okta, etc.) para acceder a la API de Plane.",
     "connected": "Conectado",
     "connect": "Conectar",
     "uninstall": "Desinstalar",
@@ -211,7 +211,7 @@
     "uninstall_success": "OAuth Bridge desinstalado.",
     "uninstall_error": "Error al desinstalar OAuth Bridge.",
     "token_providers": "Proveedores de tokens",
-    "token_providers_description": "Configure los IdP externos cuyos JWT se aceptan como credenciales de API.",
+    "token_providers_description": "Configura los IdP externos cuyos JWT se aceptan como credenciales de API.",
     "add_provider": "Agregar proveedor",
     "edit_provider": "Editar proveedor",
     "enabled": "Habilitado",
