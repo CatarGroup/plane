@@ -188,6 +188,13 @@ export const IssueView = observer(function IssueView(props: IIssueView) {
                       setIsSubmitting={(value) => setIsSubmitting(value)}
                     />
 
+                    <IssueTimeLogs
+                      workspaceSlug={workspaceSlug}
+                      projectId={projectId}
+                      issueId={issueId}
+                      disabled={disabled || is_archived}
+                    />
+
                     <div className="py-2">
                       <IssueDetailWidgets
                         workspaceSlug={workspaceSlug}
@@ -203,13 +210,6 @@ export const IssueView = observer(function IssueView(props: IIssueView) {
                       projectId={projectId}
                       issueId={issueId}
                       issueOperations={issueOperations}
-                      disabled={disabled || is_archived}
-                    />
-
-                    <IssueTimeLogs
-                      workspaceSlug={workspaceSlug}
-                      projectId={projectId}
-                      issueId={issueId}
                       disabled={disabled || is_archived}
                     />
 
@@ -236,6 +236,13 @@ export const IssueView = observer(function IssueView(props: IIssueView) {
                           setIsSubmitting={(value) => setIsSubmitting(value)}
                         />
 
+                        <IssueTimeLogs
+                          workspaceSlug={workspaceSlug}
+                          projectId={projectId}
+                          issueId={issueId}
+                          disabled={disabled || is_archived}
+                        />
+
                         <div className="py-2">
                           <IssueDetailWidgets
                             workspaceSlug={workspaceSlug}
@@ -245,13 +252,6 @@ export const IssueView = observer(function IssueView(props: IIssueView) {
                             issueServiceType={EIssueServiceType.ISSUES}
                           />
                         </div>
-
-                        <IssueTimeLogs
-                          workspaceSlug={workspaceSlug}
-                          projectId={projectId}
-                          issueId={issueId}
-                          disabled={disabled || is_archived}
-                        />
 
                         <IssueActivity
                           workspaceSlug={workspaceSlug}
