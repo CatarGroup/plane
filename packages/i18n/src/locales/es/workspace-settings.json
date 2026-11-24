@@ -92,7 +92,7 @@
             },
             "error": {
               "title": "Exportación fallida",
-              "message": "La exportación no tuvo éxito. Por favor, inténtalo de nuevo."
+              "message": "La exportación no tuvo éxito. Inténtalo de nuevo."
             }
           }
         }
@@ -287,7 +287,7 @@
         "cancel_success_title": "Periodo de prueba cancelado.",
         "cancel_success_message": "Ahora puedes eliminar el espacio de trabajo.",
         "cancel_error_title": "Eso no funcionó.",
-        "cancel_error_message": "Por favor, inténtalo de nuevo."
+        "cancel_error_message": "Inténtalo de nuevo."
       },
       "applications": {
         "internal": "Interno",

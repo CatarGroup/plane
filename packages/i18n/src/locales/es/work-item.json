@@ -11,7 +11,7 @@
       "press_enter": "Pulsa 'Enter' para añadir otra tarea",
       "label": "Agregar tarea",
       "cycle": {
-        "failed": "No se pudo añadir la tarea al ciclo. Por favor, inténtalo de nuevo.",
+        "failed": "No se pudo añadir la tarea al ciclo. Inténtalo de nuevo.",
         "success": "{count, plural, one {Tarea añadida} other {Tareas añadidas}} al ciclo.",
         "loading": "Agregando {count, plural, one {tarea} other {tareas}} al ciclo"
       },
@@ -30,12 +30,12 @@
       "cycle": {
         "loading": "Eliminando tarea del ciclo",
         "success": "Tarea eliminada del ciclo.",
-        "failed": "No se pudo eliminar la tarea del ciclo. Por favor, inténtalo de nuevo."
+        "failed": "No se pudo eliminar la tarea del ciclo. Inténtalo de nuevo."
       },
       "module": {
         "loading": "Eliminando tarea del proyecto",
         "success": "Tarea eliminada del proyecto.",
-        "failed": "No se pudo eliminar la tarea del proyecto. Por favor, inténtalo de nuevo."
+        "failed": "No se pudo eliminar la tarea del proyecto. Inténtalo de nuevo."
       },
       "parent": {
         "label": "Eliminar tarea padre"
@@ -95,18 +95,18 @@
       },
       "create": {
         "success": "Comentario creado",
-        "error": "Error al crear el comentario. Por favor, inténtalo más tarde."
+        "error": "Error al crear el comentario. Inténtalo más tarde."
       },
       "update": {
         "success": "Comentario actualizado",
-        "error": "Error al actualizar el comentario. Por favor, inténtalo más tarde."
+        "error": "Error al actualizar el comentario. Inténtalo más tarde."
       },
       "remove": {
         "success": "Comentario eliminado",
-        "error": "Error al eliminar el comentario. Por favor, inténtalo más tarde."
+        "error": "Error al eliminar el comentario. Inténtalo más tarde."
       },
       "upload": {
-        "error": "Error al subir el archivo. Por favor, inténtalo más tarde."
+        "error": "Error al subir el archivo. Inténtalo más tarde."
       },
       "copy_link": {
         "success": "Enlace del comentario copiado al portapapeles",
@@ -171,7 +171,7 @@
         "message": "Tus archivos se pueden encontrar en los archivos del departamento."
       },
       "failed": {
-        "message": "No se pudo archivar la tarea. Por favor, inténtalo de nuevo."
+        "message": "No se pudo archivar la tarea. Inténtalo de nuevo."
       }
     },
     "restore": {
@@ -180,7 +180,7 @@
         "message": "Tu tarea se puede encontrar en las tareas del departamento."
       },
       "failed": {
-        "message": "No se pudo restaurar la tarea. Por favor, inténtalo de nuevo."
+        "message": "No se pudo restaurar la tarea. Inténtalo de nuevo."
       }
     },
     "relation": {

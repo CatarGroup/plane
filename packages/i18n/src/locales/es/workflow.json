@@ -58,7 +58,7 @@
         },
         "error": {
           "title": "Error",
-          "message": "El flujo de trabajo no pudo ser {action}. Por favor, inténtalo de nuevo."
+          "message": "El flujo de trabajo no pudo ser {action}. Inténtalo de nuevo."
         }
       },
       "reset": {
@@ -68,31 +68,31 @@
         },
         "error": {
           "title": "Error al restablecer flujo de trabajo",
-          "message": "El flujo de trabajo no pudo ser restablecido. Por favor, inténtalo de nuevo."
+          "message": "El flujo de trabajo no pudo ser restablecido. Inténtalo de nuevo."
         }
       },
       "add_state_change_rule": {
         "error": {
           "title": "Error al añadir regla de cambio de estado",
-          "message": "La regla de cambio de estado no pudo añadirse. Por favor, inténtalo de nuevo."
+          "message": "La regla de cambio de estado no pudo añadirse. Inténtalo de nuevo."
         }
       },
       "modify_state_change_rule": {
         "error": {
           "title": "Error al modificar regla de cambio de estado",
-          "message": "La regla de cambio de estado no pudo ser modificada. Por favor, inténtalo de nuevo."
+          "message": "La regla de cambio de estado no pudo ser modificada. Inténtalo de nuevo."
         }
       },
       "remove_state_change_rule": {
         "error": {
           "title": "Error al eliminar regla de cambio de estado",
-          "message": "La regla de cambio de estado no pudo ser eliminada. Por favor, inténtalo de nuevo."
+          "message": "La regla de cambio de estado no pudo ser eliminada. Inténtalo de nuevo."
         }
       },
       "modify_state_change_rule_movers": {
         "error": {
           "title": "Error al modificar revisores de regla de cambio de estado",
-          "message": "Los revisores de la regla de cambio de estado no pudieron ser modificados. Por favor, inténtalo de nuevo."
+          "message": "Los revisores de la regla de cambio de estado no pudieron ser modificados. Inténtalo de nuevo."
         }
       }
     }

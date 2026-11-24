@@ -46,7 +46,7 @@
       },
       "error": {
         "title": "Error",
-        "message": "No se pudo crear el espacio de trabajo. Por favor, inténtalo de nuevo."
+        "message": "No se pudo crear el espacio de trabajo. Inténtalo de nuevo."
       }
     }
   },
@@ -279,7 +279,7 @@
     "toasts": {
       "created": {
         "success": "Borrador creado",
-        "error": "No se pudo crear la tarea. Por favor, inténtalo de nuevo."
+        "error": "No se pudo crear la tarea. Inténtalo de nuevo."
       },
       "deleted": {
         "success": "Borrador eliminado"

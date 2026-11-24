@@ -126,15 +126,15 @@
       "toast": {
         "theme": {
           "success": "Tema actualizado.",
-          "error": "Error al actualizar el tema. Por favor, inténtalo de nuevo."
+          "error": "Error al actualizar el tema. Inténtalo de nuevo."
         },
         "timezone": {
           "success": "Zona horaria actualizada.",
-          "error": "Error al actualizar la zona horaria. Por favor, inténtalo de nuevo."
+          "error": "Error al actualizar la zona horaria. Inténtalo de nuevo."
         },
         "generic": {
           "success": "Preferencias actualizadas.",
-          "error": "Error al actualizar las preferencias. Por favor, inténtalo de nuevo."
+          "error": "Error al actualizar las preferencias. Inténtalo de nuevo."
         }
       }
     },

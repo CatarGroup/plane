@@ -206,7 +206,7 @@
             "upload_placeholder": "Haz clic para subir una imagen de portada o arrástrala y suéltala",
             "drop_here": "Soltar aquí",
             "click_to_upload": "Haz clic para subir",
-            "invalid_file_or_exceeds_size_limit": "Archivo no válido o excede el límite de tamaño. Por favor, inténtalo de nuevo.",
+            "invalid_file_or_exceeds_size_limit": "Archivo no válido o excede el límite de tamaño. Inténtalo de nuevo.",
             "upload_and_save": "Subir y guardar",
             "uploading": "Subiendo",
             "remove": "Eliminar",

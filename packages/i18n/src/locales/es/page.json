@@ -127,7 +127,7 @@
         },
         "error": {
           "title": "¡Error!",
-          "message": "No se pudo mover la página. Por favor, inténtalo de nuevo más tarde."
+          "message": "No se pudo mover la página. Inténtalo de nuevo más tarde."
         },
         "collection_error": {
           "title": "Movida al wiki",

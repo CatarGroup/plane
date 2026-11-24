@@ -230,7 +230,7 @@
           },
           "error": {
             "title": "¡Error!",
-            "message": "Error al habilitar los flujos de trabajo. Por favor, inténtalo de nuevo."
+            "message": "Error al habilitar los flujos de trabajo. Inténtalo de nuevo."
           }
         }
       },
@@ -283,7 +283,7 @@
         },
         "error": {
           "title": "¡Error!",
-          "message": "Error al crear el flujo de trabajo. Por favor, inténtalo de nuevo."
+          "message": "Error al crear el flujo de trabajo. Inténtalo de nuevo."
         }
       },
       "update": {
@@ -293,7 +293,7 @@
         },
         "error": {
           "title": "¡Error!",
-          "message": "Error al actualizar el flujo de trabajo. Por favor, inténtalo de nuevo."
+          "message": "Error al actualizar el flujo de trabajo. Inténtalo de nuevo."
         }
       },
       "delete": {
@@ -304,7 +304,7 @@
         },
         "error": {
           "title": "¡Error!",
-          "message": "Error al eliminar el flujo de trabajo. Por favor, inténtalo de nuevo."
+          "message": "Error al eliminar el flujo de trabajo. Inténtalo de nuevo."
         }
       },
       "add_states": {
@@ -314,7 +314,7 @@
         },
         "error": {
           "title": "¡Error!",
-          "message": "Error al añadir los estados. Por favor, inténtalo de nuevo."
+          "message": "Error al añadir los estados. Inténtalo de nuevo."
         }
       }
     },
@@ -405,7 +405,7 @@
             },
             "error": {
               "title": "¡Error!",
-              "message": "Algo salió mal al establecer los asignados. Por favor, inténtalo de nuevo."
+              "message": "Algo salió mal al establecer los asignados. Inténtalo de nuevo."
             }
           }
         }
@@ -427,7 +427,7 @@
       "toasts": {
         "loading": "Actualizando función del departamento...",
         "success": "Función del departamento actualizada.",
-        "error": "Algo salió mal al actualizar la función del departamento. Por favor, inténtalo de nuevo."
+        "error": "Algo salió mal al actualizar la función del departamento. Inténtalo de nuevo."
       }
     },
     "project_updates": {

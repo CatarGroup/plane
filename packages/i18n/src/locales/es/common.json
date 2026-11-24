@@ -68,7 +68,7 @@
   "created": "Creado",
   "subscribed": "Suscrito",
   "you_do_not_have_the_permission_to_access_this_page": "No tienes permiso para acceder a esta página.",
-  "something_went_wrong_please_try_again": "Algo salió mal. Por favor, inténtalo de nuevo.",
+  "something_went_wrong_please_try_again": "Algo salió mal. Inténtalo de nuevo.",
   "load_more": "Cargar más",
   "select_or_customize_your_interface_color_scheme": "Selecciona o personaliza el esquema de color de tu interfaz.",
   "theme_follows_system": "El tema sigue siempre la preferencia de tu sistema: claro u oscuro automático.",
@@ -166,7 +166,7 @@
   "link_copied": "Enlace copiado",
   "add_project": "Agregar departamento",
   "create_project": "Crear departamento",
-  "failed_to_remove_project_from_favorites": "No se pudo eliminar el departamento de favoritos. Por favor, inténtalo de nuevo.",
+  "failed_to_remove_project_from_favorites": "No se pudo eliminar el departamento de favoritos. Inténtalo de nuevo.",
   "project_created_successfully": "Departamento creado",
   "project_created_successfully_description": "Departamento creado. Ahora puedes empezar a añadir tareas.",
   "project_name_already_taken": "El nombre del departamento ya está en uso.",
@@ -198,10 +198,10 @@
   "creating_project": "Creando departamento",
   "adding_project_to_favorites": "Agregando departamento a favoritos",
   "project_added_to_favorites": "Departamento añadido a favoritos",
-  "couldnt_add_the_project_to_favorites": "No se pudo añadir el departamento a favoritos. Por favor, inténtalo de nuevo.",
+  "couldnt_add_the_project_to_favorites": "No se pudo añadir el departamento a favoritos. Inténtalo de nuevo.",
   "removing_project_from_favorites": "Eliminando departamento de favoritos",
   "project_removed_from_favorites": "Departamento eliminado de favoritos",
-  "couldnt_remove_the_project_from_favorites": "No se pudo eliminar el departamento de favoritos. Por favor, inténtalo de nuevo.",
+  "couldnt_remove_the_project_from_favorites": "No se pudo eliminar el departamento de favoritos. Inténtalo de nuevo.",
   "add_to_favorites": "Agregar a favoritos",
   "remove_from_favorites": "Eliminar de favoritos",
   "publish_project": "Publicar departamento",
@@ -481,7 +481,7 @@
     "something_went_wrong": "Algo salió mal",
     "error": {
       "label": "¡Error!",
-      "message": "Ocurrió un error. Por favor, inténtalo de nuevo."
+      "message": "Ocurrió un error. Inténtalo de nuevo."
     },
     "group_by": "Agrupar por",
     "epic": "Épica",
@@ -576,7 +576,7 @@
     "errors": {
       "default": {
         "title": "¡Error!",
-        "message": "Algo salió mal. Por favor, inténtalo de nuevo."
+        "message": "Algo salió mal. Inténtalo de nuevo."
       },
       "required": "Este campo es obligatorio",
       "entity_required": "{entity} es obligatorio",
