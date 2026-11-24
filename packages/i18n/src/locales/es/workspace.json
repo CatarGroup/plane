@@ -290,28 +290,28 @@
     "empty_state": {
       "general": {
         "title": "Escribe una nota, un documento o una base de conocimiento completa. Obtén ayuda de Galileo, el asistente de IA de Plane, para comenzar",
-        "description": "Las Pages son espacios de pensamiento en Plane. Toma notas de reuniones, redáctalas fácilmente, integra tareas, organízalas con una biblioteca de componentes y mantenlas todas en el contexto de tu departamento. Para hacer cualquier documento rápidamente, invoca a Galileo, la IA de Plane, con un atajo o con un clic en un botón.",
+        "description": "Las páginas son espacios de pensamiento en Plane. Toma notas de reuniones, redáctalas fácilmente, integra tareas, organízalas con una biblioteca de componentes y mantenlas todas en el contexto de tu departamento. Para hacer cualquier documento rápidamente, invoca a Galileo, la IA de Plane, con un atajo o con un clic en un botón.",
         "primary_button": {
-          "text": "Crea tu primera Page"
+          "text": "Crea tu primera página"
         }
       },
       "private": {
-        "title": "Aún no hay Pages privadas",
+        "title": "Aún no hay páginas privadas",
         "description": "Mantén tus pensamientos privados aquí. Cuando estés listo para compartir, el equipo está a un clic de distancia.",
         "primary_button": {
-          "text": "Crea tu primera Page"
+          "text": "Crea tu primera página"
         }
       },
       "public": {
-        "title": "Aún no hay Pages de espacio de trabajo",
-        "description": "Ve las Pages compartidas con todos en tu espacio de trabajo aquí mismo.",
+        "title": "Aún no hay páginas de espacio de trabajo",
+        "description": "Ve las páginas compartidas con todos en tu espacio de trabajo aquí mismo.",
         "primary_button": {
-          "text": "Crea tu primera Page"
+          "text": "Crea tu primera página"
         }
       },
       "archived": {
-        "title": "Aún no hay Pages archivadas",
-        "description": "Archiva las Pages que no estén en tu radar. Accede a ellas aquí cuando las necesites."
+        "title": "Aún no hay páginas archivadas",
+        "description": "Archiva las páginas que no estén en tu radar. Accede a ellas aquí cuando las necesites."
       },
       "shared": {
         "title": "Aún no hay páginas compartidas",
