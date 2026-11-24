@@ -120,7 +120,7 @@
         "toasts": {
           "created": {
             "title": "Webhook creado",
-            "message": "El webhook se ha creado correctamente"
+            "message": "Webhook creado"
           },
           "not_created": {
             "title": "Webhook no creado",
@@ -128,7 +128,7 @@
           },
           "updated": {
             "title": "Webhook actualizado",
-            "message": "El webhook se ha actualizado correctamente"
+            "message": "Webhook actualizado"
           },
           "not_updated": {
             "title": "Webhook no actualizado",
@@ -136,7 +136,7 @@
           },
           "removed": {
             "title": "Webhook eliminado",
-            "message": "El webhook se ha eliminado correctamente"
+            "message": "Webhook eliminado"
           },
           "not_removed": {
             "title": "Webhook no eliminado",
@@ -164,7 +164,7 @@
           "description": "Cualquier aplicación que use este token ya no tendrá acceso a los datos de Plane. Esta acción no se puede deshacer.",
           "success": {
             "title": "¡Éxito!",
-            "message": "El token de API se ha eliminado correctamente"
+            "message": "Token de API eliminado"
           },
           "error": {
             "title": "¡Error!",

@@ -48,7 +48,7 @@
       "confirmation": "¿Estás seguro de querer eliminar esta actualización? Esta acción es irreversible.",
       "success": {
         "title": "Actualización eliminada",
-        "message": "La actualización se ha eliminado correctamente"
+        "message": "Actualización eliminada"
       },
       "error": {
         "title": "Actualización no eliminada",

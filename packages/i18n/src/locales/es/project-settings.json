@@ -76,7 +76,7 @@
         "created": {
           "success": {
             "title": "Estimación creada",
-            "message": "La estimación se ha creado correctamente"
+            "message": "Estimación creada"
           },
           "error": {
             "title": "Error al crear la estimación",
@@ -86,7 +86,7 @@
         "updated": {
           "success": {
             "title": "Estimación modificada",
-            "message": "La estimación se ha actualizado en tu departamento."
+            "message": "Estimación actualizada en tu departamento."
           },
           "error": {
             "title": "Error al modificar la estimación",
