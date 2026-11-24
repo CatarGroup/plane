@@ -18,13 +18,11 @@ import {
   DueDatePropertyIcon,
   LabelPropertyIcon,
   UserCirclePropertyIcon,
-  EstimatePropertyIcon,
   ParentPropertyIcon,
 } from "@plane/propel/icons";
 import { cn, getDate, renderFormattedPayloadDate, shouldHighlightIssueDueDate } from "@plane/utils";
 // components
 import { DateDropdown } from "@/components/dropdowns/date";
-import { EstimateDropdown } from "@/components/dropdowns/estimate";
 import { ButtonAvatars } from "@/components/dropdowns/member/avatar";
 import { MemberDropdown } from "@/components/dropdowns/member/dropdown";
 import { PriorityDropdown } from "@/components/dropdowns/priority";
@@ -74,7 +72,6 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
   if (!issue) return <></>;
   const createdByDetails = getUserDetails(issue?.created_by);
   const projectDetails = getProjectById(issue.project_id);
-  const isEstimateEnabled = projectDetails?.estimate;
   const stateDetails = getStateById(issue.state_id);
 
   const minDate = getDate(issue.start_date);
@@ -161,27 +158,6 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
           </SidebarPropertyListItem>
         </div>
 
-        <div className={cn(cell, labelClass)}>
-          {isEstimateEnabled && (
-            <SidebarPropertyListItem icon={EstimatePropertyIcon} label={t("common.estimate")}>
-              <EstimateDropdown
-                value={issue.estimate_point ?? undefined}
-                onChange={(val) => issueOperations.update(workspaceSlug, projectId, issueId, { estimate_point: val })}
-                projectId={projectId}
-                disabled={disabled}
-                buttonVariant="transparent-with-text"
-                className="group w-full grow"
-                buttonContainerClassName="w-full text-left h-7.5"
-                buttonClassName={`text-body-xs-medium ${issue?.estimate_point !== undefined ? "" : "text-placeholder"}`}
-                placeholder="None"
-                hideIcon
-                dropdownArrow
-                dropdownArrowClassName="h-3.5 w-3.5 hidden group-hover:inline"
-              />
-            </SidebarPropertyListItem>
-          )}
-        </div>
-
         {/* Fecha inicio | Vencimiento */}
         <div className={cn(cell, labelClass)}>
           <SidebarPropertyListItem icon={StartDatePropertyIcon} label="F. Inicio">
@@ -261,6 +237,13 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
           </SidebarPropertyListItem>
         </div>
 
+        {/* Etiquetas, justo debajo de Padre */}
+        <div className="min-w-0" style={{ gridColumn: "1 / -1" }}>
+          <SidebarPropertyListItem icon={LabelPropertyIcon} label={t("common.labels")}>
+            <IssueLabel workspaceSlug={workspaceSlug} projectId={projectId} issueId={issueId} disabled={disabled} />
+          </SidebarPropertyListItem>
+        </div>
+
         {/* Ancho completo */}
         {projectDetails?.cycle_view && (
           <div className="min-w-0" style={{ gridColumn: "1 / -1" }}>
@@ -276,13 +259,6 @@ export const PeekOverviewProperties = observer(function PeekOverviewProperties(p
             </SidebarPropertyListItem>
           </div>
         )}
-
-        <div className="min-w-0" style={{ gridColumn: "1 / -1" }}>
-          <SidebarPropertyListItem icon={LabelPropertyIcon} label={t("common.labels")}>
-            <IssueLabel workspaceSlug={workspaceSlug} projectId={projectId} issueId={issueId} disabled={disabled} />
-          </SidebarPropertyListItem>
-        </div>
-
       </div>
     </div>
   );

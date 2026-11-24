@@ -146,3 +146,84 @@ class ProjectTimeLogSummaryEndpoint(APIView):
                 "tareas_con_tiempo": len(totales),
             }
         )
+
+
+class WorkspaceHomeMetricsEndpoint(APIView):
+    """Metricas del Inicio: totales del espacio y desglose por departamento (proyecto).
+
+    Una sola llamada para pintar el cuadro de mando, sin N peticiones desde el navegador.
+    "Departamento" es cada proyecto del espacio de trabajo.
+    """
+
+    def get(self, request, slug):
+        from django.db.models import Count, Q
+        from django.utils import timezone
+
+        from plane.db.models import Project
+
+        hoy = timezone.now().date()
+        proyectos = Project.objects.filter(workspace__slug=slug, archived_at__isnull=True).order_by("name")
+
+        # tiempo por proyecto en una sola consulta
+        tiempos = dict(
+            IssueTimeLog.objects.filter(workspace__slug=slug, deleted_at__isnull=True)
+            .values_list("project_id")
+            .annotate(total=Sum("duration_seconds"))
+        )
+
+        filas = []
+        for p in proyectos:
+            agregados = Issue.objects.filter(
+                workspace__slug=slug, project_id=p.id, deleted_at__isnull=True
+            ).aggregate(
+                total=Count("id"),
+                hechas=Count("id", filter=Q(state__group="completed")),
+                vencidas=Count(
+                    "id",
+                    filter=Q(target_date__lt=hoy) & ~Q(state__group__in=["completed", "cancelled"]),
+                ),
+                abiertas=Count(
+                    "id",
+                    filter=Q(state__group__in=["backlog", "unstarted", "started"]),
+                ),
+            )
+            total = agregados["total"] or 0
+            hechas = agregados["hechas"] or 0
+            segundos = tiempos.get(p.id) or 0
+            filas.append(
+                {
+                    "id": str(p.id),
+                    "nombre": p.name,
+                    "identificador": p.identifier,
+                    "tareas": total,
+                    "hechas": hechas,
+                    "abiertas": agregados["abiertas"] or 0,
+                    "vencidas": agregados["vencidas"] or 0,
+                    "segundos": segundos,
+                    "porcentaje": round((hechas / total) * 100) if total else 0,
+                    "completado": bool(total) and hechas == total,
+                }
+            )
+
+        total_tareas = sum(f["tareas"] for f in filas)
+        total_hechas = sum(f["hechas"] for f in filas)
+        total_segundos = sum(f["segundos"] for f in filas)
+        total_vencidas = sum(f["vencidas"] for f in filas)
+        proyectos_hechos = sum(1 for f in filas if f["completado"])
+
+        return Response(
+            {
+                "proyectos": filas,
+                "totales": {
+                    "proyectos": len(filas),
+                    "proyectos_completados": proyectos_hechos,
+                    "porcentaje_proyectos": round((proyectos_hechos / len(filas)) * 100) if filas else 0,
+                    "tareas": total_tareas,
+                    "hechas": total_hechas,
+                    "abiertas": total_tareas - total_hechas,
+                    "vencidas": total_vencidas,
+                    "porcentaje_tareas": round((total_hechas / total_tareas) * 100) if total_tareas else 0,
+                    "segundos": total_segundos,
+                },
+            }
+        )

@@ -110,6 +110,31 @@ def main() -> int:
             urls.write_text(texto)
             print("  ruta de totales por proyecto anadida")
 
+    print("[time-tracking] metricas del Inicio por departamento...")
+    vistas_init = BACKEND / "app/views/__init__.py"
+    if "WorkspaceHomeMetricsEndpoint" not in vistas_init.read_text():
+        anade_import(
+            vistas_init,
+            "from .issue.time_log import WorkspaceHomeMetricsEndpoint",
+            "WorkspaceHomeMetricsEndpoint",
+        )
+    texto = urls.read_text()
+    if "WorkspaceHomeMetricsEndpoint" not in texto:
+        ancla = "    ProjectTimeLogSummaryEndpoint,\n)"
+        if ancla in texto:
+            texto = texto.replace(ancla, "    ProjectTimeLogSummaryEndpoint,\n    WorkspaceHomeMetricsEndpoint,\n)")
+            urls.write_text(texto)
+    if "workspace-home-metrics" not in texto:
+        extra = '''    path(
+        "workspaces/<str:slug>/home-metrics/",
+        WorkspaceHomeMetricsEndpoint.as_view(),
+        name="workspace-home-metrics",
+    ),
+]'''
+        idx = texto.rstrip().rfind("]")
+        urls.write_text(texto[:idx] + extra + texto[idx + 1 :])
+        print("  ruta de metricas del Inicio anadida")
+
     print("[time-tracking] añadiendo rutas a la API publica (api/v1)...")
     api_urls = BACKEND / "api/urls/__init__.py"
     if api_urls.exists():

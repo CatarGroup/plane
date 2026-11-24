@@ -5,6 +5,7 @@
  */
 
 import { observer } from "mobx-react";
+import { Fragment } from "react";
 import { useParams, usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 // plane imports
@@ -23,6 +24,7 @@ import { StickiesWidget } from "../stickies/widget";
 import { HomeLoader, NoProjectsEmptyState, RecentActivityWidget } from "./widgets";
 import { DashboardQuickLinks } from "./widgets/links";
 import { ManageWidgetsModal } from "./widgets/manage";
+import { HomeMetricsDashboard } from "./widgets/metrics/dashboard";
 
 export const HOME_WIDGETS_LIST: {
   [key in THomeWidgetKeys]: {
@@ -95,9 +97,13 @@ export const DashboardWidgets = observer(function DashboardWidgets() {
             const isEnabled = widgetsMap[key]?.is_enabled;
             if (!WidgetComponent || !isEnabled) return null;
             return (
-              <div key={key} className="py-4">
-                <WidgetComponent workspaceSlug={workspaceSlug.toString()} />
-              </div>
+              <Fragment key={key}>
+                <div className="py-4">
+                  <WidgetComponent workspaceSlug={workspaceSlug.toString()} />
+                </div>
+                {/* Cuadro de mando justo debajo de Enlaces rápidos */}
+                {key === "quick_links" && <HomeMetricsDashboard workspaceSlug={workspaceSlug.toString()} />}
+              </Fragment>
             );
           })}
         </div>

@@ -132,12 +132,12 @@ export class ProjectEstimateStore implements IProjectEstimateStore {
    * @description get estimates are enabled in the project or not
    * @returns { boolean }
    */
-  areEstimateEnabledByProjectId = computedFn((projectId: string) => {
-    if (!projectId) return false;
-    const projectDetails = this.store.projectRoot.project.getProjectById(projectId);
-    if (!projectDetails) return false;
-    return Boolean(projectDetails.estimate) || false;
-  });
+  /**
+   * CatarGroup: la estimación está oculta en toda la aplicación.
+   * El campo sigue guardado en la base de datos; solo deja de mostrarse
+   * en la ficha, las tarjetas, los listados y el alta de tareas.
+   */
+  areEstimateEnabledByProjectId = computedFn((_projectId: string) => false);
 
   /**
    * @description get all estimate ids for a project
