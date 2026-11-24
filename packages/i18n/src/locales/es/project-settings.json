@@ -2,7 +2,7 @@
   "project_settings": {
     "general": {
       "enter_project_id": "Escribe el ID del departamento",
-      "please_select_a_timezone": "Por favor selecciona una zona horaria",
+      "please_select_a_timezone": "Selecciona una zona horaria",
       "archive_project": {
         "title": "Archivar departamento",
         "description": "Archivar un departamento lo eliminará de tu navegación lateral aunque aún podrás acceder a él desde tu página de departamentos. Puedes restaurar el departamento o eliminarlo cuando quieras.",
@@ -139,7 +139,7 @@
         "already_exists": "El valor de la estimación ya existe.",
         "unsaved_changes": "Tienes cambios sin guardar. Guárdalos antes de hacer clic en «Hecho».",
         "remove_empty": "La estimación no puede estar vacía. Escribe un valor en cada campo o elimina aquellos para los que no tengas valores.",
-        "fill": "Por favor completa este campo de estimación",
+        "fill": "Completa este campo de estimación",
         "repeat": "El valor de estimación no puede repetirse"
       },
       "systems": {
