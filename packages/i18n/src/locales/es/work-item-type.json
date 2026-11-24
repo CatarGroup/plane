@@ -394,7 +394,7 @@
     "settings": {
       "title": "Jerarquía",
       "tab_label": "Jerarquía",
-      "description": "Configura niveles de jerarquía para organizar tu trabajo. Cada nivel define una relación de padre con el elemento directamente encima y una relación de hijo con el elemento directamente debajo. ",
+      "description": "Configura niveles de jerarquía para organizar tu trabajo. Cada nivel define una relación de padre con el elemento directamente encima y una relación de hijo con el elemento directamente debajo.",
       "sidebar_label": "Jerarquía",
       "enable_control": {
         "title": "Habilitar jerarquía",
