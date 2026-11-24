@@ -33,7 +33,7 @@
     },
     "request_email": {
       "subject": "Solicitando un nuevo espacio de trabajo",
-      "body": "Hola administrador(es) de instancia,\n\nPor favor, crea un nuevo espacio de trabajo con la URL [/nombre-espacio-trabajo] para [propósito de crear el espacio de trabajo].\n\nGracias,\n{firstName} {lastName}\n{email}"
+      "body": "Hola administrador(es) de instancia,\n\nCrea un nuevo espacio de trabajo con la URL [/nombre-espacio-trabajo] para [propósito de crear el espacio de trabajo].\n\nGracias,\n{firstName} {lastName}\n{email}"
     },
     "button": {
       "default": "Crear espacio de trabajo",

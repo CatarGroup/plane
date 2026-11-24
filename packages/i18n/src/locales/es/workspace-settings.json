@@ -20,7 +20,7 @@
         "delete_btn": "Eliminar este espacio de trabajo",
         "delete_modal": {
           "title": "¿Está seguro de que desea eliminar este espacio de trabajo?",
-          "description": "Tiene una prueba activa de uno de nuestros planes de pago. Por favor, cancelela primero para continuar.",
+          "description": "Tiene una prueba activa de uno de nuestros planes de pago. Cancélala primero para continuar.",
           "dismiss": "Descartar",
           "cancel": "Cancelar prueba",
           "success_title": "Espacio de trabajo eliminado.",
@@ -281,7 +281,7 @@
       },
       "cancel_trial": {
         "title": "Cancela primero tu periodo de prueba.",
-        "description": "Tienes un periodo de prueba activo en uno de nuestros planes de pago. Por favor, cancélalo primero para continuar.",
+        "description": "Tienes un periodo de prueba activo en uno de nuestros planes de pago. Cancélalo primero para continuar.",
         "dismiss": "Cerrar",
         "cancel": "Cancelar prueba",
         "cancel_success_title": "Periodo de prueba cancelado.",

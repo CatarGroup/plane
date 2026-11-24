@@ -248,7 +248,7 @@
       "page": {
         "no_templates": {
           "title": "No hay plantillas a las que tengas acceso.",
-          "description": "Por favor, crea una plantilla"
+          "description": "Crea una plantilla"
         },
         "no_results": {
           "title": "Eso no coincide con ninguna plantilla.",
