@@ -60,7 +60,7 @@
     "label": "Bandeja de entrada",
     "page_label": "{workspace} - Bandeja de entrada",
     "modal": {
-      "title": "Crear tarea de intake"
+      "title": "Crear tarea de entrada"
     },
     "tabs": {
       "open": "Abiertos",
@@ -77,7 +77,7 @@
       },
       "sidebar_filter": {
         "title": "No hay tareas coincidentes",
-        "description": "Ninguna tarea coincide con el filtro aplicado en intake. Crea una nueva tarea."
+        "description": "Ninguna tarea coincide con el filtro aplicado en la entrada. Crea una nueva tarea."
       },
       "detail": {
         "title": "Selecciona una tarea para ver sus detalles."

@@ -408,19 +408,19 @@
     }
   },
   "epic": {
-    "new": "Nuevo Epic",
+    "new": "Nueva épica",
     "label": "{count, plural, one {Épica} other {Épicas}}",
-    "adding": "Agregando epic",
+    "adding": "Agregando épica",
     "create": {
-      "success": "Epic creado"
+      "success": "Épica creada"
     },
     "add": {
-      "label": "Agregar Epic",
+      "label": "Agregar épica",
       "press_enter": "Pulsa 'Enter' para añadir otra épica"
     },
     "title": {
-      "label": "Título del Epic",
-      "required": "El título del epic es obligatorio."
+      "label": "Título de la épica",
+      "required": "El título de la épica es obligatorio."
     }
   }
 }

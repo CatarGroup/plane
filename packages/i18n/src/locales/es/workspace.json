@@ -126,8 +126,8 @@
         "primary_button": {
           "text": "Inicia tu primer departamento",
           "comic": {
-            "title": "Analytics funciona mejor con Ciclos + Proyectos",
-            "description": "Primero, encuadra tus tareas en Ciclos y, si puedes, agrupa elementos que abarcan más de un ciclo en Proyectos. Revisa ambos en la navegación izquierda."
+            "title": "Los análisis funcionan mejor con Ciclos + Proyectos",
+            "description": "Primero, agrupa tus tareas en ciclos y, si puedes, agrupa las tareas que abarcan más de un ciclo en proyectos. Revisa ambos en la navegación izquierda."
           }
         }
       },
