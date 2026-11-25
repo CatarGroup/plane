@@ -264,7 +264,7 @@
         },
         "error": {
           "title": "No pudimos crear esa plantilla esta vez.",
-          "message": "Intenta guardar tus detalles de nuevo o cópialos a una nueva plantilla, preferiblemente en otra pestaña."
+          "message": "Vuelve a guardar tus detalles o cópialos a una nueva plantilla, preferiblemente en otra pestaña."
         }
       },
       "update": {
@@ -274,7 +274,7 @@
         },
         "error": {
           "title": "No pudimos guardar los cambios en esta plantilla.",
-          "message": "Intenta guardar tus detalles de nuevo o vuelve a esta plantilla más tarde. Si sigues teniendo problemas, contacta con nosotros."
+          "message": "Vuelve a guardar tus detalles o vuelve a esta plantilla más tarde. Si sigues teniendo problemas, contacta con nosotros."
         }
       },
       "delete": {
@@ -284,7 +284,7 @@
         },
         "error": {
           "title": "No pudimos eliminar esa plantilla esta vez.",
-          "message": "Intenta eliminarla de nuevo o vuelve a intentarlo más tarde. Si no puedes eliminarla entonces, contacta con nosotros."
+          "message": "Inténtalo de nuevo más tarde. Si no puedes eliminarla entonces, contacta con nosotros."
         }
       },
       "unpublish": {
@@ -294,7 +294,7 @@
         },
         "error": {
           "title": "No pudimos retirar esa plantilla esta vez.",
-          "message": "Intenta retirarla de nuevo o vuelve a intentarlo más tarde. Si no puedes retirarla entonces, contacta con nosotros."
+          "message": "Inténtalo de nuevo más tarde. Si no puedes retirarla entonces, contacta con nosotros."
         }
       }
     },

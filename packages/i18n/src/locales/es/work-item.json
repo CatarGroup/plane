@@ -375,7 +375,7 @@
         },
         "error": {
           "title": "No pudimos crear la tarea recurrente esta vez.",
-          "message": "Intenta guardar tus datos nuevamente o cópialos en una nueva tarea recurrente, preferiblemente en otra pestaña."
+          "message": "Vuelve a guardar tus datos o cópialos en una nueva tarea recurrente, preferiblemente en otra pestaña."
         }
       },
       "update": {
@@ -385,7 +385,7 @@
         },
         "error": {
           "title": "No pudimos guardar los cambios en esta tarea recurrente.",
-          "message": "Intenta guardar tus datos nuevamente o vuelve a esta tarea recurrente más tarde. Si el problema persiste, contáctanos."
+          "message": "Vuelve a guardar tus datos o vuelve a esta tarea recurrente más tarde. Si el problema persiste, contáctanos."
         }
       },
       "delete": {

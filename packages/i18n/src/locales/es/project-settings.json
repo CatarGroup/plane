@@ -116,7 +116,7 @@
           },
           "error": {
             "title": "Error al reordenar estimaciones",
-            "message": "No pudimos reordenar las estimaciones, inténtalo de nuevo"
+            "message": "No pudimos reordenar las estimaciones. Inténtalo de nuevo"
           }
         },
         "switch": {
