@@ -73,7 +73,7 @@ export const QuarterChartView = observer(function QuarterChartView(_props: any) 
                           "rounded-lg bg-accent-primary px-2 text-on-color": monthBlock.today,
                         })}
                       >
-                        {monthBlock.monthData.abbreviation}
+                        {monthBlock.monthData.shortTitle}
                       </span>
                     </div>
                   </div>
