@@ -55,9 +55,7 @@ export const invalidarTotales = (projectId?: string) => {
 };
 
 export const useProjectTimeSummary = (workspaceSlug?: string, projectId?: string) => {
-  const [totales, setTotales] = useState<Record<string, number>>(
-    projectId ? (cache.get(projectId) ?? {}) : {}
-  );
+  const [totales, setTotales] = useState<Record<string, number>>(projectId ? (cache.get(projectId) ?? {}) : {});
 
   useEffect(() => {
     if (!workspaceSlug || !projectId) return;
