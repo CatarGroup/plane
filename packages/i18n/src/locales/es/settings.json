@@ -119,15 +119,15 @@
       },
       "assigned": {
         "title": "No hay tareas asignadas a ti",
-        "description": "Las tareas asignadas a ti se pueden rastrear desde aquí."
+        "description": "Las tareas asignadas a ti aparecen aquí."
       },
       "created": {
         "title": "Aún no hay tareas",
-        "description": "Todas las tareas creadas por ti aparecen aquí, rastréalas directamente aquí."
+        "description": "Todas las tareas que creas aparecen aquí."
       },
       "subscribed": {
         "title": "Aún no hay tareas",
-        "description": "Suscríbete a las tareas que te interesen, rastréalas todas aquí."
+        "description": "Suscríbete a las tareas que te interesen y las verás todas aquí."
       }
     }
   },

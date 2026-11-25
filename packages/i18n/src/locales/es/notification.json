@@ -30,11 +30,11 @@
       },
       "all": {
         "title": "No hay tareas asignadas",
-        "description": "Las actualizaciones de tareas asignadas a ti se pueden\n ver aquí"
+        "description": "Las actualizaciones de las tareas asignadas a ti aparecen\n aquí"
       },
       "mentions": {
         "title": "No hay tareas asignadas",
-        "description": "Las actualizaciones de tareas asignadas a ti se pueden\n ver aquí"
+        "description": "Las actualizaciones de las tareas asignadas a ti aparecen\n aquí"
       }
     },
     "tabs": {

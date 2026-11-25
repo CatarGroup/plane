@@ -237,14 +237,14 @@
       },
       "assigned": {
         "title": "No hay tareas aún",
-        "description": "Las tareas asignadas a ti se pueden rastrear desde aquí.",
+        "description": "Las tareas asignadas a ti aparecen aquí.",
         "primary_button": {
           "text": "Crear nueva tarea"
         }
       },
       "created": {
         "title": "No hay tareas aún",
-        "description": "Todas las tareas creadas por ti vienen aquí, rastréalas aquí directamente.",
+        "description": "Todas las tareas que creas aparecen aquí directamente.",
         "primary_button": {
           "text": "Crear nueva tarea"
         }
@@ -255,7 +255,7 @@
       },
       "custom-view": {
         "title": "No hay tareas aún",
-        "description": "Tareas que aplican a los filtros, rastréalos todos aquí."
+        "description": "Las tareas que coinciden con los filtros aparecen todas aquí."
       }
     },
     "delete_view": {
