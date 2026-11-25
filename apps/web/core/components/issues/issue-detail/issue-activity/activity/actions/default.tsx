@@ -37,10 +37,7 @@ export const IssueDefaultActivity = observer(function IssueDefaultActivity(props
       <>
         {activity.verb === "created" ? (
           source && source !== EInboxIssueSource.IN_APP ? (
-            <span>
-              creó la tarea vía{" "}
-              <span className="font-medium">{capitalizeFirstLetter(source.toLowerCase() || "")}</span>.
-            </span>
+            <span>{`creó la tarea vía ${capitalizeFirstLetter(source.toLowerCase() || "")}.`}</span>
           ) : (
             <span> creó la tarea.</span>
           )
