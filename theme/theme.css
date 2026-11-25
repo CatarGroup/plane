@@ -100,7 +100,7 @@
 
 /* ---- 1) Fondo del tablero (area de columnas) ---- */
 div.flex-row.gap-4.py-page-y {
-  background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
+  background: linear-gradient(135deg, #6e5494 0%, #5b4b8a 100%) !important;
   /* Sin esto las columnas se estiran al alto del tablero aunque tengan
      1 sola tarjeta (flex align-items:stretch por defecto). Necesaria
      junto con el max-height + flex de la regla 2c para que ademas la
@@ -118,14 +118,14 @@ div.flex-row.gap-4.py-page-y {
    de Plane. :has() para no adivinar la clase exacta del envoltorio: pilla
    cualquier bg-surface-2 que tenga el tablero dentro, y solo ese. */
 .bg-surface-2:has(div.flex-row.gap-4.py-page-y) {
-  background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
+  background: linear-gradient(135deg, #6e5494 0%, #5b4b8a 100%) !important;
 }
 
 /* ---- 2) Cada columna con su propio color ---- */
 div.flex-row.gap-4.py-page-y > div {
   border-radius: 10px !important;
-  border-top: 4px solid var(--col-color, #8B98A5) !important;
-  background-color: color-mix(in srgb, var(--col-color, #8B98A5) 14%, #ffffff) !important;
+  border-top: 4px solid var(--col-color, #8b98a5) !important;
+  background-color: color-mix(in srgb, var(--col-color, #8b98a5) 14%, #ffffff) !important;
   /* La cabecera/pie (sticky, fondo propio) tienen esquinas a 0: sin
      recortar, sobresalian por encima del redondeado de la columna y se
      veia como una sombra/pastilla rara en las esquinas de arriba. Con
@@ -160,13 +160,27 @@ div.flex-row.gap-4.py-page-y > div > div.h-full.min-h-\[120px\] > [data-auto-scr
 }
 /* El orden de estas reglas es POSICIONAL (nth-child). Si Rubén añade,
    oculta o reordena estados, hay que reajustarlas. */
-div.flex-row.gap-4.py-page-y > div:nth-child(1) { --col-color: #8B98A5; } /* Backlog     · gris    */
-div.flex-row.gap-4.py-page-y > div:nth-child(2) { --col-color: #5BA4CF; } /* Por hacer   · azul    */
-div.flex-row.gap-4.py-page-y > div:nth-child(3) { --col-color: #E0A63C; } /* En espera   · ámbar   */
-div.flex-row.gap-4.py-page-y > div:nth-child(4) { --col-color: #9B8CFF; } /* Iniciadas   · violeta */
-div.flex-row.gap-4.py-page-y > div:nth-child(5) { --col-color: #C377E0; } /* En proceso  · púrpura */
-div.flex-row.gap-4.py-page-y > div:nth-child(6) { --col-color: #61BD4F; } /* Completadas · verde   */
-div.flex-row.gap-4.py-page-y > div:nth-child(7) { --col-color: #E06C6C; } /* Canceladas  · rojo    */
+div.flex-row.gap-4.py-page-y > div:nth-child(1) {
+  --col-color: #8b98a5;
+} /* Backlog     · gris    */
+div.flex-row.gap-4.py-page-y > div:nth-child(2) {
+  --col-color: #5ba4cf;
+} /* Por hacer   · azul    */
+div.flex-row.gap-4.py-page-y > div:nth-child(3) {
+  --col-color: #e0a63c;
+} /* En espera   · ámbar   */
+div.flex-row.gap-4.py-page-y > div:nth-child(4) {
+  --col-color: #9b8cff;
+} /* Iniciadas   · violeta */
+div.flex-row.gap-4.py-page-y > div:nth-child(5) {
+  --col-color: #c377e0;
+} /* En proceso  · púrpura */
+div.flex-row.gap-4.py-page-y > div:nth-child(6) {
+  --col-color: #61bd4f;
+} /* Completadas · verde   */
+div.flex-row.gap-4.py-page-y > div:nth-child(7) {
+  --col-color: #e06c6c;
+} /* Canceladas  · rojo    */
 
 /* Cabecera (titulo+contador, sticky arriba) y pie ("+ Nuevo elemento
    de trabajo", sticky abajo) de cada columna son divs propios con SU
@@ -175,7 +189,7 @@ div.flex-row.gap-4.py-page-y > div:nth-child(7) { --col-color: #E06C6C; } /* Can
    el efecto "lista de un solo color" de Trello. Heredan --col-color
    por cascada (no hace falta repetirlo por nth-child). */
 div.flex-row.gap-4.py-page-y > div .sticky {
-  background-color: color-mix(in srgb, var(--col-color, #8B98A5) 14%, #ffffff) !important;
+  background-color: color-mix(in srgb, var(--col-color, #8b98a5) 14%, #ffffff) !important;
   padding-left: 10px !important;
   padding-right: 10px !important;
 }
@@ -195,7 +209,7 @@ div.flex-row.gap-4.py-page-y > div [data-auto-scrollable="true"] {
 
 /* ---- 3) Tarjetas ---- */
 a.block.w-full.rounded-lg.border-subtle {
-  background-color: #FFFFFF !important;
+  background-color: #ffffff !important;
   border-color: rgba(9, 30, 66, 0.13) !important;
   box-shadow: 0 1px 2px rgba(9, 30, 66, 0.16) !important;
 }
@@ -221,14 +235,17 @@ a.block.w-full.rounded-lg.border-subtle .line-clamp-1 {
 
 /* ---- 4) Menu lateral (azul noche Trello) ---- */
 aside.group\/sidebar {
-  background-color: #172B4D !important;
+  background-color: #172b4d !important;
 }
 
 /* Texto claro para el sidebar, EXCEPTO en los elementos que Plane pinta
    sobre un fondo propio claro (bg-layer-1/2/3, bg-surface-1/2): ahí el
    texto claro quedaba invisible sobre blanco. */
-aside.group\/sidebar *:not(.bg-layer-1):not(.bg-layer-2):not(.bg-layer-3):not(.bg-surface-1):not(.bg-surface-2):not(.bg-layer-2-hover):not(.bg-layer-3-hover):not([role="menu"]):not([role="menu"] *) {
-  color: #E9F1F7 !important;
+aside.group\/sidebar
+  *:not(.bg-layer-1):not(.bg-layer-2):not(.bg-layer-3):not(.bg-surface-1):not(.bg-surface-2):not(.bg-layer-2-hover):not(
+    .bg-layer-3-hover
+  ):not([role="menu"]):not([role="menu"] *) {
+  color: #e9f1f7 !important;
 }
 
 /* …y en esos controles sobre fondo claro, texto oscuro legible
@@ -241,7 +258,7 @@ aside.group\/sidebar button.bg-layer-3,
 aside.group\/sidebar button.bg-layer-3 *,
 aside.group\/sidebar [class*="bg-layer-2"] *,
 aside.group\/sidebar [class*="bg-layer-3"] * {
-  color: #172B4D !important;
+  color: #172b4d !important;
 }
 
 aside.group\/sidebar a:hover,
@@ -298,9 +315,9 @@ aside.group\/sidebar button:hover {
    especifico que la regla 4 (bg-layer-2) para que gane sobre ella. ---- */
 aside.group\/sidebar button[data-ph-element="sidebar_create_work_item_button"],
 aside.group\/sidebar button[data-ph-element="sidebar_create_work_item_button"] * {
-  background-color: #172B4D !important;
+  background-color: #172b4d !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
-  color: #E9F1F7 !important;
+  color: #e9f1f7 !important;
 }
 aside.group\/sidebar button[data-ph-element="sidebar_create_work_item_button"]:hover {
   background-color: rgba(255, 255, 255, 0.12) !important;
@@ -313,12 +330,12 @@ aside.group\/sidebar button[aria-label="Abrir modal de planes de pago"] {
   display: none !important;
 }
 aside.group\/sidebar div:has(> button[aria-label="Abrir modal de planes de pago"]) {
-  background-color: #172B4D !important;
+  background-color: #172b4d !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
 }
 aside.group\/sidebar div:has(> button[aria-label="Abrir modal de planes de pago"])::after {
   content: "v. 1.4.2";
-  color: #E9F1F7;
+  color: #e9f1f7;
   opacity: 0.7;
   font-size: 12px;
   font-weight: 500;
@@ -330,10 +347,10 @@ aside.group\/sidebar div:has(> button[aria-label="Abrir modal de planes de pago"
    (bg-canvas, regla de arriba) ya lleva el degradado; la caja en si
    se deja gris encima para que se distinga y se lea bien. ---- */
 button[data-ph-element="work_items_header_add_work_item_button"] {
-  background: linear-gradient(135deg, #6E5494 0%, #5B4B8A 100%) !important;
+  background: linear-gradient(135deg, #6e5494 0%, #5b4b8a 100%) !important;
 }
 button[data-ph-element="work_items_header_add_work_item_button"]:hover {
-  background: linear-gradient(135deg, #7C5FA3 0%, #695797 100%) !important;
+  background: linear-gradient(135deg, #7c5fa3 0%, #695797 100%) !important;
 }
 
 /* ============================================================
