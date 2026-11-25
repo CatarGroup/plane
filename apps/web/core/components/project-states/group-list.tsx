@@ -63,25 +63,25 @@ export const GroupList = observer(function GroupList(props: TGroupList) {
       {Object.entries(groupedStates)
         .filter(([key]) => key !== "backlog")
         .map(([key, value]) => {
-        const groupKey = key as TStateGroups;
-        const groupStates = value;
-        return (
-          <GroupItem
-            key={groupKey}
-            groupKey={groupKey}
-            states={groupStates}
-            groupedStates={groupedStates}
-            groupsExpanded={groupsExpanded}
-            stateOperationsCallbacks={stateOperationsCallbacks}
-            isEditable={isEditable}
-            shouldTrackEvents={shouldTrackEvents}
-            handleGroupCollapse={handleGroupCollapse}
-            handleExpand={handleExpand}
-            groupItemClassName={groupItemClassName}
-            stateItemClassName={stateItemClassName}
-          />
-        );
-      })}
+          const groupKey = key as TStateGroups;
+          const groupStates = value;
+          return (
+            <GroupItem
+              key={groupKey}
+              groupKey={groupKey}
+              states={groupStates}
+              groupedStates={groupedStates}
+              groupsExpanded={groupsExpanded}
+              stateOperationsCallbacks={stateOperationsCallbacks}
+              isEditable={isEditable}
+              shouldTrackEvents={shouldTrackEvents}
+              handleGroupCollapse={handleGroupCollapse}
+              handleExpand={handleExpand}
+              groupItemClassName={groupItemClassName}
+              stateItemClassName={stateItemClassName}
+            />
+          );
+        })}
     </div>
   );
 });

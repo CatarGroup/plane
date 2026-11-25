@@ -154,8 +154,8 @@ const KPI = ({
 }) => (
   <div className="rounded-lg border border-subtle bg-surface-1 px-4 py-3">
     <p className="text-xs font-medium text-tertiary">{etiqueta}</p>
-    <p className={`mt-1 text-2xl font-semibold ${acento ?? "text-primary"}`}>{valor}</p>
-    <p className="mt-0.5 text-xs text-tertiary">{detalle}</p>
+    <p className={`text-2xl mt-1 font-semibold ${acento ?? "text-primary"}`}>{valor}</p>
+    <p className="text-xs mt-0.5 text-tertiary">{detalle}</p>
   </div>
 );
 
@@ -199,12 +199,12 @@ const FilaDepartamento = ({
               style={{ width: `${Math.min(100, Math.max(0, d.porcentaje))}%` }}
             />
           </span>
-          <span className="w-9 shrink-0 text-right text-11 tabular-nums text-secondary">{d.porcentaje}%</span>
+          <span className="w-9 shrink-0 text-right text-11 text-secondary tabular-nums">{d.porcentaje}%</span>
         </span>
-        <span className="col-span-2 text-right text-12 tabular-nums text-secondary">
+        <span className="col-span-2 text-right text-12 text-secondary tabular-nums">
           {d.hechas}/{d.tareas}
         </span>
-        <span className="col-span-2 text-right text-12 tabular-nums text-secondary">{horas(d.segundos)}</span>
+        <span className="col-span-2 text-right text-12 text-secondary tabular-nums">{horas(d.segundos)}</span>
       </button>
 
       {abierto && (
@@ -251,10 +251,7 @@ export const HomeMetricsDashboard = ({ workspaceSlug }: { workspaceSlug: string 
     { revalidateOnFocus: false, revalidateOnReconnect: true }
   );
 
-  const departamentos = useMemo(
-    () => [...(data?.proyectos ?? [])].sort((a, b) => b.tareas - a.tareas),
-    [data]
-  );
+  const departamentos = useMemo(() => [...(data?.proyectos ?? [])].sort((a, b) => b.tareas - a.tareas), [data]);
 
   if (isLoading) {
     return (
@@ -288,8 +285,8 @@ export const HomeMetricsDashboard = ({ workspaceSlug }: { workspaceSlug: string 
                 <div key={r.clave} className="flex items-center gap-2 text-12">
                   <span className="h-2.5 w-2.5 shrink-0 rounded-sm" style={{ backgroundColor: COLORES[r.clave] }} />
                   <span className="text-secondary">{ETIQUETAS[r.clave]}</span>
-                  <span className="tabular-nums text-primary">{r.valor}</span>
-                  <span className="tabular-nums text-tertiary">
+                  <span className="text-primary tabular-nums">{r.valor}</span>
+                  <span className="text-tertiary tabular-nums">
                     {t.tareas ? Math.round((r.valor / t.tareas) * 100) : 0}%
                   </span>
                 </div>
@@ -326,7 +323,7 @@ export const HomeMetricsDashboard = ({ workspaceSlug }: { workspaceSlug: string 
       {/* Derecha: departamentos */}
       <div className="flex flex-col gap-3">
         <h3 className="text-14 font-medium text-primary">
-          Departamentos <span className="text-11 font-normal text-tertiary">· pulsa para ver sus tareas</span>
+          Departamentos <span className="font-normal text-11 text-tertiary">· pulsa para ver sus tareas</span>
         </h3>
 
         <div className="overflow-hidden rounded-lg border border-subtle">

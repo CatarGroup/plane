@@ -107,8 +107,7 @@ export const ProjectLinkDetail = observer(function ProjectLinkDetail(props: TPro
 
   return (
     <div
-      className="group relative flex items-start gap-2.5 rounded-[10px] border border-subtle px-3 py-2.5
-                 transition-[background,border-color,transform] duration-150 hover:-translate-y-px hover:shadow-sm"
+      className="group hover:shadow-sm relative flex items-start gap-2.5 rounded-[10px] border border-subtle px-3 py-2.5 transition-[background,border-color,transform] duration-150 hover:-translate-y-px"
       style={{
         borderLeftWidth: 4,
         borderLeftColor: color,
@@ -116,8 +115,19 @@ export const ProjectLinkDetail = observer(function ProjectLinkDetail(props: TPro
       }}
     >
       <button type="button" onClick={handleOpenInNewTab} className="flex min-w-0 flex-1 items-start gap-2.5 text-left">
-        <span className="grid size-7 flex-none place-items-center rounded-[7px] text-on-color" style={{ background: color }}>
-          <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+        <span
+          className="grid size-7 flex-none place-items-center rounded-[7px] text-on-color"
+          style={{ background: color }}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            className="size-4"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d={icono} />
           </svg>
         </span>
@@ -128,10 +138,20 @@ export const ProjectLinkDetail = observer(function ProjectLinkDetail(props: TPro
       </button>
 
       <span className="absolute top-1.5 right-1.5 hidden gap-0.5 group-hover:flex">
-        <button type="button" onClick={handleEdit} title={t("edit")} className="rounded p-1 text-tertiary hover:bg-surface-2 hover:text-primary">
+        <button
+          type="button"
+          onClick={handleEdit}
+          title={t("edit")}
+          className="rounded p-1 text-tertiary hover:bg-surface-2 hover:text-primary"
+        >
           <EditIcon className="size-3.5" />
         </button>
-        <button type="button" onClick={handleDelete} title={t("delete")} className="rounded p-1 text-tertiary hover:bg-surface-2 hover:text-danger-primary">
+        <button
+          type="button"
+          onClick={handleDelete}
+          title={t("delete")}
+          className="rounded p-1 text-tertiary hover:bg-surface-2 hover:text-danger-primary"
+        >
           <TrashIcon className="size-3.5" />
         </button>
       </span>

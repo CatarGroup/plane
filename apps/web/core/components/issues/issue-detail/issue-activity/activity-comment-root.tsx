@@ -65,9 +65,7 @@ export const IssueActivityCommentRoot = observer(function IssueActivityCommentRo
   const filteredActivityAndComments = filterActivityOnSelectedFilters(activityAndComments, selectedFilters);
 
   // comments together, chat-style, in chronological order
-  const comments = filteredActivityAndComments.filter(
-    (activityComment) => activityComment.activity_type === "COMMENT"
-  );
+  const comments = filteredActivityAndComments.filter((activityComment) => activityComment.activity_type === "COMMENT");
   // everything else (attachments, field changes...) grouped separately, collapsed by default
   const activities = filteredActivityAndComments.filter(
     (activityComment) =>
@@ -101,10 +99,7 @@ export const IssueActivityCommentRoot = observer(function IssueActivityCommentRo
       )}
 
       {activities.length > 0 && (
-        <Collapsible.CollapsibleRoot
-          isOpen={isActivityOpen}
-          onToggle={() => setIsActivityOpen((prev) => !prev)}
-        >
+        <Collapsible.CollapsibleRoot isOpen={isActivityOpen} onToggle={() => setIsActivityOpen((prev) => !prev)}>
           <Collapsible.CollapsibleTrigger className="flex w-full items-center justify-between gap-2 py-1">
             <span className="inline-flex items-center gap-2 text-caption-sm-medium text-secondary">
               {t("common.activity")}

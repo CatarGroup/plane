@@ -37,7 +37,7 @@ const CAMPOS_ES: Record<string, string> = {
 };
 
 export const renderAdditionalAction = (notificationField: string, verb: string | undefined) => {
-  const baseAction = !["comment", "archived_at"].includes(notificationField) ? VERBOS_ES[verb ?? ""] ?? verb : "";
+  const baseAction = !["comment", "archived_at"].includes(notificationField) ? (VERBOS_ES[verb ?? ""] ?? verb) : "";
   const campo = CAMPOS_ES[notificationField] ?? replaceUnderscoreIfSnakeCase(notificationField);
   return `${baseAction} ${campo}`;
 };

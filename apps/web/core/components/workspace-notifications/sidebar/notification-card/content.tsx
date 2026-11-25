@@ -45,10 +45,7 @@ export type TNotificationContentMap = {
 // Base notification content map for core fields
 export const BASE_NOTIFICATION_CONTENT_MAP: TNotificationContentMap = {
   duplicate: ({ verb }) => ({
-    action:
-      verb === "created"
-        ? "marcó esta tarea como duplicada de"
-        : "marcó esta tarea como no duplicada",
+    action: verb === "created" ? "marcó esta tarea como duplicada de" : "marcó esta tarea como no duplicada",
     value: null,
     showConnector: false,
   }),

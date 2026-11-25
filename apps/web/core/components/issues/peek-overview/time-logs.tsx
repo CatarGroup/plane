@@ -137,8 +137,10 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
     // se admite 8 y 08; se rellena a dos dígitos
     const dos = (v: string) => v.trim().padStart(2, "0");
     const [hi, mi, hf, mf] = [dos(horaIni), dos(minIni), dos(horaFin), dos(minFin)];
-    const hIni = Number(hi), mIni = Number(mi);
-    const hFin = Number(hf), mFin = Number(mf);
+    const hIni = Number(hi),
+      mIni = Number(mi);
+    const hFin = Number(hf),
+      mFin = Number(mf);
     if (hIni > 23 || hFin > 23 || mIni > 59 || mFin > 59) {
       setError("Hora fuera de rango.");
       return;
@@ -236,7 +238,10 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                       maxLength={2}
                       placeholder="HH"
                       value={horaIni}
-                      onChange={(e) => { setHoraIni(limpiar(e.target.value)); saltar(e); }}
+                      onChange={(e) => {
+                        setHoraIni(limpiar(e.target.value));
+                        saltar(e);
+                      }}
                       className="h-7 w-11 rounded-sm border border-subtle bg-surface-1 px-1 text-center text-body-xs-regular tabular-nums"
                     />
                     <span>:</span>
@@ -246,7 +251,10 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                       maxLength={2}
                       placeholder="MM"
                       value={minIni}
-                      onChange={(e) => { setMinIni(limpiar(e.target.value)); saltar(e); }}
+                      onChange={(e) => {
+                        setMinIni(limpiar(e.target.value));
+                        saltar(e);
+                      }}
                       className="h-7 w-11 rounded-sm border border-subtle bg-surface-1 px-1 text-center text-body-xs-regular tabular-nums"
                     />
                   </div>
@@ -260,7 +268,10 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                       maxLength={2}
                       placeholder="HH"
                       value={horaFin}
-                      onChange={(e) => { setHoraFin(limpiar(e.target.value)); saltar(e); }}
+                      onChange={(e) => {
+                        setHoraFin(limpiar(e.target.value));
+                        saltar(e);
+                      }}
                       className="h-7 w-11 rounded-sm border border-subtle bg-surface-1 px-1 text-center text-body-xs-regular tabular-nums"
                     />
                     <span>:</span>
@@ -270,7 +281,10 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                       maxLength={2}
                       placeholder="MM"
                       value={minFin}
-                      onChange={(e) => { setMinFin(limpiar(e.target.value)); saltar(e); }}
+                      onChange={(e) => {
+                        setMinFin(limpiar(e.target.value));
+                        saltar(e);
+                      }}
                       className="h-7 w-11 rounded-sm border border-subtle bg-surface-1 px-1 text-center text-body-xs-regular tabular-nums"
                     />
                   </div>
@@ -314,7 +328,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
             return (
               <div key={dia}>
                 <div className="flex items-center gap-2 border-b border-subtle pb-1">
-                  <span className="text-body-xs-medium capitalize text-primary">
+                  <span className="text-body-xs-medium text-primary capitalize">
                     {format(parseISO(dia), "EEEE d 'de' MMMM", { locale: es })}
                   </span>
                   <span className="text-body-xs-regular text-tertiary">{humano(totalDia)}</span>
@@ -322,7 +336,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                 <ul className="mt-1 space-y-1">
                   {items.map((r) => (
                     <li key={r.id} className="group flex items-center gap-2 text-body-xs-regular">
-                      <span className="w-36 shrink-0 tabular-nums text-secondary">
+                      <span className="w-36 shrink-0 text-secondary tabular-nums">
                         {hora12(r.started_at)}
                         {r.ended_at ? ` → ${hora12(r.ended_at)}` : " · en curso"}
                       </span>
@@ -333,7 +347,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                           type="button"
                           onClick={() => setNotaAbierta((v) => (v === r.id ? null : r.id))}
                           title={notaAbierta === r.id ? "Contraer" : "Ver la nota completa"}
-                          className={`min-w-0 flex-1 text-left text-secondary ${notaAbierta === r.id ? "whitespace-normal break-words" : "truncate"}`}
+                          className={`min-w-0 flex-1 text-left text-secondary ${notaAbierta === r.id ? "break-words whitespace-normal" : "truncate"}`}
                         >
                           · {r.description}
                         </button>
@@ -342,7 +356,7 @@ export const IssueTimeLogs = observer(function IssueTimeLogs({
                         <button
                           type="button"
                           onClick={() => borrar(r.id)}
-                          className="ml-auto hidden size-5 items-center justify-center rounded-sm text-tertiary hover:text-danger-primary group-hover:flex"
+                          className="ml-auto hidden size-5 items-center justify-center rounded-sm text-tertiary group-hover:flex hover:text-danger-primary"
                           title="Borrar"
                         >
                           <Trash2 className="size-3.5" />

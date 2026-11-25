@@ -69,12 +69,7 @@ export function NameColumn(props: NameProps) {
               {first_name} {last_name}
             </div>
             {(isAdmin || id === currentUser?.id) && (
-              <CustomMenu
-                ellipsis
-                buttonClassName="p-0.5"
-                optionsClassName="p-1.5"
-                placement="bottom-end"
-              >
+              <CustomMenu ellipsis buttonClassName="p-0.5" optionsClassName="p-1.5" placement="bottom-end">
                 <CustomMenu.MenuItem>
                   <div
                     className="flex cursor-pointer items-center gap-x-1 font-medium text-danger-primary"
