@@ -79,15 +79,17 @@ export const GroupItem = observer(function GroupItem(props: TGroupItem) {
             <StateGroupIcon stateGroup={groupKey} size={EIconSize.XL} />
           </div>
           <div className="px-1 text-14 font-medium text-secondary capitalize">
-            {(
-              {
-                backlog: "Backlog",
-                unstarted: "Sin iniciar",
-                started: "En curso",
-                completed: "Completados",
-                cancelled: "Cancelados",
-              } as Record<TStateGroups, string>
-            )[groupKey]}
+            {
+              (
+                {
+                  backlog: "Backlog",
+                  unstarted: "Sin iniciar",
+                  started: "En curso",
+                  completed: "Completados",
+                  cancelled: "Cancelados",
+                } as Record<TStateGroups, string>
+              )[groupKey]
+            }
           </div>
         </div>
         <button
