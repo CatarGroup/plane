@@ -50,7 +50,7 @@ frontend). Lo relevante nuestro:
 
 En el servicio **Plane** del proyecto de Railway:
 
-1. **Settings → Source** → cambiar de *Docker Image* a **GitHub Repo** → `CatarGroup/plane`
+1. **Settings → Source** → cambiar de _Docker Image_ a **GitHub Repo** → `CatarGroup/plane`
 2. Railway detecta el `Dockerfile` de la raíz y construye la imagen (tarda unos minutos)
 3. Variables de entorno: las mismas que ya tenía + (opcional) `SENTRY_DSN` para activar Sentry
    en el backend — ver nota más abajo
@@ -73,12 +73,12 @@ En el servicio **Plane** del proyecto de Railway:
   popover de **acciones rápidas** de un proyecto (botón «⋮») se renderiza **dentro del `aside`**
   y **sí usa `role="menu"` / `role="menuitem"`**; Plane lo pinta con **fondo blanco**
   (`DIV.shadow-md … min-w-[12rem]`) mientras la regla del tema v2 le forzaba el texto claro
-  `#E9F1F7` → los 4 items (*Publicar proyecto, Copiar enlace, Archivos, Configuración*) quedaban
+  `#E9F1F7` → los 4 items (_Publicar proyecto, Copiar enlace, Archivos, Configuración_) quedaban
   con contraste **1.14** (invisibles). Arreglo: se excluyen `[role="menu"]`/`[role="menuitem"]`
   de la regla del sidebar y se les devuelve `--txt-primary` + `--bg-layer-1` → contraste **16.55**,
-  cero ilegibles. *(Ojo: el desplegable de la lista de proyectos —«Proyectos ⋮»— es otro
+  cero ilegibles. _(Ojo: el desplegable de la lista de proyectos —«Proyectos ⋮»— es otro
   componente: se pinta en un portal **fuera** del `aside` y **no** tiene `role="menu"`, así que
-  las mismas reglas no le afectan y no le hacía falta arreglo.)*
+  las mismas reglas no le afectan y no le hacía falta arreglo.)_
 - **Vista Calendario coloreada tipo AirTable (18/09/2026):** Plane ya pinta una barrita fina
   (`span` con `background-color` inline, color de etiqueta/prioridad) a la izquierda de cada
   tarjeta del calendario. Se estira con CSS para que tiña la tarjeta entera — no hace falta
@@ -91,13 +91,13 @@ En el servicio **Plane** del proyecto de Railway:
   selector** (CSS con `!important`, no depende de qué tema tenga elegido cada usuario); esto
   solo hace que el desplegable salga marcado igual para todos, en vez de vacío/inconsistente:
   · **Altas nuevas:** `scripts/patch_profile_theme_default.py` cambia el default del campo
-    `Profile.theme` (backend, `apps/api/plane/db/models/user.py` en el código de Plane) de
-    `{}` a nuestra paleta — verificado en el build igual que el resto de parches.
+  `Profile.theme` (backend, `apps/api/plane/db/models/user.py` en el código de Plane) de
+  `{}` a nuestra paleta — verificado en el build igual que el resto de parches.
   · **Perfiles existentes:** `migrations/0123_set_theme_catarbi_default.py` se copia a
-    `/app/backend/plane/db/migrations/` y corre sola en cada arranque (la imagen AIO ya
-    ejecuta `manage.py migrate` vía el proceso `migrator` de supervisor). Fuerza el tema en
-    TODOS los perfiles, pisando lo que cada usuario tuviera elegido — es **irreversible a
-    propósito**, no guarda el valor anterior de cada uno.
+  `/app/backend/plane/db/migrations/` y corre sola en cada arranque (la imagen AIO ya
+  ejecuta `manage.py migrate` vía el proceso `migrator` de supervisor). Fuerza el tema en
+  TODOS los perfiles, pisando lo que cada usuario tuviera elegido — es **irreversible a
+  propósito**, no guarda el valor anterior de cada uno.
 - **Sentry en el backend (18/09/2026):** Plane no trae Sentry de serie (comprobado en el
   código fuente público, tag v1.4.2: nada en `requirements`, nada en `settings`). Se añade con
   `pip install sentry-sdk` + `scripts/patch_sentry_backend.py`, que inicializa Sentry en
